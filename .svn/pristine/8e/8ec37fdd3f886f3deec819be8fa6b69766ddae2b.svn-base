@@ -1,0 +1,1 @@
+java -jar tessar-web-server/target/tessar-web-server-0.0.1-SNAPSHOT.jar

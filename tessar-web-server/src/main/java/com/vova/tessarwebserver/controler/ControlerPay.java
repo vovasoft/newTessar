@@ -27,7 +27,7 @@ import java.util.List;
 public class ControlerPay {
     @Autowired
     private AllInOneMapper allInOneMapper;
-    static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    static SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 
     @GetMapping("/getPayDate")
     @ResponseBody
@@ -57,7 +57,7 @@ public class ControlerPay {
         ArrayList<StayJson> sj = new ArrayList<>();
         for (int i=0;i<spList.size();i++) {
             StayParent sp = spList.get(i);
-            sj.add(new StayJson(sdf.format(sp.getDateID()),sp.getNewAddNum(), Tools.strToNumArray(sp.getStayList(),",")));
+            sj.add(new StayJson(sdf.format(sp.getDateID()),sp.getNewAddNum(),Tools.strToNumArrayScale(sp.getStayList(),",",sp.getNewAddNum()), Tools.strToNumArray(sp.getStayList(),",")));
         }
 
         return sj;

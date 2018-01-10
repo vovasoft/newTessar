@@ -1,5 +1,6 @@
 package com.vova.tessarwebserver.util;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -10,7 +11,7 @@ import java.util.Date;
  * @create: date 14:03 2017/12/26
  */
 public class Tools {
-    static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    static SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 
     public static long dateToSecByFormat(Date date) {
         if (date != null) {
@@ -99,11 +100,24 @@ public class Tools {
 
     //字符转转数字数组
     public static int[] strToNumArray(String str, String split) {
-        String[] subStrs = str.split(split);
+        String[] subStrs = str!=null?str.split(split):null;
         int length = subStrs.length;
         int[] res = new int[length];
         for (int i = 0; i < length; i++) {
             res[i] = new Integer(subStrs[i]);
+        }
+        return res;
+    }
+
+    //数字数组转字符串百分比
+    public static String[] strToNumArrayScale(String str, String split,float f) {
+        DecimalFormat decimalFormat=new DecimalFormat("00.00");
+        String[] subStrs = str!=null?str.split(split):null;
+        int length = subStrs.length;
+        String[] res = new String[length];
+        for (int i = 0; i < length; i++) {
+            float r = new Integer(subStrs[i]) /(f!=0?f:1)*100;
+            res[i] = r==100?"100.00%":decimalFormat.format(r)+"%";
         }
         return res;
     }

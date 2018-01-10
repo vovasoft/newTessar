@@ -11,6 +11,7 @@ import java.util.Date;
 public class StayJson {
     private String dateID;
     private long newAddNum;
+    private String[] stayScale;
     private int[] stayList;
 
     public String getDateID() {
@@ -40,10 +41,19 @@ public class StayJson {
     public StayJson() {
     }
 
-    public StayJson(String dateID, long newAddNum, int[] stayList) {
+    public String[] getStayScale() {
+        return stayScale;
+    }
+
+    public void setStayScale(String[] stayScale) {
+        this.stayScale = stayScale;
+    }
+
+    public StayJson(String dateID, long newAddNum, String[] stayScale, int[] stayList) {
 
         this.dateID = dateID;
         this.newAddNum = newAddNum;
+        this.stayScale = stayScale;
         this.stayList = stayList;
     }
 }

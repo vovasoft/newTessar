@@ -49,7 +49,7 @@ public class ControlerGame {
     Object getGameDate(@RequestParam String app,@RequestParam String cid,@RequestParam String gid,@RequestParam String sid,@RequestParam String sDate,@RequestParam String eDate) throws ParseException {
 //    Object getGameDate( @RequestBody RequestData dataString) throws ParseException {
         List<NewAddDay> nadList = null;
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         nadList = allInOneMapper.findCGSNewAddListByTimes(app,cid,gid,sid,sdf.parse(sDate),sdf.parse(eDate));
         ArrayList<NewAddJson> nj = new ArrayList<>();
         for (int i=0;i<nadList.size();i++) {
@@ -62,7 +62,7 @@ public class ControlerGame {
     @GetMapping("/getGameAll")
     @ResponseBody
     Object getGameAll(@RequestParam String app, @RequestParam String sDate, @RequestParam String eDate) throws ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         List<NewAddDay> nadList = allInOneMapper.findAllNewAddListByTimes(app, sdf.parse(sDate), sdf.parse(eDate));
         return nadList;
     }
@@ -70,12 +70,12 @@ public class ControlerGame {
     @GetMapping("/getStayDate")//留存表的一些处理，其中需要返回json的时候，最好将留存字段改写成数组的形式，如下所示，最长的那行代码。
     @ResponseBody
     Object getStayDate(@RequestParam String app,@RequestParam String cid,@RequestParam String gid,@RequestParam String sid,@RequestParam String sDate,@RequestParam String eDate) throws ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         List<StayParent> spList =  allInOneMapper.findCGSStayListByTimes(app,cid,gid,sid,sdf.parse(sDate),sdf.parse(eDate));
         ArrayList<StayJson> sj = new ArrayList<>();
         for (int i=0;i<spList.size();i++) {
             StayParent sp = spList.get(i);
-            sj.add(new StayJson(sdf.format(sp.getDateID()),sp.getNewAddNum(),Tools.strToNumArray(sp.getStayList(),",")));
+            sj.add(new StayJson(sdf.format(sp.getDateID()),sp.getNewAddNum(),Tools.strToNumArrayScale(sp.getStayList(),",",sp.getNewAddNum()),Tools.strToNumArray(sp.getStayList(),",")));
         }
 
         return sj;

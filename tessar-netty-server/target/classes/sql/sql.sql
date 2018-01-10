@@ -27,7 +27,7 @@ create TABLE PayMentDay
 ,payPlayerARPPU FLOAT
 ,allMoney FLOAT
 );
-
+--
 create TABLE PayMentWeek
 (id int PRIMARY KEY auto_increment
 ,dateID DATE

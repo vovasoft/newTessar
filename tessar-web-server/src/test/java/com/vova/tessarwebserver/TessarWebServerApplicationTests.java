@@ -20,7 +20,7 @@ public class TessarWebServerApplicationTests {
 	@Autowired
 	AllInOneMapper allInOneMapper;
 
-	static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	static SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 
 
 	@Test

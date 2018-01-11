@@ -161,6 +161,19 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="svn" />
   </component>
+  <component name="libraryTable">
+    <library name="Maven: com.restfb:restfb:1.49.0">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/restfb/restfb/1.49.0/restfb-1.49.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/restfb/restfb/1.49.0/restfb-1.49.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/restfb/restfb/1.49.0/restfb-1.49.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+  </component>
   <component name="masterDetails">
     <states>
       <state key="ProjectJDKs.UI">

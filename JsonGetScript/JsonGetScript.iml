@@ -21,5 +21,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="Maven: com.restfb:restfb:1.49.0" level="project" />
   </component>
 </module>

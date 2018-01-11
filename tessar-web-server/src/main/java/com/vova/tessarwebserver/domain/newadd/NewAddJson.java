@@ -8,7 +8,7 @@ import java.util.Date;
  * @author: Vova
  * @create: date 15:57 2018/1/2
  */
-public class NewAddJson extends AbstractJsonpResponseBodyAdvice {
+public class NewAddJson{
     private String dateID;
     private long newAddNum;
     private long activeNum;
@@ -64,8 +64,7 @@ public class NewAddJson extends AbstractJsonpResponseBodyAdvice {
         this.allPlayerNum = allPlayerNum;
     }
 
-    public NewAddJson() {
-        super("callback","jsonp");
+    public NewAddJson(){
     }
 
     public NewAddJson(String dateID, long newAddNum, long activeNum, long loginCount, float averageLogin, long allPlayerNum) {
@@ -77,4 +76,5 @@ public class NewAddJson extends AbstractJsonpResponseBodyAdvice {
         this.averageLogin = averageLogin;
         this.allPlayerNum = allPlayerNum;
     }
+
 }

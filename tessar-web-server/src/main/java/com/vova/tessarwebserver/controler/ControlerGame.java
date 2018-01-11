@@ -38,10 +38,7 @@ public class ControlerGame {
     private AllInOneMapper allInOneMapper;
   //  static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-    @RequestMapping("/")
-    String home() {
-        return "Hello World!";
-    }
+
 
     //getGameDate
     @GetMapping("/getGameDate")

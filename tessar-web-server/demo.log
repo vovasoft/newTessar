@@ -1,0 +1,74 @@
+2018-01-11 20:11:09.560 ERROR 24580 --- [main] o.s.b.l.LoggingApplicationListener       : Cannot set level: DEBUG INFO ERROR DEBUG for 'org.springframework.web'
+2018-01-11 20:11:09.562 ERROR 24580 --- [main] o.s.b.l.LoggingApplicationListener       : Cannot set level: INFO ERROR DEBUG for 'null'
+2018-01-11 20:11:09.562 ERROR 24580 --- [main] o.s.b.l.LoggingApplicationListener       : Cannot set level: ERROR   for 'org.hibernate'
+2018-01-11 20:11:09.685  INFO 24580 --- [main] c.v.t.TessarWebServerApplication         : Starting TessarWebServerApplication on DESKTOP-GQ1G4H4 with PID 24580 (D:\newTessar\tessar-web-server\target\classes started by xcloud010 in D:\newTessar\tessar-web-server)
+2018-01-11 20:11:09.685  INFO 24580 --- [main] c.v.t.TessarWebServerApplication         : No active profile set, falling back to default profiles: default
+2018-01-11 20:11:10.060  INFO 24580 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ad851c9: startup date [Thu Jan 11 20:11:10 CST 2018]; root of context hierarchy
+2018-01-11 20:11:11.824  INFO 24580 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 9898 (http)
+2018-01-11 20:11:11.835  INFO 24580 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-01-11 20:11:11.837  INFO 24580 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-01-11 20:11:11.953  INFO 24580 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-01-11 20:11:11.953  INFO 24580 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1921 ms
+2018-01-11 20:11:12.134  INFO 24580 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-11 20:11:12.140  INFO 24580 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-11 20:11:12.140  INFO 24580 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-01-11 20:11:12.141  INFO 24580 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-01-11 20:11:12.141  INFO 24580 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-01-11 20:11:12.713  INFO 24580 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-01-11 20:11:12.722  INFO 24580 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-11 20:11:12.765  INFO 24580 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2018-01-11 20:11:12.766  INFO 24580 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2018-01-11 20:11:12.767  INFO 24580 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2018-01-11 20:11:12.794  INFO 24580 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-11 20:11:12.864  INFO 24580 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-01-11 20:11:13.198  INFO 24580 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-01-11 20:11:13.385  INFO 24580 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 
+2018-01-11 20:11:13.395  INFO 24580 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService  'myExecutor'
+2018-01-11 20:11:13.725  INFO 24580 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ad851c9: startup date [Thu Jan 11 20:11:10 CST 2018]; root of context hierarchy
+2018-01-11 20:11:13.735  INFO 24580 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Detected ResponseBodyAdvice bean in jsonpAdvice
+2018-01-11 20:11:13.803  INFO 24580 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/app/getGameAll],methods=[GET]}" onto java.lang.Object com.vova.tessarwebserver.controler.ControlerGame.getGameAll(java.lang.String,java.lang.String,java.lang.String) throws java.text.ParseException
+2018-01-11 20:11:13.804  INFO 24580 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/app/getGameDate],methods=[GET]}" onto java.lang.Object com.vova.tessarwebserver.controler.ControlerGame.getGameDate(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) throws java.text.ParseException
+2018-01-11 20:11:13.805  INFO 24580 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/app/getStayDate],methods=[GET]}" onto java.lang.Object com.vova.tessarwebserver.controler.ControlerGame.getStayDate(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) throws java.text.ParseException
+2018-01-11 20:11:13.805  INFO 24580 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/app/getCGS],methods=[GET]}" onto java.lang.Object com.vova.tessarwebserver.controler.ControlerGame.getCGS()
+2018-01-11 20:11:13.805  INFO 24580 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/]}" onto public java.lang.String com.vova.tessarwebserver.controler.ControlerHome.home()
+2018-01-11 20:11:13.806  INFO 24580 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/pay/getPayDate],methods=[GET]}" onto java.lang.Object com.vova.tessarwebserver.controler.ControlerPay.getPayDate(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) throws java.text.ParseException
+2018-01-11 20:11:13.806  INFO 24580 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/pay/getPayStayDate],methods=[GET]}" onto java.lang.Object com.vova.tessarwebserver.controler.ControlerPay.getPayStayDate(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) throws java.text.ParseException
+2018-01-11 20:11:13.808  INFO 24580 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/add],methods=[POST]}" onto public java.lang.Object com.vova.tessarwebserver.controler.ControlerUser.add(com.vova.tessarwebserver.domain.User)
+2018-01-11 20:11:13.808  INFO 24580 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/login],methods=[POST]}" onto public java.lang.Object com.vova.tessarwebserver.controler.ControlerUser.login(com.vova.tessarwebserver.domain.User)
+2018-01-11 20:11:13.810  INFO 24580 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-11 20:11:13.810  INFO 24580 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-11 20:11:13.848  INFO 24580 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-11 20:11:13.849  INFO 24580 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-11 20:11:13.867  INFO 24580 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : Detected ResponseBodyAdvice implementation in jsonpAdvice
+2018-01-11 20:11:13.885  INFO 24580 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-11 20:11:14.360  INFO 24580 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-01-11 20:11:14.373  INFO 24580 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2018-01-11 20:11:14.413  INFO 24580 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 9898 (http)
+2018-01-11 20:11:14.417  INFO 24580 --- [main] c.v.t.TessarWebServerApplication         : Started TessarWebServerApplication in 5.365 seconds (JVM running for 6.479)
+2018-01-11 20:11:32.430  INFO 24580 --- [http-nio-9898-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-11 20:11:32.430  INFO 24580 --- [http-nio-9898-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-01-11 20:11:32.456  INFO 24580 --- [http-nio-9898-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 26 ms
+2018-01-11 20:12:00.001  INFO 24580 --- [pool-2-thread-1] c.v.t.Scheduled.ScheduledAPI             : ScheduledTest.executeUploadTask 定时任务2:37,name:pool-2-thread-1
+2018-01-11 20:12:00.002  INFO 24580 --- [pool-2-thread-1] c.v.t.Scheduled.ScheduledAPI             : ScheduledTest.executeUploadBackTask 定时任务3:37,name:pool-2-thread-1
+2018-01-11 20:12:00.002  INFO 24580 --- [pool-2-thread-1] c.v.t.Scheduled.ScheduledAPI             : ScheduledTest.executeFileDownLoadTask 定时任务1:37,name:pool-2-thread-1
+2018-01-11 20:13:00.000  INFO 24580 --- [pool-2-thread-1] c.v.t.Scheduled.ScheduledAPI             : ScheduledTest.executeUploadTask 定时任务2:37,name:pool-2-thread-1
+2018-01-11 20:14:00.000  INFO 24580 --- [pool-2-thread-1] c.v.t.Scheduled.ScheduledAPI             : ScheduledTest.executeFileDownLoadTask 定时任务1:37,name:pool-2-thread-1
+2018-01-11 20:14:00.000  INFO 24580 --- [pool-2-thread-1] c.v.t.Scheduled.ScheduledAPI             : ScheduledTest.executeUploadTask 定时任务2:37,name:pool-2-thread-1
+2018-01-11 20:15:00.000  INFO 24580 --- [pool-2-thread-1] c.v.t.Scheduled.ScheduledAPI             : ScheduledTest.executeUploadTask 定时任务2:37,name:pool-2-thread-1
+2018-01-11 20:15:00.001  INFO 24580 --- [pool-2-thread-1] c.v.t.Scheduled.ScheduledAPI             : ScheduledTest.executeUploadBackTask 定时任务3:37,name:pool-2-thread-1
+2018-01-11 20:16:00.078  INFO 24580 --- [pool-2-thread-1] c.v.t.Scheduled.ScheduledAPI             : ScheduledTest.executeUploadTask 定时任务2:37,name:pool-2-thread-1
+2018-01-11 20:16:00.080  INFO 24580 --- [pool-2-thread-1] c.v.t.Scheduled.ScheduledAPI             : ScheduledTest.executeFileDownLoadTask 定时任务1:37,name:pool-2-thread-1
+2018-01-11 20:17:00.002  INFO 24580 --- [pool-2-thread-1] c.v.t.Scheduled.ScheduledAPI             : ScheduledTest.executeUploadTask 定时任务2:37,name:pool-2-thread-1
+2018-01-11 20:18:00.001  INFO 24580 --- [pool-2-thread-1] c.v.t.Scheduled.ScheduledAPI             : ScheduledTest.executeUploadTask 定时任务2:37,name:pool-2-thread-1
+2018-01-11 20:18:00.003  INFO 24580 --- [pool-2-thread-1] c.v.t.Scheduled.ScheduledAPI             : ScheduledTest.executeFileDownLoadTask 定时任务1:37,name:pool-2-thread-1
+2018-01-11 20:18:00.004  INFO 24580 --- [pool-2-thread-1] c.v.t.Scheduled.ScheduledAPI             : ScheduledTest.executeUploadBackTask 定时任务3:37,name:pool-2-thread-1
+2018-01-11 20:19:00.003  INFO 24580 --- [pool-2-thread-1] c.v.t.Scheduled.ScheduledAPI             : ScheduledTest.executeUploadTask 定时任务2:37,name:pool-2-thread-1
+2018-01-11 20:20:00.000  INFO 24580 --- [pool-2-thread-1] c.v.t.Scheduled.ScheduledAPI             : ScheduledTest.executeFileDownLoadTask 定时任务1:37,name:pool-2-thread-1
+2018-01-11 20:20:00.002  INFO 24580 --- [pool-2-thread-1] c.v.t.Scheduled.ScheduledAPI             : ScheduledTest.executeUploadTask 定时任务2:37,name:pool-2-thread-1
+2018-01-11 20:21:00.002  INFO 24580 --- [pool-2-thread-1] c.v.t.Scheduled.ScheduledAPI             : ScheduledTest.executeUploadTask 定时任务2:37,name:pool-2-thread-1
+2018-01-11 20:21:00.004  INFO 24580 --- [pool-2-thread-1] c.v.t.Scheduled.ScheduledAPI             : ScheduledTest.executeUploadBackTask 定时任务3:37,name:pool-2-thread-1
+2018-01-11 20:22:00.001  INFO 24580 --- [pool-2-thread-1] c.v.t.Scheduled.ScheduledAPI             : ScheduledTest.executeFileDownLoadTask 定时任务1:37,name:pool-2-thread-1
+2018-01-11 20:22:00.005  INFO 24580 --- [pool-2-thread-1] c.v.t.Scheduled.ScheduledAPI             : ScheduledTest.executeUploadTask 定时任务2:37,name:pool-2-thread-1
+2018-01-11 20:23:00.001  INFO 24580 --- [pool-2-thread-1] c.v.t.Scheduled.ScheduledAPI             : ScheduledTest.executeUploadTask 定时任务2:37,name:pool-2-thread-1

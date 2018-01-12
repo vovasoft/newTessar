@@ -68,11 +68,11 @@ public class MyTest {
         //打印注册用户
         for (int i=1;i<=20;i++){
             regInt = Tools.dateToSec(sdf.parse("2017-12-"+(i%30)));
-            str = "{\"uid\":01"+i+",\"regdate\":"+regInt+",\"lastdate\":"+regInt+",\"cid\":\"ngBrazil\",\"gid\":\"bloodstrke\",\"sub\":\"lp-fb\",\"sid\":\"0\"}";
+            str = "{\"uid\":01"+i+",\"regdate\":"+regInt+",\"lastdate\":"+regInt+",\"cid\":\"wwww\",\"gid\":\"0213\",\"sub\":\"lp-fb\",\"sid\":\"0\"}";
             System.out.println(url+str);
             funHTTP(url+str);
 
-            str = "{\"uid\":02"+i+",\"regdate\":"+regInt+",\"lastdate\":"+regInt+",\"cid\":\"ngBrazil\",\"gid\":\"bloodstrke\",\"sub\":\"lp-fb\",\"sid\":\"0\"}";
+            str = "{\"uid\":02"+i+",\"regdate\":"+regInt+",\"lastdate\":"+regInt+",\"cid\":\"wwww\",\"gid\":\"0213\",\"sub\":\"lp-fb\",\"sid\":\"0\"}";
             System.out.println(url+str);
             funHTTP(url+str);
         }
@@ -90,11 +90,11 @@ public class MyTest {
             int r = (int) (Math.random()*100);
             System.out.println("r:"+r);
             regInt = Tools.dateToSec(sdf.parse("2017-12-"+(i%30)));
-            String str = "{\"uid\":01"+i+",\"regdate\":"+regInt+",\"lastdate\":"+(regInt+(r*80000))+",\"cid\":\"ngBrazil\",\"gid\":\"bloodstrke\",\"sub\":\"lp-fb\",\"sid\":\"0\"}";
+            String str = "{\"uid\":01"+i+",\"regdate\":"+regInt+",\"lastdate\":"+(regInt+(r*80000))+",\"cid\":\"wwww\",\"gid\":\"0213\",\"sub\":\"lp-fb\",\"sid\":\"0\"}";
             funHTTP(url+str);
 
             regInt = Tools.dateToSec(sdf.parse("2017-12-"+(i%30)));
-            str = "{\"uid\":02"+i+",\"regdate\":"+regInt+",\"lastdate\":"+(regInt+(r*80000))+",\"cid\":\"ngBrazil\",\"gid\":\"bloodstrke\",\"sub\":\"lp-fb\",\"sid\":\"0\"}";
+            str = "{\"uid\":02"+i+",\"regdate\":"+regInt+",\"lastdate\":"+(regInt+(r*80000))+",\"cid\":\"wwww\",\"gid\":\"0213\",\"sub\":\"lp-fb\",\"sid\":\"0\"}";
             funHTTP(url+str);
         }
     }
@@ -114,14 +114,14 @@ public class MyTest {
         for (int i=1;i<10;i++){
             int r = (int) (Math.random()*50);
             regInt = Tools.dateToSec(sdf.parse("2017-12-"+(i%30)));
-            String str = "{\"oid\":\"order001\",\"gid\":\"bloodstrke\",\"sid\":\"0\",\"uid\":\"00"+i+"\",\"payType\":\"64\",\"currency\":\"USD\",\"amount\":"+(1+r*1.5)+",\"payTime\":"+(regInt+(r*40000))+"}";
+            String str = "{\"oid\":\"order001\",\"gid\":\"0213\",\"sid\":\"0\",\"uid\":\"00"+i+"\",\"payType\":\"64\",\"currency\":\"USD\",\"amount\":"+(1+r*1.5)+",\"payTime\":"+(regInt+(r*40000))+"}";
        //     System.out.println(url+str);
             funHTTP(url+str);
         }
     }
     public static void main(String[] args) throws ParseException {
-   //     createPlayer();
-//        createUpdate();
+        createPlayer();
+        createUpdate();
 //        createUpdate();
 //        createUpdate();
 ////

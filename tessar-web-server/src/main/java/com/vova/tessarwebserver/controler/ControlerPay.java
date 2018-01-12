@@ -34,7 +34,10 @@ public class ControlerPay {
 //    Object getPayDate(@RequestBody RequestData dataString) throws ParseException {
     Object getPayDate(@RequestParam String app,@RequestParam String cid,@RequestParam String gid,@RequestParam String sid,@RequestParam String sDate,@RequestParam String eDate) throws ParseException {
         List<PayAllShow> payList = null;
-        payList = allInOneMapper.findCGSPayAllShowByTimes(app,cid,gid,sid,sdf.parse(sDate),sdf.parse(eDate));
+        payList = allInOneMapper.findCGSPayAllShowByTimes(app,
+                cid!=""?cid:null,
+                gid!=""?gid:null,
+                sid!=""?sid:null,sdf.parse(sDate),sdf.parse(eDate));
         ArrayList<PayMentJson> nj = new ArrayList<>();
         for (int i=0;i<payList.size();i++) {
             PayAllShow pay = payList.get(i);
@@ -46,6 +49,24 @@ public class ControlerPay {
         return nj;
     }
 
+//    @GetMapping("/getPayAll")
+//    @ResponseBody
+//    Object getPayAll(@RequestParam String app,@RequestParam String sDate,@RequestParam String eDate) throws ParseException {
+//        List<PayAllShow> payList = null;
+//        payList = allInOneMapper.findPayAllShowByTimes(app,sdf.parse(sDate),sdf.parse(eDate));
+//        ArrayList<PayMentJson> nj = new ArrayList<>();
+//        for (int i=0;i<payList.size();i++) {
+//            PayAllShow pay = payList.get(i);
+//            nj.add(new PayMentJson(sdf.format(pay.getDateID()),pay.getNewAddNum(),pay.getNewAddPayPlayerNum(),pay.getNewAddPayAllMoney(),
+//                    pay.getNewAddPlayerARPPU(),pay.getNewAddPayPlayerARPPU(),pay.getNewPayPlayerNum(),pay.getNewPayAllMoney(),
+//                    pay.getAverageNewPayMoney(),pay.getActiveNum(),pay.getPayPlayerNum(),pay.getTodayAllPayMoney(),pay.getActiveARPPU(),
+//                    pay.getPayPlayerARPPU(),pay.getAllMoney()));
+//        }
+//        return nj;
+//    }
+
+
+
     @GetMapping("/getPayStayDate")//留存表的一些处理，其中需要返回json的时候，最好将留存字段改写成数组的形式，如下所示，最长的那行代码。
     @ResponseBody
     Object getPayStayDate(@RequestParam String app,@RequestParam String cid,@RequestParam String gid,@RequestParam String sid,@RequestParam String sDate,@RequestParam String eDate) throws ParseException {
@@ -53,7 +74,10 @@ public class ControlerPay {
 //        List<StayParent> spList =  allInOneMapper.findCGSStayListByTimes(dataString.getApp(),dataString.getCid(),dataString.getGid(),dataString.getSid(),
 //                sdf.parse(dataString.getsDate()), sdf.parse(dataString.geteDate()));
 
-        List<StayParent> spList =  allInOneMapper.findCGSStayListByTimes(app,cid,gid,sid,sdf.parse(sDate),sdf.parse(eDate));
+        List<StayParent> spList =  allInOneMapper.findCGSStayListByTimes(app,
+                cid!=""?cid:null,
+                gid!=""?gid:null,
+                sid!=""?sid:null,sdf.parse(sDate),sdf.parse(eDate));
         ArrayList<StayJson> sj = new ArrayList<>();
         for (int i=0;i<spList.size();i++) {
             StayParent sp = spList.get(i);
@@ -62,5 +86,17 @@ public class ControlerPay {
 
         return sj;
     }
+
+//    @GetMapping("/getPayStayAll")//留存表的一些处理，其中需要返回json的时候，最好将留存字段改写成数组的形式，如下所示，最长的那行代码。
+//    @ResponseBody
+//    Object getPayStayAll(@RequestParam String app,@RequestParam String sDate,@RequestParam String eDate) throws ParseException {
+//        List<StayParent> spList =  allInOneMapper.findStayListByTimes(app,sdf.parse(sDate),sdf.parse(eDate));
+//        ArrayList<StayJson> sj = new ArrayList<>();
+//        for (int i=0;i<spList.size();i++) {
+//            StayParent sp = spList.get(i);
+//            sj.add(new StayJson(sdf.format(sp.getDateID()),sp.getNewAddNum(),Tools.strToNumArrayScale(sp.getStayList(),",",sp.getNewAddNum()), Tools.strToNumArray(sp.getStayList(),",")));
+//        }
+//        return sj;
+//    }
 
 }

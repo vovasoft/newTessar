@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <title>Metronic | Visual Charts</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/metro.css" rel="stylesheet" />
+    <link href="assets/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/style_responsive.css" rel="stylesheet" />
+    <link href="assets/css/style_default.css" rel="stylesheet" id="style_color" />
+    <link rel="stylesheet" type="text/css" href="assets/uniform/css/uniform.default.css" />
+    <link rel="stylesheet" href="assets/bootstrap-daterangepicker/daterangepicker.css">
+    <link rel="shortcut icon" href="favicon.ico" />
+    <style>
+        .selfbox{
+            background-color: #eee;
+            padding: 8px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border-radius: 4px;
+            position: relative;
+        }
+        .table th,td{
+            text-align: center !important;
+        }
+    </style>
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="fixed-top">
+<!-- BEGIN HEADER -->
+<div class="header navbar navbar-inverse navbar-fixed-top">
+    <!-- BEGIN TOP NAVIGATION BAR -->
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <!-- BEGIN LOGO -->
+            <a class="brand" href="index.html">
+                <img src="assets/img/logo.png" alt="logo" />
+            </a>
+            <!-- END LOGO -->
+            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+            <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+                <img src="assets/img/menu-toggler.png" alt="" />
+            </a>
+            <!-- END RESPONSIVE MENU TOGGLER -->
+            <!-- BEGIN TOP NAVIGATION MENU -->
+            <ul class="nav pull-right">
+                <!-- BEGIN USER LOGIN DROPDOWN -->
+                <li class="dropdown user">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img alt="" src="assets/img/avatar1_small.jpg" />
+                        <span class="username">Bob Nilson</span>
+                        <i class="icon-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="Javascript:void(0);"><i class="icon-user"></i> My Profile</a></li>
+
+                        <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+                    </ul>
+                </li>
+                <!-- END USER LOGIN DROPDOWN -->
+            </ul>
+            <!-- END TOP NAVIGATION MENU -->
+        </div>
+    </div>
+    <!-- END TOP NAVIGATION BAR -->
+</div>
+<!-- END HEADER -->
+<!-- BEGIN CONTAINER -->
+<div class="page-container row-fluid">
+    <!-- BEGIN SIDEBAR -->
+    <div class="page-sidebar nav-collapse collapse">
+        <!-- BEGIN SIDEBAR MENU -->
+        <ul>
+            <li>
+                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                <div class="sidebar-toggler hidden-phone"></div>
+                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+            </li>
+            <li class="start">
+                <a href="overview.html">
+                    <i class="icon-home"></i>
+                    <span class="title">概览</span>
+                </a>
+            </li>
+            <li class="has-sub active">
+                <a href="javascript:;">
+                    <i class="icon-bookmark-empty"></i>
+                    <span class="title">活跃分析</span>
+                    <span class="arrow open"></span>
+                </a>
+                <ul class="sub">
+                    <li><a href="active.html">活跃</a></li>
+                    <li class="active"><a href="frequency.html">使用频率</a></li>
+                </ul>
+            </li>
+            <li class="">
+                <a href="">
+                    <i class="icon-bar-chart"></i>
+                    <span class="title">转化分析</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            <li class="">
+                <a href="stay.html">
+                    <i class="icon-calendar"></i>
+                    <span class="title">留存分析</span>
+                </a>
+            </li>
+            <li class="">
+                <a href="pay.html">
+                    <i class="icon-camera"></i>
+                    <span class="title">付费分析</span>
+                </a>
+            </li>
+        </ul>
+        <!-- END SIDEBAR MENU -->
+    </div>
+    <!-- END SIDEBAR -->
+    <!-- BEGIN PAGE -->
+    <div class="page-content">
+
+        <!-- BEGIN PAGE CONTAINER-->
+        <div class="container-fluid">
+            <!-- BEGIN PAGE HEADER-->
+            <div class="row-fluid">
+                <div class="span12">
+                    <!-- BEGIN STYLE CUSTOMIZER -->
+                    <div class="color-panel hidden-phone">
+                        <div class="color-mode-icons icon-color"></div>
+                        <div class="color-mode-icons icon-color-close"></div>
+                        <div class="color-mode">
+                            <p>THEME COLOR</p>
+                            <ul class="inline">
+                                <li class="color-black current color-default" data-style="default"></li>
+                                <li class="color-blue" data-style="blue"></li>
+                                <li class="color-brown" data-style="brown"></li>
+                                <li class="color-purple" data-style="purple"></li>
+                                <li class="color-white color-light" data-style="light"></li>
+                            </ul>
+                            <label class="hidden-phone">
+                                <input type="checkbox" class="header" checked value="" />
+                                <span class="color-mode-label">Fixed Header</span>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- END BEGIN STYLE CUSTOMIZER -->
+                    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+                    <h3 class="page-title">
+                        Usage Frequency
+                    </h3>
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="icon-home"></i>
+                            <a href="javascript:void (0);">活跃分析</a>
+                            <i class="icon-angle-right"></i>
+                        </li>
+                        <li><a href="frequency.html">使用频率</a></li>
+                    </ul>
+                    <!-- END PAGE TITLE & BREADCRUMB-->
+                </div>
+            </div>
+            <!-- END PAGE HEADER-->
+            <div class="row-fluid selfbox">
+                <div class="span12 clearfix">
+                    <form action="#" class="form-horizontal clearfix" style="margin: 0;">
+                        <div class="control-group pull-left">
+                            <label class="control-label" style="width: 47px;">渠道：</label>
+                            <div class="controls" style="margin-left: 47px">
+                                <select class="small m-wrap" tabindex="1">
+                                    <option value="Category 1">全部渠道</option>
+                                    <option value="Category 2">Category 2</option>
+                                    <option value="Category 3">Category 5</option>
+                                    <option value="Category 4">Category 4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group pull-left">
+                            <label class="control-label">游戏：</label>
+                            <div class="controls">
+                                <select class="small m-wrap" tabindex="1">
+                                    <option value="Category 1">全部游戏</option>
+                                    <option value="Category 2">Category 2</option>
+                                    <option value="Category 3">Category 5</option>
+                                    <option value="Category 4">Category 4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group pull-left">
+                            <label class="control-label">服务器：</label>
+                            <div class="controls">
+                                <select class="small m-wrap" tabindex="1">
+                                    <option value="Category 1">全部服务器</option>
+                                    <option value="Category 2">Category 2</option>
+                                    <option value="Category 3">Category 5</option>
+                                    <option value="Category 4">Category 4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control-group pull-left">
+                        <label class="control-label">时间：</label>
+                        <div class="controls">
+                            <input type="text" name="datefilter" value="" />
+                        </div>
+                        </div>
+                        <button class="btn blue pull-left" style="margin-left: 20px">确定</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row-fluid selfbox">
+                <div class="span12">
+                    <div id="online-time" style="height:400px;"></div>
+                </div>
+            </div>
+            <div class="row-fluid selfbox clearfix">
+                <div class="span12">
+                    <h4 class="clearfix">
+                        <b class="pull-left">详细数据</b>
+                        <a href="javascript:void(0);" class="btn blue pull-right">
+                            <i class="icon-cloud-download"></i>
+                        </a>
+                    </h4>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>日期</th>
+                                    <th>新增用户数</th>
+                                    <th>新增用户平均在线时长</th>
+                                    <th>付费用户数</th>
+                                    <th>付费用户平均在线时长</th>
+                                    <th>活跃用户数</th>
+                                    <th>活跃用户平均在线时长</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2017/12/21</td>
+                                    <td>180</td>
+                                    <td>01:25:08</td>
+                                    <td>21282</td>
+                                    <td>01:25:08</td>
+                                    <td>25551</td>
+                                    <td>01:25:08</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- BEGIN PAGE CONTAINER-->
+    </div>
+    <!-- END PAGE -->
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+<div class="footer">
+    2017 &copy; XCLOUDGAME
+    <div class="span pull-right">
+        <span class="go-top"><i class="icon-angle-up"></i></span>
+    </div>
+</div>
+<!-- END FOOTER -->
+<!-- BEGIN JAVASCRIPTS -->
+<!-- Load javascripts at bottom, this will reduce page load time -->
+<script src="assets/js/jquery-1.8.3.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.blockui.js"></script>
+<script src="assets/js/jquery.cookie.js"></script>
+<script src="assets/echarts/echarts.common.min.js"></script>
+<script src="assets/breakpoints/breakpoints.js"></script>
+<!-- ie8 fixes -->
+<!--[if lt IE 9]>
+<script src="assets/js/excanvas.js"></script>
+<script src="assets/js/respond.js"></script>
+<![endif]-->
+<script src="assets/bootstrap-daterangepicker/moment.min.js"></script>
+<script src="assets/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="assets/bootstrap-daterangepicker/date.js"></script>
+<script src="assets/js/app.js"></script>
+
+
+<script>
+    jQuery(document).ready(function() {
+        App.init();
+    });
+</script>
+<!-- END JAVASCRIPTS -->
+
+<script type="text/javascript">
+    //时间筛选
+    $(function() {
+
+        $('input[name="datefilter"]').daterangepicker({
+            startDate:moment().subtract('days', 6),
+            endDate:moment(),
+            opens: 'left',
+            autoUpdateInput: false,
+            format: 'YYYY-MM-DD',
+            ranges: {
+                'Last 7 Days': [moment().subtract('days', 6), moment()],
+                'Last 14 Days': [moment().subtract('days', 13), moment()],
+                'Last 30 Days': [moment().subtract('days', 29), moment()]
+            }
+        }, function (start,end) {
+            start.format('YYYY-MM-DD');
+            end.format('YYYY-MM-DD');
+        });
+    });
+    //图表
+    $(function () {
+        var chart_online_time= echarts.init(document.getElementById('online-time'));
+        option = {
+            title: {
+                text: '用户平均在线时长（秒）'
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                left:'center',
+                bottom:0,
+                data: ['新增用户', '付费用户', '活跃用户']
+            },
+            grid: {
+                left: '3%',
+                right: '3%',
+                bottom: '10%',
+                containLabel: true
+            },
+            xAxis: {
+
+                type: 'category',
+                inverse: true,
+                splitLine: {show: false},
+                axisTick: {show: false},
+                data: ['12/02', '12/03', '12/04', '12/05', '12/06', '12/07', '12/08'],
+            },
+            yAxis: {
+                axisTick: {show: false},
+                type: 'value',
+                splitNumber:4
+            },
+            series: [
+                {
+                    name: '新增用户',
+                    type: 'bar',
+                    data: [165, 170, 30,58,98,214,327]
+                },
+                {
+                    name: '付费用户',
+                    type: 'bar',
+                    data: [150, 105, 110,546,354,216,331]
+                },
+                {
+                    name: '活跃用户',
+                    type: 'bar',
+                    data: [220, 82, 63,32,56,78,131]
+                }
+            ]
+        };
+        chart_online_time.setOption(option);
+    })
+</script>
+</body>
+<!-- END BODY -->
+</html>

@@ -42,14 +42,21 @@
         <mapper resource="newadd/mysql-newaddDay.xml"/>
         <mapper resource="newadd/mysql-newaddWeek.xml"/>
         <mapper resource="newadd/mysql-newaddMon.xml"/>
+
         <mapper resource="stayMan/mysql-StayDay.xml"/>
         <mapper resource="stayMan/mysql-StayWeek.xml"/>
         <mapper resource="stayMan/mysql-StayMon.xml"/>
-        <mapper resource="stayPay/mysql-StayPayDay.xml"/>
-        <mapper resource="stayPay/mysql-StayPayWeek.xml"/>
-        <mapper resource="stayPay/mysql-StayPayMon.xml"/>
+
+        <!--<mapper resource="stayPay/mysql-StayPayDay.xml"/>-->
+        <!--<mapper resource="stayPay/mysql-StayPayWeek.xml"/>-->
+        <!--<mapper resource="stayPay/mysql-StayPayMon.xml"/>-->
+
         <mapper resource="payment/mysql-PayMentDay.xml"/>
         <mapper resource="payment/mysql-PayMentWeek.xml"/>
         <mapper resource="payment/mysql-PayMentMon.xml"/>
+
+        <mapper resource="staypay/mysql-StayPayDay.xml"/>
+        <mapper resource="staypay/mysql-StayPayWeek.xml"/>
+        <mapper resource="staypay/mysql-StayPayMon.xml"/>
     </mappers>
 </configuration>

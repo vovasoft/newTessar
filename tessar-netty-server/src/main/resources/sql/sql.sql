@@ -179,6 +179,7 @@ create table StayPayMon
 create table channellist
 (id int PRIMARY KEY auto_increment
 ,name VARCHAR (64)
+,fathername VARCHAR (64)
 );
 
 create table gamelist

@@ -1,0 +1,45 @@
+package com.vova.tessarwebserver.controler;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+/**
+ * @author: Vova
+ * @create: date 18:15 2018/1/11
+ */
+
+@Controller
+public class ControlerHome {
+    @RequestMapping("/")
+    public String home(){
+        return"overview";
+    }
+    @RequestMapping("/overview")
+    public String overview(){
+        return"overview";
+    }
+    @RequestMapping("/active")
+    public String active(){
+        return"active";
+    }
+
+    @RequestMapping("/login")
+    public String login(){
+        return"login";
+    }
+
+    @RequestMapping("/pay")
+    public String pay(){
+        return"pay";
+    }
+
+    @RequestMapping("/stay")
+    public String stay(){
+        return"stay";
+    }
+
+    @RequestMapping("/frequency")
+    public String frequency(){
+        return"frequency";
+    }
+}

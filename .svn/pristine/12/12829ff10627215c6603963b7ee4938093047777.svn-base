@@ -1,0 +1,185 @@
+package com.vova.tessarwebserver.Scheduled;
+
+/**
+ * @author: Vova
+ * @create: date 17:58 2018/1/24
+ */
+
+
+public class Fb_Ad {
+    String account_currency;
+    String account_name;
+    String ad_id;
+    String ad_name;
+    String adset_id;
+    String adset_name;
+    String campaign_id;
+    String campaign_name;
+    String clicks;
+    String ctr;
+    String date_start;
+    String date_stop;
+    String impressions;
+    String spend;
+    String total_action_value;
+
+    public Fb_Ad() {
+    }
+    public void showAll(){
+        System.out.println(this.account_currency);
+        System.out.println(this.account_name);
+        System.out.println(this.ad_id);
+        System.out.println(this.ad_name);
+        System.out.println(this.adset_id);
+        System.out.println(this.adset_name);
+        System.out.println(this.campaign_id);
+        System.out.println(this.campaign_name);
+        System.out.println(this.clicks);
+        System.out.println(this.ctr);
+        System.out.println(this.date_start);
+        System.out.println(this.date_stop);
+        System.out.println(this.impressions);
+        System.out.println(this.spend);
+        System.out.println(this.total_action_value);
+    }
+
+    public Fb_Ad(String account_currency, String account_name, String ad_id, String ad_name, String adset_id, String adset_name, String campaign_id, String campaign_name, String clicks, String ctr, String date_start, String date_stop, String impressions, String spend, String total_action_value) {
+
+        this.account_currency = account_currency;
+        this.account_name = account_name;
+        this.ad_id = ad_id;
+        this.ad_name = ad_name;
+        this.adset_id = adset_id;
+        this.adset_name = adset_name;
+        this.campaign_id = campaign_id;
+        this.campaign_name = campaign_name;
+        this.clicks = clicks;
+        this.ctr = ctr;
+        this.date_start = date_start;
+        this.date_stop = date_stop;
+        this.impressions = impressions;
+        this.spend = spend;
+        this.total_action_value = total_action_value;
+    }
+
+    public String getAccount_currency() {
+
+        return account_currency;
+    }
+
+    public void setAccount_currency(String account_currency) {
+        this.account_currency = account_currency;
+    }
+
+    public String getAccount_name() {
+        return account_name;
+    }
+
+    public void setAccount_name(String account_name) {
+        this.account_name = account_name;
+    }
+
+    public String getAd_id() {
+        return ad_id;
+    }
+
+    public void setAd_id(String ad_id) {
+        this.ad_id = ad_id;
+    }
+
+    public String getAd_name() {
+        return ad_name;
+    }
+
+    public void setAd_name(String ad_name) {
+        this.ad_name = ad_name;
+    }
+
+    public String getAdset_id() {
+        return adset_id;
+    }
+
+    public void setAdset_id(String adset_id) {
+        this.adset_id = adset_id;
+    }
+
+    public String getAdset_name() {
+        return adset_name;
+    }
+
+    public void setAdset_name(String adset_name) {
+        this.adset_name = adset_name;
+    }
+
+    public String getCampaign_id() {
+        return campaign_id;
+    }
+
+    public void setCampaign_id(String campaign_id) {
+        this.campaign_id = campaign_id;
+    }
+
+    public String getCampaign_name() {
+        return campaign_name;
+    }
+
+    public void setCampaign_name(String campaign_name) {
+        this.campaign_name = campaign_name;
+    }
+
+    public String getClicks() {
+        return clicks;
+    }
+
+    public void setClicks(String clicks) {
+        this.clicks = clicks;
+    }
+
+    public String getCtr() {
+        return ctr;
+    }
+
+    public void setCtr(String ctr) {
+        this.ctr = ctr;
+    }
+
+    public String getDate_start() {
+        return date_start;
+    }
+
+    public void setDate_start(String date_start) {
+        this.date_start = date_start;
+    }
+
+    public String getDate_stop() {
+        return date_stop;
+    }
+
+    public void setDate_stop(String date_stop) {
+        this.date_stop = date_stop;
+    }
+
+    public String getImpressions() {
+        return impressions;
+    }
+
+    public void setImpressions(String impressions) {
+        this.impressions = impressions;
+    }
+
+    public String getSpend() {
+        return spend;
+    }
+
+    public void setSpend(String spend) {
+        this.spend = spend;
+    }
+
+    public String getTotal_action_value() {
+        return total_action_value;
+    }
+
+    public void setTotal_action_value(String total_action_value) {
+        this.total_action_value = total_action_value;
+    }
+}

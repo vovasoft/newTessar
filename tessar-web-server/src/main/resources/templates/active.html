@@ -204,14 +204,14 @@
                             <div class="control-group pull-left">
                                 <label class="control-label">时间：</label>
                                 <div class="controls">
-                                    <input type="text" name="datefilter" id="dateVal" v-model="selectDataList.dNames1" />
+                                    <input type="text" name="datefilter" id="dateVal" />
                                 </div>
                             </div>
                             <div class="control-group pull-left">
                                 <div class="controls" style="margin-left: 10px">
                                     <select class="m-wrap" id="appVal" tabindex="1" style="width: 60px">
                                         <option value="Category 1"
-                                                v-for="(dNames2Data,index) in selectDataList.dNames2"
+                                                v-for="(dNames2Data,index) in selectDataDate"
                                         >{{dNames2Data}}</option>
                                     </select>
                                 </div>
@@ -311,42 +311,23 @@
         el: "#app",
         data:{
             submitDataList: "",
+            selectDataDate:["日","日","月","周"],
             selectDataList:{
-                cNames:["vova","aaaaaa","aaaaaa","bbbbbb","cccccc"],
-                gNames:["game1","game2","game3","game4"],
-                sNames:["Category1","Category2","Category3","Category4"],
-                dNames1:"",
-                dNames2:["日","日","月","周"],
+//                cNames:["vova","aaaaaa","aaaaaa","bbbbbb","cccccc"],
+//                gNames:["game1","game2","game3","game4"],
+//                sNames:["Category1","Category2","Category3","Category4"],
+//                dNames1:"",
+//                dNames2:["日","日","月","周"],
             },
         },
         mounted() {
-            this.TsDateInit(); //初始化时间挂载
-            this.TsEchartTableInit(); //初始化图表和表格挂载
-            this.TsOnloadInit();
-            //this.submitActive(); //点击获取数据
+            this.TsDateInit(); // 初始化时间挂载
+            this.TsSelectInit();
+            this.TsEchartTableInit(); // 初始化图表和表格挂载
+            // this.submitActive(); //点击获取数据
         },
         methods: {
-            //声明协议的传送变量
-            TsOnloadInit: function () {
-                const channelVal = "";
-                const gameVal = "";
-                const severVal = "";
-                const dateVal = "";
-                const sDate = "";
-                const eDate = "";
-                const applVal = "";
-                console.log(
-                    channelVal,
-                    gameVal,
-                    severVal,
-                    dateVal,
-                    sDate,
-                    eDate,
-                    eDate,
-                    applVal,
-                );
-            },
-            //初始化时间
+            // 初始化时间
             TsDateInit: function () {
                 $('input[name="datefilter"]').daterangepicker({
                     startDate:moment().subtract('days', 6),
@@ -359,15 +340,46 @@
                         'Last 14 Days': [moment().subtract('days', 13), moment()],
                         'Last 30 Days': [moment().subtract('days', 29), moment()]
                     }
-                }, function (start,end) {
+                }, function (start,end,label) {
+                    // 选择时间范围后调用回调函数
                     start.format('YYYY/MM/DD');
                     end.format('YYYY/MM/DD');
                 });
+                $('input[name="datefilter"]').val(
+                        moment().subtract('days', 6).format('YYYY/MM/DD')
+                        +'-'+
+                        moment().format('YYYY/MM/DD')
+                )
+            },
+
+            // 初始化select选框
+            TsSelectInit: function () {
+                var _this = this;
+                $.ajax({
+                    type: 'get',
+                    url: 'http://192.168.10.102:9898/app/getCGS',
+                    dataType: 'jsonp',
+                    jsonp: 'callback',
+                    async: true,
+                    success: function (res) {
+                        console.log(res);
+                        _this.selectDataList = res;
+                        console.log(_this.selectDataList.cNames[0]);
+                        _this.$nextTick(function () {
+                            console.log($("#channelVal").find("option:selected").text());
+                        });
+                        //_this.TsEchartTableInit(); // 初始化图表和表格挂载
+                    },
+                    error: function () {
+
+                    }
+                });
+                console.log(_this.selectDataList);
             },
 
             //初始化图表和表格
             TsEchartTableInit: function() {
-                //实例化图表
+                // 实例化图表
                 this.chart_new_add= echarts.init(document.getElementById('new-add'));
                 option = {
                     title: {
@@ -447,7 +459,7 @@
                     dateVal,
                     sDate,
                     eDate,
-                    appVal,
+                    appVal
                 );
 
                 // ajax获得初始数据并且赋值
@@ -460,19 +472,19 @@
                     //自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名
                     //jsonpCallback:"jsonpCallback_success",
                     data: {
-                        app: 'NewAddDay',    //根据 天,周,月对应设置
-                        cid: 'ngBrazil',     //渠道id
-                        gid: 'bloodstrke',   //游戏名
-                        sid: '0',            //服务器id
-                        sDate: '2017/12/5',  //起始时间
-                        eDate: '2017/12/19', //结束时间
+                        app: appVal,         //根据 天,周,月对应设置
+                        cid: channelVal,     //渠道id
+                        gid: gameVal,        //游戏名
+                        sid: severVal,       //服务器id
+                        sDate: sDate,        //起始时间
+                        eDate: eDate,        //结束时间
                     },
                     success: function (data) {
                         console.log((data));
                         let Op1series1 = []; // 表格1
                         let Op1series2 = []; // 表格1
                         let Op1xAxis = []; // 表格1
-                        vmActive.submitDataList = data; //给submitDataList从新赋值
+                        vmActive.submitDataList = data; //给submitDataList从新赋值,刷新table的值
                         $.each(data, function (ind,val) {
                             if(ind <= 6){ //只取6条数据
                                 Op1series1.push(val.activeNum);
@@ -500,10 +512,6 @@
                 });
             },
 
-            //初始化table
-            TsTableInit: function () {
-
-            },
             //点击获取数据
             submitActive: function () {
 
@@ -542,12 +550,12 @@
                     //自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名
                     //jsonpCallback:"jsonpCallback_success",
                     data: {
-                        app: 'NewAddDay',    //根据 天,周,月对应设置
-                        cid: 'ngBrazil',     //渠道id
-                        gid: 'bloodstrke',   //游戏名
-                        sid: '0',            //服务器id
-                        sDate: '2017/12/5',  //起始时间
-                        eDate: '2017/12/19', //结束时间
+                        app: appVal,         //根据 天,周,月对应设置
+                        cid: channelVal,     //渠道id
+                        gid: gameVal,        //游戏名
+                        sid: severVal,       //服务器id
+                        sDate: sDate,        //起始时间
+                        eDate: eDate,        //结束时间
                     },
                     success: function (data) {
                         console.log((data));
@@ -584,48 +592,6 @@
 
             }
         }
-    });
-    $(function() {
-
-        //参考结构
-        /*
-         myChart.showLoading();    //数据加载完之前先显示一段简单的loading动画
-         var names = [];    //类别数组（实际用来盛放X轴坐标值）
-         var series1 = [];
-         var series2 = [];
-         $.ajax({
-         type: 'get',
-         url: 'json/echarts/line/lineTwo.txt',//请求数据的地址
-         dataType: "json",        //返回数据形式为json
-         success: function (result) {
-         //请求成功时执行该函数内容，result即为服务器返回的json对象
-         $.each(result.jinJian, function (index, item) {
-         names.push(item.AREA);    //挨个取出类别并填入类别数组
-         series1.push(item.LANDNUM);
-         });
-         $.each(result.banJie, function (index, item) {
-         series2.push(item.LANDNUM);
-         });
-         myChart.hideLoading();    //隐藏加载动画
-         myChart.setOption({        //加载数据图表
-         xAxis: {
-         data: names
-         },
-         series: [{
-         data: series1
-         },
-         {
-         data: series2
-         }]
-         });
-         },
-         error: function (errorMsg) {
-         //请求失败时执行该函数
-         alert("图表请求数据失败!");
-         myChart.hideLoading();
-         }
-         });
-         */
     });
 
 

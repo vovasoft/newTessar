@@ -303,46 +303,6 @@ public class debugTest {
 
     }
 
-//    @Test
-//    public void insertMongoBigTable() throws ParseException {
-//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//ObjectId("5a  40  c2  67  70  70  93  40  48  20  52  65")
-//        Date time = new Date();
-//        System.out.println(time.getTime());
-//
-//        System.out.println(simpleDateFormat.format(time));
-//        String timeID = simpleDateFormat.format(time);
-//
-//        //初始化大表数据，ID为创建日期的time
-//        long timeIDLong = simpleDateFormat.parse(timeID).getTime();
-//        int dayNum = 60;
-//        long[] dayArray = new long[dayNum];
-//
-//
-//        BigTable bt1 = new BigTable(timeIDLong, dayArray, dayNum);
-//
-//        timeIDLong = simpleDateFormat.parse("2017-01-01").getTime();
-//
-//        BigTable bt2 = new BigTable(timeIDLong, dayArray, dayNum);
-//        timeIDLong = simpleDateFormat.parse("2017-01-02").getTime();
-//        BigTable bt3 = new BigTable(timeIDLong, dayArray, dayNum);
-//        timeIDLong = simpleDateFormat.parse("2017-01-03").getTime();
-//        BigTable bt4 = new BigTable(timeIDLong, dayArray, dayNum);
-//        timeIDLong = simpleDateFormat.parse("2017-01-04").getTime();
-//        BigTable bt5 = new BigTable(timeIDLong, dayArray, dayNum);
-//
-//
-//        //   System.out.println("daylist"+dayArray);
-//
-//        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
-//        MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
-//
-//        mongoTemplate.insert(bt1);
-//        mongoTemplate.insert(bt2);
-//        mongoTemplate.insert(bt3);
-//        mongoTemplate.insert(bt4);
-//
-//    }
 
     @Test
     public void weekDate() {

@@ -1,0 +1,98 @@
+package com.vova.tessarwebserver.Scheduled;
+
+
+import com.google.gson.Gson;
+import com.vova.tessarwebserver.dbmapper.AllInOneMapper;
+import lombok.extern.slf4j.Slf4j;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.List;
+
+/**
+ * @author: Vova
+ * @create: date 10:32 2018/1/11
+ */
+
+@Slf4j
+@Component
+public class ScheduledAPI {
+    @Autowired
+    private AllInOneMapper allInOneMapper;
+
+    static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+    @Scheduled(cron="0 0/2 8-20 * * ?")
+    public void executeFileDownLoadTask() {
+
+        // 间隔2分钟,执行工单上传任务
+        Thread current = Thread.currentThread();
+        System.out.println("定时任务1:"+current.getId());
+        log.info("ScheduledTest.executeFileDownLoadTask 定时任务1:"+current.getId()+ ",name:"+current.getName());
+    }
+
+    @Scheduled(cron="0 0/5 * * * ?")
+    public void executeUploadTask() throws IOException {
+
+        // 间隔1分钟,执行工单上传任务
+        Thread current = Thread.currentThread();
+        System.out.println("定时任务2:"+current.getId());
+        log.info("ScheduledTest.executeUploadTask 定时任务2:"+current.getId() + ",name:"+current.getName());
+        long curTime= System.currentTimeMillis();
+        String curStr = sdf.format(curTime);
+
+        log.info(curStr);
+
+        Gson gson = new Gson();
+        String url= AdConfig.BASEURL+ AdConfig.ACCOUNT_ID+AdConfig.APP +
+                "fields="+ AdConfig.ALLINONE +
+                "&time_range="+gson.toJson(new TimeRange(curStr,curStr))+
+                "&access_token="+ AdConfig.ACCESS_TOKEN+"&level=ad";
+
+        log.info("url:"+url);
+        OkHttpClient okHttpClient = new OkHttpClient();
+        Request request = new Request.Builder().get().url(url).build();
+        Response response = okHttpClient.newCall(request).execute();
+        ResponseBody responseBody=response.body();
+        try {
+            String res = responseBody.string();
+            log.info(res);
+            FB_JSON fb_json = gson.fromJson(res,FB_JSON.class);
+            System.out.println(fb_json);
+            for (Fb_Ad fb : fb_json.data) {
+                List<Fb_Ad> fb_Lists=allInOneMapper.findFb_Ad(curStr,fb.getAd_id());
+                if (fb_Lists.size() == 0) {
+                    log.info("allInOneMapper.InsertFB(fb)");
+                    allInOneMapper.InsertFB(fb);
+                }else{
+                    log.info("allInOneMapper.updateFb_Ad(fb);");
+                    allInOneMapper.updateFb_Ad(fb);
+                }
+
+
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Scheduled(cron="0 0/3 5-23 * * ?")
+    public void executeUploadBackTask() {
+
+        // 间隔3分钟,执行工单上传任务
+        Thread current = Thread.currentThread();
+        System.out.println("定时任务3:"+current.getId());
+        log.info("ScheduledTest.executeUploadBackTask 定时任务3:"+current.getId()+ ",name:"+current.getName());
+    }
+
+}

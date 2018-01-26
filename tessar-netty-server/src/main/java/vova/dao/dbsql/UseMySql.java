@@ -25,18 +25,6 @@ import java.util.Random;
 public class UseMySql {
     static String resoure = "batis-conf.xml";
 
-    //   public  void insert() throws IOException {
-//    public void utilSQL(Class clazz,Object object, EnumSQL operate) throws IOException {
-//     //   String resoure = "batis-conf.xml";
-//        InputStream inputStream = Resources.getResourceAsStream(resoure);
-//        SqlSessionFactory sf = new SqlSessionFactoryBuilder().build(inputStream);
-//        SqlSession ss = sf.openSession();
-//        switch (operate) {
-//
-//        }
-//        ss.commit();
-//        ss.close();
-//    }
 
     public Object utilSQL(Class clazz, EnumSQL operate, Object object )throws IOException{
     //    String resoure = "batis-conf.xml";

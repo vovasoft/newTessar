@@ -7,6 +7,7 @@ package com.vova.tessarwebserver.controler;
 
 
 import com.vova.tessarwebserver.dbmapper.AllInOneMapper;
+import com.vova.tessarwebserver.domain.initdata.CidList;
 import com.vova.tessarwebserver.domain.initdata.SelectList;
 import com.vova.tessarwebserver.domain.initdata.InitJson;
 import com.vova.tessarwebserver.domain.newadd.NewAddDay;
@@ -21,6 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.tools.Tool;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -40,51 +42,95 @@ public class ControlerGame {
 
     @Autowired
     private AllInOneMapper allInOneMapper;
-  //  static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
+    //  static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 
     //getGameDate
     @GetMapping("/getGameDate")
     @ResponseBody
-    Object getGameDate(@RequestParam String app,@RequestParam String cid,@RequestParam String gid,@RequestParam String sid,@RequestParam String sDate,@RequestParam String eDate) throws ParseException {
+    Object getGameDate(@RequestParam String app, @RequestParam String cid, @RequestParam String gid, @RequestParam String sid, @RequestParam String sDate, @RequestParam String eDate) throws ParseException {
         try {
             List<NewAddDay> nadList = null;
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 
             nadList = allInOneMapper.findCGSNewAddListByTimes(app,
-                    cid!=""?cid:null,
-                    gid!=""?gid:null,
-                    sid!=""?sid:null,sdf.parse(sDate),sdf.parse(eDate));
+                    cid != "" ? cid : null,
+                    gid != "" ? gid : null,
+                    sid != "" ? sid : null, sdf.parse(sDate), sdf.parse(eDate));
             ArrayList<NewAddJson> nj = new ArrayList<>();
-            for (int i=0;i<nadList.size();i++) {
+            for (int i = 0; i < nadList.size(); i++) {
                 NewAddDay nad = nadList.get(i);
-                nj.add(new NewAddJson(sdf.format(nad.getDateID()),nad.getNewAddNum(),nad.getActiveNum(),nad.getLoginCount(),nad.getAverageLogin(),nad.getAllPlayerNum()));
+                nj.add(new NewAddJson(sdf.format(nad.getDateID()), nad.getNewAddNum(), nad.getActiveNum(), nad.getLoginCount(), nad.getAverageLogin(), nad.getAllPlayerNum()));
             }
             return nj;
         } catch (Exception e) {
-           e.printStackTrace();
+            e.printStackTrace();
         }
         return null;
     }
 
     @GetMapping("/getStayDate")//留存表的一些处理，其中需要返回json的时候，最好将留存字段改写成数组的形式，如下所示，最长的那行代码。
     @ResponseBody
-    Object getStayDate(@RequestParam String app,@RequestParam String cid,@RequestParam String gid,@RequestParam String sid,@RequestParam String sDate,@RequestParam String eDate) throws ParseException {
+    Object getStayDate(@RequestParam String app, @RequestParam String cid, @RequestParam String gid, @RequestParam String sid, @RequestParam String sDate, @RequestParam String eDate) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-        List<StayParent> spList =  allInOneMapper.findCGSStayListByTimes(app,cid!=""?cid:null,
-                gid!=""?gid:null,
-                sid!=""?sid:null,sdf.parse(sDate),sdf.parse(eDate));
+        List<StayParent> spList = allInOneMapper.findCGSStayListByTimes(app, cid != "" ? cid : null,
+                gid != "" ? gid : null,
+                sid != "" ? sid : null, sdf.parse(sDate), sdf.parse(eDate));
         ArrayList<StayJson> sj = new ArrayList<>();
-        for (int i=0;i<spList.size();i++) {
+        for (int i = 0; i < spList.size(); i++) {
             StayParent sp = spList.get(i);
-            sj.add(new StayJson(sdf.format(sp.getDateID()),sp.getNewAddNum(),Tools.strToNumArrayScale(sp.getStayList(),",",sp.getNewAddNum()),Tools.strToNumArray(sp.getStayList(),",")));
+            String [] combinStr=Tools.combine2Str(Tools.strToNumArrayScale(sp.getStayList(), ",", sp.getNewAddNum()), Tools.strToStrArray(sp.getStayList(), ","));
+            sj.add(new StayJson(sdf.format(sp.getDateID()), sp.getNewAddNum(),combinStr));
         }
 
         return sj;
     }
 
-    @GetMapping("/getCGS")//留存表的一些处理，其中需要返回json的时候，最好将留存字段改写成数组的形式，如下所示，最长的那行代码。
+    @GetMapping("/getStayDateOnly")
+    @ResponseBody
+    Object getStayDateOnly(@RequestParam String app, @RequestParam String cid, @RequestParam String gid, @RequestParam String sid, @RequestParam String sDate, @RequestParam String eDate) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        List<StayParent> spList = allInOneMapper.findCGSStayListByTimes(app, cid != "" ? cid : null,
+                gid != "" ? gid : null,
+                sid != "" ? sid : null, sdf.parse(sDate), sdf.parse(eDate));
+        ArrayList<StayJson> sj = new ArrayList<>();
+        for (int i = 0; i < spList.size(); i++) {
+            StayParent sp = spList.get(i);
+//            String [] combinStr=Tools.combine2Str(Tools.strToNumArrayScale(sp.getStayList(), ",", sp.getNewAddNum()), Tools.strToStrArray(sp.getStayList(), ","));
+            sj.add(new StayJson(sdf.format(sp.getDateID()), sp.getNewAddNum(), Tools.strToStrArray(sp.getStayList(),",")));
+        }
+
+        return sj;
+    }
+    @GetMapping("/getGameDateFather")
+    @ResponseBody
+    Object getGameDateFather(@RequestParam String app, @RequestParam String father, @RequestParam String gid, @RequestParam String sid, @RequestParam String sDate, @RequestParam String eDate) throws ParseException {
+        try {
+
+            List<String> cNames = allInOneMapper.findCidsByFather("channellist", father);
+            List<NewAddDay> nadList = null;
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+            ArrayList<ArrayList<NewAddJson>> fatherList = new ArrayList<>();
+            for (String cName : cNames) {
+                nadList = allInOneMapper.findCGSNewAddListByTimes(app,
+                        cName != "" ? cName : null,
+                        gid != "" ? gid : null,
+                        sid != "" ? sid : null, sdf.parse(sDate), sdf.parse(eDate));
+                ArrayList<NewAddJson> nj = new ArrayList<>();
+                for (int i = 0; i < nadList.size(); i++) {
+                    NewAddDay nad = nadList.get(i);
+                    nj.add(new NewAddJson(sdf.format(nad.getDateID()), nad.getNewAddNum(), nad.getActiveNum(), nad.getLoginCount(), nad.getAverageLogin(), nad.getAllPlayerNum()));
+                }
+                fatherList.add(nj);
+            }
+            return fatherList;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @GetMapping("/getCGS")
     @ResponseBody
     Object getCGS() {
         InitJson ij = new InitJson();
@@ -109,7 +155,7 @@ public class ControlerGame {
         }
         ij.setsNames(str);
 
-        return  ij;
+        return ij;
 
     }
 

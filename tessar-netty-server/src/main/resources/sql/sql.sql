@@ -6,6 +6,25 @@ CREATE TABLE user (
 
 
 
+create TABLE AdFb
+(id int PRIMARY KEY auto_increment
+,date_start DATE
+,date_stop DATE
+,account_currency VARCHAR (64)
+,account_name VARCHAR (64)
+,ad_id VARCHAR (64)
+,ad_name VARCHAR (64)
+,adset_id VARCHAR (64)
+,adset_name VARCHAR (64)
+,campaign_id VARCHAR (64)
+,campaign_name VARCHAR (64)
+,clicks VARCHAR (64)
+,ctr VARCHAR (64)
+,impressions VARCHAR (64)
+,spend VARCHAR (64)
+,total_action_value VARCHAR (64)
+);
+
 create TABLE PayMentDay
 (id int PRIMARY KEY auto_increment
 ,dateID DATE

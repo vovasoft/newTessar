@@ -41,25 +41,12 @@ public class UseMyMongo {
 
     //插入数据
     public void insertMongo(Object object) throws ParseException {
-//        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");//小写的mm表示的是分钟
-//        MongoTest customer1 = new MongoTest("vov1a","wang",sdf.parse("2018-05-17"));
-//        MongoTest customer2 = new MongoTest("vov2a","wang",sdf.parse("2018-05-18"));
-//        MongoTest customer3 = new MongoTest("vov3a","wang",sdf.parse("2018-05-21"));
-
         ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         mongoTemplate.insert(object);
-//        mongoTemplate.insert(customer2);
-//        mongoTemplate.insert(customer3);
     }
 
-//    private String uid;
-//    private long regdate;
-//    private long lastdate;
-//    private String channel_from;
-//    private String gid;
-//    private String sub;
-//    private String sid;
+
 
     //Find count of all players by ID distinct;
     public int findPlayerCountInMongo(String collectionName, String id) {
@@ -126,9 +113,6 @@ public class UseMyMongo {
 
         Date mondayOfDate = Tools.getMondayOfDate(loginDate);
         Date sundayOfDate = Tools.getSundayOfDate(loginDate);
-        //system.out.println("mondayOfDate........." + mondayOfDate);
-        //system.out.println("sundayOfDate........." + sundayOfDate);
-
         ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         Query query = new Query();

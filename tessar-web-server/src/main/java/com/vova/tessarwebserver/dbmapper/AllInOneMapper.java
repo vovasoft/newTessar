@@ -2,7 +2,9 @@ package com.vova.tessarwebserver.dbmapper;
 
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.vova.tessarwebserver.Scheduled.Fb_Ad;
 import com.vova.tessarwebserver.domain.User;
+import com.vova.tessarwebserver.domain.initdata.CidList;
 import com.vova.tessarwebserver.domain.initdata.SelectList;
 import com.vova.tessarwebserver.domain.newadd.NewAddDay;
 import com.vova.tessarwebserver.domain.payment.PayAllShow;
@@ -58,6 +60,8 @@ public interface AllInOneMapper {
     @Select("select * from ${tableName}")
     List<SelectList> findCGS(@Param("tableName") String tableName);
 
+    @Select("select distinct name from ${tableName} where fathername = #{name}")
+    List<String> findCidsByFather(@Param("tableName") String tableName, @Param("name") String name);
 
     //gid sid
     @Insert("insert into ${tableName} (name) value(#{name})")
@@ -67,11 +71,43 @@ public interface AllInOneMapper {
     @Insert("insert into ${tableName} (name,fathername) values(#{name}, #{fathercid})")
     int InsertCID(@Param("tableName") String tableName, @Param("name") String name, @Param("fathercid") String fathercid);
 
+
+    @Insert("insert into AdFb (account_currency,account_name,ad_id," +
+            "ad_name,adset_id,adset_name,campaign_id,campaign_name," +
+            "clicks,ctr,date_start,date_stop,impressions,spend," +
+            "total_action_value)" +
+            " values(#{account_currency},#{account_name},#{ad_id}," +
+            "#{ad_name},#{adset_id},#{adset_name},#{campaign_id}," +
+            "#{campaign_name},#{clicks},#{ctr},#{date_start},#{date_stop},#{impressions},#{spend}," +
+            "#{total_action_value})")
+    int InsertFB(Fb_Ad fb_ad);
+
+    @Select("select * from AdFb where date_start = #{date_start} and ad_id = #{ad_id}")
+    List<Fb_Ad> findFb_Ad(@Param("date_start") String date_start ,@Param("ad_id") String ad_id);
+
+    @Update("UPDATE AdFb SET " +
+            "account_currency=#{account_currency}," +
+            "account_name=#{account_name}," +
+            "ad_name=#{ad_name}," +
+            "adset_id=#{adset_id}," +
+            "adset_name=#{adset_name}," +
+            "campaign_id=#{campaign_id}," +
+            "campaign_name=#{campaign_name}," +
+            "clicks=#{clicks}," +
+            "ctr=#{ctr}," +
+            "impressions=#{impressions}," +
+            "spend=#{spend}," +
+            "total_action_value=#{total_action_value}" +
+            " where date_start = #{date_start} and ad_id = #{ad_id}")
+    int updateFb_Ad(Fb_Ad fb_ad);
+
+
+
     @Delete("DELETE FROM ${tableName} where id = #{id}")
     int deleteCGS(@Param("tableName") String tableName, @Param("id") int id);
 
     @Update("UPDATE ${tableName} SET fathername=#{fathername} where name=#{name}")
-    int updateCGS(@Param("tableName") String tableName,@Param("name") String name, @Param("fathername") String fathername);
+    int updateCGS(@Param("tableName") String tableName, @Param("name") String name, @Param("fathername") String fathername);
 
     //
     @Select("<script>" +

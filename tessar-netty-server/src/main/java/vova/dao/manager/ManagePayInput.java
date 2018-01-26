@@ -54,6 +54,7 @@ public class ManagePayInput {
 
         Date payDate = Tools.secToDateByFormat(payTime);
         Date firstPayDate = null;
+        log.info("payReceive---"+"uid:"+uid+",gid:"+gid+",payDate:"+payDate);
 
         Player tmpPlayer = new Player();
         tmpPlayer.setUid(uid);
@@ -242,6 +243,7 @@ public class ManagePayInput {
                         sid,
                         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
                 mys.utilSQL(clazz, EnumSQL.INSERT, newLine);
+                log.info("##Insert a new row##:"+clazzName);
                 newLine=null;
                 tmp1 = (PayAllShow) mys.utilSQL(clazz, EnumSQL.SELECT, findSeed);
             }

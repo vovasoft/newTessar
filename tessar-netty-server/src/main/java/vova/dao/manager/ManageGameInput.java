@@ -39,26 +39,19 @@ public class ManageGameInput {
         ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         UseMyMongo umm = (UseMyMongo) ac.getBean("useMyMongo");
         UseMySql mys = (UseMySql) ac.getBean("useMySql");
-        System.out.println("Thread=========================" + this);
         String uid = player.getUid();  //获取当前用户id
         Date uLoginDate = Tools.secToDateByFormat(player.getLastdate());//获取登录日期
         Date uRegDate = Tools.secToDateByFormat(player.getRegdate()); //获取注册信息
         String cid = player.getCid();
         String gid = player.getGid();
         String sid = player.getSid();
-        //判断登录时间是否为当日首次
+        log.info("Player---"+"uid:"+uid+",uLoginDate:"+uLoginDate+",uRegDate:"+uRegDate);
         boolean isExistDay = umm.findDayInMongo(player);
-
-        //判断登录时间是否为当周首次
         boolean isExistWeek = umm.findWeekInMongo(player);
-
-        //判断登录时间是否为当月首次
         boolean isExistMon = umm.findMonInMongo(player);
 
         //记录活跃用户增加
         int activeDay = isExistDay ? 0 : 1, activeMon = isExistMon ? 0 : 1, activeWeek = isExistWeek ? 0 : 1;
-
-        //登录次数，直接+1；
         int loginCount = 1;
 
         //记录新增的数值
@@ -78,7 +71,6 @@ public class ManageGameInput {
             //System.out.println("注册和登录时间一致");
             newAddMonNum = 1;
         }
-        System.out.println("Thread=========================" + this);
         //判断三个表是否存在当日当周当月词条，如果没有则insert
         NewAddDay tmp1 = (NewAddDay) findOrCreate(uLoginDate, cid, gid, sid, mys, NewAddDay.class);
         NewAddWeek tmp2 = (NewAddWeek) findOrCreate(uLoginDate, cid, gid, sid, mys, NewAddWeek.class);
@@ -118,7 +110,6 @@ public class ManageGameInput {
         int i1 = ManageStay.manageStayData(uRegDate, uLoginDate,cid,gid,sid,newAddDayNum,isExistDay,isExistWeek,isExistMon,mys, StayDay.class);
         int i2 = ManageStay.manageStayData(uRegDate, uLoginDate,cid,gid,sid,newAddWeekNum,isExistDay,isExistWeek,isExistMon,mys, StayWeek.class);
         int i3 = ManageStay.manageStayData(uRegDate, uLoginDate,cid,gid,sid,newAddMonNum,isExistDay,isExistWeek,isExistMon,mys, StayMon.class);
-        log.info("StayData done||"+"i1"+i1+",i2"+i2+",i3"+i3);
 
         //原始数据存入mongodb
         try {
@@ -148,13 +139,14 @@ public class ManageGameInput {
             findSeed.setsID(sid);
             findSeed.setDateID(thisDate);
             NewAdd tmp1 = (NewAdd) mys.utilSQL(clazz, EnumSQL.SELECT, findSeed);
-            if (tmp1 == null) {    //新增表中行不存在则需要增加行
+            if (tmp1 == null) {
                 NewAdd newLine = new NewAdd(0, thisDate,
                         cid,
                         gid,
                         sid,
                         0, 0, 0, 0, 0);
                 mys.utilSQL(clazz,EnumSQL.INSERT,newLine);
+                log.info("##Insert a new row##:"+clazzName);
                 tmp1 = (NewAdd) mys.utilSQL(clazz, EnumSQL.SELECT, findSeed);
             }
             return tmp1;

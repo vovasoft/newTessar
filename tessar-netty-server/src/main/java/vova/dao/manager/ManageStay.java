@@ -19,7 +19,7 @@ public class ManageStay {
     }
 
     private static Lock lock = new ReentrantLock();// 锁对象
-
+    private static final org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(ManagePayInput.class);
     public static int manageStayData(Date firstDate, Date lastDate, String cid, String gid, String sid, int newAddSomeNum, boolean dayExist, boolean weekExist, boolean MonExist,
                                      UseMySql mys, Class clazz) throws IOException {
 
@@ -63,6 +63,7 @@ public class ManageStay {
                             0,
                             stayStr);
                     mys.utilSQL(clazz, EnumSQL.INSERT, sp);
+                    log.info("##Insert a new row##:"+clazzName);
                     tmp = (StayParent) mys.utilSQL(clazz, EnumSQL.SELECT, findSeed);
                 }
                 if (flag == 1) {

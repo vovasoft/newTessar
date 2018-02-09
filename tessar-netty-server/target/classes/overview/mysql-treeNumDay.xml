@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ThreeNumDay">
+    <!-- 定义insert语句 -->
+
+    <insert id="insert" useGeneratedKeys="false" keyProperty="id">
+        insert into ThreeNumDay (dateID,cID,gID,sID,newAddFirstPayNum,activePayNum,newAddPayRate)
+        values (#{dateID},#{cID},#{gID},#{sID},#{newAddFirstPayNum},#{activePayNum},#{newAddPayRate})
+    </insert>
+
+
+    <select id="findByObject" resultType="_ThreeNumDay">
+        select * from ThreeNumDay where dateID = #{dateID} AND cID = #{cID} AND gID = #{gID} AND sID = #{sID}  limit 1
+    </select>
+
+    <update id="update">
+        update ThreeNumDay set newAddFirstPayNum=#{newAddFirstPayNum}, activePayNum=#{activePayNum}, newAddPayRate=#{newAddPayRate}
+        where id=#{id}
+    </update>
+
+</mapper>

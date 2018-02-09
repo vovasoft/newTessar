@@ -26,10 +26,5 @@
         select COUNT(dateID) from NewAddMon where cID = #{cID} AND gID = #{gID} AND sID = #{sID}
     </select>
 
-    <!--<resultMap id="user" type="_User">-->
-        <!--<id column="cid" property="id" />-->
-        <!--<result column="name" property="name" />-->
-        <!--<result column="age" property="age" />-->
-    <!--</resultMap>-->
 
 </mapper>

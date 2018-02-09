@@ -1,3 +1,0 @@
-@call %cd%\package\package2.bat
-
-pause

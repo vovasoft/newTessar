@@ -25,6 +25,40 @@ create TABLE AdFb
 ,total_action_value VARCHAR (64)
 );
 
+create TABLE ThreeNumDay
+(id int PRIMARY KEY auto_increment
+,dateID DATE
+,cId VARCHAR (64)
+,gId VARCHAR (64)
+,sId VARCHAR (64)
+,newAddFirstPayNum INT
+,activePayNum INT
+,newAddPayRate FLOAT
+);
+create TABLE ThreeNumWeek
+(id int PRIMARY KEY auto_increment
+,dateID DATE
+,cId VARCHAR (64)
+,gId VARCHAR (64)
+,sId VARCHAR (64)
+,newAddFirstPayNum INT
+,activePayNum INT
+,newAddPayRate FLOAT
+);
+
+create TABLE ThreeNumMon
+(id int PRIMARY KEY auto_increment
+,dateID DATE
+,cId VARCHAR (64)
+,gId VARCHAR (64)
+,sId VARCHAR (64)
+,newAddFirstPayNum INT
+,activePayNum INT
+,newAddPayRate FLOAT
+);
+
+
+
 create TABLE PayMentDay
 (id int PRIMARY KEY auto_increment
 ,dateID DATE
@@ -211,19 +245,16 @@ create table serverlist
 ,name VARCHAR (64)
 );
 
---INSERT
-insert into channellist (name) value('aaaaaa');
-insert into channellist (name) value('bbbbbb');
-insert into channellist (name) value('cccccc');
 
+create table ChannelFactory
+(id int PRIMARY KEY auto_increment
+,cid VARCHAR (32)
+,pcid VARCHAR (32)
+,img VARCHAR (64)
+,des VARCHAR (256)
+,tags VARCHAR (128)
+);
+  <context:component-scan base-package="vova"/>
 
-
-insert into gamelist (name) value('game1');
-insert into gamelist (name) value('game2');
-insert into gamelist (name) value('game3');
-
-
-insert into serverlist (name) value('s1');
-insert into serverlist (name) value('s2');
-insert into serverlist (name) value('s3');
-
+    <context:property-placeholder location="classpath:*.properties"
+                                  ignore-unresolvable="true"/>

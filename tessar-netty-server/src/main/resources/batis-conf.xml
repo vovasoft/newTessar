@@ -6,6 +6,7 @@
 <configuration>
     <properties>
         <property name="driver" value="com.mysql.jdbc.Driver"/>
+        <!--<property name="url" value="jdbc:mysql://localhost:3306/db1"/>-->
         <property name="url" value="jdbc:mysql://192.168.10.102:3306/db1"/>
         <property name="username" value="root"/>
         <property name="password" value="root"/>
@@ -24,6 +25,9 @@
         <typeAlias type="vova.domain.staypay.StayPayDay" alias="_StayPayDay"/>
         <typeAlias type="vova.domain.staypay.StayPayMon" alias="_StayPayMon"/>
         <typeAlias type="vova.domain.staypay.StayPayWeek" alias="_StayPayWeek"/>
+        <typeAlias type="vova.domain.overview.ThreeNumDay" alias="_ThreeNumDay"/>
+        <typeAlias type="vova.domain.overview.ThreeNumMon" alias="_ThreeNumMon"/>
+        <typeAlias type="vova.domain.overview.ThreeNumWeek" alias="_ThreeNumWeek"/>
     </typeAliases>
 
     <environments default="development">
@@ -51,5 +55,8 @@
         <mapper resource="staypay/mysql-StayPayDay.xml"/>
         <mapper resource="staypay/mysql-StayPayWeek.xml"/>
         <mapper resource="staypay/mysql-StayPayMon.xml"/>
+        <mapper resource="overview/mysql-treeNumDay.xml"/>
+        <mapper resource="overview/mysql-treeNumWeek.xml"/>
+        <mapper resource="overview/mysql-treeNumMon.xml"/>
     </mappers>
 </configuration>

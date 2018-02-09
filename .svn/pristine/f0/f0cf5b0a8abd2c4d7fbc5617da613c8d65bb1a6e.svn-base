@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <body>
+
+        <h1>Spring Boot file upload example</h1>
+
+        <form method="POST" action="/channel/upload?cid=1,pcid=1,des=aa,tags=pp" enctype="multipart/form-data">
+            <input type="file" name="file" /><br/><br/>
+            <input type="submit" value="Submit" />
+        </form>
+
+    </body>
+</html>

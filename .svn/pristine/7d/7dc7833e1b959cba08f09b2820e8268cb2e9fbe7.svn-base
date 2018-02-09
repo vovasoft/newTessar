@@ -1,0 +1,161 @@
+package vova.dao.manager;
+
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import vova.dao.dbmongo.UseMyMongo;
+import vova.dao.dbsql.UseMySql;
+import vova.dao.dbsql.EnumSQL;
+import vova.domain.Player;
+import vova.domain.newadd.NewAdd;
+import vova.domain.newadd.NewAddDay;
+import vova.domain.newadd.NewAddMon;
+import vova.domain.newadd.NewAddWeek;
+import org.springframework.stereotype.Component;
+import vova.domain.stayman.StayDay;
+import vova.domain.stayman.StayMon;
+import vova.domain.stayman.StayWeek;
+import vova.util.Tools;
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.Date;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+/**
+ * @author: Vova
+ * @create: date 13:49 2017/12/26
+ */
+
+@Component
+public class ManageGameInput {
+
+    private static Lock lock = new ReentrantLock();// 锁对象
+    private static final org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(ManagePayInput.class);
+    public ManageGameInput() {
+    }
+
+    public int HandPlayerData(Player player) throws IOException, ParseException {
+        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+        UseMyMongo umm = (UseMyMongo) ac.getBean("useMyMongo");
+        UseMySql mys = (UseMySql) ac.getBean("useMySql");
+        String uid = player.getUid();  //获取当前用户id
+        Date uLoginDate = Tools.secToDateByFormat(player.getLastdate());//获取登录日期
+        Date uRegDate = Tools.secToDateByFormat(player.getRegdate()); //获取注册信息
+        long uLoginL = player.getLastdate();
+        long uRegL = player.getRegdate();
+        String cid = player.getCid();
+        String gid = player.getGid();
+        String sid = player.getSid();
+        log.info("Player---"+"uid:"+uid+",uLoginDate:"+uLoginDate+",uRegDate:"+uRegDate);
+        boolean isExistDay = umm.findDayInMongo(player);
+        boolean isExistWeek = umm.findWeekInMongo(player);
+        boolean isExistMon = umm.findMonInMongo(player);
+
+        //记录活跃用户增加
+        int activeDay = isExistDay ? 0 : 1, activeMon = isExistMon ? 0 : 1, activeWeek = isExistWeek ? 0 : 1;
+        int loginCount = 1;
+
+        //记录新增的数值
+        int newAddDayNum = 0, newAddWeekNum = 0, newAddMonNum = 0;
+        System.out.println("uLoginDate:"+uLoginDate+", uRegDate"+uRegDate+", isExistDay"+isExistDay);
+        System.out.println("uLoginDate:"+uLoginDate+", uRegDate"+uRegDate+", isExistWeek"+isExistWeek);
+        System.out.println("uLoginDate:"+uLoginDate+", uRegDate"+uRegDate+", isExistMon"+isExistMon);
+        if (uLoginDate.equals(uRegDate) && !isExistDay) {
+            //System.out.println("注册和登录时间一致");
+            newAddDayNum = 1;
+        }
+        if (uLoginDate.equals(uRegDate) && !isExistWeek) {
+            //System.out.println("注册和登录时间一致");
+            newAddWeekNum = 1;
+        }
+        if (uLoginDate.equals(uRegDate) && !isExistMon) {
+            //System.out.println("注册和登录时间一致");
+            newAddMonNum = 1;
+        }
+        //判断三个表是否存在当日当周当月词条，如果没有则insert
+        NewAddDay tmp1 = (NewAddDay) findOrCreate(uLoginDate, cid, gid, sid, mys, NewAddDay.class);
+        NewAddWeek tmp2 = (NewAddWeek) findOrCreate(uLoginDate, cid, gid, sid, mys, NewAddWeek.class);
+        NewAddMon tmp3 = (NewAddMon) findOrCreate(uLoginDate, cid, gid, sid, mys, NewAddMon.class);
+
+        //计算玩家总数，计入到数据中,需要判断该用户是否注册过（服务器开启之前等用户）   //如果数据库无数据并且两次登录时间不一样，秒级别计算
+        if (uLoginL!=uRegL){
+            if (umm.findRegister(player)==null){
+                //umm.insertMongo(player);
+                Player regPlayer = new Player(uid,player.getRegdate(),player.getRegdate(),cid,gid,player.getSub(),sid);
+                HandPlayerData(regPlayer);
+            }
+        }
+
+
+        long allPlayerCount = umm.findPlayerCountInMongo("player", "uid");   //传递一个参数名称，用于去重
+        //处理完表之后，往表中增加数据。
+        //更新日增表
+        Integer dayCount = (Integer) mys.utilSQL(Integer.class, EnumSQL.GETCOUNT, tmp1);
+        NewAddDay updateDay = new NewAddDay(tmp1.getId(), uLoginDate, cid, gid, sid, newAddDayNum,
+                activeDay, loginCount, (float) (((tmp1.getLoginCount()+loginCount) * 1.0) / dayCount), allPlayerCount + newAddDayNum);
+        mys.utilSQL(NewAddDay.class,EnumSQL.UPDATE,updateDay);
+
+        //更新周增表
+        Integer weekCount = (Integer) mys.utilSQL(Integer.class, EnumSQL.GETCOUNT, tmp2);
+        NewAddWeek updateWeek = new NewAddWeek(tmp2.getId(), uLoginDate, cid, gid, sid, newAddWeekNum,
+                activeWeek, loginCount, (float) (((tmp2.getLoginCount()+loginCount) * 1.0) / weekCount), allPlayerCount + newAddWeekNum);
+        mys.utilSQL(NewAddWeek.class, EnumSQL.UPDATE,updateWeek);
+
+        //更新月增表
+        Integer monthCount = (Integer) mys.utilSQL(Integer.class, EnumSQL.GETCOUNT, tmp3);
+        NewAddMon updateMon = new NewAddMon(tmp3.getId(), uLoginDate, cid, gid, sid, newAddWeekNum,
+                activeMon, loginCount, (float) (((tmp3.getLoginCount()+loginCount)* 1.0) / monthCount), allPlayerCount + newAddMonNum);
+        mys.utilSQL(NewAddMon.class, EnumSQL.UPDATE,updateMon);
+
+        //处理留存逻辑
+        int i1 = ManageStay.manageStayData(uRegDate, uLoginDate,cid,gid,sid,newAddDayNum,isExistDay,isExistWeek,isExistMon,mys, StayDay.class);
+        int i2 = ManageStay.manageStayData(uRegDate, uLoginDate,cid,gid,sid,newAddWeekNum,isExistDay,isExistWeek,isExistMon,mys, StayWeek.class);
+        int i3 = ManageStay.manageStayData(uRegDate, uLoginDate,cid,gid,sid,newAddMonNum,isExistDay,isExistWeek,isExistMon,mys, StayMon.class);
+
+        //原始数据存入mongodb
+        try {
+                umm.insertMongo(player);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    //查找增表某行是否存在，如果不存在则插入一个  删除了<T>如果有问题再加
+    private  NewAdd findOrCreate(Date uLoginDate, String cid, String gid, String sid, UseMySql mys, Class clazz) throws IOException {
+        try {
+            lock.lock();
+            String clazzName = clazz.getSimpleName();
+            Date thisDate = null;
+            if (clazzName.equals("NewAddDay")) {
+                thisDate = uLoginDate;
+            } else if (clazzName.equals("NewAddMon")){
+                thisDate = Tools.getFirstOfMonth(uLoginDate);
+            } else if (clazzName.equals("NewAddWeek")) {
+                thisDate = Tools.getMondayOfDate(uLoginDate);
+            }
+            NewAdd findSeed = new NewAdd();
+            findSeed.setcID(cid);
+            findSeed.setgID(gid);
+            findSeed.setsID(sid);
+            findSeed.setDateID(thisDate);
+            NewAdd tmp1 = (NewAdd) mys.utilSQL(clazz, EnumSQL.SELECT, findSeed);
+            if (tmp1 == null) {
+                NewAdd newLine = new NewAdd(0, thisDate,
+                        cid,
+                        gid,
+                        sid,
+                        0, 0, 0, 0, 0);
+                mys.utilSQL(clazz,EnumSQL.INSERT,newLine);
+                log.info("##Insert a new row##:"+clazzName);
+                tmp1 = (NewAdd) mys.utilSQL(clazz, EnumSQL.SELECT, findSeed);
+            }
+            return tmp1;
+        }finally {
+            lock.unlock();
+        }
+
+    }
+
+}

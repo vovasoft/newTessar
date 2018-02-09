@@ -1,0 +1,42 @@
+
+data = ''
+webUrl = 'tessar-web-server/src/main/resources/application.properties'
+with open(webUrl, 'r+',encoding="utf8") as f:
+    for line in f.readlines():
+        if(line.find('spring.datasource.url') != -1):
+        	line = line.replace('192.168.10.102','localhost')
+        if(line.find('spring.datasource.username') != -1):
+        	line = line.replace('root','tessar')
+        if(line.find('spring.datasource.password') != -1):
+        	line = line.replace("root","fnZxS18AbQH5OhLd")
+        data += line
+
+with open(webUrl, 'w+',encoding="utf8") as f:
+    f.writelines(data)
+ # 处理netty服务器配置文件切换/tessar-netty-server/src/main/resources/batis-conf.xml
+data = ''
+
+nettyUrl = 'tessar-netty-server/src/main/resources/batis-conf.xml'
+with open(nettyUrl, 'r+',encoding="utf8") as f:
+    for line in f.readlines():
+        if(line.find('<property name="url" value="jdbc:mysql') != -1):
+        	line = line.replace('192.168.10.102','localhost')
+        if(line.find('property name="username"') != -1):
+        	line = line.replace('root','tessar')
+        if(line.find('property name="password"') != -1):
+        	line = line.replace("root","fnZxS18AbQH5OhLd")
+        data += line
+
+with open(nettyUrl, 'w+',encoding="utf8") as f:
+    f.writelines(data)
+
+data = ''
+nettyUrlMongo = 'tessar-netty-server/src/main/resources/spring-mongodb.xml'
+with open(nettyUrlMongo, 'r+',encoding="utf8") as f:
+    for line in f.readlines():
+        if(line.find('constructor-arg name="host"') != -1):
+            line = line.replace('192.168.10.102','localhost')
+        data += line
+
+with open(nettyUrlMongo, 'w+',encoding="utf8") as f:
+    f.writelines(data)

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--这个配置文件是配置mysql的相关信息-->
+<configuration>
+    <properties>
+        <property name="driver" value="com.mysql.jdbc.Driver"/>
+        <!--<property name="url" value="jdbc:mysql://192.168.10.102:3306/db1"/>-->
+        <property name="url" value="jdbc:mysql://192.168.10.102:3306/db1"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </properties>
+    <!-- 定义类别名 -->
+    <!--<properties resource="jasypt.properties">-->
+        <!--<property name="driver" value="com.mysql.jdbc.Driver"/>-->
+        <!--&lt;!&ndash;<property name="url" value="jdbc:mysql://192.168.10.102:3306/db1"/>&ndash;&gt;-->
+        <!--<property name="url" value="$jdbc.driverUrl"/>-->
+        <!--<property name="username" value="${jdbc.username}"/>-->
+        <!--<property name="password" value="${jdbc.password}"/>-->
+    <!--</properties>-->
+    <typeAliases>
+        <typeAlias type="vova.domain.newadd.NewAddDay" alias="_NewAddDay"/>
+        <typeAlias type="vova.domain.newadd.NewAddWeek" alias="_NewAddWeek"/>
+        <typeAlias type="vova.domain.newadd.NewAddMon" alias="_NewAddMon"/>
+        <typeAlias type="vova.domain.stayman.StayDay" alias="_StayDay"/>
+        <typeAlias type="vova.domain.stayman.StayWeek" alias="_StayWeek"/>
+        <typeAlias type="vova.domain.stayman.StayMon" alias="_StayMon"/>
+        <typeAlias type="vova.domain.payment.PayMentDay" alias="_PayMentDay"/>
+        <typeAlias type="vova.domain.payment.PayMentWeek" alias="_PayMentWeek"/>
+        <typeAlias type="vova.domain.payment.PayMentMon" alias="_PayMentMon"/>
+        <typeAlias type="vova.domain.staypay.StayPayDay" alias="_StayPayDay"/>
+        <typeAlias type="vova.domain.staypay.StayPayMon" alias="_StayPayMon"/>
+        <typeAlias type="vova.domain.staypay.StayPayWeek" alias="_StayPayWeek"/>
+        <typeAlias type="vova.domain.overview.ThreeNumDay" alias="_ThreeNumDay"/>
+        <typeAlias type="vova.domain.overview.ThreeNumMon" alias="_ThreeNumMon"/>
+        <typeAlias type="vova.domain.overview.ThreeNumWeek" alias="_ThreeNumWeek"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${dirver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="password"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- 定义MYSQL映射配置文件 -->
+    <mappers>
+        <mapper resource="newadd/mysql-newaddDay.xml"/>
+        <mapper resource="newadd/mysql-newaddWeek.xml"/>
+        <mapper resource="newadd/mysql-newaddMon.xml"/>
+        <mapper resource="stayMan/mysql-StayDay.xml"/>
+        <mapper resource="stayMan/mysql-StayWeek.xml"/>
+        <mapper resource="stayMan/mysql-StayMon.xml"/>
+        <mapper resource="payment/mysql-PayMentDay.xml"/>
+        <mapper resource="payment/mysql-PayMentWeek.xml"/>
+        <mapper resource="payment/mysql-PayMentMon.xml"/>
+        <mapper resource="staypay/mysql-StayPayDay.xml"/>
+        <mapper resource="staypay/mysql-StayPayWeek.xml"/>
+        <mapper resource="staypay/mysql-StayPayMon.xml"/>
+        <mapper resource="overview/mysql-treeNumDay.xml"/>
+        <mapper resource="overview/mysql-treeNumWeek.xml"/>
+        <mapper resource="overview/mysql-treeNumMon.xml"/>
+    </mappers>
+</configuration>

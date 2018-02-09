@@ -1,0 +1,571 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 1582912 bytes for Chunk::new
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:390), pid=9620, tid=0x0000000000006eb0
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_151-b12) (build 1.8.0_151-b12)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.151-b12 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000001849e800):  JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=28336, stack(0x0000000018a20000,0x0000000018b20000)]
+
+Stack: [0x0000000018a20000,0x0000000018b20000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+Current CompileTask:
+C2: 109923 5461   !   4       org.springframework.core.type.classreading.CachingMetadataReaderFactory::getMetadataReader (115 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000000023083000 JavaThread "CleanCursors-118-thread-1" daemon [_thread_new, id=28296, stack(0x0000000000000000,0x0000000000000000)]
+  0x0000000023085800 JavaThread "cluster-ClusterId{value='5a7845836768e725942bb86b', description='null'}-localhost:27017" daemon [_thread_new, id=33660, stack(0x0000000000000000,0x0000000000000000)]
+  0x0000000023082800 JavaThread "CleanCursors-117-thread-1" daemon [_thread_new, id=30660, stack(0x0000000000000000,0x0000000000000000)]
+  0x000000001f70a800 JavaThread "cluster-ClusterId{value='5a7845836768e725942bb86a', description='null'}-localhost:27017" daemon [_thread_new, id=23084, stack(0x0000000000000000,0x0000000000000000)]
+  0x000000001f709800 JavaThread "CleanCursors-116-thread-1" daemon [_thread_new, id=30328, stack(0x0000000000000000,0x0000000000000000)]
+  0x000000001f70b000 JavaThread "cluster-ClusterId{value='5a7845836768e725942bb869', description='null'}-localhost:27017" daemon [_thread_new, id=29288, stack(0x0000000000000000,0x0000000000000000)]
+  0x000000001f709000 JavaThread "CleanCursors-115-thread-1" daemon [_thread_new, id=6044, stack(0x0000000000000000,0x0000000000000000)]
+  0x000000001f708000 JavaThread "cluster-ClusterId{value='5a7845836768e725942bb868', description='null'}-localhost:27017" daemon [_thread_new, id=25096, stack(0x0000000000000000,0x0000000000000000)]
+  0x000000001f707800 JavaThread "CleanCursors-114-thread-1" daemon [_thread_new, id=32220, stack(0x0000000000000000,0x0000000000000000)]
+  0x000000001f700000 JavaThread "cluster-ClusterId{value='5a7845836768e725942bb867', description='null'}-localhost:27017" daemon [_thread_new, id=25348, stack(0x0000000000000000,0x0000000000000000)]
+  0x000000001f703800 JavaThread "CleanCursors-113-thread-1" daemon [_thread_new, id=32184, stack(0x0000000000000000,0x0000000000000000)]
+  0x000000001f702000 JavaThread "cluster-ClusterId{value='5a7845836768e725942bb866', description='null'}-localhost:27017" daemon [_thread_new, id=19948, stack(0x0000000000000000,0x0000000000000000)]
+  0x000000001f701800 JavaThread "CleanCursors-112-thread-1" daemon [_thread_new, id=3740, stack(0x0000000000000000,0x0000000000000000)]
+  0x000000001f700800 JavaThread "cluster-ClusterId{value='5a7845826768e725942bb865', description='null'}-localhost:27017" daemon [_thread_new, id=15480, stack(0x0000000000000000,0x0000000000000000)]
+  0x000000001f706000 JavaThread "CleanCursors-111-thread-1" daemon [_thread_new, id=15344, stack(0x0000000000000000,0x0000000000000000)]
+  0x000000001f705000 JavaThread "cluster-ClusterId{value='5a7845826768e725942bb864', description='null'}-localhost:27017" daemon [_thread_blocked, id=18720, stack(0x000000002e140000,0x000000002e240000)]
+  0x000000001f703000 JavaThread "CleanCursors-110-thread-1" daemon [_thread_blocked, id=26700, stack(0x000000002e040000,0x000000002e140000)]
+  0x000000001f706800 JavaThread "cluster-ClusterId{value='5a7845826768e725942bb863', description='null'}-localhost:27017" daemon [_thread_blocked, id=28040, stack(0x000000002df40000,0x000000002e040000)]
+  0x000000001f704800 JavaThread "CleanCursors-109-thread-1" daemon [_thread_blocked, id=11276, stack(0x000000002de40000,0x000000002df40000)]
+  0x000000001f6f8800 JavaThread "cluster-ClusterId{value='5a7845826768e725942bb862', description='null'}-localhost:27017" daemon [_thread_blocked, id=29412, stack(0x000000002dd40000,0x000000002de40000)]
+  0x000000001f6ff000 JavaThread "CleanCursors-108-thread-1" daemon [_thread_blocked, id=14344, stack(0x000000002dc40000,0x000000002dd40000)]
+  0x000000001f6fe800 JavaThread "cluster-ClusterId{value='5a7845826768e725942bb861', description='null'}-localhost:27017" daemon [_thread_blocked, id=30424, stack(0x000000002db40000,0x000000002dc40000)]
+  0x000000001f6fd800 JavaThread "CleanCursors-107-thread-1" daemon [_thread_blocked, id=27296, stack(0x000000002da40000,0x000000002db40000)]
+  0x000000001f6f7000 JavaThread "cluster-ClusterId{value='5a7845826768e725942bb860', description='null'}-localhost:27017" daemon [_thread_blocked, id=35596, stack(0x000000002d940000,0x000000002da40000)]
+  0x000000001f6f6000 JavaThread "CleanCursors-106-thread-1" daemon [_thread_blocked, id=21608, stack(0x000000002d840000,0x000000002d940000)]
+  0x000000001f6fd000 JavaThread "cluster-ClusterId{value='5a7845826768e725942bb85f', description='null'}-localhost:27017" daemon [_thread_blocked, id=34704, stack(0x000000002d740000,0x000000002d840000)]
+  0x000000001f6f5800 JavaThread "CleanCursors-105-thread-1" daemon [_thread_blocked, id=16688, stack(0x000000002d640000,0x000000002d740000)]
+  0x000000001f6fc000 JavaThread "cluster-ClusterId{value='5a7845826768e725942bb85e', description='null'}-localhost:27017" daemon [_thread_blocked, id=18804, stack(0x000000002d540000,0x000000002d640000)]
+  0x000000001f6fb800 JavaThread "CleanCursors-104-thread-1" daemon [_thread_blocked, id=20472, stack(0x000000002d440000,0x000000002d540000)]
+  0x000000001f6fa000 JavaThread "cluster-ClusterId{value='5a7845816768e725942bb85d', description='null'}-localhost:27017" daemon [_thread_blocked, id=29712, stack(0x000000002d340000,0x000000002d440000)]
+  0x000000001f6fa800 JavaThread "CleanCursors-103-thread-1" daemon [_thread_blocked, id=30128, stack(0x000000002d240000,0x000000002d340000)]
+  0x000000001f6f9000 JavaThread "cluster-ClusterId{value='5a7845816768e725942bb85c', description='null'}-localhost:27017" daemon [_thread_blocked, id=14480, stack(0x000000002d140000,0x000000002d240000)]
+  0x000000001f6f7800 JavaThread "CleanCursors-102-thread-1" daemon [_thread_blocked, id=24040, stack(0x000000002d040000,0x000000002d140000)]
+  0x000000001f6ed800 JavaThread "cluster-ClusterId{value='5a7845816768e725942bb85b', description='null'}-localhost:27017" daemon [_thread_blocked, id=9256, stack(0x000000002cf40000,0x000000002d040000)]
+  0x000000001f6f4800 JavaThread "CleanCursors-101-thread-1" daemon [_thread_blocked, id=9632, stack(0x000000002ce40000,0x000000002cf40000)]
+  0x000000001f6f4000 JavaThread "cluster-ClusterId{value='5a7845816768e725942bb85a', description='null'}-localhost:27017" daemon [_thread_blocked, id=31008, stack(0x000000002cd40000,0x000000002ce40000)]
+  0x000000001f6ec000 JavaThread "CleanCursors-100-thread-1" daemon [_thread_blocked, id=32328, stack(0x000000002cc40000,0x000000002cd40000)]
+  0x000000001f6f1800 JavaThread "cluster-ClusterId{value='5a7845816768e725942bb859', description='null'}-localhost:27017" daemon [_thread_blocked, id=7648, stack(0x000000002cb40000,0x000000002cc40000)]
+  0x000000001f6ee800 JavaThread "CleanCursors-99-thread-1" daemon [_thread_blocked, id=27976, stack(0x000000002ca40000,0x000000002cb40000)]
+  0x000000001f6f3000 JavaThread "cluster-ClusterId{value='5a7845816768e725942bb858', description='null'}-localhost:27017" daemon [_thread_blocked, id=9788, stack(0x000000002c940000,0x000000002ca40000)]
+  0x000000001f6ed000 JavaThread "CleanCursors-98-thread-1" daemon [_thread_blocked, id=20836, stack(0x000000002c840000,0x000000002c940000)]
+  0x000000001f6f0000 JavaThread "cluster-ClusterId{value='5a7845816768e725942bb857', description='null'}-localhost:27017" daemon [_thread_blocked, id=29200, stack(0x000000002c740000,0x000000002c840000)]
+  0x000000001f6f2800 JavaThread "CleanCursors-97-thread-1" daemon [_thread_blocked, id=1864, stack(0x000000002c640000,0x000000002c740000)]
+  0x000000001f6f1000 JavaThread "cluster-ClusterId{value='5a7845816768e725942bb856', description='null'}-localhost:27017" daemon [_thread_blocked, id=31608, stack(0x000000002c540000,0x000000002c640000)]
+  0x000000001f6ef800 JavaThread "CleanCursors-96-thread-1" daemon [_thread_blocked, id=25836, stack(0x000000002c440000,0x000000002c540000)]
+  0x000000001f962000 JavaThread "cluster-ClusterId{value='5a7845816768e725942bb855', description='null'}-localhost:27017" daemon [_thread_blocked, id=8348, stack(0x000000002c340000,0x000000002c440000)]
+  0x000000001f960800 JavaThread "CleanCursors-95-thread-1" daemon [_thread_blocked, id=20020, stack(0x000000002c240000,0x000000002c340000)]
+  0x000000001f95f000 JavaThread "cluster-ClusterId{value='5a7845806768e725942bb854', description='null'}-localhost:27017" daemon [_thread_blocked, id=26156, stack(0x000000002c140000,0x000000002c240000)]
+  0x000000001f961000 JavaThread "CleanCursors-94-thread-1" daemon [_thread_blocked, id=23940, stack(0x000000002c040000,0x000000002c140000)]
+  0x000000001f959000 JavaThread "cluster-ClusterId{value='5a7845806768e725942bb853', description='null'}-localhost:27017" daemon [_thread_blocked, id=31776, stack(0x000000002bf40000,0x000000002c040000)]
+  0x000000001f95e000 JavaThread "CleanCursors-93-thread-1" daemon [_thread_blocked, id=33736, stack(0x000000002be40000,0x000000002bf40000)]
+  0x000000001f95f800 JavaThread "cluster-ClusterId{value='5a7845806768e725942bb852', description='null'}-localhost:27017" daemon [_thread_blocked, id=19024, stack(0x000000002bd40000,0x000000002be40000)]
+  0x000000001f95d800 JavaThread "CleanCursors-92-thread-1" daemon [_thread_blocked, id=22672, stack(0x000000002bc40000,0x000000002bd40000)]
+  0x000000001f956000 JavaThread "cluster-ClusterId{value='5a7845806768e725942bb851', description='null'}-localhost:27017" daemon [_thread_blocked, id=21804, stack(0x000000002bb40000,0x000000002bc40000)]
+  0x000000001f95c800 JavaThread "CleanCursors-91-thread-1" daemon [_thread_blocked, id=21768, stack(0x000000002ba40000,0x000000002bb40000)]
+  0x000000001f955000 JavaThread "cluster-ClusterId{value='5a7845806768e725942bb850', description='null'}-localhost:27017" daemon [_thread_blocked, id=32320, stack(0x000000002b940000,0x000000002ba40000)]
+  0x000000001f95c000 JavaThread "CleanCursors-90-thread-1" daemon [_thread_blocked, id=16880, stack(0x000000002b840000,0x000000002b940000)]
+  0x000000001f958000 JavaThread "cluster-ClusterId{value='5a7845806768e725942bb84f', description='null'}-localhost:27017" daemon [_thread_blocked, id=21500, stack(0x000000002b740000,0x000000002b840000)]
+  0x000000001f95b000 JavaThread "CleanCursors-89-thread-1" daemon [_thread_blocked, id=24764, stack(0x000000002b640000,0x000000002b740000)]
+  0x000000001f957800 JavaThread "cluster-ClusterId{value='5a7845806768e725942bb84e', description='null'}-localhost:27017" daemon [_thread_blocked, id=11284, stack(0x000000002b540000,0x000000002b640000)]
+  0x000000001f953800 JavaThread "CleanCursors-88-thread-1" daemon [_thread_blocked, id=26008, stack(0x000000002b440000,0x000000002b540000)]
+  0x000000001f95a800 JavaThread "cluster-ClusterId{value='5a7845806768e725942bb84d', description='null'}-localhost:27017" daemon [_thread_blocked, id=23056, stack(0x000000002b340000,0x000000002b440000)]
+  0x000000001f953000 JavaThread "CleanCursors-87-thread-1" daemon [_thread_blocked, id=20392, stack(0x000000002b240000,0x000000002b340000)]
+  0x000000001f954800 JavaThread "cluster-ClusterId{value='5a7845806768e725942bb84c', description='null'}-localhost:27017" daemon [_thread_blocked, id=2648, stack(0x000000002b140000,0x000000002b240000)]
+  0x000000001f956800 JavaThread "CleanCursors-86-thread-1" daemon [_thread_blocked, id=24212, stack(0x000000002b040000,0x000000002b140000)]
+  0x000000001f959800 JavaThread "cluster-ClusterId{value='5a7845806768e725942bb84b', description='null'}-localhost:27017" daemon [_thread_blocked, id=4480, stack(0x000000002af40000,0x000000002b040000)]
+  0x000000001ec62800 JavaThread "CleanCursors-85-thread-1" daemon [_thread_blocked, id=19560, stack(0x000000002ae40000,0x000000002af40000)]
+  0x000000001ec60800 JavaThread "cluster-ClusterId{value='5a7845806768e725942bb84a', description='null'}-localhost:27017" daemon [_thread_blocked, id=21716, stack(0x000000002ad40000,0x000000002ae40000)]
+  0x000000001ec5c800 JavaThread "CleanCursors-84-thread-1" daemon [_thread_blocked, id=30652, stack(0x000000002ac40000,0x000000002ad40000)]
+  0x000000001ec5f800 JavaThread "cluster-ClusterId{value='5a7845806768e725942bb849', description='null'}-localhost:27017" daemon [_thread_blocked, id=3292, stack(0x000000002ab40000,0x000000002ac40000)]
+  0x000000001ec62000 JavaThread "CleanCursors-83-thread-1" daemon [_thread_blocked, id=21312, stack(0x000000002aa40000,0x000000002ab40000)]
+  0x000000001ec5f000 JavaThread "cluster-ClusterId{value='5a78457f6768e725942bb848', description='null'}-localhost:27017" daemon [_thread_blocked, id=23664, stack(0x000000002a940000,0x000000002aa40000)]
+  0x000000001ec61000 JavaThread "CleanCursors-82-thread-1" daemon [_thread_blocked, id=8512, stack(0x000000002a840000,0x000000002a940000)]
+  0x000000001ec57800 JavaThread "cluster-ClusterId{value='5a78457f6768e725942bb847', description='null'}-localhost:27017" daemon [_thread_blocked, id=24380, stack(0x000000002a740000,0x000000002a840000)]
+  0x000000001ec59800 JavaThread "CleanCursors-81-thread-1" daemon [_thread_blocked, id=17116, stack(0x000000002a640000,0x000000002a740000)]
+  0x000000001ec58000 JavaThread "cluster-ClusterId{value='5a78457f6768e725942bb846', description='null'}-localhost:27017" daemon [_thread_blocked, id=17852, stack(0x000000002a540000,0x000000002a640000)]
+  0x000000001ec5e000 JavaThread "CleanCursors-80-thread-1" daemon [_thread_blocked, id=18280, stack(0x000000002a440000,0x000000002a540000)]
+  0x000000001ec5d800 JavaThread "cluster-ClusterId{value='5a78457f6768e725942bb845', description='null'}-localhost:27017" daemon [_thread_blocked, id=23368, stack(0x000000002a340000,0x000000002a440000)]
+  0x000000001ec5c000 JavaThread "CleanCursors-79-thread-1" daemon [_thread_blocked, id=35284, stack(0x000000002a240000,0x000000002a340000)]
+  0x000000001ec55000 JavaThread "cluster-ClusterId{value='5a78457f6768e725942bb844', description='null'}-localhost:27017" daemon [_thread_blocked, id=8948, stack(0x000000002a140000,0x000000002a240000)]
+  0x000000001ec56000 JavaThread "CleanCursors-78-thread-1" daemon [_thread_blocked, id=27048, stack(0x000000002a040000,0x000000002a140000)]
+  0x000000001ec5b000 JavaThread "cluster-ClusterId{value='5a78457f6768e725942bb843', description='null'}-localhost:27017" daemon [_thread_blocked, id=11340, stack(0x0000000029f40000,0x000000002a040000)]
+  0x000000001ec56800 JavaThread "CleanCursors-77-thread-1" daemon [_thread_blocked, id=27612, stack(0x0000000029e40000,0x0000000029f40000)]
+  0x000000001ec59000 JavaThread "cluster-ClusterId{value='5a78457f6768e725942bb842', description='null'}-localhost:27017" daemon [_thread_blocked, id=2492, stack(0x0000000029d40000,0x0000000029e40000)]
+  0x000000001ec5a800 JavaThread "CleanCursors-76-thread-1" daemon [_thread_blocked, id=32332, stack(0x0000000029c40000,0x0000000029d40000)]
+  0x000000001ec53800 JavaThread "cluster-ClusterId{value='5a78457f6768e725942bb841', description='null'}-localhost:27017" daemon [_thread_blocked, id=15644, stack(0x0000000029b40000,0x0000000029c40000)]
+  0x000000001ec54800 JavaThread "CleanCursors-75-thread-1" daemon [_thread_blocked, id=23304, stack(0x0000000029a40000,0x0000000029b40000)]
+  0x000000001f411000 JavaThread "cluster-ClusterId{value='5a78457f6768e725942bb840', description='null'}-localhost:27017" daemon [_thread_blocked, id=7716, stack(0x0000000029940000,0x0000000029a40000)]
+  0x000000001f410800 JavaThread "CleanCursors-74-thread-1" daemon [_thread_blocked, id=26392, stack(0x0000000029840000,0x0000000029940000)]
+  0x000000001f416800 JavaThread "cluster-ClusterId{value='5a78457f6768e725942bb83f', description='null'}-localhost:27017" daemon [_thread_blocked, id=16276, stack(0x0000000029740000,0x0000000029840000)]
+  0x000000001f413800 JavaThread "CleanCursors-73-thread-1" daemon [_thread_blocked, id=22716, stack(0x0000000029640000,0x0000000029740000)]
+  0x000000001f417000 JavaThread "cluster-ClusterId{value='5a78457f6768e725942bb83e', description='null'}-localhost:27017" daemon [_thread_blocked, id=20988, stack(0x0000000029540000,0x0000000029640000)]
+  0x000000001f412800 JavaThread "CleanCursors-72-thread-1" daemon [_thread_blocked, id=25148, stack(0x0000000029440000,0x0000000029540000)]
+  0x000000001f415800 JavaThread "cluster-ClusterId{value='5a78457f6768e725942bb83d', description='null'}-localhost:27017" daemon [_thread_blocked, id=33332, stack(0x0000000029340000,0x0000000029440000)]
+  0x000000001f415000 JavaThread "CleanCursors-71-thread-1" daemon [_thread_blocked, id=28812, stack(0x0000000029240000,0x0000000029340000)]
+  0x000000001f40f800 JavaThread "cluster-ClusterId{value='5a78457f6768e725942bb83c', description='null'}-localhost:27017" daemon [_thread_blocked, id=22776, stack(0x0000000029140000,0x0000000029240000)]
+  0x000000001f412000 JavaThread "CleanCursors-70-thread-1" daemon [_thread_blocked, id=16508, stack(0x0000000029040000,0x0000000029140000)]
+  0x000000001f414000 JavaThread "cluster-ClusterId{value='5a78457e6768e725942bb83b', description='null'}-localhost:27017" daemon [_thread_blocked, id=10196, stack(0x0000000028f40000,0x0000000029040000)]
+  0x000000001f408000 JavaThread "CleanCursors-69-thread-1" daemon [_thread_blocked, id=35740, stack(0x0000000028e40000,0x0000000028f40000)]
+  0x000000001f40a800 JavaThread "cluster-ClusterId{value='5a78457e6768e725942bb83a', description='null'}-localhost:27017" daemon [_thread_blocked, id=30808, stack(0x0000000028d40000,0x0000000028e40000)]
+  0x000000001f40f000 JavaThread "CleanCursors-68-thread-1" daemon [_thread_blocked, id=20420, stack(0x0000000028c40000,0x0000000028d40000)]
+  0x000000001f40b000 JavaThread "cluster-ClusterId{value='5a78457e6768e725942bb839', description='null'}-localhost:27017" daemon [_thread_blocked, id=7332, stack(0x0000000028b40000,0x0000000028c40000)]
+  0x000000001f40e000 JavaThread "CleanCursors-67-thread-1" daemon [_thread_blocked, id=19804, stack(0x0000000028a40000,0x0000000028b40000)]
+  0x000000001f40d800 JavaThread "cluster-ClusterId{value='5a78457e6768e725942bb838', description='null'}-localhost:27017" daemon [_thread_blocked, id=27772, stack(0x0000000028940000,0x0000000028a40000)]
+  0x000000001f40c800 JavaThread "CleanCursors-66-thread-1" daemon [_thread_blocked, id=25032, stack(0x0000000028840000,0x0000000028940000)]
+  0x000000001f40c000 JavaThread "cluster-ClusterId{value='5a78457e6768e725942bb837', description='null'}-localhost:27017" daemon [_thread_blocked, id=1920, stack(0x0000000028740000,0x0000000028840000)]
+  0x000000001f409000 JavaThread "CleanCursors-65-thread-1" daemon [_thread_blocked, id=23340, stack(0x0000000028640000,0x0000000028740000)]
+  0x000000001f409800 JavaThread "cluster-ClusterId{value='5a78457e6768e725942bb836', description='null'}-localhost:27017" daemon [_thread_blocked, id=30228, stack(0x0000000028540000,0x0000000028640000)]
+  0x000000001bfa3000 JavaThread "CleanCursors-64-thread-1" daemon [_thread_blocked, id=34184, stack(0x0000000028440000,0x0000000028540000)]
+  0x000000001bfa2000 JavaThread "cluster-ClusterId{value='5a78457e6768e725942bb835', description='null'}-localhost:27017" daemon [_thread_blocked, id=22152, stack(0x0000000028340000,0x0000000028440000)]
+  0x000000001bfa1800 JavaThread "CleanCursors-63-thread-1" daemon [_thread_blocked, id=19128, stack(0x0000000028240000,0x0000000028340000)]
+  0x000000001bfa0800 JavaThread "cluster-ClusterId{value='5a78457e6768e725942bb834', description='null'}-localhost:27017" daemon [_thread_blocked, id=27604, stack(0x0000000028140000,0x0000000028240000)]
+  0x000000001bfa0000 JavaThread "CleanCursors-62-thread-1" daemon [_thread_blocked, id=23364, stack(0x0000000028040000,0x0000000028140000)]
+  0x000000001bf9f000 JavaThread "cluster-ClusterId{value='5a78457e6768e725942bb833', description='null'}-localhost:27017" daemon [_thread_blocked, id=19536, stack(0x0000000027f40000,0x0000000028040000)]
+  0x000000001bfa5000 JavaThread "CleanCursors-61-thread-1" daemon [_thread_blocked, id=20868, stack(0x0000000027e40000,0x0000000027f40000)]
+  0x000000001bfa3800 JavaThread "cluster-ClusterId{value='5a78457d6768e725942bb832', description='null'}-localhost:27017" daemon [_thread_blocked, id=26100, stack(0x0000000027d40000,0x0000000027e40000)]
+  0x000000001bfa4800 JavaThread "CleanCursors-60-thread-1" daemon [_thread_blocked, id=4636, stack(0x0000000027c40000,0x0000000027d40000)]
+  0x000000001bf97800 JavaThread "cluster-ClusterId{value='5a78457d6768e725942bb831', description='null'}-localhost:27017" daemon [_thread_blocked, id=25300, stack(0x0000000027b40000,0x0000000027c40000)]
+  0x000000001bf99000 JavaThread "CleanCursors-59-thread-1" daemon [_thread_blocked, id=18132, stack(0x0000000027a40000,0x0000000027b40000)]
+  0x000000001bf9d800 JavaThread "cluster-ClusterId{value='5a78457d6768e725942bb830', description='null'}-localhost:27017" daemon [_thread_blocked, id=32188, stack(0x0000000027940000,0x0000000027a40000)]
+  0x000000001bf9e800 JavaThread "CleanCursors-58-thread-1" daemon [_thread_blocked, id=14504, stack(0x0000000027840000,0x0000000027940000)]
+  0x000000001bf96000 JavaThread "cluster-ClusterId{value='5a78457d6768e725942bb82f', description='null'}-localhost:27017" daemon [_thread_blocked, id=33492, stack(0x0000000027740000,0x0000000027840000)]
+  0x000000001bf98800 JavaThread "CleanCursors-57-thread-1" daemon [_thread_blocked, id=24492, stack(0x0000000027640000,0x0000000027740000)]
+  0x000000001bf9d000 JavaThread "cluster-ClusterId{value='5a78457d6768e725942bb82e', description='null'}-localhost:27017" daemon [_thread_blocked, id=21628, stack(0x0000000027540000,0x0000000027640000)]
+  0x000000001bf9a800 JavaThread "CleanCursors-56-thread-1" daemon [_thread_blocked, id=30944, stack(0x0000000027440000,0x0000000027540000)]
+  0x000000001bf97000 JavaThread "cluster-ClusterId{value='5a78457d6768e725942bb82d', description='null'}-localhost:27017" daemon [_thread_blocked, id=31672, stack(0x0000000027340000,0x0000000027440000)]
+  0x000000001bf9b800 JavaThread "CleanCursors-55-thread-1" daemon [_thread_blocked, id=26984, stack(0x0000000027240000,0x0000000027340000)]
+  0x000000001bf9a000 JavaThread "cluster-ClusterId{value='5a78457c6768e725942bb82c', description='null'}-localhost:27017" daemon [_thread_blocked, id=25520, stack(0x0000000027140000,0x0000000027240000)]
+  0x000000001d965000 JavaThread "CleanCursors-54-thread-1" daemon [_thread_blocked, id=32416, stack(0x0000000026de0000,0x0000000026ee0000)]
+  0x000000001d963800 JavaThread "cluster-ClusterId{value='5a78457c6768e725942bb82b', description='null'}-localhost:27017" daemon [_thread_blocked, id=24564, stack(0x0000000026ce0000,0x0000000026de0000)]
+  0x000000001d960800 JavaThread "CleanCursors-53-thread-1" daemon [_thread_blocked, id=32936, stack(0x0000000026be0000,0x0000000026ce0000)]
+  0x000000001d961000 JavaThread "cluster-ClusterId{value='5a78457c6768e725942bb82a', description='null'}-localhost:27017" daemon [_thread_blocked, id=27664, stack(0x0000000026ae0000,0x0000000026be0000)]
+  0x000000001d95f800 JavaThread "CleanCursors-52-thread-1" daemon [_thread_blocked, id=32264, stack(0x00000000269e0000,0x0000000026ae0000)]
+  0x000000001d962800 JavaThread "cluster-ClusterId{value='5a78457c6768e725942bb829', description='null'}-localhost:27017" daemon [_thread_blocked, id=19532, stack(0x00000000268e0000,0x00000000269e0000)]
+  0x000000001d966800 JavaThread "CleanCursors-51-thread-1" daemon [_thread_blocked, id=25840, stack(0x00000000267e0000,0x00000000268e0000)]
+  0x000000001d95f000 JavaThread "cluster-ClusterId{value='5a78457c6768e725942bb828', description='null'}-localhost:27017" daemon [_thread_blocked, id=20212, stack(0x00000000266e0000,0x00000000267e0000)]
+  0x000000001d965800 JavaThread "CleanCursors-50-thread-1" daemon [_thread_blocked, id=18568, stack(0x00000000265e0000,0x00000000266e0000)]
+  0x000000001d95e000 JavaThread "cluster-ClusterId{value='5a78457b6768e725942bb827', description='null'}-localhost:27017" daemon [_thread_blocked, id=15124, stack(0x00000000264e0000,0x00000000265e0000)]
+  0x000000001d962000 JavaThread "CleanCursors-49-thread-1" daemon [_thread_blocked, id=29788, stack(0x00000000263e0000,0x00000000264e0000)]
+  0x000000001d964000 JavaThread "cluster-ClusterId{value='5a78457b6768e725942bb826', description='null'}-localhost:27017" daemon [_thread_blocked, id=34496, stack(0x00000000262e0000,0x00000000263e0000)]
+  0x000000001d959800 JavaThread "CleanCursors-48-thread-1" daemon [_thread_blocked, id=25872, stack(0x00000000261e0000,0x00000000262e0000)]
+  0x000000001d959000 JavaThread "cluster-ClusterId{value='5a78457b6768e725942bb825', description='null'}-localhost:27017" daemon [_thread_blocked, id=19812, stack(0x00000000260e0000,0x00000000261e0000)]
+  0x000000001d95c800 JavaThread "CleanCursors-47-thread-1" daemon [_thread_blocked, id=19404, stack(0x0000000025fe0000,0x00000000260e0000)]
+  0x000000001d957800 JavaThread "cluster-ClusterId{value='5a78457b6768e725942bb824', description='null'}-localhost:27017" daemon [_thread_blocked, id=28248, stack(0x0000000025ee0000,0x0000000025fe0000)]
+  0x000000001d958000 JavaThread "CleanCursors-46-thread-1" daemon [_thread_blocked, id=23076, stack(0x0000000025de0000,0x0000000025ee0000)]
+  0x000000001d95c000 JavaThread "cluster-ClusterId{value='5a78457b6768e725942bb823', description='null'}-localhost:27017" daemon [_thread_blocked, id=28044, stack(0x0000000025ce0000,0x0000000025de0000)]
+  0x000000001d95d800 JavaThread "CleanCursors-45-thread-1" daemon [_thread_blocked, id=7920, stack(0x0000000025be0000,0x0000000025ce0000)]
+  0x000000001d95a800 JavaThread "cluster-ClusterId{value='5a78457b6768e725942bb822', description='null'}-localhost:27017" daemon [_thread_blocked, id=32216, stack(0x0000000025ae0000,0x0000000025be0000)]
+  0x000000001d95b000 JavaThread "CleanCursors-44-thread-1" daemon [_thread_blocked, id=16620, stack(0x00000000259e0000,0x0000000025ae0000)]
+  0x000000001b231000 JavaThread "cluster-ClusterId{value='5a78457b6768e725942bb821', description='null'}-localhost:27017" daemon [_thread_blocked, id=17760, stack(0x00000000258e0000,0x00000000259e0000)]
+  0x000000001b230000 JavaThread "CleanCursors-43-thread-1" daemon [_thread_blocked, id=30644, stack(0x00000000257e0000,0x00000000258e0000)]
+  0x000000001b237000 JavaThread "cluster-ClusterId{value='5a78457b6768e725942bb820', description='null'}-localhost:27017" daemon [_thread_blocked, id=11860, stack(0x00000000256e0000,0x00000000257e0000)]
+  0x000000001b235800 JavaThread "CleanCursors-42-thread-1" daemon [_thread_blocked, id=27632, stack(0x00000000255e0000,0x00000000256e0000)]
+  0x000000001b234000 JavaThread "cluster-ClusterId{value='5a78457b6768e725942bb81f', description='null'}-localhost:27017" daemon [_thread_blocked, id=17508, stack(0x00000000254e0000,0x00000000255e0000)]
+  0x000000001b233000 JavaThread "CleanCursors-41-thread-1" daemon [_thread_blocked, id=34468, stack(0x00000000253e0000,0x00000000254e0000)]
+  0x000000001b231800 JavaThread "cluster-ClusterId{value='5a78457b6768e725942bb81e', description='null'}-localhost:27017" daemon [_thread_blocked, id=2016, stack(0x00000000252e0000,0x00000000253e0000)]
+  0x000000001b236800 JavaThread "CleanCursors-40-thread-1" daemon [_thread_blocked, id=32608, stack(0x00000000251e0000,0x00000000252e0000)]
+  0x000000001b234800 JavaThread "cluster-ClusterId{value='5a78457b6768e725942bb81d', description='null'}-localhost:27017" daemon [_thread_blocked, id=3112, stack(0x00000000250e0000,0x00000000251e0000)]
+  0x000000001b232800 JavaThread "CleanCursors-39-thread-1" daemon [_thread_blocked, id=32560, stack(0x0000000024fe0000,0x00000000250e0000)]
+  0x000000001ba27800 JavaThread "cluster-ClusterId{value='5a78457b6768e725942bb81c', description='null'}-localhost:27017" daemon [_thread_blocked, id=31136, stack(0x0000000024ee0000,0x0000000024fe0000)]
+  0x000000001ba26000 JavaThread "CleanCursors-38-thread-1" daemon [_thread_blocked, id=21276, stack(0x0000000024de0000,0x0000000024ee0000)]
+  0x000000001ba25000 JavaThread "cluster-ClusterId{value='5a78457b6768e725942bb81b', description='null'}-localhost:27017" daemon [_thread_blocked, id=5952, stack(0x0000000024ce0000,0x0000000024de0000)]
+  0x000000001ba26800 JavaThread "CleanCursors-37-thread-1" daemon [_thread_blocked, id=21692, stack(0x0000000024be0000,0x0000000024ce0000)]
+  0x000000001ba23800 JavaThread "cluster-ClusterId{value='5a78457a6768e725942bb81a', description='null'}-localhost:27017" daemon [_thread_blocked, id=23408, stack(0x0000000024ae0000,0x0000000024be0000)]
+  0x000000001ba23000 JavaThread "CleanCursors-36-thread-1" daemon [_thread_blocked, id=8688, stack(0x00000000249e0000,0x0000000024ae0000)]
+  0x000000001ba1b000 JavaThread "cluster-ClusterId{value='5a78457a6768e725942bb819', description='null'}-localhost:27017" daemon [_thread_blocked, id=1968, stack(0x00000000248e0000,0x00000000249e0000)]
+  0x000000001ba1c800 JavaThread "CleanCursors-35-thread-1" daemon [_thread_blocked, id=23816, stack(0x00000000247e0000,0x00000000248e0000)]
+  0x000000001ba22000 JavaThread "cluster-ClusterId{value='5a78457a6768e725942bb818', description='null'}-localhost:27017" daemon [_thread_blocked, id=22584, stack(0x00000000246e0000,0x00000000247e0000)]
+  0x000000001ba1c000 JavaThread "CleanCursors-34-thread-1" daemon [_thread_blocked, id=33796, stack(0x00000000245e0000,0x00000000246e0000)]
+  0x000000001ba1a800 JavaThread "cluster-ClusterId{value='5a78457a6768e725942bb817', description='null'}-localhost:27017" daemon [_thread_blocked, id=11460, stack(0x00000000244e0000,0x00000000245e0000)]
+  0x000000001ba21800 JavaThread "CleanCursors-33-thread-1" daemon [_thread_blocked, id=21772, stack(0x00000000243e0000,0x00000000244e0000)]
+  0x000000001ba20800 JavaThread "cluster-ClusterId{value='5a78457a6768e725942bb816', description='null'}-localhost:27017" daemon [_thread_blocked, id=9580, stack(0x00000000242e0000,0x00000000243e0000)]
+  0x000000001ba19800 JavaThread "CleanCursors-32-thread-1" daemon [_thread_blocked, id=11560, stack(0x00000000241e0000,0x00000000242e0000)]
+  0x000000001ba19000 JavaThread "cluster-ClusterId{value='5a78457a6768e725942bb815', description='null'}-localhost:27017" daemon [_thread_blocked, id=4244, stack(0x00000000240e0000,0x00000000241e0000)]
+  0x000000001ba20000 JavaThread "CleanCursors-31-thread-1" daemon [_thread_blocked, id=22848, stack(0x0000000023fe0000,0x00000000240e0000)]
+  0x000000001ba18000 JavaThread "cluster-ClusterId{value='5a78457a6768e725942bb814', description='null'}-localhost:27017" daemon [_thread_blocked, id=20548, stack(0x0000000023ee0000,0x0000000023fe0000)]
+  0x000000001ba1f000 JavaThread "CleanCursors-30-thread-1" daemon [_thread_blocked, id=13624, stack(0x0000000022db0000,0x0000000022eb0000)]
+  0x000000001ba1e800 JavaThread "cluster-ClusterId{value='5a78457a6768e725942bb813', description='null'}-localhost:27017" daemon [_thread_blocked, id=6892, stack(0x0000000022cb0000,0x0000000022db0000)]
+  0x000000001ba1d800 JavaThread "CleanCursors-29-thread-1" daemon [_thread_blocked, id=18256, stack(0x0000000022bb0000,0x0000000022cb0000)]
+  0x000000001ef09800 JavaThread "cluster-ClusterId{value='5a7845796768e725942bb812', description='null'}-localhost:27017" daemon [_thread_blocked, id=31724, stack(0x0000000022ab0000,0x0000000022bb0000)]
+  0x000000001ef09000 JavaThread "CleanCursors-28-thread-1" daemon [_thread_blocked, id=16208, stack(0x0000000022760000,0x0000000022860000)]
+  0x000000001ef08000 JavaThread "cluster-ClusterId{value='5a7845796768e725942bb811', description='null'}-localhost:27017" daemon [_thread_blocked, id=22544, stack(0x0000000022660000,0x0000000022760000)]
+  0x000000001ef00800 JavaThread "CleanCursors-27-thread-1" daemon [_thread_blocked, id=14920, stack(0x0000000022560000,0x0000000022660000)]
+  0x000000001ef07800 JavaThread "cluster-ClusterId{value='5a7845796768e725942bb810', description='null'}-localhost:27017" daemon [_thread_blocked, id=27264, stack(0x0000000022460000,0x0000000022560000)]
+  0x000000001ef06800 JavaThread "CleanCursors-26-thread-1" daemon [_thread_blocked, id=196, stack(0x0000000022360000,0x0000000022460000)]
+  0x000000001ef06000 JavaThread "cluster-ClusterId{value='5a7845796768e725942bb80f', description='null'}-localhost:27017" daemon [_thread_blocked, id=12856, stack(0x0000000022260000,0x0000000022360000)]
+  0x000000001ef05000 JavaThread "CleanCursors-25-thread-1" daemon [_thread_blocked, id=16000, stack(0x0000000022160000,0x0000000022260000)]
+  0x000000001ef04800 JavaThread "cluster-ClusterId{value='5a7845796768e725942bb80e', description='null'}-localhost:27017" daemon [_thread_blocked, id=9272, stack(0x0000000022060000,0x0000000022160000)]
+  0x000000001eefc800 JavaThread "CleanCursors-24-thread-1" daemon [_thread_blocked, id=26288, stack(0x0000000021f60000,0x0000000022060000)]
+  0x000000001ef02800 JavaThread "cluster-ClusterId{value='5a7845796768e725942bb80d', description='null'}-localhost:27017" daemon [_thread_blocked, id=21376, stack(0x0000000021e60000,0x0000000021f60000)]
+  0x000000001eeff800 JavaThread "CleanCursors-23-thread-1" daemon [_thread_blocked, id=32916, stack(0x0000000021d60000,0x0000000021e60000)]
+  0x000000001eeff000 JavaThread "cluster-ClusterId{value='5a7845786768e725942bb80c', description='null'}-localhost:27017" daemon [_thread_blocked, id=15316, stack(0x0000000021c60000,0x0000000021d60000)]
+  0x000000001ef03800 JavaThread "CleanCursors-22-thread-1" daemon [_thread_blocked, id=32392, stack(0x0000000021b60000,0x0000000021c60000)]
+  0x000000001eefe000 JavaThread "cluster-ClusterId{value='5a7845786768e725942bb80b', description='null'}-localhost:27017" daemon [_thread_blocked, id=12696, stack(0x0000000021a60000,0x0000000021b60000)]
+  0x000000001ef01000 JavaThread "CleanCursors-21-thread-1" daemon [_thread_blocked, id=26752, stack(0x0000000021960000,0x0000000021a60000)]
+  0x000000001ef02000 JavaThread "cluster-ClusterId{value='5a7845786768e725942bb80a', description='null'}-localhost:27017" daemon [_thread_blocked, id=15556, stack(0x0000000021860000,0x0000000021960000)]
+  0x000000001eefd800 JavaThread "CleanCursors-20-thread-1" daemon [_thread_blocked, id=26596, stack(0x0000000021760000,0x0000000021860000)]
+  0x000000001eefb000 JavaThread "cluster-ClusterId{value='5a7845786768e725942bb809', description='null'}-localhost:27017" daemon [_thread_blocked, id=26040, stack(0x0000000021660000,0x0000000021760000)]
+  0x000000001eefa800 JavaThread "CleanCursors-19-thread-1" daemon [_thread_blocked, id=7760, stack(0x0000000021560000,0x0000000021660000)]
+  0x000000001eefc000 JavaThread "cluster-ClusterId{value='5a7845786768e725942bb808', description='null'}-localhost:27017" daemon [_thread_blocked, id=26364, stack(0x0000000021460000,0x0000000021560000)]
+  0x000000001b400000 JavaThread "CleanCursors-18-thread-1" daemon [_thread_blocked, id=17772, stack(0x0000000021360000,0x0000000021460000)]
+  0x000000001b402800 JavaThread "cluster-ClusterId{value='5a7845786768e725942bb807', description='null'}-localhost:27017" daemon [_thread_blocked, id=18148, stack(0x0000000021260000,0x0000000021360000)]
+  0x000000001b404000 JavaThread "CleanCursors-17-thread-1" daemon [_thread_blocked, id=30484, stack(0x0000000021160000,0x0000000021260000)]
+  0x000000001b401000 JavaThread "cluster-ClusterId{value='5a7845786768e725942bb806', description='null'}-localhost:27017" daemon [_thread_blocked, id=17136, stack(0x0000000021060000,0x0000000021160000)]
+  0x000000001b403000 JavaThread "CleanCursors-16-thread-1" daemon [_thread_blocked, id=24956, stack(0x0000000020f60000,0x0000000021060000)]
+  0x000000001b3ff800 JavaThread "cluster-ClusterId{value='5a7845786768e725942bb805', description='null'}-localhost:27017" daemon [_thread_blocked, id=31748, stack(0x0000000020e60000,0x0000000020f60000)]
+  0x000000001b401800 JavaThread "CleanCursors-15-thread-1" daemon [_thread_blocked, id=35116, stack(0x0000000020d60000,0x0000000020e60000)]
+  0x000000001b3f8000 JavaThread "cluster-ClusterId{value='5a7845786768e725942bb804', description='null'}-localhost:27017" daemon [_thread_in_native, id=20200, stack(0x0000000020c60000,0x0000000020d60000)]
+  0x000000001b3fe800 JavaThread "CleanCursors-14-thread-1" daemon [_thread_blocked, id=15824, stack(0x0000000020b60000,0x0000000020c60000)]
+  0x000000001b3f8800 JavaThread "cluster-ClusterId{value='5a7845786768e725942bb803', description='null'}-localhost:27017" daemon [_thread_in_native, id=10564, stack(0x0000000020a60000,0x0000000020b60000)]
+  0x000000001b3fe000 JavaThread "CleanCursors-13-thread-1" daemon [_thread_blocked, id=22016, stack(0x0000000020960000,0x0000000020a60000)]
+  0x000000001b3f6800 JavaThread "cluster-ClusterId{value='5a7845776768e725942bb802', description='null'}-localhost:27017" daemon [_thread_in_native, id=32728, stack(0x0000000020860000,0x0000000020960000)]
+  0x000000001b3fd000 JavaThread "CleanCursors-12-thread-1" daemon [_thread_blocked, id=7616, stack(0x0000000020760000,0x0000000020860000)]
+  0x000000001b3f7000 JavaThread "cluster-ClusterId{value='5a7845776768e725942bb801', description='null'}-localhost:27017" daemon [_thread_in_native, id=35468, stack(0x0000000020660000,0x0000000020760000)]
+  0x000000001b3f5800 JavaThread "CleanCursors-11-thread-1" daemon [_thread_blocked, id=12660, stack(0x0000000020360000,0x0000000020460000)]
+  0x000000001b3fc800 JavaThread "cluster-ClusterId{value='5a7845776768e725942bb800', description='null'}-localhost:27017" daemon [_thread_in_native, id=10708, stack(0x0000000020260000,0x0000000020360000)]
+  0x000000001b3fb800 JavaThread "CleanCursors-10-thread-1" daemon [_thread_blocked, id=31464, stack(0x0000000020160000,0x0000000020260000)]
+  0x000000001b3fa000 JavaThread "cluster-ClusterId{value='5a7845776768e725942bb7ff', description='null'}-localhost:27017" daemon [_thread_in_native, id=34504, stack(0x0000000020060000,0x0000000020160000)]
+  0x000000001b3f9800 JavaThread "CleanCursors-9-thread-1" daemon [_thread_blocked, id=32104, stack(0x000000001ff60000,0x0000000020060000)]
+  0x000000001b3fb000 JavaThread "cluster-ClusterId{value='5a7845776768e725942bb7fe', description='null'}-localhost:27017" daemon [_thread_in_native, id=31340, stack(0x000000001fe60000,0x000000001ff60000)]
+  0x000000001d132000 JavaThread "CleanCursors-8-thread-1" daemon [_thread_blocked, id=15528, stack(0x000000001fd60000,0x000000001fe60000)]
+  0x000000001d131000 JavaThread "cluster-ClusterId{value='5a7845776768e725942bb7fd', description='null'}-localhost:27017" daemon [_thread_in_native, id=8988, stack(0x000000001fc60000,0x000000001fd60000)]
+  0x000000001d132800 JavaThread "CleanCursors-7-thread-1" daemon [_thread_blocked, id=35832, stack(0x000000001fb60000,0x000000001fc60000)]
+  0x000000001d136800 JavaThread "cluster-ClusterId{value='5a7845776768e725942bb7fc', description='null'}-localhost:27017" daemon [_thread_blocked, id=23264, stack(0x000000001fa60000,0x000000001fb60000)]
+  0x000000001d135800 JavaThread "CleanCursors-6-thread-1" daemon [_thread_blocked, id=6500, stack(0x000000001e990000,0x000000001ea90000)]
+  0x000000001d133800 JavaThread "cluster-ClusterId{value='5a7845776768e725942bb7fb', description='null'}-localhost:27017" daemon [_thread_blocked, id=21084, stack(0x000000001e890000,0x000000001e990000)]
+  0x000000001d130800 JavaThread "CleanCursors-5-thread-1" daemon [_thread_blocked, id=10256, stack(0x000000001e5f0000,0x000000001e6f0000)]
+  0x000000001d134000 JavaThread "cluster-ClusterId{value='5a7845766768e725942bb7fa', description='null'}-localhost:27017" daemon [_thread_blocked, id=34292, stack(0x000000001e4f0000,0x000000001e5f0000)]
+  0x000000001d135000 JavaThread "CleanCursors-4-thread-1" daemon [_thread_blocked, id=19524, stack(0x000000001e260000,0x000000001e360000)]
+  0x000000001d47e800 JavaThread "cluster-ClusterId{value='5a7845766768e725942bb7f9', description='null'}-localhost:27017" daemon [_thread_blocked, id=22808, stack(0x000000001e160000,0x000000001e260000)]
+  0x000000001d0ec000 JavaThread "CleanCursors-3-thread-1" daemon [_thread_blocked, id=27824, stack(0x000000001e060000,0x000000001e160000)]
+  0x000000001c0a4000 JavaThread "cluster-ClusterId{value='5a7845766768e725942bb7f8', description='null'}-localhost:27017" daemon [_thread_blocked, id=21056, stack(0x000000001df60000,0x000000001e060000)]
+  0x0000000019338000 JavaThread "CleanCursors-2-thread-1" daemon [_thread_blocked, id=20816, stack(0x000000001de60000,0x000000001df60000)]
+  0x00000000186ba000 JavaThread "cluster-ClusterId{value='5a7845766768e725942bb7f7', description='null'}-localhost:27017" daemon [_thread_blocked, id=22492, stack(0x000000001dd60000,0x000000001de60000)]
+  0x000000001b2c7800 JavaThread "CleanCursors-1-thread-1" daemon [_thread_blocked, id=23388, stack(0x000000001c660000,0x000000001c760000)]
+  0x0000000019284800 JavaThread "cluster-ClusterId{value='5a7845766768e725942bb7f6', description='null'}-localhost:27017" daemon [_thread_blocked, id=17092, stack(0x000000001c560000,0x000000001c660000)]
+  0x00000000185b1800 JavaThread "nioEventLoopGroup-3-1" [_thread_in_vm, id=34664, stack(0x0000000019c80000,0x0000000019d80000)]
+  0x00000000193cb000 JavaThread "nioEventLoopGroup-2-1" [_thread_blocked, id=11000, stack(0x0000000019750000,0x0000000019850000)]
+  0x000000001857d800 JavaThread "Service Thread" daemon [_thread_blocked, id=33008, stack(0x0000000018d20000,0x0000000018e20000)]
+  0x00000000184ea000 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=4040, stack(0x0000000018c20000,0x0000000018d20000)]
+  0x00000000184e7000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=14988, stack(0x0000000018b20000,0x0000000018c20000)]
+=>0x000000001849e800 JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=28336, stack(0x0000000018a20000,0x0000000018b20000)]
+  0x00000000184c4800 JavaThread "Monitor Ctrl-Break" daemon [_thread_in_native, id=32164, stack(0x0000000018920000,0x0000000018a20000)]
+  0x0000000017026800 JavaThread "Attach Listener" daemon [_thread_blocked, id=22140, stack(0x0000000018820000,0x0000000018920000)]
+  0x0000000016fe0000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=20668, stack(0x0000000018720000,0x0000000018820000)]
+  0x00000000049a9000 JavaThread "Finalizer" daemon [_thread_blocked, id=34352, stack(0x0000000018220000,0x0000000018320000)]
+  0x00000000049a3000 JavaThread "Reference Handler" daemon [_thread_blocked, id=6268, stack(0x0000000018120000,0x0000000018220000)]
+  0x00000000048b3800 JavaThread "main" [_thread_blocked, id=19720, stack(0x0000000004280000,0x0000000004380000)]
+
+Other Threads:
+  0x0000000016f97000 VMThread [stack: 0x0000000018020000,0x0000000018120000] [id=20648]
+  0x00000000185d2000 WatcherThread [stack: 0x0000000018e20000,0x0000000018f20000] [id=20516]
+
+VM state:synchronizing (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00000000048b01d0] Safepoint_lock - owner thread: 0x0000000016f97000
+[0x00000000048b0850] Threads_lock - owner thread: 0x0000000016f97000
+
+Heap:
+ PSYoungGen      total 274944K, used 239790K [0x00000000eb100000, 0x0000000100000000, 0x0000000100000000)
+  eden space 262144K, 86% used [0x00000000eb100000,0x00000000f8eb10a0,0x00000000fb100000)
+  from space 12800K, 99% used [0x00000000fb100000,0x00000000fbd7a9e0,0x00000000fbd80000)
+  to   space 17408K, 0% used [0x00000000fef00000,0x00000000fef00000,0x0000000100000000)
+ ParOldGen       total 57344K, used 39862K [0x00000000c1200000, 0x00000000c4a00000, 0x00000000eb100000)
+  object space 57344K, 69% used [0x00000000c1200000,0x00000000c38edbf0,0x00000000c4a00000)
+ Metaspace       used 26744K, capacity 27242K, committed 27264K, reserved 1073152K
+  class space    used 3038K, capacity 3181K, committed 3200K, reserved 1048576K
+
+Card table byte_map: [0x0000000013d70000,0x0000000013f70000] byte_map_base: 0x0000000013767000
+
+Marking Bits: (ParMarkBitMap*) 0x0000000061ead850
+ Begin Bits: [0x00000000144c0000, 0x0000000015478000)
+ End Bits:   [0x0000000015478000, 0x0000000016430000)
+
+Polling page: 0x00000000026a0000
+
+CodeCache: size=245760Kb used=17758Kb max_used=17758Kb free=228002Kb
+ bounds [0x00000000049b0000, 0x0000000005b20000, 0x00000000139b0000]
+ total_blobs=5491 nmethods=5073 adapters=330
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 109.508 Thread 0x00000000184ea000 5488       2       java.util.Collections$UnmodifiableList$1::hasNext (10 bytes)
+Event: 109.508 Thread 0x00000000184ea000 nmethod 5488 0x0000000005b13390 code [0x0000000005b13500, 0x0000000005b13688]
+Event: 109.596 Thread 0x00000000184ea000 5489 %s    3       java.util.Properties::enumerate @ 20 (54 bytes)
+Event: 109.597 Thread 0x00000000184ea000 nmethod 5489% 0x0000000005b14950 code [0x0000000005b14b20, 0x0000000005b15478]
+Event: 109.630 Thread 0x00000000184ea000 5490 %     3       org.springframework.asm.Type::hashCode @ 29 (54 bytes)
+Event: 109.630 Thread 0x00000000184ea000 nmethod 5490% 0x0000000005b12dd0 code [0x0000000005b12f40, 0x0000000005b13210]
+Event: 109.631 Thread 0x00000000184ea000 5491       3       org.springframework.asm.Type::hashCode (54 bytes)
+Event: 109.631 Thread 0x00000000184ea000 nmethod 5491 0x0000000005b128d0 code [0x0000000005b12a40, 0x0000000005b12cb0]
+Event: 109.669 Thread 0x00000000184ea000 5492 %     3       org.springframework.util.CollectionUtils::mergePropertiesIntoMap @ 9 (61 bytes)
+Event: 109.670 Thread 0x00000000184ea000 nmethod 5492% 0x0000000005b15750 code [0x0000000005b159a0, 0x0000000005b167d8]
+
+GC Heap History (10 events):
+Event: 101.092 GC heap before
+{Heap before GC invocations=13 (full 1):
+ PSYoungGen      total 111616K, used 110847K [0x00000000eb100000, 0x00000000f6380000, 0x0000000100000000)
+  eden space 103936K, 100% used [0x00000000eb100000,0x00000000f1680000,0x00000000f1680000)
+  from space 7680K, 89% used [0x00000000f1680000,0x00000000f1d3fcd0,0x00000000f1e00000)
+  to   space 8192K, 0% used [0x00000000f5b80000,0x00000000f5b80000,0x00000000f6380000)
+ ParOldGen       total 31232K, used 16913K [0x00000000c1200000, 0x00000000c3080000, 0x00000000eb100000)
+  object space 31232K, 54% used [0x00000000c1200000,0x00000000c2284590,0x00000000c3080000)
+ Metaspace       used 26100K, capacity 26662K, committed 26752K, reserved 1073152K
+  class space    used 3037K, capacity 3181K, committed 3200K, reserved 1048576K
+Event: 101.156 GC heap after
+Heap after GC invocations=13 (full 1):
+ PSYoungGen      total 174080K, used 7244K [0x00000000eb100000, 0x00000000f6480000, 0x0000000100000000)
+  eden space 165888K, 0% used [0x00000000eb100000,0x00000000eb100000,0x00000000f5300000)
+  from space 8192K, 88% used [0x00000000f5b80000,0x00000000f6293068,0x00000000f6380000)
+  to   space 8704K, 0% used [0x00000000f5300000,0x00000000f5300000,0x00000000f5b80000)
+ ParOldGen       total 31232K, used 21233K [0x00000000c1200000, 0x00000000c3080000, 0x00000000eb100000)
+  object space 31232K, 67% used [0x00000000c1200000,0x00000000c26bc590,0x00000000c3080000)
+ Metaspace       used 26100K, capacity 26662K, committed 26752K, reserved 1073152K
+  class space    used 3037K, capacity 3181K, committed 3200K, reserved 1048576K
+}
+Event: 102.690 GC heap before
+{Heap before GC invocations=14 (full 1):
+ PSYoungGen      total 174080K, used 173132K [0x00000000eb100000, 0x00000000f6480000, 0x0000000100000000)
+  eden space 165888K, 100% used [0x00000000eb100000,0x00000000f5300000,0x00000000f5300000)
+  from space 8192K, 88% used [0x00000000f5b80000,0x00000000f6293068,0x00000000f6380000)
+  to   space 8704K, 0% used [0x00000000f5300000,0x00000000f5300000,0x00000000f5b80000)
+ ParOldGen       total 31232K, used 21233K [0x00000000c1200000, 0x00000000c3080000, 0x00000000eb100000)
+  object space 31232K, 67% used [0x00000000c1200000,0x00000000c26bc590,0x00000000c3080000)
+ Metaspace       used 26383K, capacity 26922K, committed 27008K, reserved 1073152K
+  class space    used 3037K, capacity 3181K, committed 3200K, reserved 1048576K
+Event: 102.836 GC heap after
+Heap after GC invocations=14 (full 1):
+ PSYoungGen      total 174592K, used 8694K [0x00000000eb100000, 0x00000000fcc80000, 0x0000000100000000)
+  eden space 165888K, 0% used [0x00000000eb100000,0x00000000eb100000,0x00000000f5300000)
+  from space 8704K, 99% used [0x00000000f5300000,0x00000000f5b7d940,0x00000000f5b80000)
+  to   space 12288K, 0% used [0x00000000fc080000,0x00000000fc080000,0x00000000fcc80000)
+ ParOldGen       total 31232K, used 28145K [0x00000000c1200000, 0x00000000c3080000, 0x00000000eb100000)
+  object space 31232K, 90% used [0x00000000c1200000,0x00000000c2d7c458,0x00000000c3080000)
+ Metaspace       used 26383K, capacity 26922K, committed 27008K, reserved 1073152K
+  class space    used 3037K, capacity 3181K, committed 3200K, reserved 1048576K
+}
+Event: 102.836 GC heap before
+{Heap before GC invocations=15 (full 2):
+ PSYoungGen      total 174592K, used 8694K [0x00000000eb100000, 0x00000000fcc80000, 0x0000000100000000)
+  eden space 165888K, 0% used [0x00000000eb100000,0x00000000eb100000,0x00000000f5300000)
+  from space 8704K, 99% used [0x00000000f5300000,0x00000000f5b7d940,0x00000000f5b80000)
+  to   space 12288K, 0% used [0x00000000fc080000,0x00000000fc080000,0x00000000fcc80000)
+ ParOldGen       total 31232K, used 28145K [0x00000000c1200000, 0x00000000c3080000, 0x00000000eb100000)
+  object space 31232K, 90% used [0x00000000c1200000,0x00000000c2d7c458,0x00000000c3080000)
+ Metaspace       used 26383K, capacity 26922K, committed 27008K, reserved 1073152K
+  class space    used 3037K, capacity 3181K, committed 3200K, reserved 1048576K
+Event: 103.170 GC heap after
+Heap after GC invocations=15 (full 2):
+ PSYoungGen      total 174592K, used 2488K [0x00000000eb100000, 0x00000000fcc80000, 0x0000000100000000)
+  eden space 165888K, 0% used [0x00000000eb100000,0x00000000eb100000,0x00000000f5300000)
+  from space 8704K, 28% used [0x00000000f5300000,0x00000000f556e168,0x00000000f5b80000)
+  to   space 12288K, 0% used [0x00000000fc080000,0x00000000fc080000,0x00000000fcc80000)
+ ParOldGen       total 57344K, used 30878K [0x00000000c1200000, 0x00000000c4a00000, 0x00000000eb100000)
+  object space 57344K, 53% used [0x00000000c1200000,0x00000000c3027b68,0x00000000c4a00000)
+ Metaspace       used 26383K, capacity 26922K, committed 27008K, reserved 1073152K
+  class space    used 3037K, capacity 3181K, committed 3200K, reserved 1048576K
+}
+Event: 105.249 GC heap before
+{Heap before GC invocations=16 (full 2):
+ PSYoungGen      total 174592K, used 168376K [0x00000000eb100000, 0x00000000fcc80000, 0x0000000100000000)
+  eden space 165888K, 100% used [0x00000000eb100000,0x00000000f5300000,0x00000000f5300000)
+  from space 8704K, 28% used [0x00000000f5300000,0x00000000f556e168,0x00000000f5b80000)
+  to   space 12288K, 0% used [0x00000000fc080000,0x00000000fc080000,0x00000000fcc80000)
+ ParOldGen       total 57344K, used 30878K [0x00000000c1200000, 0x00000000c4a00000, 0x00000000eb100000)
+  object space 57344K, 53% used [0x00000000c1200000,0x00000000c3027b68,0x00000000c4a00000)
+ Metaspace       used 26525K, capacity 26986K, committed 27008K, reserved 1073152K
+  class space    used 3038K, capacity 3181K, committed 3200K, reserved 1048576K
+Event: 105.301 GC heap after
+Heap after GC invocations=16 (full 2):
+ PSYoungGen      total 258560K, used 9233K [0x00000000eb100000, 0x00000000fca00000, 0x0000000100000000)
+  eden space 248832K, 0% used [0x00000000eb100000,0x00000000eb100000,0x00000000fa400000)
+  from space 9728K, 94% used [0x00000000fc080000,0x00000000fc984478,0x00000000fca00000)
+  to   space 12800K, 0% used [0x00000000fb100000,0x00000000fb100000,0x00000000fbd80000)
+ ParOldGen       total 57344K, used 31822K [0x00000000c1200000, 0x00000000c4a00000, 0x00000000eb100000)
+  object space 57344K, 55% used [0x00000000c1200000,0x00000000c3113b68,0x00000000c4a00000)
+ Metaspace       used 26525K, capacity 26986K, committed 27008K, reserved 1073152K
+  class space    used 3038K, capacity 3181K, committed 3200K, reserved 1048576K
+}
+Event: 107.410 GC heap before
+{Heap before GC invocations=17 (full 2):
+ PSYoungGen      total 258560K, used 258065K [0x00000000eb100000, 0x00000000fca00000, 0x0000000100000000)
+  eden space 248832K, 100% used [0x00000000eb100000,0x00000000fa400000,0x00000000fa400000)
+  from space 9728K, 94% used [0x00000000fc080000,0x00000000fc984478,0x00000000fca00000)
+  to   space 12800K, 0% used [0x00000000fb100000,0x00000000fb100000,0x00000000fbd80000)
+ ParOldGen       total 57344K, used 31822K [0x00000000c1200000, 0x00000000c4a00000, 0x00000000eb100000)
+  object space 57344K, 55% used [0x00000000c1200000,0x00000000c3113b68,0x00000000c4a00000)
+ Metaspace       used 26670K, capacity 27178K, committed 27264K, reserved 1073152K
+  class space    used 3038K, capacity 3181K, committed 3200K, reserved 1048576K
+Event: 107.584 GC heap after
+Heap after GC invocations=17 (full 2):
+ PSYoungGen      total 274944K, used 12778K [0x00000000eb100000, 0x0000000100000000, 0x0000000100000000)
+  eden space 262144K, 0% used [0x00000000eb100000,0x00000000eb100000,0x00000000fb100000)
+  from space 12800K, 99% used [0x00000000fb100000,0x00000000fbd7a9e0,0x00000000fbd80000)
+  to   space 17408K, 0% used [0x00000000fef00000,0x00000000fef00000,0x0000000100000000)
+ ParOldGen       total 57344K, used 39862K [0x00000000c1200000, 0x00000000c4a00000, 0x00000000eb100000)
+  object space 57344K, 69% used [0x00000000c1200000,0x00000000c38edbf0,0x00000000c4a00000)
+ Metaspace       used 26670K, capacity 27178K, committed 27264K, reserved 1073152K
+  class space    used 3038K, capacity 3181K, committed 3200K, reserved 1048576K
+}
+
+Deoptimization events (10 events):
+Event: 97.702 Thread 0x00000000185b1800 Uncommon trap: reason=predicate action=maybe_recompile pc=0x00000000053904d8 method=org.springframework.util.AntPathMatcher.skipSegment(Ljava/lang/String;ILjava/lang/String;)I @ 15
+Event: 100.852 Thread 0x00000000185b1800 Uncommon trap: reason=null_check action=make_not_entrant pc=0x0000000005667610 method=org.springframework.data.mapping.model.SimpleTypeHolder.isSimpleType(Ljava/lang/Class;)Z @ 75
+Event: 100.852 Thread 0x00000000185b1800 Uncommon trap: reason=null_check action=make_not_entrant pc=0x000000000562a158 method=org.springframework.data.mapping.model.SimpleTypeHolder.isSimpleType(Ljava/lang/Class;)Z @ 75
+Event: 102.158 Thread 0x00000000185b1800 Uncommon trap: reason=predicate action=maybe_recompile pc=0x0000000005780940 method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 49
+Event: 102.567 Thread 0x00000000185b1800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x00000000057c1fec method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
+Event: 102.571 Thread 0x00000000185b1800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x00000000057c1fec method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
+Event: 102.572 Thread 0x00000000185b1800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x00000000057c1fec method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
+Event: 103.170 Thread 0x00000000185b1800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x00000000057c1fec method=java.util.AbstractCollection.toArray([Ljava/lang/Object;)[Ljava/lang/Object; @ 119
+Event: 103.525 Thread 0x00000000185b1800 Uncommon trap: reason=null_check action=make_not_entrant pc=0x000000000581b614 method=org.springframework.core.annotation.AnnotatedElementUtils.searchWithGetSemanticsInAnnotations(Ljava/lang/reflect/AnnotatedElement;Ljava/util/List;Ljava/lang/Class;Ljava/
+Event: 106.950 Thread 0x00000000185b1800 Uncommon trap: reason=null_check action=make_not_entrant pc=0x00000000059722f4 method=org.springframework.util.ClassUtils.isAssignable(Ljava/lang/Class;Ljava/lang/Class;)Z @ 14
+
+Internal exceptions (10 events):
+Event: 108.818 Thread 0x000000001f954800 Exception <a 'java/net/ConnectException': Connection refused: connect> (0x00000000eba2a7a0) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u151\9699\hotspot\src\share\vm\prims\jni.cpp, line 735]
+Event: 108.879 Thread 0x000000001f955000 Exception <a 'java/net/ConnectException': Connection refused: connect> (0x00000000eb3dfe20) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u151\9699\hotspot\src\share\vm\prims\jni.cpp, line 735]
+Event: 108.879 Thread 0x0000000019284800 Exception <a 'java/net/ConnectException': Connection refused: connect> (0x00000000ebb04610) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u151\9699\hotspot\src\share\vm\prims\jni.cpp, line 735]
+Event: 108.888 Thread 0x000000001f959800 Exception <a 'java/net/ConnectException': Connection refused: connect> (0x00000000ebae7ed0) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u151\9699\hotspot\src\share\vm\prims\jni.cpp, line 735]
+Event: 109.090 Thread 0x00000000186ba000 Exception <a 'java/net/ConnectException': Connection refused: connect> (0x00000000ee3dc4d0) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u151\9699\hotspot\src\share\vm\prims\jni.cpp, line 735]
+Event: 109.289 Thread 0x000000001d134000 Exception <a 'java/net/ConnectException': Connection refused: connect> (0x00000000f08392d8) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u151\9699\hotspot\src\share\vm\prims\jni.cpp, line 735]
+Event: 109.379 Thread 0x000000001c0a4000 Exception <a 'java/net/ConnectException': Connection refused: connect> (0x00000000f0971908) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u151\9699\hotspot\src\share\vm\prims\jni.cpp, line 735]
+Event: 109.389 Thread 0x000000001d47e800 Exception <a 'java/net/ConnectException': Connection refused: connect> (0x00000000f08c72c0) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u151\9699\hotspot\src\share\vm\prims\jni.cpp, line 735]
+Event: 109.479 Thread 0x000000001d136800 Exception <a 'java/net/ConnectException': Connection refused: connect> (0x00000000f26f8120) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u151\9699\hotspot\src\share\vm\prims\jni.cpp, line 735]
+Event: 109.507 Thread 0x000000001d133800 Exception <a 'java/net/ConnectException': Connection refused: connect> (0x00000000f2762908) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u151\9699\hotspot\src\share\vm\prims\jni.cpp, line 735]
+
+Events (10 events):
+Event: 109.716 loading class javax/inject$Qualifier
+Event: 109.716 loading class javax/inject$Qualifier done
+Event: 109.726 loading class javax/annotation/ManagedBean
+Event: 109.726 loading class javax/annotation/ManagedBean done
+Event: 109.727 loading class javax/annotation$ManagedBean
+Event: 109.727 loading class javax/annotation$ManagedBean done
+Event: 109.727 loading class javax/inject/Named
+Event: 109.727 loading class javax/inject/Named done
+Event: 109.727 loading class javax/inject$Named
+Event: 109.727 loading class javax/inject$Named done
+
+
+Dynamic libraries:
+0x00007ff749f50000 - 0x00007ff749f87000 	C:\Program Files\Java\jdk\jdk1.8.0_151\bin\java.exe
+0x00007ffe20f40000 - 0x00007ffe21120000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffe1f0f0000 - 0x00007ffe1f19e000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffe1d450000 - 0x00007ffe1d6b6000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffe1eef0000 - 0x00007ffe1ef91000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffe1efa0000 - 0x00007ffe1f03d000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffe206d0000 - 0x00007ffe2072b000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffe209a0000 - 0x00007ffe20abf000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffe1e5d0000 - 0x00007ffe1e75f000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffe1d8e0000 - 0x00007ffe1d900000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffe1e410000 - 0x00007ffe1e438000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffe1da80000 - 0x00007ffe1dc13000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffe1dc20000 - 0x00007ffe1dcbb000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffe1d900000 - 0x00007ffe1d9f6000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffe0f250000 - 0x00007ffe0f4b9000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.16299.192_none_15c8cdae9364c23b\COMCTL32.dll
+0x00007ffe1ebe0000 - 0x00007ffe1eee8000 	C:\WINDOWS\System32\combase.dll
+0x00007ffe1da00000 - 0x00007ffe1da72000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffe206a0000 - 0x00007ffe206cd000 	C:\WINDOWS\System32\IMM32.DLL
+0x00000000637d0000 - 0x00000000638a2000 	C:\Program Files\Java\jdk\jdk1.8.0_151\jre\bin\msvcr100.dll
+0x0000000061690000 - 0x0000000061f2d000 	C:\Program Files\Java\jdk\jdk1.8.0_151\jre\bin\server\jvm.dll
+0x00007ffe1e5c0000 - 0x00007ffe1e5c8000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffe19dd0000 - 0x00007ffe19dd9000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffe20790000 - 0x00007ffe207fc000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffe0c260000 - 0x00007ffe0c283000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffe148c0000 - 0x00007ffe148ca000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffe0c230000 - 0x00007ffe0c25a000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x00007ffe1d6c0000 - 0x00007ffe1d70a000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x0000000063710000 - 0x000000006371f000 	C:\Program Files\Java\jdk\jdk1.8.0_151\jre\bin\verify.dll
+0x00000000636e0000 - 0x0000000063709000 	C:\Program Files\Java\jdk\jdk1.8.0_151\jre\bin\java.dll
+0x0000000063660000 - 0x0000000063683000 	C:\Program Files\Java\jdk\jdk1.8.0_151\jre\bin\instrument.dll
+0x00000000636c0000 - 0x00000000636d6000 	C:\Program Files\Java\jdk\jdk1.8.0_151\jre\bin\zip.dll
+0x00007ffe1f1a0000 - 0x00007ffe205d6000 	C:\WINDOWS\System32\SHELL32.dll
+0x00007ffe1e8f0000 - 0x00007ffe1e996000 	C:\WINDOWS\System32\shcore.dll
+0x00007ffe1dcc0000 - 0x00007ffe1e407000 	C:\WINDOWS\System32\windows.storage.dll
+0x00007ffe20640000 - 0x00007ffe20691000 	C:\WINDOWS\System32\shlwapi.dll
+0x00007ffe1d320000 - 0x00007ffe1d331000 	C:\WINDOWS\System32\kernel.appcore.dll
+0x00007ffe1d2d0000 - 0x00007ffe1d31c000 	C:\WINDOWS\System32\powrprof.dll
+0x00007ffe1d290000 - 0x00007ffe1d2ab000 	C:\WINDOWS\System32\profapi.dll
+0x00007ffe13930000 - 0x00007ffe1394a000 	C:\Program Files\JetBrains\IntelliJ IDEA 2017.3\bin\breakgen64.dll
+0x0000000062a60000 - 0x0000000062a7a000 	C:\Program Files\Java\jdk\jdk1.8.0_151\jre\bin\net.dll
+0x00007ffe1cb20000 - 0x00007ffe1cb86000 	C:\WINDOWS\system32\mswsock.dll
+0x0000000062a10000 - 0x0000000062a21000 	C:\Program Files\Java\jdk\jdk1.8.0_151\jre\bin\nio.dll
+0x00007ffe1ccf0000 - 0x00007ffe1cd07000 	C:\WINDOWS\SYSTEM32\CRYPTSP.dll
+0x00007ffe1c730000 - 0x00007ffe1c763000 	C:\WINDOWS\system32\rsaenh.dll
+0x00007ffe1cdf0000 - 0x00007ffe1ce15000 	C:\WINDOWS\SYSTEM32\bcrypt.dll
+0x00007ffe1d1c0000 - 0x00007ffe1d1e9000 	C:\WINDOWS\SYSTEM32\USERENV.dll
+0x00007ffe1cce0000 - 0x00007ffe1cceb000 	C:\WINDOWS\SYSTEM32\CRYPTBASE.dll
+0x00007ffe1c8b0000 - 0x00007ffe1c8e9000 	C:\WINDOWS\SYSTEM32\IPHLPAPI.DLL
+0x00007ffe1f040000 - 0x00007ffe1f048000 	C:\WINDOWS\System32\NSI.dll
+0x00007ffe18b30000 - 0x00007ffe18b46000 	C:\WINDOWS\SYSTEM32\dhcpcsvc6.DLL
+0x00007ffe18aa0000 - 0x00007ffe18aba000 	C:\WINDOWS\SYSTEM32\dhcpcsvc.DLL
+0x0000000063650000 - 0x000000006365d000 	C:\Program Files\Java\jdk\jdk1.8.0_151\jre\bin\management.dll
+0x00007ffe128b0000 - 0x00007ffe128c6000 	C:\WINDOWS\system32\napinsp.dll
+0x00007ffe12890000 - 0x00007ffe128aa000 	C:\WINDOWS\system32\pnrpnsp.dll
+0x00007ffe19080000 - 0x00007ffe19098000 	C:\WINDOWS\system32\NLAapi.dll
+0x00007ffe1c8f0000 - 0x00007ffe1c9a6000 	C:\WINDOWS\SYSTEM32\DNSAPI.dll
+0x00007ffe10fa0000 - 0x00007ffe10fae000 	C:\WINDOWS\System32\winrnr.dll
+0x0000000062290000 - 0x00000000622b6000 	C:\Program Files\Bonjour\mdnsNSP.dll
+0x00007ffe17630000 - 0x00007ffe1763a000 	C:\Windows\System32\rasadhlp.dll
+0x00007ffe187e0000 - 0x00007ffe18850000 	C:\WINDOWS\System32\fwpuclnt.dll
+0x0000000063620000 - 0x0000000063644000 	C:\Program Files\Java\jdk\jdk1.8.0_151\jre\bin\sunec.dll
+
+VM Arguments:
+jvm_args: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2017.3\lib\idea_rt.jar=55752:C:\Program Files\JetBrains\IntelliJ IDEA 2017.3\bin -Dfile.encoding=UTF-8 
+java_command: vova.nettydemo.NettyServerTest 9999
+java_class_path (initial): C:\Program Files\Java\jdk\jdk1.8.0_151\jre\lib\charsets.jar;C:\Program Files\Java\jdk\jdk1.8.0_151\jre\lib\deploy.jar;C:\Program Files\Java\jdk\jdk1.8.0_151\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk\jdk1.8.0_151\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk\jdk1.8.0_151\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk\jdk1.8.0_151\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk\jdk1.8.0_151\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk\jdk1.8.0_151\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk\jdk1.8.0_151\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk\jdk1.8.0_151\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk\jdk1.8.0_151\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk\jdk1.8.0_151\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk\jdk1.8.0_151\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk\jdk1.8.0_151\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk\jdk1.8.0_151\jre\lib\javaws.jar;C:\Program Files\Java\jdk\jdk1.8.0_151\jre\lib\jce.jar;C:\Program Files\Java\jdk\jdk1.8.0_151\jre\lib\jfr.jar;C:\Program Files\Java\jdk\jdk1.8.0_151\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk\jdk1.8.0_151\jre\lib\jsse.jar;C:\Program Files\Java\jdk\jdk1.8.0_151\jre\lib\management-agent.jar;C:\Program Files\Java\jdk\jdk1.8.0_151\jre\lib\plugin.jar;C:\Program Files\Java\jdk\jdk1.8.0_151\jre\lib\resources.jar;C:\Program Files\Java\jdk\jdk1.8.0_151\jre\lib\rt.jar;D:\newTessar\tessar-netty-server\target\classes;C:\Users\xcloud010\.m2\repository\org\springframework\spring-context\5.0.2.RELEASE\spring-context-5.0.2.RELEASE.jar;C:\Users\xcloud010\.m2\repository\org\springframework\spring-aop\5.0.2.RELEASE\spring-aop-5.0.2.RELEASE.jar;C:\Users\xcloud010\.m2\repository\org\springframework\spring-beans\5.0.2.RELEASE\spring-beans-5.0.2.RELEASE.jar;C:\Users\xcloud010\.m2\repository\org\springframework\spring-core\5.0.2.RELEASE\spring-core-5.0.2.RELEASE.jar;C:\Users\xcloud010\.m2\repository\org\springframework\spring-jc
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk\jdk1.8.0_151
+JRE_HOME=C:\Program Files\Java\jre\jre1.8.0_151
+PATH=C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\MongoDB\Server\3.2\bin;C:\MinGW\bin;D:\Tools\apache-tomcat-7.0.82\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;D:\ProgramData\Anaconda3;C:\Program Files\Git\cmd;C:\Users\xcloud010\AppData\Local\Microsoft\WindowsApps;C:\Users\xcloud010\AppData\Local\GitHubDesktop\bin;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;
+USERNAME=xcloud010
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 60 Stepping 3, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 16299 (10.0.16299.15)
+
+CPU:total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 60 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2
+
+Memory: 4k page, physical 4118508k(152176k free), swap 11837160k(6176k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.151-b12) for windows-amd64 JRE (1.8.0_151-b12), built on Sep  5 2017 19:33:46 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Mon Feb 05 19:52:35 2018
+elapsed time: 109 seconds (0d 0h 1m 49s)
+

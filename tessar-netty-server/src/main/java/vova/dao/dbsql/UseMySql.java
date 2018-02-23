@@ -1,14 +1,13 @@
 package vova.dao.dbsql;
 
 
-import vova.domain.test.Customer;
-import vova.domain.test.Order;
+import vova.domain.customer.Customer;
+import vova.domain.customer.Order;
 import vova.domain.QueryDate;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -1,4 +1,4 @@
-package vova.domain.test;
+package vova.domain.customer;
 
 public class Order {
     private int id;

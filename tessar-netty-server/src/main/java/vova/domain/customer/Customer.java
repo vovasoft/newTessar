@@ -1,29 +1,25 @@
-package vova.domain.test;
+package vova.domain.customer;
 
+import java.util.ArrayList;
+import java.util.List;
 
-
-
-/**
- * @author vova
- * @version Create in 上午1:27 2017/12/21
- */
-
-
-
-public class User {
-
+public class Customer {
     private int id;
     private String name;
     private int age;
-
-    public User(int id, String name, int age) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
+    private List<Order> orders = new ArrayList<Order>();
+    
+    
+    public List<Order> getOrders() {
+        return orders;
     }
 
-    public User() {
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
+
+    
+    
 
     public int getId() {
         return id;

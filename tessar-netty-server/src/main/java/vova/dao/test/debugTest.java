@@ -16,8 +16,8 @@ import vova.domain.*;
 
 import vova.domain.newadd.NewAddDay;
 import vova.domain.stayman.StayMon;
-import vova.domain.test.User;
-import vova.domain.test.User2;
+import vova.domain.customer.User;
+import vova.domain.customer.User2;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;

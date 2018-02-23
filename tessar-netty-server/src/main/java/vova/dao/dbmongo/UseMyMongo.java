@@ -459,7 +459,7 @@ public class UseMyMongo {
         //system.out.println("date::::" + sdf.format(mt.date));
 
         for (MongoTest test : mtList) {
-            //system.out.println("for::::" + sdf.format(test.date));
+            //system.out.println("for::::" + sdf.format(customer.date));
         }
     }
 }

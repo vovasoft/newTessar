@@ -1,4 +1,4 @@
-package vova.domain.test;
+package vova.domain.customer;
 
 import java.util.ArrayList;
 import java.util.Date;

@@ -10,7 +10,7 @@ public class NewAddMon extends NewAdd {
     public NewAddMon() {
     }
 
-    public NewAddMon(int id, Date dateID, String cID, String gID, String sID, long newAddNum, long activeNum, long loginCount, float averageLogin, long allPlayerNum) {
-        super(id, dateID, cID, gID, sID, newAddNum, activeNum, loginCount, averageLogin, allPlayerNum);
+    public NewAddMon(int id, Date dateID, String mainId, String cID, String gID, String enter, long newAddNum, long activeNum, long loginCount, float averageLogin, long allPlayerNum, String other1, String other2, String other3, String other4) {
+        super(id, dateID, mainId, cID, gID, enter, newAddNum, activeNum, loginCount, averageLogin, allPlayerNum, other1, other2, other3, other4);
     }
 }

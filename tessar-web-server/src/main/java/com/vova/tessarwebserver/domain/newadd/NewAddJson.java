@@ -10,11 +10,20 @@ import java.util.Date;
  */
 public class NewAddJson{
     private String dateID;
+    private String cID;
     private long newAddNum;
     private long activeNum;
     private long loginCount;
     private float averageLogin;
     private long allPlayerNum;
+
+    public String getcID() {
+        return cID;
+    }
+
+    public void setcID(String cID) {
+        this.cID = cID;
+    }
 
     public String getDateID() {
         return dateID;
@@ -67,9 +76,10 @@ public class NewAddJson{
     public NewAddJson(){
     }
 
-    public NewAddJson(String dateID, long newAddNum, long activeNum, long loginCount, float averageLogin, long allPlayerNum) {
+    public NewAddJson(String dateID,String cID, long newAddNum, long activeNum, long loginCount, float averageLogin, long allPlayerNum) {
 
         this.dateID = dateID;
+        this.cID=cID;
         this.newAddNum = newAddNum;
         this.activeNum = activeNum;
         this.loginCount = loginCount;

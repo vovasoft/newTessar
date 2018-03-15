@@ -3,9 +3,9 @@ package com.vova.tessarwebserver.dbmapper;
 
 import com.vova.tessarwebserver.Scheduled.Fb_Ad;
 import com.vova.tessarwebserver.domain.User;
-import com.vova.tessarwebserver.domain.channel.ChannelFactory;
-import com.vova.tessarwebserver.domain.initdata.CreateChannelRule;
-import com.vova.tessarwebserver.domain.initdata.MainChannel;
+import com.vova.tessarwebserver.domain.channel.ChannelData;
+import com.vova.tessarwebserver.domain.channel.ChannelGames;
+import com.vova.tessarwebserver.domain.channel.ChannelIndex;
 import com.vova.tessarwebserver.domain.initdata.SelectList;
 import com.vova.tessarwebserver.domain.initdata.SubChannel;
 import com.vova.tessarwebserver.domain.newadd.NewAdd;
@@ -13,6 +13,7 @@ import com.vova.tessarwebserver.domain.payment.PayAllShow;
 import com.vova.tessarwebserver.domain.payrate.ThreeNum;
 import com.vova.tessarwebserver.domain.stayman.StayParent;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
@@ -29,16 +30,23 @@ import java.util.List;
 //            " and  cID = #{cid}" +
 //            "</if>" +
 //            "</script>")
+    
+    
+//    SELECT * FROM db1.NewAddDay where cID in (SELECT cid FROM db1.ChannelIndex where mainID = 'facebookAD');
+@Service    
 @Mapper
 public interface AllInOneMapper {
+    
+    @Select("show tables;")
+    List<String> showTables();
     //新增数据多条件查找
     @Select("<script> " +
             "SELECT * " +
             "from ${tableName} " +
             " where <![CDATA[dateID >= #{sDate} AND dateID <= #{eDate}]]>" +
-            " <if test= 'cid != null'> AND cID=#{cid}</if> " +
+            " <if test= 'cid != null'> AND cID in (SELECT cid FROM db1.ChannelIndex where mainID = #{cid})</if> " +
             " <if test= 'gid != null'> AND gID=#{gid}</if> " +
-            " <if test= 'sid != null'> AND sID=#{sid}</if> " +
+            " <if test= 'sid != null'> AND cID=#{sid}</if> " +
             " order by dateID desc" +
             " </script> ")
 //    List<NewAddDay> findCGSNewAddListByTimes(@Param("tableName") String tableName, @Param("cid") String cid, @Param("gid") String gid,
@@ -51,9 +59,9 @@ public interface AllInOneMapper {
     @Select("<script>" +
             "select * from ${tableName} where " +
             "<![CDATA[dateID >= #{sDate} AND dateID <= #{eDate}]]>" +
-            " <if test= 'cid != null'> AND cID=#{cid}</if> " +
+            " <if test= 'cid != null'> AND cID in (SELECT cid FROM db1.ChannelIndex where mainID = #{cid})</if> " +
             " <if test= 'gid != null'> AND gID=#{gid}</if> " +
-            " <if test= 'sid != null'> AND sID=#{sid}</if> " +
+            " <if test= 'sid != null'> AND cID=#{sid}</if> " +
             " order by dateID desc" +
             "</script>")
     List<StayParent> findCGSStayListByTimes(@Param("tableName") String tableName, @Param("cid") String cid, @Param("gid") String gid,
@@ -118,9 +126,9 @@ public interface AllInOneMapper {
     @Select("<script>" +
             "select * from ${tableName} where " +
             "<![CDATA[dateID >= #{sDate} AND dateID <= #{eDate}]]>" +
-            " <if test= 'cid != null'> AND cID=#{cid}</if> " +
+            " <if test= 'cid != null'> AND cID in (SELECT cid FROM db1.ChannelIndex where mainID = #{cid})</if> " +
             " <if test= 'gid != null'> AND gID=#{gid}</if> " +
-            " <if test= 'sid != null'> AND sID=#{sid}</if> " +
+            " <if test= 'sid != null'> AND cID=#{sid}</if> " +
             " order by dateID desc" +
             "</script>")
     List<PayAllShow> findCGSPayAllShowByTimes(@Param("tableName") String tableName, @Param("cid") String cid, @Param("gid") String gid,
@@ -129,9 +137,9 @@ public interface AllInOneMapper {
     @Select("<script>" +
             "select * from ${tableName} where " +
             "<![CDATA[dateID >= #{sDate} AND dateID <= #{eDate}]]>" +
-            " <if test= 'cid != null'> AND cID=#{cid}</if> " +
+            " <if test= 'cid != null'> AND cID in (SELECT cid FROM db1.ChannelIndex where mainID = #{cid})</if> " +
             " <if test= 'gid != null'> AND gID=#{gid}</if> " +
-            " <if test= 'sid != null'> AND sID=#{sid}</if> " +
+            " <if test= 'sid != null'> AND cID=#{sid}</if> " +
             " order by dateID desc" +
             "</script>")
     List<ThreeNum> findThreeNumByTimes(@Param("tableName") String tableName, @Param("cid") String cid, @Param("gid") String gid,
@@ -148,20 +156,77 @@ public interface AllInOneMapper {
     @Insert("insert into user (name,passwd) values(#{name},#{passwd})")
     int insertUser(@Param("name") String name, @Param("passwd") String passwd);
 
+    
+///////////////////////创建渠道ID///////////////////////
 
-    @Insert("insert into ChannelFactory (cid,pcid,img,des,tags) values(#{cid},#{pcid},#{img},#{des},#{tags})")
-    int insertChannel(ChannelFactory channelFactory);
+    @Select("select name from MainChannel")
+    List<String> getMainChannelName();
 
-    @Select("select * from ChannelFactory where cid = #{cid} ")
-    List<ChannelFactory> findchannel(@Param("cid") String cid);
-//////////////////////////////////////////////
+    @Select("select prefix from MainChannel where name=#{name}")
+    List<String> getMainChannel(@Param("name") String name);
 
-    @Select("select * from MainChannel")
-    List<MainChannel> getMainChannel();
+    
+    @Select("select name from ChannelGames")
+    List<String> getChannelGamesName();
 
-    @Select("select * from CreateChannelRule")
-    List<CreateChannelRule> getCreateChannelRule();
+    @Select("select * from ChannelGames where name=#{game}")
+    List<ChannelGames> getChannelGame(@Param("game") String game);
+    
+    @Select("select name from EntryDefine where game=#{game} and entryType=#{entryType}")
+    List<String> getEntryDefineFB(@Param("game") String game,@Param("entryType") String entryType);
 
+    
+    @Select("select des from EntryDefine where game=#{game} and entryType=#{entryType}")
+    List<String> getEntryDefineLP(@Param("game") String game,@Param("entryType") String entryType);
+
+    @Select("select name from EntryDefine where game=#{game} and des=#{des}")
+    List<String> getEntryNameLP(@Param("game") String game,@Param("des") String des);
+
+    @Select("select * from ChannelData where url=#{url}")
+    List<ChannelData> findChannelData(@Param("url") String url);
+
+    @Select("SELECT count(*) FROM db1.ChannelData;")
+    int countChannelData();
+    
+    //@Select("SELECT count(*) FROM db1.ChannelData where url like #{key} and createTime=#{time}")
+    @Select("<script>" +
+            "select count(*) from ChannelData where " +
+            "url like #{key}" +
+            " <if test= 'time != null'> AND createTime=#{time}</if> " +
+            "</script>")
+    
+    
+    int findCountChannelData(@Param("key") String key,@Param("time") String time);
+    
+    @Select("select * from ChannelIndex where cid = #{cid} limit 1")
+    ChannelIndex selectOneChannelIndex(@Param("cid") String cid);
+
+    @Insert("INSERT into ChannelIndex(`mainId`,`cid`) values(#{mainId},#{cid});")
+    int insertOneChannelIndex(@Param("mainId") String mainId,@Param("cid") String cid);
+
+    @Select("select * from ChannelData limit #{start},#{count}")
+    List<ChannelData> selectChannelData(@Param("start") int start,@Param("count") int count);
+
+    @Select("<script>" +
+            "select * from ChannelData where " +
+            "url like #{key}" +
+            " <if test= 'time != null'> AND createTime like #{time}</if> " +
+            "limit #{start},#{count}" +
+            "</script>")
+    
+  //  @Select("select * from ChannelData where url like #{key} and createTime=#{time}")
+    List<ChannelData> findOutChannelData(@Param("key") String key,@Param("time") String time,@Param("start") int start,@Param("count") int count);
+
+
+    @Insert("insert into ChannelData (game,entry,define,mainChannel,url,creator,createTime) " +
+            "values(#{game},#{entry},#{define},#{mainChannel},#{url},#{creator},#{createTime})")
+    int insertChannelData(@Param("game") String game,
+                          @Param("entry") String entry,
+                          @Param("define") String define,
+                          @Param("mainChannel") String mainChannel,
+                          @Param("url") String url,
+                          @Param("creator") String creator,
+                          @Param("createTime") String createTime);
 
     @Insert("insert into SubChannel (mainChannel,longUrl,shortUrl,keyWords) values(#{mainChannel},#{longUrl},#{shortUrl},#{keyWords})")
     int insertSubChannel(@Param("mainChannel") String mainChannel,

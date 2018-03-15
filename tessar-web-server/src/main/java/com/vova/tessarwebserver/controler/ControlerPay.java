@@ -96,7 +96,7 @@ public class ControlerPay {
             StayParent sp = spList.get(i);
 //            sj.add(new StayJson(sdf.format(sp.getDateID()),sp.getNewAddNum(),Tools.strToNumArrayScale(sp.getStayList(),",",sp.getNewAddNum()), Tools.strToNumArray(sp.getStayList(),",")));
             String [] combinStr=Tools.combine2Str(Tools.strToNumArrayScale(sp.getStayList(), ",", sp.getNewAddNum()), Tools.strToStrArray(sp.getStayList(), ","));
-            sj.add(new StayJson(sdf.format(sp.getDateID()), sp.getNewAddNum(),combinStr));
+            sj.add(new StayJson(sdf.format(sp.getDateID()),sp.getcID(), sp.getNewAddNum(),combinStr));
         }
 
         return sj;
@@ -113,7 +113,7 @@ public class ControlerPay {
         ArrayList<StayJson> sj = new ArrayList<>();
         for (int i=0;i<spList.size();i++) {
             StayParent sp = spList.get(i);
-            sj.add(new StayJson(sdf.format(sp.getDateID()),sp.getNewAddNum(),Tools.strToStrArray(sp.getStayList(),",")));
+            sj.add(new StayJson(sdf.format(sp.getDateID()),sp.getcID(),sp.getNewAddNum(),Tools.strToStrArray(sp.getStayList(),",")));
         }
 
         return sj;

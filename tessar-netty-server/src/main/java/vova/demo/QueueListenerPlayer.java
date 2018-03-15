@@ -16,12 +16,12 @@ public class QueueListenerPlayer<Player> implements RedisQueueListener<Player> {
     public void onMessage(Player value) throws InterruptedException {
         ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         ManageGameInput manageGameInput= (ManageGameInput) ac.getBean("manageGameInput");
-        try {
-            manageGameInput.HandPlayerData((vova.domain.Player) value);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            manageGameInput.HandPlayerData((vova.domain.Player) value);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
     }
 }

@@ -6,18 +6,22 @@
     <!-- 定义insert语句 -->
 
     <insert id="insert" useGeneratedKeys="false" keyProperty="id">
-        insert into ThreeNumDay (dateID,cID,gID,sID,newAddFirstPayNum,activePayNum,newAddPayRate)
-        values (#{dateID},#{cID},#{gID},#{sID},#{newAddFirstPayNum},#{activePayNum},#{newAddPayRate})
+        insert into ThreeNumDay (dateID,mainId,cID,gID,enter,newAddFirstPayNum,activePayNum,newAddPayRate,other1,other2,other3,other4)
+        values (#{dateID},#{mainId},#{cID},#{gID},#{enter},#{newAddFirstPayNum},#{activePayNum},#{newAddPayRate},#{other1},#{other2},#{other3},#{other4})
     </insert>
 
 
     <select id="findByObject" resultType="_ThreeNumDay">
-        select * from ThreeNumDay where dateID = #{dateID} AND cID = #{cID} AND gID = #{gID} AND sID = #{sID}  limit 1
+        select * from ThreeNumDay where dateID = #{dateID} AND cID = #{cID} AND gID = #{gID} AND enter = #{enter} limit 1
     </select>
 
     <update id="update">
         update ThreeNumDay set newAddFirstPayNum=#{newAddFirstPayNum}, activePayNum=#{activePayNum}, newAddPayRate=#{newAddPayRate}
         where id=#{id}
+    </update>
+
+    <update id="truncate">
+        truncate table ThreeNumDay
     </update>
 
 </mapper>

@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
 <!-- BEGIN HEAD -->
+
 <head>
     <meta charset="utf-8" />
     <title>Metronic | Visual Charts</title>
@@ -18,7 +21,7 @@
     <link rel="stylesheet" href="assets/bootstrap-daterangepicker/daterangepicker.css">
     <link rel="shortcut icon" href="favicon.ico" />
     <style>
-        .selfbox{
+        .selfbox {
             background-color: #eee;
             padding: 8px;
             margin-bottom: 20px;
@@ -26,610 +29,688 @@
             border-radius: 4px;
             position: relative;
         }
-        .table th,td{
+
+        .table th,
+        td {
             text-align: center !important;
         }
     </style>
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
-<body class="fixed-top">
-<div id="app">
-    <!-- BEGIN HEADER -->
-    <div class="header navbar navbar-inverse navbar-fixed-top">
-        <!-- BEGIN TOP NAVIGATION BAR -->
-        <div class="navbar-inner">
-            <div class="container-fluid">
-                <!-- BEGIN LOGO -->
-                <a class="brand" href="index.html">
-                    <img src="assets/img/logo.png" alt="logo" />
-                </a>
-                <!-- END LOGO -->
-                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-                <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
-                    <img src="assets/img/menu-toggler.png" alt="" />
-                </a>
-                <!-- END RESPONSIVE MENU TOGGLER -->
-                <!-- BEGIN TOP NAVIGATION MENU -->
-                <ul class="nav pull-right">
-                    <!-- BEGIN USER LOGIN DROPDOWN -->
-                    <li class="dropdown user">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img alt="" src="assets/img/avatar1_small.jpg" />
-                            <span class="username">Bob Nilson</span>
-                            <i class="icon-angle-down"></i>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="Javascript:void(0);"><i class="icon-user"></i> My Profile</a></li>
 
-                            <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+<body class="fixed-top">
+    <div id="app">
+        <!-- BEGIN HEADER -->
+        <div class="header navbar navbar-inverse navbar-fixed-top">
+            <!-- BEGIN TOP NAVIGATION BAR -->
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <!-- BEGIN LOGO -->
+                    <a class="brand" href="index.html">
+                        <img src="assets/img/logo.png" alt="logo" />
+                    </a>
+                    <!-- END LOGO -->
+                    <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                    <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+                        <img src="assets/img/menu-toggler.png" alt="" />
+                    </a>
+                    <!-- END RESPONSIVE MENU TOGGLER -->
+                    <!-- BEGIN TOP NAVIGATION MENU -->
+                    <ul class="nav pull-right">
+                        <!-- BEGIN USER LOGIN DROPDOWN -->
+                        <li class="dropdown user">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img alt="" src="assets/img/avatar1_small.jpg" />
+                                <span class="username">Bob Nilson</span>
+                                <i class="icon-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="Javascript:void(0);">
+                                        <i class="icon-user"></i> My Profile</a>
+                                </li>
+
+                                <li>
+                                    <a href="login.html">
+                                        <i class="icon-key"></i> Log Out</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- END USER LOGIN DROPDOWN -->
+                    </ul>
+                    <!-- END TOP NAVIGATION MENU -->
+                </div>
+            </div>
+            <!-- END TOP NAVIGATION BAR -->
+        </div>
+        <!-- END HEADER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container row-fluid">
+            <!-- BEGIN SIDEBAR -->
+            <div class="page-sidebar nav-collapse collapse">
+                <!-- BEGIN SIDEBAR MENU -->
+                <ul>
+                    <li>
+                        <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                        <div class="sidebar-toggler hidden-phone"></div>
+                        <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                    </li>
+                    <li class="start">
+                        <a href="overview.html">
+                            <i class="icon-home"></i>
+                            <span class="title">概览</span>
+                        </a>
+                    </li>
+                    <li class="has-sub active">
+                        <a href="javascript:;">
+                            <i class="icon-bookmark-empty"></i>
+                            <span class="selected"></span>
+                            <span class="title">活跃分析</span>
+                            <span class="arrow open"></span>
+                        </a>
+                        <ul class="sub">
+                            <li class="active">
+                                <a href="active.html">活跃</a>
+                            </li>
+                            <li>
+                                <a href="frequency.html">使用频率</a>
+                            </li>
                         </ul>
                     </li>
-                    <!-- END USER LOGIN DROPDOWN -->
-                </ul>
-                <!-- END TOP NAVIGATION MENU -->
-            </div>
-        </div>
-        <!-- END TOP NAVIGATION BAR -->
-    </div>
-    <!-- END HEADER -->
-    <!-- BEGIN CONTAINER -->
-    <div class="page-container row-fluid">
-        <!-- BEGIN SIDEBAR -->
-        <div class="page-sidebar nav-collapse collapse">
-            <!-- BEGIN SIDEBAR MENU -->
-            <ul>
-                <li>
-                    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-                    <div class="sidebar-toggler hidden-phone"></div>
-                    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-                </li>
-                <li class="start">
-                    <a href="overview.html">
-                        <i class="icon-home"></i>
-                        <span class="title">概览</span>
-                    </a>
-                </li>
-                <li class="has-sub active">
-                    <a href="javascript:;">
-                        <i class="icon-bookmark-empty"></i>
-                        <span class="title">活跃分析</span>
-                        <span class="arrow open"></span>
-                    </a>
-                    <ul class="sub">
-                        <li class="active"><a href="active.html">活跃</a></li>
-                        <li ><a href="frequency.html">使用频率</a></li>
-                    </ul>
-                </li>
-                <li class="">
-                    <a href="">
-                        <i class="icon-bar-chart"></i>
-                        <span class="title">转化分析</span>
-                        <span class="selected"></span>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="stay.html">
-                        <i class="icon-calendar"></i>
-                        <span class="title">留存分析</span>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="pay.html">
-                        <i class="icon-camera"></i>
-                        <span class="title">付费分析</span>
-                    </a>
-                </li>
-            </ul>
-            <!-- END SIDEBAR MENU -->
-        </div>
-        <!-- END SIDEBAR -->
-        <!-- BEGIN PAGE -->
-        <div class="page-content">
-
-            <!-- BEGIN PAGE CONTAINER-->
-            <div class="container-fluid">
-                <!-- BEGIN PAGE HEADER-->
-                <div class="row-fluid">
-                    <div class="span12">
-                        <!-- BEGIN STYLE CUSTOMIZER -->
-                        <div class="color-panel hidden-phone">
-                            <div class="color-mode-icons icon-color"></div>
-                            <div class="color-mode-icons icon-color-close"></div>
-                            <div class="color-mode">
-                                <p>THEME COLOR</p>
-                                <ul class="inline">
-                                    <li class="color-black current color-default" data-style="default"></li>
-                                    <li class="color-blue" data-style="blue"></li>
-                                    <li class="color-brown" data-style="brown"></li>
-                                    <li class="color-purple" data-style="purple"></li>
-                                    <li class="color-white color-light" data-style="light"></li>
-                                </ul>
-                                <label class="hidden-phone">
-                                    <input type="checkbox" class="header" checked value="" />
-                                    <span class="color-mode-label">Fixed Header</span>
-                                </label>
-                            </div>
-                        </div>
-                        <!-- END BEGIN STYLE CUSTOMIZER -->
-                        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-                        <h3 class="page-title">
-                            Active Analysis
-                        </h3>
-                        <ul class="breadcrumb">
-                            <li>
-                                <i class="icon-home"></i>
-                                <a href="javascript:void (0);">活跃分析</a>
-                                <i class="icon-angle-right"></i>
-                            </li>
-                            <li><a href="active.html">活跃</a></li>
+                    <li class="">
+                        <a href="">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">转化分析</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="stay.html">
+                            <i class="icon-calendar"></i>
+                            <span class="title">留存分析</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="pay.html">
+                            <i class="icon-camera"></i>
+                            <span class="title">付费分析</span>
+                        </a>
+                    </li>
+                    <li class="has-sub">
+                        <a href="generate_channel.html">
+                            <i class="icon-credit-card"></i>
+                            <span class="title">生成渠道</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="channel_list.html">渠道列表</a></li>
                         </ul>
-                        <!-- END PAGE TITLE & BREADCRUMB-->
+                    </li>
+                </ul>
+                <!-- END SIDEBAR MENU -->
+            </div>
+            <!-- END SIDEBAR -->
+            <!-- BEGIN PAGE -->
+            <div class="page-content">
+
+                <!-- BEGIN PAGE CONTAINER-->
+                <div class="container-fluid">
+                    <!-- BEGIN PAGE HEADER-->
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <!-- BEGIN STYLE CUSTOMIZER -->
+                            <div class="color-panel hidden-phone">
+                                <div class="color-mode-icons icon-color"></div>
+                                <div class="color-mode-icons icon-color-close"></div>
+                                <div class="color-mode">
+                                    <p>THEME COLOR</p>
+                                    <ul class="inline">
+                                        <li class="color-black current color-default" data-style="default"></li>
+                                        <li class="color-blue" data-style="blue"></li>
+                                        <li class="color-brown" data-style="brown"></li>
+                                        <li class="color-purple" data-style="purple"></li>
+                                        <li class="color-white color-light" data-style="light"></li>
+                                    </ul>
+                                    <label class="hidden-phone">
+                                        <input type="checkbox" class="header" checked value="" />
+                                        <span class="color-mode-label">Fixed Header</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- END BEGIN STYLE CUSTOMIZER -->
+                            <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+                            <h3 class="page-title">
+                                Active Analysis
+                            </h3>
+                            <ul class="breadcrumb">
+                                <li>
+                                    <i class="icon-home"></i>
+                                    <a href="javascript:void (0);">活跃分析</a>
+                                    <i class="icon-angle-right"></i>
+                                </li>
+                                <li>
+                                    <a href="active.html">活跃</a>
+                                </li>
+                            </ul>
+                            <!-- END PAGE TITLE & BREADCRUMB-->
+                        </div>
                     </div>
-                </div>
-                <!-- END PAGE HEADER-->
-                <div class="row-fluid selfbox">
-                    <div class="span12 clearfix">
-                        <form action="#" class="form-horizontal clearfix" style="margin: 0;">
-                            <div class="control-group pull-left">
-                                <label class="control-label" style="width: 47px;">渠道：</label>
-                                <div class="controls" style="margin-left: 47px">
-                                    <select class="small m-wrap" id="channelVal" tabindex="1">
-                                        <option value="Category 1"
-                                                v-for="(channelData,index) in selectDataList.cNames"
-                                        >{{channelData}}</option>
-                                    </select>
+                    <!-- END PAGE HEADER-->
+                    <div class="row-fluid selfbox">
+                        <div class="span12 clearfix">
+                            <form action="#" class="form-horizontal clearfix" style="margin: 0;">
+                                <div class="control-group pull-left">
+                                    <label class="control-label" style="width: 47px;">渠道：</label>
+                                    <div class="controls" style="margin-left: 47px">
+                                        <select class="small m-wrap" id="channelVal" tabindex="1">
+                                            <option value="Category 1" v-for="(channelData,index) in selectDataList.cNames">{{channelData}}</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="control-group pull-left">
-                                <label class="control-label">游戏：</label>
-                                <div class="controls">
-                                    <select class="small m-wrap" id="gameVal" tabindex="1">
-                                        <option value="Category 1"
-                                                v-for="(gNamesData,index) in selectDataList.gNames"
-                                        >{{gNamesData}}</option>
-                                    </select>
+                                <div class="control-group pull-left">
+                                    <label class="control-label">游戏：</label>
+                                    <div class="controls">
+                                        <select class="small m-wrap" id="gameVal" tabindex="1">
+                                            <option value="Category 1" v-for="(gNamesData,index) in selectDataList.gNames">{{gNamesData}}</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="control-group pull-left">
-                                <label class="control-label">服务器：</label>
-                                <div class="controls">
-                                    <select class="small m-wrap" id="severVal" tabindex="1">
-                                        <option value="Category 1"
-                                                v-for="(sNamesData,index) in selectDataList.sNames"
-                                        >{{sNamesData}}</option>
-                                    </select>
+                                <div class="control-group pull-left">
+                                    <label class="control-label">服务器：</label>
+                                    <div class="controls">
+                                        <select class="small m-wrap" id="severVal" tabindex="1">
+                                            <option value="Category 1" v-for="(sNamesData,index) in selectDataList.sNames">{{sNamesData}}</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="control-group pull-left">
-                                <label class="control-label">时间：</label>
-                                <div class="controls">
-                                    <input type="text" name="datefilter" id="dateVal" v-model="selectDataList.dNames1" />
+                                <div class="control-group pull-left">
+                                    <label class="control-label">时间：</label>
+                                    <div class="controls">
+                                        <input type="text" name="datefilter" id="dateVal" />
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="control-group pull-left">
-                                <div class="controls" style="margin-left: 10px">
-                                    <select class="m-wrap" id="appVal" tabindex="1" style="width: 60px">
-                                        <option value="Category 1"
-                                                v-for="(dNames2Data,index) in selectDataList.dNames2"
-                                        >{{dNames2Data}}</option>
-                                    </select>
+                                <div class="control-group pull-left">
+                                    <div class="controls" style="margin-left: 10px">
+                                        <select class="m-wrap" id="appVal" tabindex="1" style="width: 60px">
+                                            <option value="Category 1" v-for="(dNames2Data,index) in selectDataDate">{{dNames2Data}}</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="btn blue pull-left"
-                                 id="submitActive"
-                                 @click="submitActive"
-                                 style="margin-left: 20px">
-                                确定
-                            </div>
-                        </form>
+                                <div class="btn blue pull-left" id="submitActive" @click="submitActive" style="margin-left: 20px">
+                                    确定
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                </div>
-                <div class="row-fluid selfbox">
-                    <div class="span12">
-                        <div id="new-add" style="height:350px;"></div>
+                    <div class="row-fluid selfbox">
+                        <div class="span12">
+                            <div id="new-add" style="height:350px;"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="row-fluid selfbox clearfix">
-                    <div class="span12">
-                        <h4 class="clearfix">
-                            <b class="pull-left">详细数据</b>
-                            <a href="javascript:void(0);" class="btn blue pull-right">
-                                <i class="icon-cloud-download"></i>
-                            </a>
-                        </h4>
-                        <div class="table-responsive" id="tableActiveData">
-                            <table class="table table-bordered">
-                                <thead>
-                                <tr>
-                                    <th>日期</th>
-                                    <th>新增</th>
-                                    <th>活跃</th>
-                                    <th>登录次数</th>
-                                    <th>平均登录次数</th>
-                                    <th>累计用户</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr v-for="(val,index) in submitDataList">
-                                    <td>{{val.dateID}}</td>
-                                    <td>{{val.newAddNum}}</td>
-                                    <td>{{val.activeNum}}</td>
-                                    <td>{{val.loginCount}}</td>
-                                    <td>{{val.averageLogin}}</td>
-                                    <td>{{val.allPlayerNum}}</td>
-                                </tr>
-                                </tbody>
-                            </table>
+                    <div class="row-fluid selfbox clearfix">
+                        <div class="span12">
+                            <h4 class="clearfix">
+                                <b class="pull-left">详细数据</b>
+                                <a onClick="dldExcel('tableExcel','myFile','myFile.xls')"
+                                   class="btn blue pull-right">
+                                    <i class="icon-cloud-download"></i>
+                                </a>
+                            </h4>
+                            <div class="table-responsive" id="tableActiveData">
+                                <table class="table table-bordered" id="excelActive">
+                                    <thead>
+                                        <tr>
+                                            <th>日期</th>
+                                            <th>新增</th>
+                                            <th>活跃</th>
+                                            <th>登录次数</th>
+                                            <th>平均登录次数</th>
+                                            <th>累计用户</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="(val,index) in submitDataList">
+                                            <td>{{val.dateID}}</td>
+                                            <td>{{val.newAddNum}}</td>
+                                            <td>{{val.activeNum}}</td>
+                                            <td>{{val.loginCount}}</td>
+                                            <td>{{val.averageLogin}}</td>
+                                            <td>{{val.allPlayerNum}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <!-- BEGIN PAGE CONTAINER-->
             </div>
-            <!-- BEGIN PAGE CONTAINER-->
+            <!-- END PAGE -->
         </div>
-        <!-- END PAGE -->
-    </div>
-    <!-- END CONTAINER -->
-    <!-- BEGIN FOOTER -->
-    <div class="footer">
-        2017 &copy; XCLOUDGAME
-        <div class="span pull-right">
-            <span class="go-top"><i class="icon-angle-up"></i></span>
+        <!-- END CONTAINER -->
+        <!-- BEGIN FOOTER -->
+        <div class="footer">
+            2017 &copy; XCLOUDGAME
+            <div class="span pull-right">
+                <span class="go-top">
+                    <i class="icon-angle-up"></i>
+                </span>
+            </div>
         </div>
+        <!-- END FOOTER -->
+        <!-- BEGIN JAVASCRIPTS -->
     </div>
-    <!-- END FOOTER -->
-    <!-- BEGIN JAVASCRIPTS -->
-</div>
-<!-- Load javascripts at bottom, this will reduce page load time -->
-<script src="assets/js/vue-2.2.0.js"></script>
-<script src="assets/js/jquery-1.8.3.min.js"></script>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/js/jquery.blockui.js"></script>
-<script src="assets/js/jquery.cookie.js"></script>
-<script src="assets/echarts/echarts.common.min.js"></script>
-<script src="assets/breakpoints/breakpoints.js"></script>
-<!-- ie8 fixes -->
-<!--[if lt IE 9]>
+    <!-- Load javascripts at bottom, this will reduce page load time -->
+    <script src="assets/js/vue-2.2.0.js"></script>
+    <script src="assets/js/jquery-1.8.3.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.blockui.js"></script>
+    <script src="assets/js/jquery.cookie.js"></script>
+    <script src="assets/echarts/echarts.common.min.js"></script>
+    <script src="assets/breakpoints/breakpoints.js"></script>
+    <!-- ie8 fixes -->
+    <!--[if lt IE 9]>
 <script src="assets/js/excanvas.js"></script>
 <script src="assets/js/respond.js"></script>
 <![endif]-->
-<script src="assets/bootstrap-daterangepicker/moment.min.js"></script>
-<script src="assets/bootstrap-daterangepicker/daterangepicker.js"></script>
-<script src="assets/bootstrap-daterangepicker/date.js"></script>
-<script src="assets/js/app.js"></script>
+    <script src="assets/bootstrap-daterangepicker/moment.min.js"></script>
+    <script src="assets/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="assets/bootstrap-daterangepicker/date.js"></script>
+    <script src="assets/js/app.js"></script>
 
 
-<script>
-    jQuery(document).ready(function() {
-        App.init();
-    });
-</script>
-<!-- END JAVASCRIPTS -->
+    <script>
+        jQuery(document).ready(function () {
+            App.init();
+        });
 
-<script type="text/javascript">
-    var vmActive = new Vue({
-        el: "#app",
-        data:{
-            submitDataList: "",
-            selectDataList:{
-                cNames:["vova","aaaaaa","aaaaaa","bbbbbb","cccccc"],
-                gNames:["game1","game2","game3","game4"],
-                sNames:["Category1","Category2","Category3","Category4"],
-                dNames1:"",
-                dNames2:["日","日","月","周"],
-            },
-        },
-        mounted() {
-            this.TsDateInit(); //初始化时间挂载
-            this.TsEchartTableInit(); //初始化图表和表格挂载
-            this.TsOnloadInit();
-            //this.submitActive(); //点击获取数据
-        },
-        methods: {
-            //声明协议的传送变量
-            TsOnloadInit: function () {
-                const channelVal = "";
-                const gameVal = "";
-                const severVal = "";
-                const dateVal = "";
-                const sDate = "";
-                const eDate = "";
-                const applVal = "";
-                console.log(
-                    channelVal,
-                    gameVal,
-                    severVal,
-                    dateVal,
-                    sDate,
-                    eDate,
-                    eDate,
-                    applVal,
-                );
-            },
-            //初始化时间
-            TsDateInit: function () {
-                $('input[name="datefilter"]').daterangepicker({
-                    startDate:moment().subtract('days', 6),
-                    endDate:moment(),
-                    opens: 'left',
-                    autoUpdateInput: false,
-                    format: 'YYYY/MM/DD',
-                    ranges: {
-                        'Last 7 Days': [moment().subtract('days', 6), moment()],
-                        'Last 14 Days': [moment().subtract('days', 13), moment()],
-                        'Last 30 Days': [moment().subtract('days', 29), moment()]
+        //第五种方法
+        var idTmr;
+        function  getExplorer() {
+            var explorer = window.navigator.userAgent ;
+            //ie
+            if (explorer.indexOf("MSIE") >= 0) {
+                return 'ie';
+            }
+            //firefox
+            else if (explorer.indexOf("Firefox") >= 0) {
+                return 'Firefox';
+            }
+            //Chrome
+            else if(explorer.indexOf("Chrome") >= 0){
+                return 'Chrome';
+            }
+            //Opera
+            else if(explorer.indexOf("Opera") >= 0){
+                return 'Opera';
+            }
+            //Safari
+            else if(explorer.indexOf("Safari") >= 0){
+                return 'Safari';
+            }
+        }
+        function dldExcel(tableid) {
+            if(getExplorer()=='ie')
+            {
+                var curTbl = document.getElementById(tableid);
+                var oXL = new ActiveXObject("Excel.Application");
+                var oWB = oXL.Workbooks.Add();
+                var xlsheet = oWB.Worksheets(1);
+                var sel = document.body.createTextRange();
+                sel.moveToElementText(curTbl);
+                sel.select();
+                sel.execCommand("Copy");
+                xlsheet.Paste("xiazai");
+                oXL.Visible = true;
+
+                try {
+                    var fname = oXL.Application.GetSaveAsFilename("Excel.xls", "Excel Spreadsheets (*.xls), *.xls");
+                } catch (e) {
+                    print("Nested catch caught " + e);
+                } finally {
+                    oWB.SaveAs(fname);
+                    oWB.Close(savechanges = false);
+                    oXL.Quit();
+                    oXL = null;
+                    idTmr = window.setInterval("Cleanup();", 1);
+                }
+
+            }
+            else
+            {
+                tableToExcel(tableid,name,filename)
+            }
+        }
+        function Cleanup() {
+            window.clearInterval(idTmr);
+            CollectGarbage();
+        }
+        var tableToExcel = (function() {
+            var uri = 'data:application/vnd.ms-excel;base64,',
+                    template = '<html><head><meta charset="UTF-8"></head><body><table>{table}</table></body></html>',
+                    base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) },
+                    format = function(s, c) {
+                        return s.replace(/{(\w+)}/g,
+                                function(m, p) { return c[p]; })
                     }
-                }, function (start,end) {
-                    start.format('YYYY/MM/DD');
-                    end.format('YYYY/MM/DD');
-                });
-            },
+            return function(table, name, filename) {
+                if (!table.nodeType) table = document.getElementById(table)
+                var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
+                link.download = filename;
+                link.href = uri + base64(format(template, ctx));
+                link.click();
+            }
+        })()
+    </script>
+    <!-- END JAVASCRIPTS -->
 
-            //初始化图表和表格
-            TsEchartTableInit: function() {
-                //实例化图表
-                this.chart_new_add= echarts.init(document.getElementById('new-add'));
-                option = {
-                    title: {
-                        text: '趋势表现',
-                    },
-                    tooltip: {
-                        trigger: 'axis',
-                    },
-                    legend: {
-                        orient: 'vertical',
-                        left:'right',
-                        top: 50,
-                        data: ['活跃', '新增']
-                    },
-                    xAxis: {
-                        type: 'category',
-                        splitLine: {show: false},
-                        axisTick: {show: false},
-                        data: ['12/02', '12/03', '12/04', '12/05', '12/06', '12/07', '12/08']
-                    },
-                    grid: {
-                        left: '3%',
-                        right: '8%',
-                        bottom: '10%',
-                        containLabel: true
-                    },
-                    yAxis: {
-                        type: 'value',
-                        axisTick: {show: false},
-                        splitNumber:3,
-                    },
-                    series: [
-                        {
-                            name: '新增',
-                            type: 'line',
-                            data: [689,741, 567, 960, 1508, 1292, 690]
-                        },
-                        {
-                            name: '活跃',
-                            type: 'line',
-                            data: [500, 685, 346, 248, 915, 1008, 479]
+    <script type="text/javascript">
+        var vmActive = new Vue({
+            el: "#app",
+            data: {
+                submitDataList: "",
+                selectDataDate: ["日", "周", "月"],
+                selectDataList: {
+                    //                cNames:["vova","aaaaaa","aaaaaa","bbbbbb","cccccc"],
+                    //                gNames:["game1","game2","game3","game4"],
+                    //                sNames:["Category1","Category2","Category3","Category4"],
+                    //                dNames1:"",
+                    //                dNames2:["日","日","月","周"],
+                },
+            },
+            mounted() {
+                this.TsDateInit(); // 初始化时间挂载
+                this.TsSelectInit();
+                this.TsEchartTableInit(); // 初始化图表和表格挂载
+                // this.submitActive(); //点击获取数据
+            },
+            methods: {
+                // 初始化时间
+                TsDateInit: function () {
+                    $('input[name="datefilter"]').daterangepicker({
+                        showDropdowns: true,
+                        startDate: moment().subtract('days', 6),
+                        endDate: moment(),
+                        opens: 'left',
+                        autoUpdateInput: false,
+                        format: 'YYYY/MM/DD',
+                        ranges: {
+                            'Last 7 Days': [moment().subtract('days', 6), moment()],
+                            'Last 14 Days': [moment().subtract('days', 13), moment()],
+                            'Last 30 Days': [moment().subtract('days', 29), moment()]
                         }
-                    ]
-                };
-                this.chart_new_add.setOption(option);
-                window.onresize = this.chart_new_add.resize; //图标自适应
+                    }, function (start, end, label) {
+                        // 选择时间范围后调用回调函数
+                        start.format('YYYY/MM/DD');
+                        end.format('YYYY/MM/DD');
+                    });
+                    $('input[name="datefilter"]').val(
+                        moment().subtract('days', 6).format('YYYY/MM/DD') +
+                        '-' +
+                        moment().format('YYYY/MM/DD')
+                    )
+                },
 
-                // 定义获取需要传向后台的参数
-                let channelVal = "";
-                let gameVal = "";
-                let severVal = "";
-                let dateVal = "";
-                let sDate = "";
-                let eDate = "";
-                let appVal = "";
+                // 初始化select选框
+                TsSelectInit: function () {
+                    var _this = this;
+                    $.ajax({
+                        type: 'get',
+                        url: 'http://192.168.10.102:9898/app/getCGS',
+                        dataType: 'jsonp',
+                        jsonp: 'callback',
+                        async: true,
+                        success: function (res) {
+                            console.log(res);
+                            _this.selectDataList = res;
+                            console.log(_this.selectDataList.cNames[0]);
+                            _this.$nextTick(function () {
+                                console.log($("#channelVal").find("option:selected").text());
+                            });
+                            //_this.TsEchartTableInit(); // 初始化图表和表格挂载
+                        },
+                        error: function () {
 
-                channelVal = $("#channelVal").find("option:selected").text();
-                gameVal = $("#gameVal").find("option:selected").text();
-                severVal = $("#severVal").find("option:selected").text();
-                dateVal = $("#dateVal").val().trim().split("-");
-                sDate = dateVal[0];
-                eDate = dateVal[1];
-                appVal = $("#appVal").find("option:selected").text();
+                        }
+                    });
+                    console.log(_this.selectDataList);
+                },
 
-                // 转换日,周,月格式
-                if(appVal == "日"){
-                    appVal = "NewAddDay";
-                }else if(appVal == "周"){
-                    appVal = "NewAddWeek";
-                }else if(appVal == "月"){
-                    appVal = "NewAddMon";
-                }
-                console.log(
-                    channelVal,
-                    gameVal,
-                    severVal,
-                    dateVal,
-                    sDate,
-                    eDate,
-                    appVal,
-                );
-
-                // ajax获得初始数据并且赋值
-                $.ajax({
-                    type: 'get',
-                    url: 'http://192.168.10.102:9898/app/getGameDate',
-                    dataType:"jsonp",
-                    //传递给请求处理程序，用以获得jsonp回调函数名的参数名(默认为:callback)
-                    jsonp: "callback",
-                    //自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名
-                    //jsonpCallback:"jsonpCallback_success",
-                    data: {
-                        app: 'NewAddDay',    //根据 天,周,月对应设置
-                        cid: 'ngBrazil',     //渠道id
-                        gid: 'bloodstrke',   //游戏名
-                        sid: '0',            //服务器id
-                        sDate: '2017/12/5',  //起始时间
-                        eDate: '2017/12/19', //结束时间
-                    },
-                    success: function (data) {
-                        console.log((data));
-                        let Op1series1 = []; // 表格1
-                        let Op1series2 = []; // 表格1
-                        let Op1xAxis = []; // 表格1
-                        vmActive.submitDataList = data; //给submitDataList从新赋值
-                        $.each(data, function (ind,val) {
-                            if(ind <= 6){ //只取6条数据
-                                Op1series1.push(val.activeNum);
-                                Op1series2.push(val.loginCount);
-                                Op1xAxis.push(val.dateID);
-                            }
-
-                        })
-                        console.log(Op1xAxis);
-                        vmActive.chart_new_add.setOption({
-                            xAxis: {
-                                data: Op1xAxis
+                //初始化图表和表格
+                TsEchartTableInit: function () {
+                    // 实例化图表
+                    this.chart_new_add = echarts.init(document.getElementById('new-add'));
+                    option = {
+                        title: {
+                            text: '趋势表现',
+                        },
+                        tooltip: {
+                            trigger: 'axis',
+                        },
+                        legend: {
+                            orient: 'vertical',
+                            left: 'right',
+                            top: 50,
+                            data: ['活跃', '新增']
+                        },
+                        xAxis: {
+                            type: 'category',
+                            splitLine: {
+                                show: false
                             },
-                            series: [
-                                {data: Op1series1},
-                                {data: Op1series2}
-                            ]
-                        });
-                        window.onresize = vmActive.chart_new_add.resize; // 屏幕变化时重置
-                    },
-                    error: function (XMLHttpRequest, textStatus, errorThrown) {
-                        console.log("error");
+                            axisTick: {
+                                show: false
+                            },
+                            data: ['12/02', '12/03', '12/04', '12/05', '12/06', '12/07', '12/08']
+                        },
+                        grid: {
+                            left: '3%',
+                            right: '8%',
+                            bottom: '10%',
+                            containLabel: true
+                        },
+                        yAxis: {
+                            type: 'value',
+                            axisTick: {
+                                show: false
+                            },
+                            splitNumber: 3,
+                        },
+                        series: [{
+                                name: '新增',
+                                type: 'line',
+                                data: [689, 741, 567, 960, 1508, 1292, 690]
+                            },
+                            {
+                                name: '活跃',
+                                type: 'line',
+                                data: [500, 685, 346, 248, 915, 1008, 479]
+                            }
+                        ]
+                    };
+                    this.chart_new_add.setOption(option);
+                    window.onresize = this.chart_new_add.resize; //图标自适应
+
+                    setTimeout(function () {
+
+                        // 获取url中的参数赋值
+                        let appValParam = vmActive.getUrlParam("app");
+                        let channelValParam = vmActive.getUrlParam("cid");
+                        let gameValParam = vmActive.getUrlParam("gid");
+                        let severValParam = vmActive.getUrlParam("sid");
+                        let sDateParam = vmActive.getUrlParam("sDate");
+                        let eDateParam = vmActive.getUrlParam("eDate");
+                        if (appValParam && channelValParam && gameValParam && severValParam && sDateParam &&
+                                eDateParam) {
+                            appVal = appValParam;
+                            channelVal = channelValParam;
+                            gameVal = gameValParam;
+                            severVal = severValParam;
+                            sDate = sDateParam;
+                            eDate = eDateParam;
+                            // 把url参数的值给select
+                            $('input[name="datefilter"]').val(sDateParam + '-' + eDateParam);
+                            $("#channelVal").find("option:selected").text(channelValParam);
+                            $("#gameVal").find("option:selected").text(gameValParam);
+                            $("#severVal").find("option:selected").text(severValParam);
+                            console.log()
+                            if (appVal == "日") {
+                                appVal = "NewAddDay";
+                            } else if (appVal == "周") {
+                                appVal = "NewAddWeek";
+                            } else if (appVal == "月") {
+                                appVal = "NewAddMon";
+                            }
+                            console.log(channelVal,
+                                    gameVal,
+                                    severVal,
+                                    appVal,
+                                    sDate,
+                                    eDate);
+                            // 调用publicAjax传入url自带参数请求数据
+                            vmActive.publicAjax(channelVal, gameVal, severVal, appVal, sDate, eDate);
+                        } else {
+                            // 2.如果没有参数
+                            channelVal = $("#channelVal").find("option:selected").text();
+                            gameVal = $("#gameVal").find("option:selected").text();
+                            severVal = $("#severVal").find("option:selected").text();
+                            appVal = $("#appVal").find("option:selected").text();
+                            dateVal = $("#dateVal").val().trim().split("-");
+                            sDate = dateVal[0];
+                            eDate = dateVal[1];
+                            if (appVal == "日") {
+                                appVal = "NewAddDay";
+                            } else if (appVal == "周") {
+                                appVal = "NewAddWeek";
+                            } else if (appVal == "月") {
+                                appVal = "NewAddMon";
+                            }
+                            console.log(channelVal,
+                                    gameVal,
+                                    severVal,
+                                    dateVal,
+                                    appVal,
+                                    sDate,
+                                    eDate);
+                            vmActive.publicAjax(channelVal, gameVal, severVal, appVal, sDate, eDate);
+                        }
+
+                    }, 500);
+
+                },
+
+                // 点击获取数据
+                submitActive: function () {
+
+                    // 获取url中的参数赋值
+                    let appValParam = vmActive.getUrlParam("app");
+                    let channelValParam = vmActive.getUrlParam("cid");
+                    let gameValParam = vmActive.getUrlParam("gid");
+                    let severValParam = vmActive.getUrlParam("sid");
+                    let sDateParam = vmActive.getUrlParam("sDate");
+                    let eDateParam = vmActive.getUrlParam("eDate");
+
+
+                    // 根据参数发不同的请求数据
+                    channelVal = $("#channelVal").find("option:selected").text();
+                    gameVal = $("#gameVal").find("option:selected").text();
+                    severVal = $("#severVal").find("option:selected").text();
+                    appVal = $("#appVal").find("option:selected").text();
+                    dateVal = $("#dateVal").val().trim().split("-");
+                    sDate = dateVal[0];
+                    eDate = dateVal[1];
+                    if (appVal == "日") {
+                        appVal = "NewAddDay";
+                    } else if (appVal == "周") {
+                        appVal = "NewAddWeek";
+                    } else if (appVal == "月") {
+                        appVal = "NewAddMon";
                     }
-
-                });
-            },
-
-            //初始化table
-            TsTableInit: function () {
-
-            },
-            //点击获取数据
-            submitActive: function () {
-
-                channelVal = $("#channelVal").find("option:selected").text();
-                gameVal = $("#gameVal").find("option:selected").text();
-                severVal = $("#severVal").find("option:selected").text();
-                appVal = $("#appVal").find("option:selected").text();
-                dateVal = $("#dateVal").val().trim().split("-");
-                sDate = dateVal[0];
-                eDate = dateVal[1];
-
-                //给参数赋值
-
-                //vmActive.VarArr.sDateVal = dateVal[0]; //起始时间
-                //vmActive.VarArr.eDateVal = dateVal[1]; //结束时间
-                if(appVal == "日"){
-                    appVal = "NewAddDay";
-                }else if(appVal == "周"){
-                    appVal = "NewAddWeek";
-                }else if(appVal == "月"){
-                    appVal = "NewAddMon";
-                }
-                console.log(channelVal,
+                    console.log(channelVal,
                             gameVal,
                             severVal,
                             dateVal,
                             appVal,
                             sDate,
                             eDate);
-                $.ajax({
-                    type: 'get',
-                    url: 'http://192.168.10.102:9898/app/getGameDate',
-                    dataType:"jsonp",
-                    //传递给请求处理程序，用以获得jsonp回调函数名的参数名(默认为:callback)
-                    jsonp: "callback",
-                    //自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名
-                    //jsonpCallback:"jsonpCallback_success",
-                    data: {
-                        app: 'NewAddDay',    //根据 天,周,月对应设置
-                        cid: 'ngBrazil',     //渠道id
-                        gid: 'bloodstrke',   //游戏名
-                        sid: '0',            //服务器id
-                        sDate: '2017/12/5',  //起始时间
-                        eDate: '2017/12/19', //结束时间
-                    },
-                    success: function (data) {
-                        console.log((data));
-                        let Op1series1 = []; // 表格1
-                        let Op1series2 = []; // 表格1
-                        let Op1xAxis = []; // 表格1
-                        vmActive.submitDataList = data; //给submitDataList从新赋值
-                        $.each(data, function (ind,val) {
-                            if(ind <= 6){ //只取6条数据
-                                Op1series1.push(val.activeNum);
-                                Op1series2.push(val.loginCount);
-                                Op1xAxis.push(val.dateID);
-                            }
+                    vmActive.publicAjax(channelVal, gameVal, severVal, appVal, sDate, eDate);
 
-                        })
-                        console.log(Op1xAxis);
-                        vmActive.chart_new_add.setOption({
-                            xAxis: {
-                                data: Op1xAxis
-                            },
-                            series: [
-                                {data: Op1series1},
-                                {data: Op1series2}
-                            ]
-                        });
-                        window.onresize = vmActive.chart_new_add.resize; // 屏幕变化时重置
-                    },
-                    error: function (XMLHttpRequest, textStatus, errorThrown) {
-                        console.log("error");
-                    }
+                },
 
-                });
+                // publicAjax 请求
+                publicAjax: function (channelVal, gameVal, severVal, appVal, sDate, eDate) {
+                    $.ajax({
+                        type: 'get',
+                        url: 'http://192.168.10.102:9898/app/getGameDate',
+                        dataType: "jsonp",
+                        //传递给请求处理程序，用以获得jsonp回调函数名的参数名(默认为:callback)
+                        jsonp: "callback",
+                        //自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名
+                        //jsonpCallback:"jsonpCallback_success",
+                        data: {
+                            app: appVal, //根据 天,周,月对应设置
+                            cid: channelVal, //渠道id
+                            gid: gameVal, //游戏名
+                            sid: severVal, //服务器id
+                            sDate: sDate, //起始时间
+                            eDate: eDate, //结束时间
+                        },
+                        success: function (data) {
+                            console.log((data));
+                            let Op1series1 = []; // 表格1
+                            let Op1series2 = []; // 表格1
+                            let Op1xAxis = []; // 表格1
+                            vmActive.submitDataList = data; //给submitDataList从新赋值
+                            $.each(data, function (ind, val) {
+                                if (ind <= 6) { //只取6条数据
+                                    Op1series1.push(val.newAddNum);
+                                    Op1series2.push(val.activeNum);
+                                    Op1xAxis.push(val.dateID);
+                                }
+
+                            })
+                            console.log(Op1series1);
+                            console.log(Op1series2);
+                            console.log(Op1xAxis);
+                            vmActive.chart_new_add.setOption({
+                                xAxis: {
+                                    data: Op1xAxis
+                                },
+                                series: [{
+                                        data: Op1series1
+                                    },
+                                    {
+                                        data: Op1series2
+                                    }
+                                ]
+                            });
+                            window.onresize = vmActive.chart_new_add.resize; // 屏幕变化时重置
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            console.log("error");
+                        }
+
+                    });
+                },
+
+                // 获取url中的参数
+                getUrlParam: function (name) {
+                    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+                    var r = window.location.search.substr(1).match(reg); //匹配目标参数
+                    if (r != null) return unescape(r[2]);
+                    return null; //返回参数值
+                },
+                
+                // 导出表格
+                dldExcel: function (tableid) {
 
 
+                }
             }
-        }
-    });
-    $(function() {
-
-        //参考结构
-        /*
-         myChart.showLoading();    //数据加载完之前先显示一段简单的loading动画
-         var names = [];    //类别数组（实际用来盛放X轴坐标值）
-         var series1 = [];
-         var series2 = [];
-         $.ajax({
-         type: 'get',
-         url: 'json/echarts/line/lineTwo.txt',//请求数据的地址
-         dataType: "json",        //返回数据形式为json
-         success: function (result) {
-         //请求成功时执行该函数内容，result即为服务器返回的json对象
-         $.each(result.jinJian, function (index, item) {
-         names.push(item.AREA);    //挨个取出类别并填入类别数组
-         series1.push(item.LANDNUM);
-         });
-         $.each(result.banJie, function (index, item) {
-         series2.push(item.LANDNUM);
-         });
-         myChart.hideLoading();    //隐藏加载动画
-         myChart.setOption({        //加载数据图表
-         xAxis: {
-         data: names
-         },
-         series: [{
-         data: series1
-         },
-         {
-         data: series2
-         }]
-         });
-         },
-         error: function (errorMsg) {
-         //请求失败时执行该函数
-         alert("图表请求数据失败!");
-         myChart.hideLoading();
-         }
-         });
-         */
-    });
-
-
-</script>
+        });
+    </script>
 </body>
 <!-- END BODY -->
+
 </html>

@@ -10,10 +10,19 @@ import java.util.Date;
  */
 public class StayJson {
     private String dateID;
+    private String cID;
     private long newAddNum;
 //    private String[] stayScale;
 //    private int[] stayList;
     private String[] stayAll;
+
+    public String getcID() {
+        return cID;
+    }
+
+    public void setcID(String cID) {
+        this.cID = cID;
+    }
 
     public String getDateID() {
         return dateID;
@@ -39,9 +48,10 @@ public class StayJson {
         this.stayAll = stayAll;
     }
 
-    public StayJson(String dateID, long newAddNum, String[] stayAll) {
+    public StayJson(String dateID,String cID, long newAddNum, String[] stayAll) {
 
         this.dateID = dateID;
+        this.cID=cID;
         this.newAddNum = newAddNum;
         this.stayAll = stayAll;
     }

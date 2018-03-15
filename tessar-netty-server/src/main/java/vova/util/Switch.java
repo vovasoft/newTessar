@@ -26,4 +26,5 @@ public class Switch {
     public void setUseSid(boolean useSid) {
         this.useSid = useSid;
     }
+   
 }

@@ -101,3 +101,143 @@ date_stop=#{date_stop},
 impressions=#{impressions},
 spend=#{spend},
 total_action_value=#{total_action_value},
+
+
+use db1;
+
+create TABLE ChannelGames
+(id int PRIMARY KEY auto_increment
+,name VARCHAR (64)
+,prefix VARCHAR (64)
+,lang VARCHAR (64)
+,other1 VARCHAR (64)
+,other2 VARCHAR (64)
+);
+
+INSERT INTO `ChannelGames` (`id`,`name`,`prefix`,`lang`) VALUES (1,'生死狙击EN','bloodstrike','en');
+INSERT INTO `ChannelGames` (`id`,`name`,`prefix`,`lang`) VALUES (2,'生死狙击BR','bloodstrike','pt');
+INSERT INTO `ChannelGames` (`id`,`name`,`prefix`,`lang`) VALUES (3,'火影','naruto','pt');
+INSERT INTO `ChannelGames` (`id`,`name`,`prefix`,`lang`) VALUES (4,'龙珠','dragonball','pt');
+INSERT INTO `ChannelGames` (`id`,`name`,`prefix`,`lang`) VALUES (5,'死神','bleach','pt');
+INSERT INTO `ChannelGames` (`id`,`name`,`prefix`,`lang`) VALUES (6,'魔力学堂','magiccampus','pt');
+INSERT INTO `ChannelGames` (`id`,`name`,`prefix`,`lang`) VALUES (7,'ZULA','zula','pt');
+;
+
+create TABLE EntryDefine
+(id int PRIMARY KEY auto_increment
+,entryType VARCHAR (64)
+,game VARCHAR (64)
+,name VARCHAR (64)
+,appid VARCHAR (64)
+,des VARCHAR (64)
+,other2 VARCHAR (64)
+);
+
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击EN','blood-strike','681463031893735');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击EN','bloodstrikex','1416792551698765');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击EN','bloodstrikego','212450792556584');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击EN','bloodstrikefps','1102871116484323');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击EN','bloodstriekai','331402667278052');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击EN','bloodstrikenewserver','256656918030539');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击EN','bloodstrikeasia','305318219850124');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击EN','bloodstrikesa','291511197902404');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击EN','bloodstrikeamerica','1075095585861680');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击EN','bloodstrikebrazil','1118734348252067');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击EN','bloodstrikelatino','1089991781080490');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击EN','bloodstrikeanglo','177181686055510');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击EN','bloodstrikefire','398014940550867');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击EN','bloodstrikeglobal','1755555277991093');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击EN','bloodstrikepacific','1673751969609835');
+
+
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击BR','blood-strike','681463031893735');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击BR','bloodstrikex','1416792551698765');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击BR','bloodstrikego','212450792556584');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击BR','bloodstrikefps','1102871116484323');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击BR','bloodstriekai','331402667278052');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击BR','bloodstrikenewserver','256656918030539');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击BR','bloodstrikeasia','305318219850124');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击BR','bloodstrikesa','291511197902404');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击BR','bloodstrikeamerica','1075095585861680');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击BR','bloodstrikebrazil','1118734348252067');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击BR','bloodstrikelatino','1089991781080490');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击BR','bloodstrikeanglo','177181686055510')
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击BR','bloodstrikefire','398014940550867')
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击BR','bloodstrikeglobal','1755555277991093')
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','生死狙击BR','bloodstrikepacific','1673751969609835')
+
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','火影','narutoxportugal','162635594186757');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','龙珠','dragon-ball','1726032797701910');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','死神','bleachx','1833984200147657');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`appid`) VALUES ('Facebook APP','魔力学堂','magiccampus','129832190945624');
+
+
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','生死狙击EN','newuser','通用着陆页');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','生死狙击EN','exmoxUser','渠道着陆页');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','生死狙击EN','firenew','firenew');
+
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','生死狙击BR','nv1','通用着陆页');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','生死狙击BR','exmoxUser','渠道着陆页');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','生死狙击BR','index','index');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','生死狙击BR','index2','index2');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','生死狙击BR','<null>','<null>');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','生死狙击BR','fire','fire');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','生死狙击BR','firenew','firenew');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','生死狙击BR','minilp','minilp');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','生死狙击BR','miniclient','miniclient');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','生死狙击BR','hit','hit');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','生死狙击BR','nvpt','nvpt');
+
+
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','火影','newuser','通用着陆页');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','火影','exmoxUser','渠道着陆页');
+
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','龙珠','newuser','通用着陆页');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','龙珠','exmoxUser','渠道着陆页');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','龙珠','newUserCasa','渠道着陆页casa');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','龙珠','newUserRecanto','渠道着陆页recanto');
+
+
+
+
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','死神','newuser','通用着陆页');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','死神','exmoxUser','渠道着陆页');
+
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','魔力学堂','newuser','通用着陆页');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','魔力学堂','exmoxUser','渠道着陆页');
+
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','ZULA','newuser','通用着陆页');
+INSERT INTO `EntryDefine` (`entryType`,`game`,`name`,`des`) VALUES ('Landing Page','ZULA','exmoxUser','渠道着陆页');
+
+create TABLE MainChannel
+(id int PRIMARY KEY auto_increment
+,name VARCHAR (64)
+,prefix VARCHAR (64)
+,other1 VARCHAR (64)
+,other2 VARCHAR (64)
+);
+
+INSERT INTO `MainChannel` (`name`,`prefix`) VALUES ('Facebook广告投放','fbad');
+INSERT INTO `MainChannel` (`name`,`prefix`) VALUES ('Google广告投放','ggad');
+INSERT INTO `MainChannel` (`name`,`prefix`) VALUES ('邀请渠道','invite');
+INSERT INTO `MainChannel` (`name`,`prefix`) VALUES ('红人、工会、战队推广','linkme');
+INSERT INTO `MainChannel` (`name`,`prefix`) VALUES ('社区（fb、ytb、twi等）推广','community');
+INSERT INTO `MainChannel` (`name`,`prefix`) VALUES ('论坛推广','forum');
+INSERT INTO `MainChannel` (`name`,`prefix`) VALUES ('网盟推广','affiliate');
+INSERT INTO `MainChannel` (`name`,`prefix`) VALUES ('游戏联运','copublish');
+INSERT INTO `MainChannel` (`name`,`prefix`) VALUES ('广告直客','adpartner');
+INSERT INTO `MainChannel` (`name`,`prefix`) VALUES ('线上媒体','onlinemedia');
+
+create TABLE ChannelData
+(id int PRIMARY KEY auto_increment
+,game VARCHAR (64)
+,entry VARCHAR (64)
+,define VARCHAR (64)
+,mainChannel VARCHAR (64)
+,url VARCHAR (128)
+,creator VARCHAR (64)
+,createTime VARCHAR (64)
+);
+
+'ChannelData'# Tables_in_db1
+             ChannelData

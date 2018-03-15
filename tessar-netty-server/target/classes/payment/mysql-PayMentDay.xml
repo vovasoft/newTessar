@@ -7,9 +7,10 @@
     <insert id="insert" useGeneratedKeys="false" keyProperty="id">
         insert into PayMentDay (
         dateID,
+        mainId,
         cId,
         gId,
-        sId,
+        enter,
         newAddNum,
         newAddPayPlayerNum,
         newAddPayAllMoney,
@@ -25,14 +26,14 @@
         payPlayerARPPU,
         allMoney
       )
-        values (#{dateID},#{cId},#{gId},#{sId},#{newAddNum},#{newAddPayPlayerNum},#{newAddPayAllMoney},#{newAddPlayerARPPU},
+        values (#{dateID},#{mainId},#{cId},#{gId},#{enter},#{newAddNum},#{newAddPayPlayerNum},#{newAddPayAllMoney},#{newAddPlayerARPPU},
         #{newAddPayPlayerARPPU},#{newPayPlayerNum},#{newPayAllMoney},#{averageNewPayMoney},#{activeNum},
         #{payPlayerNum},#{todayAllPayMoney},#{activeARPPU},#{payPlayerNum},#{allMoney})
     </insert>
 
 
     <select id="findByObject" resultType="_PayMentDay">
-        select * from PayMentDay where dateID = #{dateID} AND cId = #{cId} AND gId = #{gId} AND sId = #{sId}  limit 1
+        select * from PayMentDay where dateID = #{dateID} AND cId = #{cId} AND gId = #{gId} AND enter = #{enter}  limit 1
     </select>
 
 
@@ -53,6 +54,10 @@
         payPlayerARPPU=#{payPlayerARPPU},
         allMoney=#{allMoney}
         where id=#{id}
+    </update>
+
+    <update id="truncate">
+        truncate table PayMentDay
     </update>
 
     <!--<select id="findDayCount" resultType="java.lang.Integer">-->

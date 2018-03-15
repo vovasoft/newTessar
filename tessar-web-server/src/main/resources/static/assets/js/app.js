@@ -2568,7 +2568,7 @@ var App = function () {
         /*
         //if (isIE8 == false) {
             $(window).resize(function(){
-               setPageScroller(); 
+               setPageScroller();
             });
             setPageScroller();
         //} else {
@@ -3282,7 +3282,7 @@ var App = function () {
             handleChoosenSelect(); // handles bootstrap chosen dropdowns
             handleScrollers(); // handles slim scrolling contents            
             handleTagsInput() // handles tag input elements
-            handleDateTimePickers(); //handles form timepickers
+            //handleDateTimePickers(); //handles form timepickers
             handleClockfaceTimePickers(); //handles form clockface timepickers
             handleColorPicker(); // handles form color pickers            
             handlePortletTools(); // handles portlet action bar functionality(refresh, configure, toggle, remove)

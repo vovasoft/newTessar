@@ -10,12 +10,17 @@ import java.util.Date;
 public class ThreeNum {
     private int id;
     private Date dateID;
+    private String mainId;
     private String cID;
     private String gID;
-    private String sID;
+    private String enter;
     private int newAddFirstPayNum;
     private int activePayNum;
     private float newAddPayRate;
+    private String other1;
+    private String other2;
+    private String other3;
+    private String other4;
 
 
     public int getId() {
@@ -34,6 +39,14 @@ public class ThreeNum {
         this.dateID = dateID;
     }
 
+    public String getMainId() {
+        return mainId;
+    }
+
+    public void setMainId(String mainId) {
+        this.mainId = mainId;
+    }
+
     public String getcID() {
         return cID;
     }
@@ -50,12 +63,12 @@ public class ThreeNum {
         this.gID = gID;
     }
 
-    public String getsID() {
-        return sID;
+    public String getEnter() {
+        return enter;
     }
 
-    public void setsID(String sID) {
-        this.sID = sID;
+    public void setEnter(String enter) {
+        this.enter = enter;
     }
 
     public int getNewAddFirstPayNum() {
@@ -66,11 +79,11 @@ public class ThreeNum {
         this.newAddFirstPayNum = newAddFirstPayNum;
     }
 
-    public int getactivePayNum() {
+    public int getActivePayNum() {
         return activePayNum;
     }
 
-    public void setactivePayNum(int activePayNum) {
+    public void setActivePayNum(int activePayNum) {
         this.activePayNum = activePayNum;
     }
 
@@ -82,16 +95,53 @@ public class ThreeNum {
         this.newAddPayRate = newAddPayRate;
     }
 
-    public ThreeNum(int id, Date dateID, String cID, String gID, String sID, int newAddFirstPayNum, int activePayNum, float newAddPayRate) {
+    public String getOther1() {
+        return other1;
+    }
 
+    public void setOther1(String other1) {
+        this.other1 = other1;
+    }
+
+    public String getOther2() {
+        return other2;
+    }
+
+    public void setOther2(String other2) {
+        this.other2 = other2;
+    }
+
+    public String getOther3() {
+        return other3;
+    }
+
+    public void setOther3(String other3) {
+        this.other3 = other3;
+    }
+
+    public String getOther4() {
+        return other4;
+    }
+
+    public void setOther4(String other4) {
+        this.other4 = other4;
+    }
+
+    public ThreeNum(int id, Date dateID, String mainId, String cID, String gID, String enter, int newAddFirstPayNum, int activePayNum, float newAddPayRate, String other1, String other2, String other3, String other4) {
+    
         this.id = id;
         this.dateID = dateID;
+        this.mainId = mainId;
         this.cID = cID;
         this.gID = gID;
-        this.sID = sID;
+        this.enter = enter;
         this.newAddFirstPayNum = newAddFirstPayNum;
         this.activePayNum = activePayNum;
         this.newAddPayRate = newAddPayRate;
+        this.other1 = other1;
+        this.other2 = other2;
+        this.other3 = other3;
+        this.other4 = other4;
     }
 
     public ThreeNum() {

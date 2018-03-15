@@ -58,7 +58,7 @@ public class ControlerGame {
             ArrayList<NewAddJson> nj = new ArrayList<>();
             for (int i = 0; i < nadList.size(); i++) {
                 NewAdd nad = nadList.get(i);
-                nj.add(new NewAddJson(sdf.format(nad.getDateID()), nad.getNewAddNum(), nad.getActiveNum(), nad.getLoginCount(), nad.getAverageLogin(), nad.getAllPlayerNum()));
+                nj.add(new NewAddJson(sdf.format(nad.getDateID()),nad.getcID(), nad.getNewAddNum(), nad.getActiveNum(), nad.getLoginCount(), nad.getAverageLogin(), nad.getAllPlayerNum()));
             }
             return nj;
         } catch (Exception e) {
@@ -78,7 +78,7 @@ public class ControlerGame {
         for (int i = 0; i < spList.size(); i++) {
             StayParent sp = spList.get(i);
             String [] combinStr=Tools.combine2Str(Tools.strToNumArrayScale(sp.getStayList(), ",", sp.getNewAddNum()), Tools.strToStrArray(sp.getStayList(), ","));
-            sj.add(new StayJson(sdf.format(sp.getDateID()), sp.getNewAddNum(),combinStr));
+            sj.add(new StayJson(sdf.format(sp.getDateID()),sp.getcID(), sp.getNewAddNum(),combinStr));
         }
 
         return sj;
@@ -95,7 +95,7 @@ public class ControlerGame {
         for (int i = 0; i < spList.size(); i++) {
             StayParent sp = spList.get(i);
 //            String [] combinStr=Tools.combine2Str(Tools.strToNumArrayScale(sp.getStayList(), ",", sp.getNewAddNum()), Tools.strToStrArray(sp.getStayList(), ","));
-            sj.add(new StayJson(sdf.format(sp.getDateID()), sp.getNewAddNum(), Tools.strToStrArray(sp.getStayList(),",")));
+            sj.add(new StayJson(sdf.format(sp.getDateID()),sp.getcID(), sp.getNewAddNum(), Tools.strToStrArray(sp.getStayList(),",")));
         }
 
         return sj;
@@ -117,7 +117,7 @@ public class ControlerGame {
                 ArrayList<NewAddJson> nj = new ArrayList<>();
                 for (int i = 0; i < nadList.size(); i++) {
                     NewAdd nad = nadList.get(i);
-                    nj.add(new NewAddJson(sdf.format(nad.getDateID()), nad.getNewAddNum(), nad.getActiveNum(), nad.getLoginCount(), nad.getAverageLogin(), nad.getAllPlayerNum()));
+                    nj.add(new NewAddJson(sdf.format(nad.getDateID()),nad.getcID(), nad.getNewAddNum(), nad.getActiveNum(), nad.getLoginCount(), nad.getAverageLogin(), nad.getAllPlayerNum()));
                 }
                 fatherList.add(nj);
             }

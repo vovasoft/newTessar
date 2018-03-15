@@ -40,30 +40,24 @@ public class ManagePayInput {
     public ManagePayInput() {
     }
     boolean useSid = new ClassPathXmlApplicationContext("switch.xml").getBean(Switch.class).getUseSid();
-    public int HandPayData(PayReceive payReceive) throws ParseException, IOException {
+    public int HandPayData(PayReceive payReceive,UseMyMongo umm,UseMySql mys,String cid,String mainId,String enter) throws ParseException, IOException {
         log.info("Begin Job for Pay Data: thread--"+Thread.currentThread());
-        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
-        UseMyMongo umm = (UseMyMongo) ac.getBean("useMyMongo");
-        UseMySql mys = (UseMySql) ac.getBean("useMySql");
-//
-//        Switch s = ac.getBean(Switch.class);
-//        boolean useSid = s.getUseSid();
 
         float amount = payReceive.getAmount();
         String uid = payReceive.getUid();
         String gid = payReceive.getGid();
-//新需求
-        String sid = "-0";
-        if (useSid){
-            sid = payReceive.getSid();
-        }else{
-            sid = "-0";
-        }
+        String sid = payReceive.getSid();
+////新需求
+//        String sid = "-0";
+//        if (useSid){
+//            sid = payReceive.getSid();
+//        }else{
+//            sid = "-0";
+//        }
   //      String sid = payReceive.getSid();
         String oid = payReceive.getOid(); //暂时用不到
         String currency = payReceive.getCurrency();
         String payType = payReceive.getPayType();
-        String cid = "";
         long payTime = payReceive.getPayTime();
 
         Date payDate = Tools.secToDateByFormat(payTime);
@@ -90,6 +84,8 @@ public class ManagePayInput {
 
         pmfk.show();
         pmfk.setUid(uid);
+        pmfk.setCid(cid);
+        pmfk.setMainId(mainId);
         pmfk.setGid(gid);
         pmfk.setSid(sid);
         pmfk.setAmount(amount);
@@ -100,13 +96,12 @@ public class ManagePayInput {
         //通过数据库查找之前的id字段，如果有则去处cid以及首充时间。
         PayMentForKeep tmp = umm.findOnePayerForPay(pmfk);
         if (tmp == null) {
-            cid = player.getCid();
             pmfk.setFirstPayTime(payTime);
-            pmfk.setCid(cid);  //根据游戏平台找的数据同步到支付平台的channelID
+//            pmfk.setCid(cid);  //根据游戏平台找的数据同步到支付平台的channelID
         } else {
-            cid = tmp.getCid();
+//            cid = tmp.getCid();
             pmfk.setFirstPayTime(tmp.getFirstPayTime());
-            pmfk.setCid(cid);
+//            pmfk.setCid(cid);
         }
         firstPayDate = Tools.secToDateByFormat(pmfk.getFirstPayTime());
 
@@ -165,9 +160,9 @@ public class ManagePayInput {
 //        float dayPayMoney = amount, weekPayMoney = amount, monPayMoney = amount;
 
         //查询或新建  PayMent
-        PayMentDay tmp1 = (PayMentDay) findOrCreate(payDate, cid, gid, sid, mys, PayMentDay.class);
-        PayMentWeek tmp2 = (PayMentWeek) findOrCreate(payDate, cid, gid, sid, mys, PayMentWeek.class);
-        PayMentMon tmp3 = (PayMentMon) findOrCreate(payDate, cid, gid, sid, mys, PayMentMon.class);
+        PayMentDay tmp1 = (PayMentDay) findOrCreate(payDate,mainId,enter, cid, gid, sid, mys, PayMentDay.class);
+        PayMentWeek tmp2 = (PayMentWeek) findOrCreate(payDate,mainId,enter, cid, gid, sid, mys, PayMentWeek.class);
+        PayMentMon tmp3 = (PayMentMon) findOrCreate(payDate,mainId,enter, cid, gid, sid, mys, PayMentMon.class);
 
         if (tmp1 == null || tmp2 == null || tmp3 == null) {
             log.error("find or create error ,and someone is null");
@@ -184,17 +179,17 @@ public class ManagePayInput {
 
 
         //处理留存逻辑
-        res1 = ManageStay.manageStayData(firstPayDate,payDate,cid,gid,sid,firstPayDayNum,!firstPayDay,!firstPayWeek,!firstPayMon,mys, StayPayDay.class);
-        res2 = ManageStay.manageStayData(firstPayDate,payDate,cid,gid,sid,firstPayWeekNum,!firstPayDay,!firstPayWeek,!firstPayMon,mys, StayPayWeek.class);
-        res3 = ManageStay.manageStayData(firstPayDate,payDate,cid,gid,sid,firstPayMonNum,!firstPayDay,!firstPayWeek,!firstPayMon,mys, StayPayMon.class);
+        res1 = ManageStay.manageStayData(firstPayDate,payDate,cid,gid,mainId,enter,sid,firstPayDayNum,!firstPayDay,!firstPayWeek,!firstPayMon,mys, StayPayDay.class);
+        res2 = ManageStay.manageStayData(firstPayDate,payDate,cid,gid,mainId,enter,sid,firstPayWeekNum,!firstPayDay,!firstPayWeek,!firstPayMon,mys, StayPayWeek.class);
+        res3 = ManageStay.manageStayData(firstPayDate,payDate,cid,gid,mainId,enter,sid,firstPayMonNum,!firstPayDay,!firstPayWeek,!firstPayMon,mys, StayPayMon.class);
 
         log.info("处理留存逻辑/n res1:" + res1 + ", res2:" + res2 + ", res3:" + res3);
 
         //处理概览页面的三个数据，新增首次付费用户数、活跃用户付费率、新增用户付费率
 
-        res1 = ManageOverView.manageThreeNum(firstPayDate,payDate,uid,cid,gid,sid,firstPayDayNum,!firstPayDay,!firstPayWeek,!firstPayMon,mys,umm, ThreeNumDay.class);
-        res2 = ManageOverView.manageThreeNum(firstPayDate,payDate,uid,cid,gid,sid,firstPayWeekNum,!firstPayDay,!firstPayWeek,!firstPayMon,mys,umm, ThreeNumWeek.class);
-        res3 = ManageOverView.manageThreeNum(firstPayDate,payDate,uid,cid,gid,sid,firstPayMonNum,!firstPayDay,!firstPayWeek,!firstPayMon,mys,umm, ThreeNumMon.class);
+        res1 = ManageOverView.manageThreeNum(firstPayDate,payDate,mainId,uid,cid,gid,sid,enter,firstPayDayNum,!firstPayDay,!firstPayWeek,!firstPayMon,mys,umm, ThreeNumDay.class);
+        res2 = ManageOverView.manageThreeNum(firstPayDate,payDate,mainId,uid,cid,gid,sid,enter,firstPayWeekNum,!firstPayDay,!firstPayWeek,!firstPayMon,mys,umm, ThreeNumWeek.class);
+        res3 = ManageOverView.manageThreeNum(firstPayDate,payDate,mainId,uid,cid,gid,sid,enter,firstPayMonNum,!firstPayDay,!firstPayWeek,!firstPayMon,mys,umm, ThreeNumMon.class);
 
         log.info("处理付费率逻辑/n res1:" + res1 + ", res2:" + res2 + ", res3:" + res3);
 
@@ -226,7 +221,6 @@ public class ManagePayInput {
         NewAdd findSeed = new NewAdd();
         findSeed.setcID(cid);
         findSeed.setgID(gid);
-        findSeed.setsID(sid);
         findSeed.setDateID(thisDate);
         NewAdd tmp1 = (NewAdd) mys.utilSQL(clazz, EnumSQL.SELECT, findSeed);
         if (tmp1 == null) {
@@ -240,7 +234,7 @@ public class ManagePayInput {
 
     private static Lock lock = new ReentrantLock();// 锁对象
 
-    private PayAllShow findOrCreate(Date payDate, String cid, String gid, String sid, UseMySql mys, Class clazz) throws IOException {
+    private PayAllShow findOrCreate(Date payDate,String mainId,String enter, String cid, String gid, String sid, UseMySql mys, Class clazz) throws IOException {
         lock.lock();
         try {
             String clazzName = clazz.getSimpleName();
@@ -255,14 +249,15 @@ public class ManagePayInput {
             PayAllShow findSeed = new PayAllShow();
             findSeed.setcId(cid);
             findSeed.setgId(gid);
-            findSeed.setsId(sid);
+//            findSeed.setsId(sid);
+            findSeed.setEnter(enter);
             findSeed.setDateID(thisDate);
-            PayAllShow tmp1 = (PayAllShow) mys.utilSQL(clazz, EnumSQL.SELECT, findSeed);
+            PayAllShow tmp1 = (PayAllShow) mys. utilSQL(clazz, EnumSQL.SELECT, findSeed);
             if (tmp1 == null) {    //新增表中行不存在则需要增加行
-                PayAllShow newLine = new PayAllShow(0, thisDate,
+                PayAllShow newLine = new PayAllShow(0, thisDate,mainId,
                         cid,
                         gid,
-                        sid,
+                        sid,enter,
                         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
                 mys.utilSQL(clazz, EnumSQL.INSERT, newLine);
                 log.info("##Insert a new row##:"+clazzName);

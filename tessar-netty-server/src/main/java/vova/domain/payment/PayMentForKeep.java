@@ -8,8 +8,10 @@ package vova.domain.payment;
 public class PayMentForKeep {
     private String uid;                 //用户id
     private String cid;                 //channelID 渠道id
+    private String mainId;
     private String gid;                 //game id
     private String sid;                 //server id
+    private String enter;
     private String payType;             //支付类型
     private String currency;            //币种
     private float amount;               //支付金额
@@ -105,11 +107,30 @@ public class PayMentForKeep {
                         ", payTime:" + payTime);
     }
 
-    public PayMentForKeep( String uid, String cid, String gid, String sid, String payType, String currency, float amount, long firstPayTime, long payTime) {
+    public String getMainId() {
+        return mainId;
+    }
+
+    public void setMainId(String mainId) {
+        this.mainId = mainId;
+    }
+
+    public String getEnter() {
+        return enter;
+    }
+
+    public void setEnter(String enter) {
+        this.enter = enter;
+    }
+
+    public PayMentForKeep(String uid, String cid, String mainId, String gid, String sid, String enter, String payType, String currency, float amount, long firstPayTime, long payTime) {
+    
         this.uid = uid;
         this.cid = cid;
+        this.mainId = mainId;
         this.gid = gid;
         this.sid = sid;
+        this.enter = enter;
         this.payType = payType;
         this.currency = currency;
         this.amount = amount;

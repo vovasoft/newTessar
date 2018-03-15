@@ -14,14 +14,26 @@ import vova.dao.dbsql.EnumSQL;
 import vova.dao.dbsql.UseMySql;
 import vova.domain.*;
 
+import vova.domain.channel.ChannelIndex;
+import vova.domain.newadd.CheckMem;
 import vova.domain.newadd.NewAddDay;
+import vova.domain.newadd.NewAddMon;
+import vova.domain.newadd.NewAddWeek;
+import vova.domain.overview.ThreeNum;
+import vova.domain.overview.ThreeNumDay;
+import vova.domain.overview.ThreeNumMon;
+import vova.domain.overview.ThreeNumWeek;
+import vova.domain.payment.PayMentDay;
+import vova.domain.payment.PayMentMon;
+import vova.domain.payment.PayMentWeek;
+import vova.domain.stayman.StayDay;
 import vova.domain.stayman.StayMon;
-import vova.domain.customer.User;
-import vova.domain.customer.User2;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import vova.domain.stayman.StayWeek;
+import vova.domain.staypay.StayPayDay;
+import vova.domain.staypay.StayPayMon;
+import vova.domain.staypay.StayPayWeek;
+import vova.domain.test.User;
+import vova.domain.test.User2;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.context.ApplicationContext;
@@ -35,13 +47,11 @@ import vova.util.Tools;
 
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
-
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = SpringConfig.class)
@@ -72,23 +82,7 @@ public class debugTest {
     }
 
 
-    @Test
-    public void fun1() throws IOException, ClassNotFoundException {
-        User user = null;
-
-
-        vova.dao.dbsql.UseMySql useMySql = new vova.dao.dbsql.UseMySql();
-        user = (User) useMySql.utilSQL(User.class, EnumSQL.SELECT, 1);
-
-        System.out.println(user.getId() + ",,,,,,," + user.getName() + user.getAge());
-
-        user.setAge(user.getAge() + 1);
-        try {
-            useMySql.utilSQL(User.class, EnumSQL.UPDATE,user);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    
 
     @Test
     public void funFindSelect() throws IOException, ParseException {
@@ -112,14 +106,16 @@ public class debugTest {
     }
 
     @Test
-    public void funnumArrayToStr() {
+    public void checkMemory() throws IOException {
         int[] buf = new int[30];
         String res = Tools.numArrayToStr(buf);
         System.out.println(res);
+        
+        
     }
 
     @Test
-    public void funstrToNumArray() {
+    public void funstrToNumArray() throws IOException {
         String str = "1,3,5,67,2,1,2,4,6,7,12,4,1";
         int[] res = Tools.strToNumArray(str, ",");
         for (int re : res) {
@@ -139,15 +135,12 @@ public class debugTest {
 
     @Test
     public void fun2() throws IOException, ParseException {
-//        TimeZone.setDefault(TimeZone.getTimeZone("GMT+8"));
-//
-//        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");//小写的mm表示的是分钟
-//        String dstr="2017-11-25";
-
-        Date date = new Date(System.currentTimeMillis());
-        User2 user2 = new User2(date, 1, "name", 11);
+        ChannelIndex channelIndex = new ChannelIndex();
+        channelIndex.setCid("_0003000110000000_facebook-bloodstrikechen2530_07_07");
         vova.dao.dbsql.UseMySql useMySql = new vova.dao.dbsql.UseMySql();
-        useMySql.insert(user2);
+        ChannelIndex res = (ChannelIndex) useMySql.utilSQL(channelIndex.getClass(),EnumSQL.SELECT,channelIndex);
+
+        System.out.println(res.getMainId());
     }
 
     @Test
@@ -186,91 +179,91 @@ public class debugTest {
         }
     }
 
-    @Test   //find List
-    public void funExtend() throws IOException, ClassNotFoundException, ParseException {
-        String resoure = "batis-conf.xml";
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        InputStream inputStream = Resources.getResourceAsStream(resoure);
-        SqlSessionFactory sf = new SqlSessionFactoryBuilder().build(inputStream);
-        SqlSession ss = sf.openSession();
-        NewAddDay nn = new NewAddDay(0, sdf.parse("2017-11-02"), "cid2", "gid1", "sid1", 123, 2, 1, 3, 2);
-        ss.insert("StayDay.insert", nn);
-        ss.commit();
-        ss.close();
-    }
-
-    //findByKey
-    @Test   //find List
-    public void findByKey() throws IOException, ClassNotFoundException, ParseException {
-        String resoure = "batis-conf.xml";
-        InputStream inputStream = Resources.getResourceAsStream(resoure);
-        SqlSessionFactory sf = new SqlSessionFactoryBuilder().build(inputStream);
-        SqlSession ss = sf.openSession();
-        NewAddDay nn = new NewAddDay();
-
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        //  nn.setId(0);
-        nn.setcID("cid2");
-        nn.setgID("gid1");
-        nn.setsID("sid1");
-        nn.setDateID(sdf.parse("2017-11-2"));
-        NewAddDay res = ss.selectOne("StayDay.findByObject", nn);
-        ss.commit();
-        ss.close();
-
-        System.out.println("getcID::::");
-    }
-
-    @Test
-    public void getAndPutTest() {
-        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
-        RedisTemplate redisTemplate = (RedisTemplate) ac.getBean("jedisTemplate");
-
-        redisTemplate.opsForHash().put("user", "age", "20");
-        Object object = redisTemplate.opsForHash().get("user", "age");
-        System.out.println(object);
-    }
-
-
-    @Test   //find List
-    public void updatedaytable() throws IOException, ClassNotFoundException, ParseException {
-        String resoure = "batis-conf.xml";
-        InputStream inputStream = Resources.getResourceAsStream(resoure);
-        SqlSessionFactory sf = new SqlSessionFactoryBuilder().build(inputStream);
-        SqlSession ss = sf.openSession();
-        NewAddDay nn = new NewAddDay();
-
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        //  nn.setId(0);
-        nn.setcID("cid2");
-        nn.setgID("gid1");
-        nn.setsID("sid1");
-        nn.setDateID(sdf.parse("2017-11-2"));
-        nn.setActiveNum(1);
-        nn.setAllPlayerNum(1);
-        nn.setNewAddNum(1);
-
-        NewAddDay res = ss.selectOne("StayDay.findByObject", nn);
-        nn.setId(res.getId());
-        System.out.println("id:" + res.getId());
-        int ress = ss.update("StayDay.update", nn);
-        ss.commit();
-        ss.close();
-
-        System.out.println("getcID::::" + ress);
-    }
-
-    @Test
-    public void findPlayerCountInMongo() {
-        long res = 0;
-        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
-        MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
-        DBObject query = new BasicDBObject();
-        int count = mongoTemplate.getCollection("player").distinct("uid", query).size();
-
-        System.out.println(count);
-
-    }
+//    @Test   //find List
+//    public void funExtend() throws IOException, ClassNotFoundException, ParseException {
+//        String resoure = "batis-conf.xml";
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//        InputStream inputStream = Resources.getResourceAsStream(resoure);
+//        SqlSessionFactory sf = new SqlSessionFactoryBuilder().build(inputStream);
+//        SqlSession ss = sf.openSession();
+//        NewAddDay nn = new NewAddDay(0, sdf.parse("2017-11-02"), "cid2", "gid1", "sid1", 123, 2, 1, 3, 2);
+//        ss.insert("StayDay.insert", nn);
+//        ss.commit();
+//        ss.close();
+//    }
+//
+//    //findByKey
+//    @Test   //find List
+//    public void findByKey() throws IOException, ClassNotFoundException, ParseException {
+//        String resoure = "batis-conf.xml";
+//        InputStream inputStream = Resources.getResourceAsStream(resoure);
+//        SqlSessionFactory sf = new SqlSessionFactoryBuilder().build(inputStream);
+//        SqlSession ss = sf.openSession();
+//        NewAddDay nn = new NewAddDay();
+//
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//        //  nn.setId(0);
+//        nn.setcID("cid2");
+//        nn.setgID("gid1");
+//        nn.setsID("sid1");
+//        nn.setDateID(sdf.parse("2017-11-2"));
+//        NewAddDay res = ss.selectOne("StayDay.findByObject", nn);
+//        ss.commit();
+//        ss.close();
+//
+//        System.out.println("getcID::::");
+//    }
+//
+//    @Test
+//    public void getAndPutTest() {
+//        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+//        RedisTemplate redisTemplate = (RedisTemplate) ac.getBean("jedisTemplate");
+//
+//        redisTemplate.opsForHash().put("user", "age", "20");
+//        Object object = redisTemplate.opsForHash().get("user", "age");
+//        System.out.println(object);
+//    }
+//
+//
+//    @Test   //find List
+//    public void updatedaytable() throws IOException, ClassNotFoundException, ParseException {
+//        String resoure = "batis-conf.xml";
+//        InputStream inputStream = Resources.getResourceAsStream(resoure);
+//        SqlSessionFactory sf = new SqlSessionFactoryBuilder().build(inputStream);
+//        SqlSession ss = sf.openSession();
+//        NewAddDay nn = new NewAddDay();
+//
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//        //  nn.setId(0);
+//        nn.setcID("cid2");
+//        nn.setgID("gid1");
+//        nn.setsID("sid1");
+//        nn.setDateID(sdf.parse("2017-11-2"));
+//        nn.setActiveNum(1);
+//        nn.setAllPlayerNum(1);
+//        nn.setNewAddNum(1);
+//
+//        NewAddDay res = ss.selectOne("StayDay.findByObject", nn);
+//        nn.setId(res.getId());
+//        System.out.println("id:" + res.getId());
+//        int ress = ss.update("StayDay.update", nn);
+//        ss.commit();
+//        ss.close();
+//
+//        System.out.println("getcID::::" + ress);
+//    }
+//
+//    @Test
+//    public void findPlayerCountInMongo() {
+//        long res = 0;
+//        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+//        MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
+//        DBObject query = new BasicDBObject();
+//        int count = mongoTemplate.getCollection("player").distinct("uid", query).size();
+//
+//        System.out.println(count);
+//
+//    }
 
     @Test
     public void insertMongo() throws ParseException {

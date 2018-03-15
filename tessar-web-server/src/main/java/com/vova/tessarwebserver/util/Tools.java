@@ -4,12 +4,17 @@ import com.vova.tessarwebserver.domain.initdata.SelectList;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author: Vova
@@ -156,7 +161,6 @@ public class Tools {
     public static String[] combine2Str(String[] s1,String[] s2){
         int l1=s1.length;
         if (l1 != s2.length) {
-            log.error("length is not same");
             return null;
         }
         int j=0;
@@ -224,5 +228,119 @@ public class Tools {
         }
         return newStr;
     }
+    
+    //create sub。。1.。2 keywords
+    public static String createKeyWords(String[] strs){
+        int len = strs.length;
+        if (len == 0 || strs[0]=="") {
+            return "";
+        }else{
+            String res = "";
+            for (int i=0;i<len;i++){
+                res+="_"+strs[i];
+            }
+            return res;
+        }
+    }
 
+    public static String funHTTP(String url){
+        String result = "";
+        BufferedReader in = null;
+        try {
+            String urlNameString =url;
+            URL realUrl = new URL(urlNameString);
+            // 打开和URL之间的连接
+            URLConnection connection = realUrl.openConnection();
+            // 设置通用的请求属性
+            connection.setRequestProperty("accept", "*/*");
+            connection.setRequestProperty("connection", "Keep-Alive");
+            connection.setRequestProperty("user-agent",
+                    "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
+            // 建立实际的连接
+            connection.connect();
+            // 获取所有响应头字段
+            Map<String, List<String>> map = connection.getHeaderFields();
+            // 遍历所有的响应头字段
+            for (String key : map.keySet()) {
+                System.out.println(key + "--->" + map.get(key));
+            }
+            // 定义 BufferedReader输入流来读取URL的响应
+            in = new BufferedReader(new InputStreamReader(
+                    connection.getInputStream()));
+            String line;
+            while ((line = in.readLine()) != null) {
+                result += line;
+            }
+            System.out.println(result);
+            return result;
+        } catch (Exception e) {
+            System.out.println("发送GET请求出现异常！" + e);
+            e.printStackTrace();
+        }
+        // 使用finally块来关闭输入流
+        finally {
+            try {
+                if (in != null) {
+                    in.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+        return "";
+    }
+
+    public static class Msg<T> {
+
+        /*错误码*/
+        private Integer code;
+
+        /*提示信息 */
+        private String msg;
+
+        /*具体内容*/
+        private  T data;
+
+        public Integer getCode() {
+            return code;
+        }
+
+        public void setCode(Integer code) {
+            this.code = code;
+        }
+
+        public String getMsg() {
+            return msg;
+        }
+
+        public void setMsg(String msg) {
+            this.msg = msg;
+        }
+
+        public T getData() {
+            return data;
+        }
+
+        public void setData(T data) {
+            this.data = data;
+        }
+    }
+
+    public static Msg success(Object object){
+        Msg msg=new Msg();
+        msg.setCode(200);
+        msg.setMsg("请求成功");
+        msg.setData(object);
+        return msg;
+    }
+    public static Msg success(){
+        return success(null);
+    }
+
+    public static Msg error(Integer code,String resultmsg){
+        Msg msg=new Msg();
+        msg.setCode(code);
+        msg.setMsg(resultmsg);
+        return msg;
+    }
 }

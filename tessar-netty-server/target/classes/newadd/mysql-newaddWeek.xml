@@ -4,24 +4,28 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="NewAddWeek">
     <!-- 定义insert语句 -->
-
-
+    
     <insert id="insert" useGeneratedKeys="false" keyProperty="id">
-        insert into NewAddWeek (dateID,cID,gID,sID,newAddNum,activeNum,loginCount,averageLogin,allPlayerNum)
-        values (#{dateID},#{cID},#{gID},#{sID},#{newAddNum},#{activeNum},#{loginCount},#{averageLogin},#{allPlayerNum})
+        insert into NewAddWeek (dateID, mainId, cID, gID, enter, newAddNum, activeNum, loginCount, averageLogin, allPlayerNum, other1, other2, other3, other4)
+        values (#{dateID},#{mainId},#{cID},#{gID},#{enter},#{newAddNum},#{activeNum},#{loginCount},#{averageLogin},#{allPlayerNum},#{other1},#{other2},#{other3},#{other4})
     </insert>
 
+
     <select id="findByObject" resultType="_NewAddWeek">
-        select * from NewAddWeek where dateID = #{dateID} AND cID = #{cID} AND gID = #{gID} AND sID = #{sID} limit 1
+        select * from NewAddWeek where dateID = #{dateID} AND cID = #{cID} AND gID = #{gID} AND enter = #{enter}  limit 1
     </select>
 
     <update id="update">
-        update NewAddWeek set newAddNum=newAddNum+#{newAddNum},activeNum=activeNum+#{activeNum},loginCount=loginCount+#{loginCount},averageLogin=#{averageLogin},allPlayerNum=#{allPlayerNum}
+        update NewAddWeek set newAddNum=newAddNum+#{newAddNum},activeNum=activeNum+#{activeNum},
+        loginCount=loginCount+#{loginCount},averageLogin=#{averageLogin},allPlayerNum=#{allPlayerNum}
         where id=#{id}
     </update>
 
     <select id="findDayCount" resultType="java.lang.Integer">
-        select COUNT(dateID) from NewAddWeek where cID = #{cID} AND gID = #{gID} AND sID = #{sID}
+        select COUNT(dateID) from NewAddWeek where cID = #{cID} AND gID = #{gID} AND enter = #{enter}
     </select>
+    <update id="truncate">
+        truncate table NewAddWeek
+    </update>
 
 </mapper>

@@ -97,8 +97,12 @@
                         <span class="arrow"></span>
                     </a>
                     <ul class="sub">
-                        <li><a href="active.html">活跃</a></li>
-                        <li><a href="frequency.html">使用频率</a></li>
+                        <li class="active">
+                            <a href="active.html">活跃</a>
+                        </li>
+                        <li>
+                            <a href="frequency.html">使用频率</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="">
@@ -117,8 +121,19 @@
                 <li class="active">
                     <a href="pay.html">
                         <i class="icon-camera"></i>
+                        <span class="selected"></span>
                         <span class="title">付费分析</span>
                     </a>
+                </li>
+                <li class="has-sub">
+                    <a href="generate_channel.html">
+                        <i class="icon-credit-card"></i>
+                        <span class="title">生成渠道</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="channel_list.html">渠道列表</a></li>
+                    </ul>
                 </li>
             </ul>
             <!-- END SIDEBAR MENU -->
@@ -353,6 +368,7 @@
             // 初始化时间
             TsDateInit: function () {
                 $('input[name="datefilter"]').daterangepicker({
+                    showDropdowns: true,
                     startDate:moment().subtract('days', 6),
                     endDate:moment(),
                     opens: 'left',

@@ -91,4 +91,14 @@ public class ControlerHome {
     public String frequency(){
         return"frequency";
     }
+
+    @RequestMapping("/generate_channel")
+    public String generate_channel(){
+        return"generate_channel";
+    }
+
+    @RequestMapping("/channel_list")
+    public String channel_list(){
+        return"channel_list";
+    }
 }

@@ -39,7 +39,7 @@ public class ControlerManager {
         switch (type) {
             case 1:
                 for (String s : strList) {
-                    log.info(s);
+//                    log.info(s);
                     if (father == null || !app.equals("channellist")) {
                         allInOneMapper.InsertCGS(app, s);
                     } else {

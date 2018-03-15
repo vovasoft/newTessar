@@ -28,7 +28,7 @@ public class ManageOverView {
     private static Lock lock = new ReentrantLock();// 锁对象
     private static final org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(ManagePayInput.class);
 
-    public static int manageThreeNum(Date firstDate, Date lastDate, String uid, String cid, String gid, String sid, int newAddSomeNum, boolean dayExist, boolean weekExist, boolean MonExist,
+    public static int manageThreeNum(Date firstDate, Date lastDate,String mainId, String uid, String cid, String gid,String sid, String enter, int newAddSomeNum, boolean dayExist, boolean weekExist, boolean MonExist,
                                      UseMySql mys, UseMyMongo umm, Class clazz) throws IOException {
 
         try {
@@ -44,12 +44,14 @@ public class ManageOverView {
                 playerCheck.setUid(uid);
                 playerCheck.setGid(gid);
                 playerCheck.setSid(sid);
+                playerCheck.setEnter(enter);
 
                 PayAllShow payAllShow = new PayAllShow();
                 PayAllShow payAllShowRes = null;
                 payAllShow.setcId(cid);
                 payAllShow.setgId(gid);
                 payAllShow.setsId(sid);
+                payAllShow.setEnter(enter);
 
                 Date thisDate = null;
                 long thisDateL = 0;
@@ -115,23 +117,24 @@ public class ManageOverView {
                 }
                 findSeed.setcID(cid);
                 findSeed.setgID(gid);
-                findSeed.setsID(sid);
+                findSeed.setEnter(enter);
                 findSeed.setDateID(thisDate);
                 ThreeNum tmp = (ThreeNum) mys.utilSQL(clazz, EnumSQL.SELECT, findSeed);  //表的第一位为注册时间，一个注册记录当天注册用户的留存情况
 
                 if (tmp == null) {
                     ThreeNum sp = new ThreeNum(0, thisDate,
+                            mainId,
                             cid,
                             gid,
-                            sid,
-                            0, 0, 0);
+                            enter,
+                            0, 0, 0,"","","","");
                     mys.utilSQL(clazz, EnumSQL.INSERT, sp);
                     log.info("##Insert a new row##:" + clazzName);
                     tmp = (ThreeNum) mys.utilSQL(clazz, EnumSQL.SELECT, findSeed);
                 }
 
                 tmp.setNewAddFirstPayNum(tmp.getNewAddFirstPayNum()+newAddFirstPayNum);
-                tmp.setactivePayNum(tmp.getactivePayNum()+activePayNum);
+                tmp.setActivePayNum(tmp.getActivePayNum()+activePayNum);
                 tmp.setNewAddPayRate(newAddPayRate);
 
                 //计算活跃用户付费率=活跃用户付费数/活跃用户数

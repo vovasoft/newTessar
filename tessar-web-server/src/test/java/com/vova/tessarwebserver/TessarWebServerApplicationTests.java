@@ -6,6 +6,7 @@ import com.vova.tessarwebserver.Scheduled.FB_JSON;
 import com.vova.tessarwebserver.Scheduled.Fb_Ad;
 import com.vova.tessarwebserver.Scheduled.TimeRange;
 import com.vova.tessarwebserver.dbmapper.AllInOneMapper;
+import com.vova.tessarwebserver.util.Tools;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -24,16 +25,21 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class TessarWebServerApplicationTests {
+    //
 //
-//
-	@Autowired
-	AllInOneMapper allInOneMapper;
+    @Autowired
+    AllInOneMapper allInOneMapper;
 
-//	static SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+    //	static SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
 //
 //
-	@Test
-	public void contextLoads() throws IOException {
+    @Test
+    public void contextLoads() throws IOException {
+
+        List<String> list = allInOneMapper.showTables();
+        System.out.println(list);
+
+        
 //		Gson gson = new Gson();
 //
 //
@@ -59,8 +65,10 @@ public class TessarWebServerApplicationTests {
 //		} catch (IOException e) {
 //			e.printStackTrace();
 //		}
-	}
-//
+    }
+
+    //
+   
 
 
 }

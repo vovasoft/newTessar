@@ -14,7 +14,7 @@
     <!-- Default bean name is 'dbmongo' -->
     <!--<mongo:db-factory id="mongo" host="192.168.10.102" port="27017" />-->
     <bean id="mongo" class="com.mongodb.Mongo" >
-        <!--<constructor-arg name="host" value="localhost" />-->
+        <!--<constructor-arg name="host" value="192.168.10.102" />-->
         <constructor-arg name="host" value="192.168.10.102" />
         <constructor-arg name="port" value="27017" />
     </bean>

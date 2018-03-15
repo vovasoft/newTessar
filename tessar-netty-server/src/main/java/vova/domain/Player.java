@@ -20,16 +20,8 @@ public class Player{
     private long lastdate;//
     private String cid; //game channel create id
     private String gid;
-    private String sub; //sid channel create id;
     private String sid;
-//    private boolean fristDay;
-//    private boolean fristweek;
-//    private boolean fristMonth;
-//    private long duration;
-//    private String other1;
-//    private String other2;
-//    private String other3;
-//    private String other4;
+    private String enter;
 
     public String getUid() {
         return uid;
@@ -65,12 +57,12 @@ public class Player{
         this.gid = gid;
     }
 
-    public String getSub() {
-        return sub;
+    public String getEnter() {
+        return enter;
     }
 
-    public void setSub(String sub) {
-        this.sub = sub;
+    public void setEnter(String enter) {
+        this.enter = enter;
     }
 
     public String getSid() {
@@ -93,14 +85,13 @@ public class Player{
         this.cid = cid;
     }
 
-    public Player(String uid, long regdate, long lastdate, String cid, String gid, String sub, String sid) {
-
+    public Player(String uid, long regdate, long lastdate, String cid, String gid, String sid, String enter) {
         this.uid = uid;
         this.regdate = regdate;
         this.lastdate = lastdate;
         this.cid = cid;
         this.gid = gid;
-        this.sub = sub;
         this.sid = sid;
+        this.enter = enter;
     }
 }

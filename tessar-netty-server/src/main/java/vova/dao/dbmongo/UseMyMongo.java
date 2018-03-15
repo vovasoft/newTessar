@@ -1,38 +1,23 @@
 package vova.dao.dbmongo;
-
 import com.mongodb.*;
 import com.mongodb.client.DistinctIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
-import com.sun.media.jfxmedia.events.PlayerStateEvent;
-import org.bson.BsonDocument;
 import org.bson.conversions.Bson;
-import org.junit.Test;
-import org.springframework.data.mongodb.core.aggregation.Aggregation;
-import org.springframework.data.mongodb.core.aggregation.AggregationResults;
-import org.springframework.data.mongodb.core.aggregation.ArrayOperators;
-import org.springframework.data.mongodb.core.aggregation.GroupOperation;
 import vova.domain.Player;
 import com.mongodb.client.model.Filters;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.stereotype.Component;
 import vova.domain.payment.PayMentForKeep;
-import vova.domain.payment.PayMentWeek;
 import vova.util.Switch;
 import vova.util.Tools;
-
-import javax.print.Doc;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-
-import static org.springframework.data.mongodb.core.aggregation.Aggregation.group;
-import static org.springframework.data.mongodb.core.aggregation.Aggregation.match;
+import static vova.nettydemo.NettyHandler.ac;
 
 /**
  * @author: Vova
@@ -44,12 +29,12 @@ public class UseMyMongo {
 
     public UseMyMongo() {
     }
-
     boolean useSid = new ClassPathXmlApplicationContext("switch.xml").getBean(Switch.class).getUseSid();
 
     //插入数据
     public void insertMongo(Object object) throws ParseException {
-        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+       //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+        
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         mongoTemplate.insert(object);
     }
@@ -57,7 +42,7 @@ public class UseMyMongo {
 
     //Find count of all players by ID distinct;
     public int findPlayerCountInMongo(String collectionName, String id, String cid, String gid) {
-        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+        //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoClient mongoClient = (MongoClient) ac.getBean("mongoClient");
 
         MongoDatabase db = mongoClient.getDatabase("db2");
@@ -81,7 +66,7 @@ public class UseMyMongo {
 
     public int findPlayerCountInMongoAll(String collectionName, String id) {
         int res = 0;
-        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+        //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         DBObject query = new BasicDBObject();
         res = mongoTemplate.getCollection(collectionName).distinct(id, query).size();
@@ -96,7 +81,7 @@ public class UseMyMongo {
         String sid = player.getSid();
         String cid = player.getCid();
         long regTime = player.getRegdate();
-        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+        //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         Query query = new Query();
         if (useSid) {
@@ -115,16 +100,16 @@ public class UseMyMongo {
         String uid = player.getUid();
         String gid = player.getGid();
         //需求变化，取消sid的维度
-        String sid = player.getSid();
+        String enter = player.getEnter();
         String cid = player.getCid();
         Date todayDate = Tools.secToDateByFormat(player.getLastdate());
         long todayTime = todayDate.getTime() / 1000;
-        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+        //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         Query query = new Query();
 
         if (useSid) {
-            query.addCriteria(Criteria.where("uid").is(uid).and("cid").is(cid).and("gid").is(gid).and("sid").is(sid).and("lastdate").gte(todayTime).lt(todayTime + (24 * 3600)));
+            query.addCriteria(Criteria.where("uid").is(uid).and("cid").is(cid).and("gid").is(gid).and("enter").is(enter).and("lastdate").gte(todayTime).lt(todayTime + (24 * 3600)));
         } else {
             query.addCriteria(Criteria.where("uid").is(uid).and("cid").is(cid).and("gid").is(gid).and("lastdate").gte(todayTime).lt(todayTime + (24 * 3600)));
 
@@ -145,7 +130,7 @@ public class UseMyMongo {
         String uid = player.getUid();
         Date loginDate = Tools.secToDateByFormat(player.getLastdate());
         String gid = player.getGid();
-        String sid = player.getSid();
+        String enter = player.getEnter();
         String cid = player.getCid();
         Calendar cRegister = Calendar.getInstance();
         cRegister.setTime(loginDate);
@@ -153,11 +138,11 @@ public class UseMyMongo {
 
         Date mondayOfDate = Tools.getMondayOfDate(loginDate);
         Date sundayOfDate = Tools.getSundayOfDate(loginDate);
-        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+        //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         Query query = new Query();
         if (useSid) {
-            query.addCriteria(Criteria.where("uid").is(uid).and("gid").is(gid).and("cid").is(cid).and("sid").is(sid).and("lastdate").gte(Tools.dateToSec(mondayOfDate)).lt(Tools.dateToSec(sundayOfDate) + (24 * 3600)));
+            query.addCriteria(Criteria.where("uid").is(uid).and("gid").is(gid).and("cid").is(cid).and("enter").is(enter).and("lastdate").gte(Tools.dateToSec(mondayOfDate)).lt(Tools.dateToSec(sundayOfDate) + (24 * 3600)));
 
         } else {
 
@@ -166,7 +151,6 @@ public class UseMyMongo {
 
         Player resPlayer = mongoTemplate.findOne(query, Player.class);
         if (resPlayer == null) {
-            //system.out.println("resPlayer is not exist!!!");
             return false;
         } else {
             return true;
@@ -180,24 +164,20 @@ public class UseMyMongo {
         Date loginDate = Tools.secToDateByFormat(player.getLastdate());
         String cid = player.getCid();
         String gid = player.getGid();
-        String sid = player.getSid();
+        String enter = player.getEnter();
 
         Date firstMonthOfDate = Tools.getFirstOfMonth(loginDate);
         Date endMonthOfDate = Tools.getLastOfMonth(loginDate);
-        //system.out.println("firtMonth........." + Tools.dateToSec(firstMonthOfDate));
-        //system.out.println("endMonthOfDate........." + Tools.dateToSec(endMonthOfDate) + (24 * 3600));
-
-        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+        //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         Query query = new Query();
         if (useSid) {
-            query.addCriteria(Criteria.where("uid").is(uid).and("cid").is(cid).and("gid").is(gid).and("sid").is(sid).and("lastdate").gte(Tools.dateToSec(firstMonthOfDate)).lt(Tools.dateToSec(endMonthOfDate) + (24 * 3600)));
+            query.addCriteria(Criteria.where("uid").is(uid).and("cid").is(cid).and("gid").is(gid).and("enter").is(enter).and("lastdate").gte(Tools.dateToSec(firstMonthOfDate)).lt(Tools.dateToSec(endMonthOfDate) + (24 * 3600)));
         } else {
             query.addCriteria(Criteria.where("uid").is(uid).and("cid").is(cid).and("gid").is(gid).and("lastdate").gte(Tools.dateToSec(firstMonthOfDate)).lt(Tools.dateToSec(endMonthOfDate) + (24 * 3600)));
         }
         Player resPlayer = mongoTemplate.findOne(query, Player.class);
         if (resPlayer == null) {
-            //system.out.println("Player is not exist!!!");
             return false;
         } else {
             return true;
@@ -210,7 +190,7 @@ public class UseMyMongo {
         String sid = payMentForKeep.getSid();
         String cid = payMentForKeep.getCid();
 
-        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+        //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         Query query = new Query();
 
@@ -222,10 +202,8 @@ public class UseMyMongo {
         }
         PayMentForKeep res = mongoTemplate.findOne(query, PayMentForKeep.class);
         if (res == null) {
-            //system.out.println("None Exist from Day");
             return true;
         } else {
-            //system.out.println("False First pay");
             return false;
         }
     }
@@ -241,7 +219,7 @@ public class UseMyMongo {
         Date todayDate = Tools.secToDateByFormat(payMentForKeep.getPayTime());
         long todayTime = todayDate.getTime() / 1000;
 
-        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+        //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         Query query = new Query();
 
@@ -254,10 +232,8 @@ public class UseMyMongo {
         }
         PayMentForKeep res = mongoTemplate.findOne(query, PayMentForKeep.class);
         if (res == null) {
-            //system.out.println("None Exist from Day");
             return true;
         } else {
-            //system.out.println("False First pay");
             return false;
         }
     }
@@ -275,7 +251,7 @@ public class UseMyMongo {
         Date mondayOfDate = Tools.getMondayOfDate(loginDate);
         Date sundayOfDate = Tools.getSundayOfDate(loginDate);
 
-        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+        //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         Query query = new Query();
 
@@ -288,10 +264,8 @@ public class UseMyMongo {
 
         PayMentForKeep res = mongoTemplate.findOne(query, PayMentForKeep.class);
         if (res == null) {
-            //system.out.println("None Exist from week");
             return true;
         } else {
-            //system.out.println("False First pay");
             return false;
         }
     }
@@ -305,10 +279,7 @@ public class UseMyMongo {
 
         Date firstMonthOfDate = Tools.getFirstOfMonth(loginDate);
         Date endMonthOfDate = Tools.getLastOfMonth(loginDate);
-        //system.out.println("firtMonth........." + Tools.dateToSec(firstMonthOfDate));
-        //system.out.println("endMonthOfDate........." + Tools.dateToSec(endMonthOfDate) + (24 * 3600));
-
-        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+        //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         Query query = new Query();
 
@@ -320,10 +291,8 @@ public class UseMyMongo {
         }
         PayMentForKeep res = mongoTemplate.findOne(query, PayMentForKeep.class);
         if (res == null) {
-            //system.out.println("None Exist from Month");
             return true;
         } else {
-            //system.out.println("False First pay");
             return false;
         }
     }
@@ -333,7 +302,7 @@ public class UseMyMongo {
         String gid = payMentForKeep.getGid();
         String sid = payMentForKeep.getSid();
 
-        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+        //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         Query query = new Query();
 
@@ -359,7 +328,7 @@ public class UseMyMongo {
         long date = payMentForKeep.getPayTime();
 
 
-        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+        //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         float total = 0;
         Query query = new Query();
@@ -379,13 +348,12 @@ public class UseMyMongo {
 
         return total;
     }
-
-
+    
     public Player findOnePlayer(Player player) {
         String gid = player.getGid();
         String sid = player.getSid();
         String uid = player.getUid();
-        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+        //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
 
         Query query = new Query();
@@ -406,7 +374,7 @@ public class UseMyMongo {
         String gid = player.getGid();
         String sid = player.getSid();
         String uid = player.getUid();
-        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+        //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
 
         Query query = new Query();
@@ -428,7 +396,7 @@ public class UseMyMongo {
         String gid = player.getGid();
         String sid = player.getSid();
         String uid = player.getUid();
-        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+        //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
 
         Query query = new Query();
@@ -449,17 +417,13 @@ public class UseMyMongo {
     //获取数据,通过ChannelID,GameID,ServerID,以及时间段start Date\ end date
     public void getPlayersListMongo(String cID, String gID, String sID, Date sDate, Date eDate) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+        //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         Query query = new Query();
         query.addCriteria(Criteria.where("date").gt(sDate).lt(eDate));
         query.addCriteria(Criteria.where("channel_from").is(cID));
         MongoTest mt = mongoTemplate.findOne(query, MongoTest.class);
         List<MongoTest> mtList = mongoTemplate.find(query, MongoTest.class);
-        //system.out.println("date::::" + sdf.format(mt.date));
 
-        for (MongoTest test : mtList) {
-            //system.out.println("for::::" + sdf.format(customer.date));
-        }
     }
 }

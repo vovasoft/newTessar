@@ -20,7 +20,7 @@ public class ManageStay {
 
     private static Lock lock = new ReentrantLock();// 锁对象
     private static final org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(ManagePayInput.class);
-    public static int manageStayData(Date firstDate, Date lastDate, String cid, String gid, String sid, int newAddSomeNum, boolean dayExist, boolean weekExist, boolean MonExist,
+    public static int manageStayData(Date firstDate, Date lastDate, String cid, String gid,String mainId, String enter,String sid, int newAddSomeNum, boolean dayExist, boolean weekExist, boolean MonExist,
                                      UseMySql mys, Class clazz) throws IOException {
 
         try {
@@ -51,17 +51,18 @@ public class ManageStay {
 
                 findSeed.setcID(cid);
                 findSeed.setgID(gid);
-                findSeed.setsID(sid);
+                findSeed.setEnter(enter);
                 findSeed.setDateID(thisDate);
                 StayParent tmp = (StayParent) mys.utilSQL(clazz, EnumSQL.SELECT, findSeed);  //表的第一位为注册时间，一个注册记录当天注册用户的留存情况
 
                 if (tmp == null) {
                     StayParent sp = new StayParent(0, thisDate,
+                            mainId,
                             cid,
-                            gid,
-                            sid,
+                            gid, 
+                            enter,
                             0,
-                            stayStr);
+                            stayStr,"","","","");
                     mys.utilSQL(clazz, EnumSQL.INSERT, sp);
                     log.info("##Insert a new row##:"+clazzName);
                     tmp = (StayParent) mys.utilSQL(clazz, EnumSQL.SELECT, findSeed);

@@ -5,20 +5,23 @@
 <mapper namespace="StayWeek">
     <!-- 定义insert语句 -->
 
-
     <insert id="insert" useGeneratedKeys="false" keyProperty="id">
-        insert into StayWeek (dateID,cID,gID,sID,newAddNum,stayList)
-        values (#{dateID},#{cID},#{gID},#{sID},#{newAddNum},#{stayList})
+        insert into StayWeek (dateID, mainId, cID, gID, enter, newAddNum, stayList, other1, other2, other3, other4)
+        values (#{dateID},#{mainId},#{cID},#{gID},#{enter},#{newAddNum},#{stayList},#{other1},#{other2},#{other3},#{other4})
     </insert>
 
 
     <select id="findByObject" resultType="_StayWeek">
-        select * from StayWeek where dateID = #{dateID} AND cID = #{cID} AND gID = #{gID} AND sID = #{sID}  limit 1
+        select * from StayWeek where dateID = #{dateID} AND cID = #{cID} AND gID = #{gID} AND enter = #{enter}  limit 1
     </select>
 
     <update id="update">
         update StayWeek set stayList=#{stayList}, newAddNum=#{newAddNum}
         where id=#{id}
+    </update>
+
+    <update id="truncate">
+        truncate table StayWeek
     </update>
 
     <!--<select id="findDayCount" resultType="java.lang.Integer">-->

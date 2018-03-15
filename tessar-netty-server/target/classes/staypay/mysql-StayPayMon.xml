@@ -7,18 +7,22 @@
 
 
     <insert id="insert" useGeneratedKeys="false" keyProperty="id">
-        insert into StayPayMon (dateID,cID,gID,sID,newAddNum,stayList)
-        values (#{dateID},#{cID},#{gID},#{sID},#{newAddNum},#{stayList})
+        insert into StayPayMon (dateID,mainId,cID,gID,enter,newAddNum,stayList)
+        values (#{dateID},#{mainId},#{cID},#{gID},#{enter},#{newAddNum},#{stayList})
     </insert>
 
 
     <select id="findByObject" resultType="_StayPayMon">
-        select * from StayPayMon where dateID = #{dateID} AND cID = #{cID} AND gID = #{gID} AND sID = #{sID}  limit 1
+        select * from StayPayMon where dateID = #{dateID} AND cID = #{cID} AND gID = #{gID} AND enter = #{enter}  limit 1
     </select>
 
     <update id="update">
         update StayPayMon set stayList=#{stayList}, newAddNum=#{newAddNum}
         where id=#{id}
+    </update>
+
+    <update id="truncate">
+        truncate table StayPayMon
     </update>
 
 

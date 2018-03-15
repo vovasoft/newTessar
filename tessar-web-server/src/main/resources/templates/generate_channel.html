@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+    <meta charset="utf-8" />
+    <title>Metronic | Visual Charts</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/metro.css" rel="stylesheet" />
+    <link href="assets/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/style_responsive.css" rel="stylesheet" />
+    <link href="assets/css/style_default.css" rel="stylesheet" id="style_color" />
+    <link rel="stylesheet" type="text/css" href="assets/uniform/css/uniform.default.css" />
+    <link rel="stylesheet" href="assets/bootstrap-daterangepicker/daterangepicker.css">
+    <link rel="shortcut icon" href="favicon.ico" />
+    <style>
+        .selfbox {
+            background-color: #eee;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .table th, td {
+            text-align: center !important;
+        }
+        .keyword_ml{
+            margin-left: 0 !important;
+        }
+    </style>
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+
+<body class="fixed-top">
+<div id="app">
+    <!-- BEGIN HEADER -->
+    <div class="header navbar navbar-inverse navbar-fixed-top">
+        <!-- BEGIN TOP NAVIGATION BAR -->
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <!-- BEGIN LOGO -->
+                <a class="brand" href="index.html">
+                    <img src="assets/img/logo.png" alt="logo" />
+                </a>
+                <!-- END LOGO -->
+                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+                    <img src="assets/img/menu-toggler.png" alt="" />
+                </a>
+                <!-- END RESPONSIVE MENU TOGGLER -->
+                <!-- BEGIN TOP NAVIGATION MENU -->
+                <ul class="nav pull-right">
+                    <!-- BEGIN USER LOGIN DROPDOWN -->
+                    <li class="dropdown user">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img alt="" src="assets/img/avatar1_small.jpg" />
+                            <span class="username">Bob Nilson</span>
+                            <i class="icon-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="Javascript:void(0);">
+                                    <i class="icon-user"></i> My Profile</a>
+                            </li>
+
+                            <li>
+                                <a href="login.html">
+                                    <i class="icon-key"></i> Log Out</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- END USER LOGIN DROPDOWN -->
+                </ul>
+                <!-- END TOP NAVIGATION MENU -->
+            </div>
+        </div>
+        <!-- END TOP NAVIGATION BAR -->
+    </div>
+    <!-- END HEADER -->
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container row-fluid">
+        <!-- BEGIN SIDEBAR -->
+        <div class="page-sidebar nav-collapse collapse">
+            <!-- BEGIN SIDEBAR MENU -->
+            <ul>
+                <li>
+                    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                    <div class="sidebar-toggler hidden-phone"></div>
+                    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                </li>
+                <li class="start">
+                    <a href="overview.html">
+                        <i class="icon-home"></i>
+                        <span class="title">概览</span>
+                    </a>
+                </li>
+                <li class="has-sub">
+                    <a href="javascript:;">
+                        <i class="icon-bookmark-empty"></i>
+                        <span class="title">活跃分析</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                        <li class="active">
+                            <a href="active.html">活跃</a>
+                        </li>
+                        <li>
+                            <a href="frequency.html">使用频率</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="">
+                        <i class="icon-bar-chart"></i>
+                        <span class="title">转化分析</span>
+                        <span class="selected"></span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="stay.html">
+                        <i class="icon-calendar"></i>
+                        <span class="title">留存分析</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="pay.html">
+                        <i class="icon-camera"></i>
+                        <span class="title">付费分析</span>
+                    </a>
+                </li>
+                <li class="has-sub active">
+                    <a href="javascript:;">
+                        <i class="icon-credit-card"></i>
+                        <span class="selected"></span>
+                        <span class="title">生成渠道</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="channel_list.html">渠道列表</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- END SIDEBAR MENU -->
+        </div>
+        <!-- END SIDEBAR -->
+        <!-- BEGIN PAGE -->
+        <div class="page-content">
+
+            <!-- BEGIN PAGE CONTAINER-->
+            <div class="container-fluid">
+                <!-- BEGIN PAGE HEADER-->
+                <div class="row-fluid">
+                    <div class="span12">
+                        <!-- BEGIN STYLE CUSTOMIZER -->
+                        <div class="color-panel hidden-phone">
+                            <div class="color-mode-icons icon-color"></div>
+                            <div class="color-mode-icons icon-color-close"></div>
+                            <div class="color-mode">
+                                <p>THEME COLOR</p>
+                                <ul class="inline">
+                                    <li class="color-black current color-default" data-style="default"></li>
+                                    <li class="color-blue" data-style="blue"></li>
+                                    <li class="color-brown" data-style="brown"></li>
+                                    <li class="color-purple" data-style="purple"></li>
+                                    <li class="color-white color-light" data-style="light"></li>
+                                </ul>
+                                <label class="hidden-phone">
+                                    <input type="checkbox" class="header" checked value="" />
+                                    <span class="color-mode-label">Fixed Header</span>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- END BEGIN STYLE CUSTOMIZER -->
+                        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+                        <h3 class="page-title">
+                            Generate Channel
+                        </h3>
+                        <ul class="breadcrumb">
+                            <li>
+                                <i class="icon-credit-card"></i>
+                                <a href="javascript:void (0);">生成渠道</a>
+                            </li>
+                        </ul>
+                        <!-- END PAGE TITLE & BREADCRUMB-->
+                    </div>
+                </div>
+                <!-- END PAGE HEADER-->
+                <div class="row-fluid selfbox">
+                    <div class="span12 clearfix" style="background-color: #fff;">
+                        <div class="tab-pane active" id="tab_1">
+                            <div class="portlet box blue" style="margin-bottom: 0;">
+                                <div class="portlet-title">
+                                    <h4><i class="icon-reorder"></i>生成渠道ID</h4>
+                                </div>
+                                <div class="portlet-body form">
+                                    <!-- BEGIN FORM-->
+                                    <form action="#" class="horizontal-form">
+                                        <div class="row-fluid">
+                                            <!--游戏-->
+                                            <div class="span3 ">
+                                                <div class="control-group">
+                                                    <label class="control-label" >游戏</label>
+                                                    <div class="controls">
+                                                        <select id="gameNameVal"
+                                                                class="span12"
+                                                                data-placeholder="Choose a Category"
+                                                                @change="geedSelectStatus"
+                                                                @click="entryDefClick"
+                                                                tabindex="1">
+                                                            <option value=""
+                                                                    v-for="(item,index) in gameNameList">
+                                                                {{ item }}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--入口类型-->
+                                            <div class="span3 ">
+                                                <div class="control-group">
+                                                    <label class="control-label" >入口类型</label>
+                                                    <div class="controls">
+                                                        <select id="entryTypeVal"
+                                                                class="span12"
+                                                                data-placeholder="Choose a Category"
+                                                                @change="geedSelectStatus"
+                                                                @click="entryDefClick"
+                                                                tabindex="1">
+                                                            <option value=""
+                                                                    v-for="(item,index) in entryTypeList">
+                                                               {{ item }}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <div class="span3 ">
+                                                <div class="control-group">
+                                                    <div class="controls" style="margin-top: 22px;">
+                                                        <label class="radio">
+                                                            <input style="margin-top: 0;"
+                                                                   type="checkbox"
+                                                                   name="optionsCheckbox1"
+                                                                   v-model="shortLinkStatus"
+                                                                   value="option1" />
+                                                            生成短连接
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                        </div>
+                                        <!--/row-->
+                                        <div class="row-fluid" style="margin-top: 20px;">
+                                            <!--入口定义-->
+                                            <div class="span3 ">
+                                                <div class="control-group">
+                                                    <label class="control-label" >入口定义</label>
+                                                    <div class="controls">
+                                                        <select id="entryDefVal"
+                                                                class="span12"
+                                                                data-placeholder="Choose a Category"
+                                                                @change="geedSelectStatus"
+                                                                tabindex="1">
+                                                            <option value=""
+                                                                    v-for="(item,index) in entryDefineList">
+                                                                {{ item }}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--主渠道-->
+                                            <div class="span3 ">
+                                                <div class="control-group">
+                                                    <label class="control-label" >主渠道</label>
+                                                    <div class="controls">
+                                                        <select id="directChannelVal"
+                                                                class="span12"
+                                                                data-placeholder="Choose a Category"
+                                                                @change="geedSelectStatus"
+                                                                tabindex="1">
+                                                            <option value=""
+                                                                    v-for="(item,index) in MainChannelList">
+                                                                {{ item }}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--关键词-->
+                                        <div class="row-fluid" id="channelKw" style="margin-top: 20px;">
+                                            <div class="span2"
+                                                 :class="{'keyword_ml': index%6==0}"
+                                                 v-for="(item,index) in 12">
+                                                <div class="control-group">
+                                                    <label class="control-label"
+                                                           :for="'firstName'+index">
+                                                        Keyword {{index + 1}}
+                                                    </label>
+                                                    <div class="controls">
+                                                        <input type="text"
+                                                               :id="'firstName'+index"
+                                                               ref="inputChannelKw"
+                                                               class="m-wrap span12"
+                                                               placeholder="Chee Kin">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-actions" style="text-align: center;padding-left: 0;">
+                                            <div class="btn blue"
+                                                 :class="{disabled: !ajaxLock}"
+                                                 @click="submitSave">
+                                                <i class="icon-ok"></i> Generate
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <!-- END FORM-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane active" id="tab_2" style="margin-top: 25px; display: none;">
+                            <div class="portlet box blue" style="margin-bottom: 0;">
+                                <div class="portlet-title">
+                                    <h4><i class="icon-reorder"></i>生成入口链接</h4>
+                                </div>
+                                <div class="portlet-body form">
+                                    <!-- BEGIN FORM-->
+                                    <form action="#" class="">
+                                        <div class="row-fluid ">
+                                            <div class="span6 ">
+                                                <div class="control-group">
+                                                    <label class="control-label" >游戏</label>
+                                                    <div class="controls">
+                                                        <select  class="m-wrap span12"
+                                                                 tabindex="1"
+                                                                 @change="gameSelect(gameSelected)"
+                                                                 v-model="gameSelected">
+                                                            <option v-for="(item,index) in generateUrlList"
+                                                                    :value="item.value">
+                                                                {{item.value}}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--/span-->
+                                            <div class="span6 ">
+                                                <div class="control-group">
+                                                    <label class="control-label" >keyword</label>
+                                                    <div class="controls">
+                                                        <input type="text"
+                                                               class="m-wrap span12"
+                                                               v-model="generateKeyword"
+                                                               @click="iptValEmpty">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row-fluid">
+                                            <div class="span12">
+                                                <div class="control-group">
+                                                    <span>URL:</span>
+                                                    <span v-show="generateUrlCount==0">{{generateUrlList[0].url}}+{{generateKeyword}}</span>
+                                                    <span v-show="generateUrlCount==1">{{generateUrlList[1].url}}+{{generateKeyword}}</span>
+                                                    <span v-show="generateUrlCount==2">{{generateUrlList[2].url}}+{{generateKeyword}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/row-->
+                                    </form>
+                                    <!-- END FORM-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- BEGIN PAGE CONTAINER-->
+        </div>
+        <!-- END PAGE -->
+
+        <!--成功弹出-->
+        <div class="modal hide fade" id="myModal">
+            <div class="modal-header">
+                <button  class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h3>Tip</h3>
+            </div>
+            <div class="modal-body">
+                <!--成功显示-->
+                <div class="modal_success"
+                     v-if="resStatus">
+                    <div class="mb_content_t">
+                        <span>渠道连接</span>
+                        <i style="color: #00b3ee;cursor: pointer;"
+                           @click="copyUrl('copyLL')">&nbsp;&nbsp;&nbsp;copy</i>
+                        <div class="mb_lianjie_c">
+                            <p>
+                                <input id="copyLL" value="" style="width: 100%;border: none;">
+                            </p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="mb_content_b"
+                         v-if="shortLinkStatus">
+                        <span>短连接</span>
+                        <i style="color: #00b3ee;cursor: pointer;"
+                           @click="copyUrl('copySL')">&nbsp;&nbsp;&nbsp;copy</i>
+                        <div class="mb_lianjie_d">
+                            <p>
+                                <input id="copySL" value="" style="width: 100%;border: none;">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!--失败显示-->
+                <div class="modal_faile"
+                     v-else>
+                    <div class="mb_content">
+                        该渠道ID已存在,请尝试更换关键词!
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer" style="text-align: center;">
+                <button class="btn blue"  data-dismiss="modal" aria-hidden="true">关闭</button>
+            </div>
+        </div>
+
+    </div>
+    <!-- END CONTAINER -->
+    <!-- BEGIN FOOTER -->
+    <div class="footer">
+        2017 &copy; XCLOUDGAME
+        <div class="span pull-right">
+                <span class="go-top">
+                    <i class="icon-angle-up"></i>
+                </span>
+        </div>
+    </div>
+    <!-- END FOOTER -->
+    <!-- BEGIN JAVASCRIPTS -->
+</div>
+<!-- Load javascripts at bottom, this will reduce page load time -->
+<script src="assets/js/vue-2.2.0.js"></script>
+<script src="assets/js/jquery-1.8.3.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.blockui.js"></script>
+<script src="assets/js/jquery.cookie.js"></script>
+<script src="assets/echarts/echarts.common.min.js"></script>
+<script src="assets/breakpoints/breakpoints.js"></script>
+<!-- ie8 fixes -->
+<!--[if lt IE 9]>
+<script src="assets/js/excanvas.js"></script>
+<script src="assets/js/respond.js"></script>
+<![endif]-->
+<script src="assets/bootstrap-daterangepicker/moment.min.js"></script>
+<script src="assets/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="assets/bootstrap-daterangepicker/date.js"></script>
+<script src="assets/js/app.js"></script>
+
+
+<script>
+
+    // 绑定按钮事件
+
+
+    jQuery(document).ready(function () {
+        App.init();
+    });
+
+    //第五种方法
+    var idTmr;
+    function  getExplorer() {
+        var explorer = window.navigator.userAgent ;
+        //ie
+        if (explorer.indexOf("MSIE") >= 0) {
+            return 'ie';
+        }
+        //firefox
+        else if (explorer.indexOf("Firefox") >= 0) {
+            return 'Firefox';
+        }
+        //Chrome
+        else if(explorer.indexOf("Chrome") >= 0){
+            return 'Chrome';
+        }
+        //Opera
+        else if(explorer.indexOf("Opera") >= 0){
+            return 'Opera';
+        }
+        //Safari
+        else if(explorer.indexOf("Safari") >= 0){
+            return 'Safari';
+        }
+    }
+    function dldExcel(tableid) {
+        if(getExplorer()=='ie')
+        {
+            var curTbl = document.getElementById(tableid);
+            var oXL = new ActiveXObject("Excel.Application");
+            var oWB = oXL.Workbooks.Add();
+            var xlsheet = oWB.Worksheets(1);
+            var sel = document.body.createTextRange();
+            sel.moveToElementText(curTbl);
+            sel.select();
+            sel.execCommand("Copy");
+            xlsheet.Paste("xiazai");
+            oXL.Visible = true;
+
+            try {
+                var fname = oXL.Application.GetSaveAsFilename("Excel.xls", "Excel Spreadsheets (*.xls), *.xls");
+            } catch (e) {
+                print("Nested catch caught " + e);
+            } finally {
+                oWB.SaveAs(fname);
+                oWB.Close(savechanges = false);
+                oXL.Quit();
+                oXL = null;
+                idTmr = window.setInterval("Cleanup();", 1);
+            }
+
+        }
+        else
+        {
+            tableToExcel(tableid,name,filename)
+        }
+    }
+    function Cleanup() {
+        window.clearInterval(idTmr);
+        CollectGarbage();
+    }
+    var tableToExcel = (function() {
+        var uri = 'data:application/vnd.ms-excel;base64,',
+                template = '<html><head><meta charset="UTF-8"></head><body><table>{table}</table></body></html>',
+                base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) },
+                format = function(s, c) {
+                    return s.replace(/{(\w+)}/g,
+                            function(m, p) { return c[p]; })
+                }
+        return function(table, name, filename) {
+            if (!table.nodeType) table = document.getElementById(table)
+            var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
+            link.download = filename;
+            link.href = uri + base64(format(template, ctx));
+            link.click();
+        }
+    })()
+</script>
+<!-- END JAVASCRIPTS -->
+
+<script type="text/javascript">
+    var vmActive = new Vue({
+        el: "#app",
+        data: {
+            ajaxLock:false,
+            resStatus:true, // 点击提交时的判断(ajax请求返回已存在false,不存在true)
+            shortLinkStatus:false, // 是否生成短连接 默认false
+            channelIdUrl: "",
+            shortUrl: "",
+            generateUrlCount: 0,
+            ajaxUrlList:[
+                    "http://192.168.10.102:9898/channel/getChannelGames",
+                    "http://192.168.10.102:9898/channel/getEntryType",
+                    "http://192.168.10.102:9898/channel/getEntryDefine",
+                    "http://192.168.10.102:9898/channel/getMainChannel",
+            ],
+            gameNameList:[
+                "请选择"
+            ],
+            entryTypeList:["Facebook APP","Landing Page"], // 入口类型
+            entryDefineList:[], // 入口定义
+            MainChannelList:[
+                "Facebook广告投放",
+                "Google广告投放",
+                "邀请渠道",
+                "红人、工会、战队推广",
+                "社区（fb、ytb、twi等）推广",
+                "论坛推广",
+                "网盟推广",
+                "游戏联运",
+                "广告直客",
+                "线上媒体"
+            ], // 主渠道列表
+            generateUrl:"https://www.xcloudgame.com?a=",
+            gameSelected:"longzhu",
+            generateUrlList:[
+                        {url:"https://www.xcloudgamelz.com?a=",value:"longzhu"},
+                        {url:"https://www.xcloudgamebloodstrike.com?a=",value:"bloodstrike"},
+                        {url:"https://www.xcloudgamebleach.com?a=",value:"bleach"},
+            ],
+            generateKeyword: "keyword"
+        },
+        mounted() {
+            this.TsDateInit(); // 初始化时间挂载
+            this.TsSelectInit();
+            this.TsEchartTableInit(); // 初始化图表和表格挂载
+            // this.submitActive(); //点击获取数据
+        },
+
+        methods: {
+            // 初始化时间
+            TsDateInit: function () {
+                $('input[name="datefilter"]').daterangepicker({
+                    showDropdowns: true,
+                    startDate: moment().subtract('days', 6),
+                    endDate: moment(),
+                    opens: 'left',
+                    autoUpdateInput: false,
+                    format: 'YYYY/MM/DD',
+                    ranges: {
+                        'Last 7 Days': [moment().subtract('days', 6), moment()],
+                        'Last 14 Days': [moment().subtract('days', 13), moment()],
+                        'Last 30 Days': [moment().subtract('days', 29), moment()]
+                    }
+                }, function (start, end, label) {
+                    // 选择时间范围后调用回调函数
+                    start.format('YYYY/MM/DD');
+                    end.format('YYYY/MM/DD');
+                });
+                $('input[name="datefilter"]').val(
+                        moment().subtract('days', 6).format('YYYY/MM/DD') +
+                        '-' +
+                        moment().format('YYYY/MM/DD')
+                )
+            },
+
+            // 初始化select 游戏,入口类型,入口定义,主渠道
+            TsSelectInit: function () {
+                // 获取游戏名
+                this.publicAjax(this.ajaxUrlList[0],function(data){
+                    console.log(data);
+                    if(data.code == 200){
+                        vmActive.gameNameList = data.data;
+                    }
+
+                });
+                // 获取入口类型
+                this.publicAjax(this.ajaxUrlList[1],function(data){
+                    console.log(data);
+                    if(data.code == 200){
+                        vmActive.entryTypeList = data.data;
+                    }
+                });
+                // 获取主渠道
+                this.publicAjax(this.ajaxUrlList[3],function(data){
+                    console.log(data);
+                    if(data.code == 200){
+                        vmActive.MainChannelList = data.data;
+                    }
+                });
+            },
+
+            //初始化图表和表格
+            TsEchartTableInit: function () {
+
+
+            },
+
+            // 判断 游戏,入口类型,入口定义,主渠道 是否选择,
+            geedSelectStatus: function () {
+                // 先判断 游戏,入口类型,入口定义,主渠道 是否选择
+                let gameNameVal = $("#gameNameVal").find("option:selected").text().trim();
+                let entryTypeVal = $("#entryTypeVal").find("option:selected").text().trim();
+                let entryDefVal = $("#entryDefVal").find("option:selected").text().trim();
+                let directChannelVal = $("#directChannelVal").find("option:selected").text().trim();
+                console.log(gameNameVal=="请选择 ---");
+                if(
+                        gameNameVal=="请选择"||
+                        entryTypeVal=="请选择"||
+                        entryDefVal=="请选择"||
+                        directChannelVal=="请选择"
+                ){
+                    this.ajaxLock=false;
+                    return false;
+                }else{
+                    this.ajaxLock=true;
+                }
+                console.log(gameNameVal);
+            },
+
+            // 入口定义点击判断
+            entryDefClick: function () {
+                let gameNameVal = $("#gameNameVal").find("option:selected").text().trim();
+                let entryTypeVal = $("#entryTypeVal").find("option:selected").text().trim();
+                this.publicAjax(this.ajaxUrlList[2],function(data){
+                    console.log(data);
+                    if(data.code == 200){
+                        vmActive.entryDefineList = data.data;
+                    }
+                },gameNameVal,entryTypeVal);
+            },
+
+            // 点击提交数据
+            submitSave: function () {
+                this.$nextTick(function () {
+                    // 验证select 有没有选择
+                    this.geedSelectStatus();
+                    // 使用ref获取到input值数组(关键字数组)
+                    let inputValArr = [];
+                    let refVal = this.$refs.inputChannelKw;
+                    console.log(refVal);
+
+                    // forEach 循化dom数组,参数1-dom;2-索引;3-数组本身
+                    this.$refs.inputChannelKw.forEach(function (val,ind,self) {
+                        this.push(val.value);
+                    },inputValArr);
+                    console.log(inputValArr);
+                    for(let i=0; i<inputValArr.length;i++){
+                        // 判断 input值的格式
+                        let strExp = /^[a-zA-Z0-9_-]{0,10}$/;
+                        if(!strExp.test(inputValArr[i])){
+                            alert("关键词格式有误");
+                            this.ajaxLock=false;
+                            break;
+                        }
+                        // 显示弹出框
+//                        if (i == inputValArr.length-1 && this.ajaxLock==true){
+//
+//                        }
+
+                    }
+
+                    console.log(inputValArr);
+                    console.log(this.ajaxLock);
+                    if(this.ajaxLock==true){
+                        let gameNameVal = $("#gameNameVal").find("option:selected").text().trim();
+                        let entryTypeVal = $("#entryTypeVal").find("option:selected").text().trim();
+                        let entryDefVal = $("#entryDefVal").find("option:selected").text().trim();
+                        let directChannelVal = $("#directChannelVal").find("option:selected").text().trim();
+                        let kwsVal = inputValArr.join("@")
+                        console.log(inputValArr);
+                        console.log(kwsVal);
+
+                        $.ajax({
+                            type: 'get',
+                            url: "http://192.168.10.102:9898/channel/channelGenerate",
+                            dataType: "jsonp",
+                            //传递给请求处理程序，用以获得jsonp回调函数名的参数名(默认为:callback)
+                            jsonp: "callback",
+                            //自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名
+                            //jsonpCallback:"jsonpCallback_success",
+                            data: {
+                                game: gameNameVal, // 游戏名称
+                                entryType: entryTypeVal, // 入口类型
+                                define: entryDefVal , // 入口定义
+                                mainChannel: directChannelVal , // 主渠道
+                                kws: kwsVal , // 主渠道
+                                user: "admin" , // 用户
+                                time: "" , // 时间
+                                useShort: vmActive.shortLinkStatus  // 是否生成短连接
+                            },
+                            success: function (data) {
+                                if( vmActive.shortLinkStatus==false && data.code==200){
+                                    console.log(data.data[0]);
+                                    $('#myModal').modal('show');
+                                    $("#copyLL").val(data.data[0]);
+                                }else if(vmActive.shortLinkStatus==true && data.code==200){
+                                    console.log(data.data[0]);
+                                    let sucData = $.parseJSON(data.data[0]);
+                                    $('#myModal').modal('show');
+                                    $("#copyLL").val(sucData[0].url_long);
+                                    $("#copySL").val(sucData[0].url_short);
+                                }else if(data.code==302){
+                                    alert(data.msg);
+                                    console.log("数据已存在");
+                                }
+
+
+                            },
+                            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                console.log("error");
+                            }
+
+                        });
+                    }else{
+                        alert("请正确选择游戏、入口类型、入口定义和渠道!")
+                    }
+
+
+                });
+
+
+            },
+
+            // 选择游戏生成对应的链接
+            gameSelect: function (val) {
+                switch (val) {
+                    case "longzhu":
+                        this.generateUrlCount=0;
+                        break;
+                    case "bloodstrike":
+                        this.generateUrlCount=1;
+                        break;
+                    case "bleach":
+                        this.generateUrlCount=2;
+                        break;
+                }
+
+            },
+
+            // copyUrl
+            copyUrl: function (val) {
+                let urlDom = document.getElementById(val);
+                urlDom.select();
+                document.execCommand("Copy");
+                alert("已经复制!");
+            },
+
+            // 清空input值
+            iptValEmpty: function () {
+              this.generateKeyword="";
+            },
+
+
+            // publicAjax 请求
+            publicAjax: function (ajaxUrl,callBack,gameNameVal,entryTypeVal) {
+                $.ajax({
+                    type: 'get',
+                    url: ajaxUrl,
+                    dataType: "jsonp",
+                    //传递给请求处理程序，用以获得jsonp回调函数名的参数名(默认为:callback)
+                    jsonp: "callback",
+                    //自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名
+                    //jsonpCallback:"jsonpCallback_success",
+                    data: {
+                        game: gameNameVal, // 游戏名称
+                        entryType: entryTypeVal, // 入口类型
+                    },
+                    success: function (data) {
+                        callBack(data)
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        console.log("error");
+                    }
+
+                });
+            },
+
+            // 获取url中的参数
+            getUrlParam: function (name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+                var r = window.location.search.substr(1).match(reg); //匹配目标参数
+                if (r != null) return unescape(r[2]);
+                return null; //返回参数值
+            },
+
+        }
+    });
+</script>
+</body>
+<!-- END BODY -->
+
+</html>

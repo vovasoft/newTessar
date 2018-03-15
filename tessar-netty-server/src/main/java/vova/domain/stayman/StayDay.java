@@ -10,8 +10,7 @@ public class StayDay extends StayParent {
     public StayDay() {
     }
 
-    public StayDay(int id, Date dateID, String cID, String gID, String sID, long newAddNum, String stayList) {
-        super(id, dateID, cID, gID, sID, newAddNum, stayList);
+    public StayDay(int id, Date dateID, String mainId, String cID, String gID, String enter, long newAddNum, String stayList, String other1, String other2, String other3, String other4) {
+        super(id, dateID, mainId, cID, gID, enter, newAddNum, stayList, other1, other2, other3, other4);
     }
-
 }

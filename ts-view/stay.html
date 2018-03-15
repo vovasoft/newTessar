@@ -34,311 +34,297 @@
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
 <body class="fixed-top">
-<!-- BEGIN HEADER -->
-<div class="header navbar navbar-inverse navbar-fixed-top">
-    <!-- BEGIN TOP NAVIGATION BAR -->
-    <div class="navbar-inner">
-        <div class="container-fluid">
-            <!-- BEGIN LOGO -->
-            <a class="brand" href="index.html">
-                <img src="assets/img/logo.png" alt="logo" />
-            </a>
-            <!-- END LOGO -->
-            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-            <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
-                <img src="assets/img/menu-toggler.png" alt="" />
-            </a>
-            <!-- END RESPONSIVE MENU TOGGLER -->
-            <!-- BEGIN TOP NAVIGATION MENU -->
-            <ul class="nav pull-right">
-                <!-- BEGIN USER LOGIN DROPDOWN -->
-                <li class="dropdown user">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img alt="" src="assets/img/avatar1_small.jpg" />
-                        <span class="username">Bob Nilson</span>
-                        <i class="icon-angle-down"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="Javascript:void(0);"><i class="icon-user"></i> My Profile</a></li>
+<div id="app">
+    <!-- BEGIN HEADER -->
+    <div class="header navbar navbar-inverse navbar-fixed-top">
+        <!-- BEGIN TOP NAVIGATION BAR -->
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <!-- BEGIN LOGO -->
+                <a class="brand" href="index.html">
+                    <img src="assets/img/logo.png" alt="logo" />
+                </a>
+                <!-- END LOGO -->
+                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+                    <img src="assets/img/menu-toggler.png" alt="" />
+                </a>
+                <!-- END RESPONSIVE MENU TOGGLER -->
+                <!-- BEGIN TOP NAVIGATION MENU -->
+                <ul class="nav pull-right">
+                    <!-- BEGIN USER LOGIN DROPDOWN -->
+                    <li class="dropdown user">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img alt="" src="assets/img/avatar1_small.jpg" />
+                            <span class="username">Bob Nilson</span>
+                            <i class="icon-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="Javascript:void(0);"><i class="icon-user"></i> My Profile</a></li>
 
-                        <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+                            <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+                    <!-- END USER LOGIN DROPDOWN -->
+                </ul>
+                <!-- END TOP NAVIGATION MENU -->
+            </div>
+        </div>
+        <!-- END TOP NAVIGATION BAR -->
+    </div>
+    <!-- END HEADER -->
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container row-fluid">
+        <!-- BEGIN SIDEBAR -->
+        <div class="page-sidebar nav-collapse collapse">
+            <!-- BEGIN SIDEBAR MENU -->
+            <ul>
+                <li>
+                    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                    <div class="sidebar-toggler hidden-phone"></div>
+                    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                </li>
+                <li class="start">
+                    <a href="overview.html">
+                        <i class="icon-home"></i>
+                        <span class="title">概览</span>
+                    </a>
+                </li>
+                <li class="has-sub">
+                    <a href="javascript:;">
+                        <i class="icon-bookmark-empty"></i>
+                        <span class="title">活跃分析</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="active.html">活跃</a></li>
+                        <li><a href="frequency.html">使用频率</a></li>
                     </ul>
                 </li>
-                <!-- END USER LOGIN DROPDOWN -->
-            </ul>
-            <!-- END TOP NAVIGATION MENU -->
-        </div>
-    </div>
-    <!-- END TOP NAVIGATION BAR -->
-</div>
-<!-- END HEADER -->
-<!-- BEGIN CONTAINER -->
-<div class="page-container row-fluid">
-    <!-- BEGIN SIDEBAR -->
-    <div class="page-sidebar nav-collapse collapse">
-        <!-- BEGIN SIDEBAR MENU -->
-        <ul>
-            <li>
-                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-                <div class="sidebar-toggler hidden-phone"></div>
-                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-            </li>
-            <li class="start">
-                <a href="overview.html">
-                    <i class="icon-home"></i>
-                    <span class="title">概览</span>
-                </a>
-            </li>
-            <li class="has-sub">
-                <a href="javascript:;">
-                    <i class="icon-bookmark-empty"></i>
-                    <span class="title">活跃分析</span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub">
-                    <li><a href="active.html">活跃</a></li>
-                    <li><a href="frequency.html">使用频率</a></li>
-                </ul>
-            </li>
-            <li class="">
-                <a href="">
-                    <i class="icon-bar-chart"></i>
-                    <span class="title">转化分析</span>
-                    <span class="selected"></span>
-                </a>
-            </li>
-            <li class="active">
-                <a href="stay.html">
-                    <i class="icon-calendar"></i>
-                    <span class="title">留存分析</span>
-                </a>
-            </li>
-            <li class="">
-                <a href="pay.html">
-                    <i class="icon-camera"></i>
-                    <span class="title">付费分析</span>
-                </a>
-            </li>
-        </ul>
-        <!-- END SIDEBAR MENU -->
-    </div>
-    <!-- END SIDEBAR -->
-    <!-- BEGIN PAGE -->
-    <div class="page-content">
-
-        <!-- BEGIN PAGE CONTAINER-->
-        <div class="container-fluid">
-            <!-- BEGIN PAGE HEADER-->
-            <div class="row-fluid">
-                    <div class="span12">
-                    <!-- BEGIN STYLE CUSTOMIZER -->
-                    <div class="color-panel hidden-phone">
-                        <div class="color-mode-icons icon-color"></div>
-                        <div class="color-mode-icons icon-color-close"></div>
-                        <div class="color-mode">
-                            <p>THEME COLOR</p>
-                            <ul class="inline">
-                                <li class="color-black current color-default" data-style="default"></li>
-                                <li class="color-blue" data-style="blue"></li>
-                                <li class="color-brown" data-style="brown"></li>
-                                <li class="color-purple" data-style="purple"></li>
-                                <li class="color-white color-light" data-style="light"></li>
-                            </ul>
-                            <label class="hidden-phone">
-                                <input type="checkbox" class="header" checked value="" />
-                                <span class="color-mode-label">Fixed Header</span>
-                            </label>
-                        </div>
-                    </div>
-                    <!-- END BEGIN STYLE CUSTOMIZER -->
-                    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-                    <h3 class="page-title">
-                        Retention Analysis
-                    </h3>
-                    <ul class="breadcrumb">
-                        <li>
-                            <i class="icon-home"></i>
-                            <a href="javascript:void (0);">留存分析</a>
-                            <!--<i class="icon-angle-right"></i>-->
-                        </li>
-                        <!--<li><a href="frequency.html">使用频率</a></li>-->
+                <li class="">
+                    <a href="">
+                        <i class="icon-bar-chart"></i>
+                        <span class="title">转化分析</span>
+                        <span class="selected"></span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="stay.html">
+                        <i class="icon-calendar"></i>
+                        <span class="title">留存分析</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="pay.html">
+                        <i class="icon-camera"></i>
+                        <span class="title">付费分析</span>
+                    </a>
+                </li>
+                <li class="has-sub">
+                    <a href="generate_channel.html">
+                        <i class="icon-credit-card"></i>
+                        <span class="title">生成渠道</span>
+                        <span class="arrow"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="channel_list.html">渠道列表</a></li>
                     </ul>
-                    <!-- END PAGE TITLE & BREADCRUMB-->
-                </div>
-            </div>
-            <!-- END PAGE HEADER-->
-            <div class="row-fluid selfbox">
-                <div class="span12 clearfix">
-                    <form action="#" class="form-horizontal clearfix" style="margin: 0;">
-                        <div class="control-group pull-left">
-                            <label class="control-label" style="width: 47px;">渠道：</label>
-                            <div class="controls" style="margin-left: 47px">
-                                <select class="small m-wrap" tabindex="1">
-                                    <option value="Category 1">全部渠道</option>
-                                    <option value="Category 2">Category 2</option>
-                                    <option value="Category 3">Category 5</option>
-                                    <option value="Category 4">Category 4</option>
-                                </select>
+                </li>
+            </ul>
+            <!-- END SIDEBAR MENU -->
+        </div>
+        <!-- END SIDEBAR -->
+        <!-- BEGIN PAGE -->
+        <div class="page-content">
+
+            <!-- BEGIN PAGE CONTAINER-->
+            <div class="container-fluid">
+                <!-- BEGIN PAGE HEADER-->
+                <div class="row-fluid">
+                    <div class="span12">
+                        <!-- BEGIN STYLE CUSTOMIZER -->
+                        <div class="color-panel hidden-phone">
+                            <div class="color-mode-icons icon-color"></div>
+                            <div class="color-mode-icons icon-color-close"></div>
+                            <div class="color-mode">
+                                <p>THEME COLOR</p>
+                                <ul class="inline">
+                                    <li class="color-black current color-default" data-style="default"></li>
+                                    <li class="color-blue" data-style="blue"></li>
+                                    <li class="color-brown" data-style="brown"></li>
+                                    <li class="color-purple" data-style="purple"></li>
+                                    <li class="color-white color-light" data-style="light"></li>
+                                </ul>
+                                <label class="hidden-phone">
+                                    <input type="checkbox" class="header" checked value="" />
+                                    <span class="color-mode-label">Fixed Header</span>
+                                </label>
                             </div>
                         </div>
-                        <div class="control-group pull-left">
-                            <label class="control-label">游戏：</label>
-                            <div class="controls">
-                                <select class="small m-wrap" tabindex="1">
-                                    <option value="Category 1">全部游戏</option>
-                                    <option value="Category 2">Category 2</option>
-                                    <option value="Category 3">Category 5</option>
-                                    <option value="Category 4">Category 4</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="control-group pull-left">
-                            <label class="control-label">服务器：</label>
-                            <div class="controls">
-                                <select class="small m-wrap" tabindex="1">
-                                    <option value="Category 1">全部服务器</option>
-                                    <option value="Category 2">Category 2</option>
-                                    <option value="Category 3">Category 5</option>
-                                    <option value="Category 4">Category 4</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="control-group pull-left">
-                            <label class="control-label">时间：</label>
-                            <div class="controls">
-                                <input type="text" name="datefilter" value="" />
-                            </div>
-                        </div>
-                        <button class="btn blue pull-left" style="margin-left: 20px">确定</button>
-                    </form>
-                </div>
-            </div>
-            <div class="row-fluid selfbox clearfix">
-                <div class="span12">
-                    <div class="tabbable tabbable-custom">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab1" data-toggle="tab">新增留存</a></li>
-                            <li class=""><a href="#tab2" data-toggle="tab">付费留存</a></li>
+                        <!-- END BEGIN STYLE CUSTOMIZER -->
+                        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+                        <h3 class="page-title">
+                            Retention Analysis
+                        </h3>
+                        <ul class="breadcrumb">
+                            <li>
+                                <i class="icon-home"></i>
+                                <a href="javascript:void (0);">留存分析</a>
+                                <!--<i class="icon-angle-right"></i>-->
+                            </li>
+                            <!--<li><a href="frequency.html">使用频率</a></li>-->
                         </ul>
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="tab1" style="height: 500px;overflow: auto;">
-                                <div class="clearfix margin-bottom-10">
-                                    <a href="javascript:void(0);" class="btn blue pull-right">
-                                        <i class="icon-cloud-download"></i>
-                                    </a>
-                                </div>
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                        <tr>
-                                            <th>日期</th>
-                                            <th>新增</th>
-                                            <th>2日</th>
-                                            <th>3日</th>
-                                            <th>4日</th>
-                                            <th>5日</th>
-                                            <th>6日</th>
-                                            <th>7日</th>
-                                            <th>8日</th>
-                                            <th>9日</th>
-                                            <th>10日</th>
-                                            <th>11日</th>
-                                            <th>12日</th>
-                                            <th>13日</th>
-                                            <th>14日</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>2017/12/21</td>
-                                            <td>316</td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+                        <!-- END PAGE TITLE & BREADCRUMB-->
+                    </div>
+                </div>
+                <!-- END PAGE HEADER-->
+                <div class="row-fluid selfbox">
+                    <div class="span12 clearfix">
+                        <form action="#" class="form-horizontal clearfix" style="margin: 0;">
+                            <div class="control-group pull-left">
+                                <label class="control-label" style="width: 47px;">渠道：</label>
+                                <div class="controls" style="margin-left: 47px">
+                                    <select class="small m-wrap" id="channelVal"  tabindex="1">
+                                        <option value="Category 1"
+                                                v-for="(channelData,index) in selectDataList.cNames"
+                                        >{{channelData}}</option>
+                                    </select>
                                 </div>
                             </div>
-                            <div class="tab-pane" id="tab2" style="height: 500px;overflow: auto;">
-                                <div class="clearfix margin-bottom-10">
-                                    <a href="javascript:void(0);" class="btn blue pull-right">
-                                        <i class="icon-cloud-download"></i>
-                                    </a>
+                            <div class="control-group pull-left">
+                                <label class="control-label">游戏：</label>
+                                <div class="controls">
+                                    <select class="small m-wrap" id="gameVal" tabindex="1">
+                                        <option value="Category 1"
+                                                v-for="(gNamesData,index) in selectDataList.gNames"
+                                        >{{gNamesData}}</option>
+                                    </select>
                                 </div>
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                        <tr>
-                                            <th>日期</th>
-                                            <th>付费新增</th>
-                                            <th>2日</th>
-                                            <th>3日</th>
-                                            <th>4日</th>
-                                            <th>5日</th>
-                                            <th>6日</th>
-                                            <th>7日</th>
-                                            <th>8日</th>
-                                            <th>9日</th>
-                                            <th>10日</th>
-                                            <th>11日</th>
-                                            <th>12日</th>
-                                            <th>13日</th>
-                                            <th>14日</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>2017/12/21</td>
-                                            <td>316</td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                            <td><span>225</span>/<span>71.20%</span></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+                            </div>
+                            <div class="control-group pull-left">
+                                <label class="control-label">服务器：</label>
+                                <div class="controls">
+                                    <select class="small m-wrap" id="severVal" tabindex="1">
+                                        <option value="Category 1"
+                                                v-for="(sNamesData,index) in selectDataList.sNames"
+                                        >{{sNamesData}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="control-group pull-left">
+                                <label class="control-label">时间：</label>
+                                <div class="controls">
+                                    <input type="text" name="datefilter" id="dateVal"/>
+                                </div>
+                            </div>
+                            <div class="control-group pull-left">
+                                <div class="controls" style="margin-left: 10px">
+                                    <select class="m-wrap" id="appVal" tabindex="1" style="width: 60px">
+                                        <option value="Category 1"
+                                                v-for="(dNames2Data,index) in selectDataDate"
+                                        >{{dNames2Data}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="btn blue pull-left"
+                                 id="submitActive"
+                                 @click="submitStay"
+                                 style="margin-left: 20px">
+                                确定
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row-fluid selfbox clearfix">
+                    <div class="span12">
+                        <div class="tabbable tabbable-custom">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#tab1" data-toggle="tab">新增留存</a></li>
+                                <li class="" @click="payStayPaySubmit();"><a href="#tab2" data-toggle="tab">付费留存</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab1" style="height: 500px;overflow: auto;">
+                                    <div class="clearfix margin-bottom-10">
+                                        <a href="javascript:void(0);" class="btn blue pull-right">
+                                            <i class="icon-cloud-download"></i>
+                                        </a>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <th>日期</th>
+                                                <th>新增</th>
+                                                <th colspan="2" v-for="item in tableTitleLns">
+                                                    {{item}}{{ tableTitle }}
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr v-for="(item,index) in tableDataAdd">
+                                                <td>{{ item.dateID }}</td>
+                                                <td>{{ item.newAddNum }}</td>
+                                                <td v-for="item3 in tableDataAdd[index].stayAll">
+                                                    {{ item3 }}
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab2" style="height: 500px;overflow: auto;">
+                                    <div class="clearfix margin-bottom-10">
+                                        <a href="javascript:void(0);" class="btn blue pull-right">
+                                            <i class="icon-cloud-download"></i>
+                                        </a>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <thead>
+                                            <tr>
+                                                <th>日期</th>
+                                                <th>新增付费</th>
+                                                <th colspan="2" v-for="item in tableTitleLns">
+                                                    {{item}}{{ tableTitle }}
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            </thead>
+                                            <tbody>
+                                            <tr v-for="(item,index) in tableDataPay">
+                                                <td>{{ item.dateID }}</td>
+                                                <td>{{ item.newAddNum }}</td>
+                                                <td v-for="item3 in tableDataPay[index].stayAll">
+                                                    {{ item3 }}
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- BEGIN PAGE CONTAINER-->
         </div>
-        <!-- BEGIN PAGE CONTAINER-->
+        <!-- END PAGE -->
     </div>
-    <!-- END PAGE -->
-</div>
-<!-- END CONTAINER -->
-<!-- BEGIN FOOTER -->
-<div class="footer">
-    2017 &copy; XCLOUDGAME
-    <div class="span pull-right">
-        <span class="go-top"><i class="icon-angle-up"></i></span>
+    <!-- END CONTAINER -->
+    <!-- BEGIN FOOTER -->
+    <div class="footer">
+        2017 &copy; XCLOUDGAME
+        <div class="span pull-right">
+            <span class="go-top"><i class="icon-angle-up"></i></span>
+        </div>
     </div>
+    <!-- END FOOTER -->
+    <!-- BEGIN JAVASCRIPTS -->
+    <!-- Load javascripts at bottom, this will reduce page load time -->
 </div>
-<!-- END FOOTER -->
-<!-- BEGIN JAVASCRIPTS -->
-<!-- Load javascripts at bottom, this will reduce page load time -->
+<script src="assets/js/vue-2.2.0.js"></script>
 <script src="assets/js/jquery-1.8.3.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/js/jquery.blockui.js"></script>
@@ -362,28 +348,368 @@
 <!-- END JAVASCRIPTS -->
 
 <script type="text/javascript">
-    $(function() {
-        //时间筛选
-        var TsDateInit = function () {
-            $('input[name="datefilter"]').daterangepicker({
-                startDate:moment().subtract('days', 6),
-                endDate:moment(),
-                opens: 'left',
-                autoUpdateInput: false,
-                format: 'YYYY-MM-DD',
-                ranges: {
-                    'Last 7 Days': [moment().subtract('days', 6), moment()],
-                    'Last 14 Days': [moment().subtract('days', 13), moment()],
-                    'Last 30 Days': [moment().subtract('days', 29), moment()]
-                }
-            }, function (start,end) {
-                start.format('YYYY-MM-DD');
-                end.format('YYYY-MM-DD');
-            });
-        }
-        TsDateInit();
+    var vmStay = new Vue({
+        el: "#app",
+        data:{
+            submitDataList: "",
+            selectDataDate:["日","周","月"],
+            tableTitle:"日",
+            tableTitleLns:["2","3","4","5","6","7","8"],
+            selectDataList:{},
+            tableAddAllData3:"",
+            tablePayAllData3:"",
+            tableDataAdd:[
+                {
+                    "dateID": "2017/12/21",
+                    "newAddNum": "316",
+                    "stayAll": ["00%","0","10%","1","20%","2","30%","3","40%","4","50%","5","60%","6","70%","7"],
+                },
+                {
+                    "dateID": "2017/12/21",
+                    "newAddNum": "316",
+                    "stayAll": ["00%","0","10%","1","20%","2","30%","3","40%","4","50%","5","60%","6","70%","7"],
+                },
+                {
+                    "dateID": "2017/12/21",
+                    "newAddNum": "316",
+                    "stayAll": ["00%","0","10%","1","20%","2","30%","3","40%","4","50%","5","60%","6","70%","7"],
+                },
+            ],
+            tableDataPay:[
+                {
+                    "dataId": "2017/12/21",
+                    "add": "318",
+                    "data1": ["0","1","2","3","4","5","6","7"],
+                    "data2": ["001","101","201","301","401","501","601","701"]
+                },
+            ],
+            urlList: {
+                "urlListStayDate": "http://192.168.10.102:9898/app/getStayDate",    // 新增留存
+                "urlListPayStayData": "http://192.168.10.102:9898/pay/getPayStayDate",   // 付费留存
+            }
+        },
+        mounted() {
+            this.TsDateInit(); // 初始化时间挂载
+            this.TsSelectInit();  // 初始化TsSelectInit
+            this.TsEchartTableInit();
+            //this.submitActive(); // 点击获取数据
+        },
+        methods: {
+            // 初始化时间
+            TsDateInit: function () {
+                $('input[name="datefilter"]').daterangepicker({
+                    showDropdowns: true,
+                    startDate:moment().subtract('days', 6),
+                    endDate:moment(),
+                    opens: 'left',
+                    autoUpdateInput: false,
+                    format: 'YYYY/MM/DD',
+                    ranges: {
+                        'Last 7 Days': [moment().subtract('days', 6), moment()],
+                        'Last 14 Days': [moment().subtract('days', 13), moment()],
+                        'Last 30 Days': [moment().subtract('days', 29), moment()]
+                    }
+                }, function (start,end,label) {
+                    // 选择时间范围后调用回调函数
+                    start.format('YYYY/MM/DD');
+                    end.format('YYYY/MM/DD');
+                });
+                $('input[name="datefilter"]').val(
+                        moment().subtract('days', 6).format('YYYY/MM/DD')
+                        +'-'+
+                        moment().format('YYYY/MM/DD')
+                )
+            },
 
-    });
+            // 初始化select选框
+            TsSelectInit: function () {
+                var _this = this;
+                $.ajax({
+                    type: 'get',
+                    url: 'http://192.168.10.102:9898/app/getCGS',
+                    dataType: 'jsonp',
+                    jsonp: 'callback',
+                    async: true,
+                    success: function (res) {
+                        console.log(res);
+                        _this.selectDataList = res;
+                        console.log(_this.selectDataList.cNames[0]);
+                        _this.$nextTick(function () {
+                            console.log($("#channelVal").find("option:selected").text());
+                        });
+                        //_this.TsEchartTableInit(); // 初始化图表和表格挂载
+                    },
+                    error: function () {
+
+                    }
+                });
+                console.log(_this.selectDataList);
+            },
+
+            // 初始化图表和表格
+            TsEchartTableInit: function() {
+
+                setTimeout(function () {
+                    // 获取url中的参数赋值
+                    let appValParam = vmStay.getUrlParam("app");
+                    let channelValParam = vmStay.getUrlParam("cid");
+                    let gameValParam = vmStay.getUrlParam("gid");
+                    let severValParam = vmStay.getUrlParam("sid");
+                    let sDateParam = vmStay.getUrlParam("sDate");
+                    let eDateParam = vmStay.getUrlParam("eDate");
+                    // 判断tab默认状态 新增留存或付费留存
+                    let tabListStatus = $(".nav-tabs").find("li").eq(0).hasClass("active");
+
+                    if(appValParam && channelValParam && gameValParam && severValParam && sDateParam && eDateParam && tabListStatus){
+                        appVal=appValParam;
+                        let channelVal=channelValParam;
+                        let gameVal=gameValParam;
+                        let severVal=severValParam;
+                        let sDate=sDateParam;
+                        let eDate=eDateParam;
+                        // 把url参数的值给select
+                        $('input[name="datefilter"]').val(sDateParam +'-'+ eDateParam);
+                        $("#channelVal").find("option:selected").text(channelValParam);
+                        $("#gameVal").find("option:selected").text(gameValParam);
+                        $("#severVal").find("option:selected").text(severValParam);
+                        let dataName = "stayData";
+                        // 调用publicAjax传入url自带参数请求数据
+                        vmStay.newDwmDate("StayDay","StayWeek","StayMon");
+                        console.log(channelVal,
+                                gameVal,
+                                severVal,
+                                appVal,
+                                sDate,
+                                eDate);
+                        vmStay.publicAjax(vmStay.urlList.urlListStayDate,dataName,channelVal,gameVal,severVal,appVal,sDate,eDate);
+                    }else if(tabListStatus){
+                        // 2.如果没有参数
+                        let channelVal = $("#channelVal").find("option:selected").text();
+                        let gameVal = $("#gameVal").find("option:selected").text();
+                        let severVal = $("#severVal").find("option:selected").text();
+                        appVal = $("#appVal").find("option:selected").text();
+                        let dateVal = $("#dateVal").val().trim().split("-");
+                        let sDate = dateVal[0];
+                        let eDate = dateVal[1];
+
+                        let dataName = "stayData";
+                        vmStay.newDwmDate("StayDay","StayWeek","StayMon");
+                        console.log(
+                                channelVal,
+                                gameVal,
+                                severVal,
+                                dateVal,
+                                appVal,
+                                sDate,
+                                eDate);
+                        vmStay.publicAjax(vmStay.urlList.urlListStayDate,dataName,channelVal,gameVal,severVal,appVal,sDate,eDate);
+                    }else if(!tabListStatus){
+                        // 2.如果没有参数
+                        let channelVal = $("#channelVal").find("option:selected").text();
+                        let gameVal = $("#gameVal").find("option:selected").text();
+                        let severVal = $("#severVal").find("option:selected").text();
+                        appVal = $("#appVal").find("option:selected").text();
+                        let dateVal = $("#dateVal").val().trim().split("-");
+                        let sDate = dateVal[0];
+                        let eDate = dateVal[1];
+
+                        let dataName = "payStayData";
+                        vmStay.newDwmDate("StayPayDay","StayPayWeek","StayPayMon");
+                        console.log(
+                                channelVal,
+                                gameVal,
+                                severVal,
+                                dateVal,
+                                appVal,
+                                sDate,
+                                eDate);
+                        vmStay.publicAjax(vmStay.urlList.urlListStayDate,dataName,channelVal,gameVal,severVal,appVal,sDate,eDate);
+                    }
+                },500)
+
+            },
+
+            // 点击获取数据
+            submitStay: function () {
+
+                // 获取url中的参数赋值
+                let appValParam = vmStay.getUrlParam("app");
+                let channelValParam = vmStay.getUrlParam("cid");
+                let gameValParam = vmStay.getUrlParam("gid");
+                let severValParam = vmStay.getUrlParam("sid");
+                let sDateParam = vmStay.getUrlParam("sDate");
+                let eDateParam = vmStay.getUrlParam("eDate");
+                // 判断tab默认状态 新增留存或付费留存
+                let tabListStatus = $(".nav-tabs").find("li").eq(0).hasClass("active");
+
+                if(tabListStatus){
+                    // 2.如果没有参数
+                    let channelVal = $("#channelVal").find("option:selected").text();
+                    let gameVal = $("#gameVal").find("option:selected").text();
+                    let severVal = $("#severVal").find("option:selected").text();
+                    appVal = $("#appVal").find("option:selected").text();
+                    let dateVal = $("#dateVal").val().trim().split("-");
+                    let sDate = dateVal[0];
+                    let eDate = dateVal[1];
+
+                    let dataName = "stayData";
+                    vmStay.newDwmDate("StayDay","StayWeek","StayMon");
+                    console.log(
+                            channelVal,
+                            gameVal,
+                            severVal,
+                            dateVal,
+                            appVal,
+                            sDate,
+                            eDate);
+                    vmStay.publicAjax(vmStay.urlList.urlListStayDate,dataName,channelVal,gameVal,severVal,appVal,sDate,eDate);
+                }else if(!tabListStatus){
+                    // 2.如果没有参数
+                    let channelVal = $("#channelVal").find("option:selected").text();
+                    let gameVal = $("#gameVal").find("option:selected").text();
+                    let severVal = $("#severVal").find("option:selected").text();
+                    appVal = $("#appVal").find("option:selected").text();
+                    let dateVal = $("#dateVal").val().trim().split("-");
+                    let sDate = dateVal[0];
+                    let eDate = dateVal[1];
+
+                    let dataName = "payStayData";
+                    vmStay.newDwmDate("StayPayDay","StayPayWeek","StayPayMon");
+                    console.log(
+                            channelVal,
+                            gameVal,
+                            severVal,
+                            dateVal,
+                            appVal,
+                            sDate,
+                            eDate);
+                    vmStay.publicAjax(vmStay.urlList.urlListStayDate,dataName,channelVal,gameVal,severVal,appVal,sDate,eDate);
+                }
+
+            },
+
+            // 重组data数据
+            newAddData: function (val) {
+                let tableAddArrData3 = [];
+                for(let j=0; j<val.length; j++){
+                    let arr = [];
+                    for(let k=0; k<val[j].data2.length; k++){
+                        arr.push(val[j].data1[k]);
+                        arr.push(val[j].data2[k]);
+                    }
+                    tableAddArrData3.push(arr);
+                };
+                return tableAddArrData3;
+            },
+
+            // 重新赋值 日 周 月传参
+            newDwmDate: function (day,week,mon) {
+                if(appVal == "日"){
+                    appVal = day;
+                    vmStay.tableTitle = "日";
+                }else if(appVal == "周"){
+                    appVal = week;
+                    vmStay.tableTitle = "周";
+                }else if(appVal == "月"){
+                    appVal = mon;
+                    vmStay.tableTitle = "月";
+                }
+            },
+
+            // 公共ajax
+            publicAjax: function (url,dataName,channelVal,gameVal,severVal,appVal,sDate,eDate) {
+                $.ajax({
+                    type: 'get',
+                    url: url,
+                    async:false,
+                    dataType:"jsonp",
+                    //传递给请求处理程序，用以获得jsonp回调函数名的参数名(默认为:callback)
+                    jsonp: "callback",
+                    //自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名
+                    //jsonpCallback:"jsonpCallback_success",
+                    data: {
+                        app: appVal,         //根据 天,周,月对应设置
+                        cid: channelVal,     //渠道id
+                        gid: gameVal,        //游戏名
+                        sid: severVal,       //服务器id
+                        sDate: sDate,        //起始时间
+                        eDate: eDate,        //结束时间
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        // 个悲剧publicAjax判断给那个留存数据赋值
+                        if(dataName == "stayData"){
+                            vmStay.tableDataAdd = data;
+                            // 根据data1的数据长度生成 title日的前缀数组
+                            let tableLns = (vmStay.tableDataAdd[0].stayAll.length)/2;
+                            console.log(tableLns+"title 长度");
+                            let tableArr = [];
+                            for (let i=0;i<tableLns; i++){
+                                tableArr.push(i+2);
+                            }
+                            vmStay.tableTitleLns = tableArr;
+                        }else if(dataName == "payStayData"){
+                            vmStay.tableDataPay = data;
+                            console.log(vmStay.tableDataPay);
+                            // 根据data1的数据长度生成 title日的前缀数组
+                            let tableLns = (vmStay.tableDataPay[0].stayAll.length)/2;
+                            console.log(tableLns+"title 长度");
+                            let tableArr = [];
+                            for (let i=0;i<tableLns; i++){
+                                tableArr.push(i+2);
+                            }
+                            vmStay.tableTitleLns = tableArr;
+                        }
+
+                        //vmStay.tableAddAllData3 = this.newAddData(vmStay.tableDataAdd);
+
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        console.log("error");
+                    }
+
+                });
+            },
+
+            // payStaySubmit 新增留存点击请求数据
+            payStayPaySubmit: function () {
+                channelVal = $("#channelVal").find("option:selected").text();
+                gameVal = $("#gameVal").find("option:selected").text();
+                severVal = $("#severVal").find("option:selected").text();
+                appVal = $("#appVal").find("option:selected").text();
+                dateVal = $("#dateVal").val().trim().split("-");
+                sDate = dateVal[0];
+                eDate = dateVal[1];
+                let dataName = "stayData";
+
+                vmStay.newDwmDate("StayDay","StayWeek","StayMon");
+                vmStay.publicAjax(vmStay.urlList.urlListStayDate,dataName,channelVal,gameVal,severVal,appVal,sDate,eDate);
+            },
+
+            // payStayPaySubmit 付费留存点击请求数据
+            payStayPaySubmit: function () {
+                channelVal = $("#channelVal").find("option:selected").text();
+                gameVal = $("#gameVal").find("option:selected").text();
+                severVal = $("#severVal").find("option:selected").text();
+                appVal = $("#appVal").find("option:selected").text();
+                dateVal = $("#dateVal").val().trim().split("-");
+                sDate = dateVal[0];
+                eDate = dateVal[1];
+                let dataName = "payStayData";
+
+                vmStay.newDwmDate("StayPayDay","StayPayWeek","StayPayMon");
+                vmStay.publicAjax(vmStay.urlList.urlListPayStayData,dataName,channelVal,gameVal,severVal,appVal,sDate,eDate);
+            },
+
+            // 获取url中的参数
+            getUrlParam: function (name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+                var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+                if (r != null) return unescape(r[2]); return null; //返回参数值
+            }
+
+        }
+    })
 </script>
 </body>
 <!-- END BODY -->

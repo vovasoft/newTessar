@@ -1,22 +1,27 @@
 package vova.nettydemo;
 
 import com.google.gson.Gson;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 import vova.dao.dbmongo.UseMyMongo;
+import vova.dao.dbsql.UseMySql;
 import vova.dao.manager.ManagePayInput;
-import vova.domain.customer.User;
+import vova.domain.test.User;
 import org.junit.Test;
 import vova.util.Switch;
 import vova.util.Tools;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
 import java.net.URL;
 import java.net.URLConnection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -28,48 +33,47 @@ import java.util.Random;
 
 @Component
 public class JsonTest {
-
+    
     @Test
-    public void fun() {
+    public void fun(){
         Gson gson = new Gson();
-        String jsonstr = gson.toJson(new User(12, "vova", 123));
+        String jsonstr = gson .toJson(new User(12,"vova",123));
         System.out.println(jsonstr);
     }
-
     org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(ManagePayInput.class);
 
 
+
     @Test
-    public void funLog() {
+    public void funLog(){
         ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         Switch s = ac.getBean(Switch.class);
-        log.info("aaaaaaaaaaaa" + s.getUseSid());
+        log.info("aaaaaaaaaaaa"+s.getUseSid());
     }
 
     @Test
-    public void aaaa() {
+    public void aaaa(){
         ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         UseMyMongo umm = (UseMyMongo) ac.getBean("useMyMongo");
-        int res = umm.findPlayerCountInMongoAll("player", "uid");
+        int res = umm.findPlayerCountInMongoAll("player","uid");
         System.out.println(res);
 
-        res = umm.findPlayerCountInMongo("player", "uid", "ccc", "cocococo");
+        res = umm.findPlayerCountInMongo("player","uid","ccc","cocococo");
         System.out.println(res);
     }
-
     @Test
     public void funJsonScript() throws ParseException {
 
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        long regInt = 0;
+        long regInt =0;
         String url = "http://192.168.1.110:9999/tessar/statis/statis?action=game&json=";
         String str = "";
         System.out.println(url);
         //打印注册用户
-        for (int i = 1; i < 100; i++) {
-            regInt = Tools.dateToSec(sdf.parse("2017-12-" + (i % 30)));
-            str = "{\"uid\":00" + i + ",\"regdate\":" + regInt + ",\"lastdate\":" + regInt + ",\"cid\":\"ngBrazil\",\"gid\":\"bloodstrke\",\"sub\":\"lp-fb\",\"sid\":\"0\"},";
+        for (int i=1;i<100;i++){
+            regInt = Tools.dateToSec(sdf.parse("2017-12-"+(i%30)));
+            str = "{\"uid\":00"+i+",\"regdate\":"+regInt+",\"lastdate\":"+regInt+",\"cid\":\"ngBrazil\",\"gid\":\"bloodstrke\",\"sub\":\"lp-fb\",\"sid\":\"0\"},";
             System.out.println(str);
         }
 
@@ -78,22 +82,23 @@ public class JsonTest {
         System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
         //打印登录情况
         System.out.println(url);
-        for (int i = 1; i < 100; i++) {
-            int r = (int) (Math.random() * 100);
-            regInt = Tools.dateToSec(sdf.parse("2017-12-" + (i % 30)));
-            str = "{\"uid\":00" + i + ",\"regdate\":" + regInt + ",\"lastdate\":" + (regInt + (r * 80000)) + ",\"cid\":\"ngBrazil\",\"gid\":\"bloodstrke\",\"sub\":\"lp-fb\",\"sid\":\"0\"},";
+        for (int i=1;i<100;i++){
+            int r = (int) (Math.random()*100);
+            regInt = Tools.dateToSec(sdf.parse("2017-12-"+(i%30)));
+            str = "{\"uid\":00"+i+",\"regdate\":"+regInt+",\"lastdate\":"+(regInt+(r*80000))+",\"cid\":\"ngBrazil\",\"gid\":\"bloodstrke\",\"sub\":\"lp-fb\",\"sid\":\"0\"},";
             System.out.println(str);
         }
 
 
     }
+    
 
     @Test
-    public void funHTTP() {
+    public void funHTTP(){
         String result = "";
         BufferedReader in = null;
         try {
-            String urlNameString = "http://192.168.1.110:9999/tessar/statis/statis?action=game&json={\"uid\":001,\"regdate\":1512057600,\"lastdate\":1512057600,\"cid\":\"ngBrazil\",\"gid\":\"bloodstrke\",\"sub\":\"lp-fb\",\"sid\":\"0\"}";
+            String urlNameString ="http://192.168.1.110:9999/tessar/statis/statis?action=game&json={\"uid\":001,\"regdate\":1512057600,\"lastdate\":1512057600,\"cid\":\"ngBrazil\",\"gid\":\"bloodstrke\",\"sub\":\"lp-fb\",\"sid\":\"0\"}";
             URL realUrl = new URL(urlNameString);
             // 打开和URL之间的连接
             URLConnection connection = realUrl.openConnection();

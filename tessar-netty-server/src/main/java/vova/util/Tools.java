@@ -1,5 +1,14 @@
 package vova.util;
 
+import com.mysql.jdbc.authentication.MysqlClearPasswordPlugin;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import vova.dao.dbsql.EnumSQL;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -88,6 +97,7 @@ public class Tools {
         c.set(Calendar.DAY_OF_MONTH, c.getActualMaximum(Calendar.DAY_OF_MONTH));
         return c.getTime();
     }
+    
 
     //数字数组转字符串
     public static synchronized String numArrayToStr(int[] intarr) {
@@ -119,7 +129,7 @@ public class Tools {
         int res = 0;
         Calendar cRegister = Calendar.getInstance();
         Calendar cLogin = Calendar.getInstance();
-        if (clazzName.equals("StayDay")||clazzName.equals("StayPayDay")) {
+        if (clazzName.equals("StayDay") || clazzName.equals("StayPayDay")) {
 
             cRegister.setTime(dStart);
             cLogin.setTime(dEnd);
@@ -128,7 +138,7 @@ public class Tools {
                 res++;
                 cRegister.add(Calendar.DAY_OF_YEAR, 1);
             }
-        } else if (clazzName.equals("StayWeek")||clazzName.equals("StayPayWeek")) {
+        } else if (clazzName.equals("StayWeek") || clazzName.equals("StayPayWeek")) {
             cRegister = Calendar.getInstance();
             cRegister.setTime(dStart);
 
@@ -139,7 +149,7 @@ public class Tools {
                 res++;
                 cRegister.add(Calendar.WEEK_OF_YEAR, 1);
             }
-        } else if (clazzName.equals("StayMon")||clazzName.equals("StayPayMon")) {
+        } else if (clazzName.equals("StayMon") || clazzName.equals("StayPayMon")) {
             cRegister = Calendar.getInstance();
             cRegister.setTime(dStart);
             cLogin = Calendar.getInstance();
@@ -156,12 +166,12 @@ public class Tools {
     /**
      * 计算两个日期,第一个时间在第二个时间的周内
      */
-    public static boolean checkDateInWeekDate(Date d1,Date d2){
+    public static boolean checkDateInWeekDate(Date d1, Date d2) {
 
         Date mondayOfDate = Tools.getMondayOfDate(d2);
         Date sundayOfDate = Tools.getSundayOfDate(d2);
 
-        if ((d1.equals(mondayOfDate)||d1.after(mondayOfDate))&&(d1.getTime()<sundayOfDate.getTime()+24*3600*1000)){
+        if ((d1.equals(mondayOfDate) || d1.after(mondayOfDate)) && (d1.getTime() < sundayOfDate.getTime() + 24 * 3600 * 1000)) {
             return true;
         }
 
@@ -172,15 +182,14 @@ public class Tools {
     /**
      * 计算两个日期,第一个时间在第二个时间的月内
      */
-    public static boolean checkDateInMonDate(Date d1,Date d2){
+    public static boolean checkDateInMonDate(Date d1, Date d2) {
         Date firstMonthOfDate = Tools.getFirstOfMonth(d2);
         Date endMonthOfDate = Tools.getLastOfMonth(d2);
-        if ((d1.equals(firstMonthOfDate)||d1.after(firstMonthOfDate))&&(d1.getTime()<endMonthOfDate.getTime()+24*3600*1000)){
+        if ((d1.equals(firstMonthOfDate) || d1.after(firstMonthOfDate)) && (d1.getTime() < endMonthOfDate.getTime() + 24 * 3600 * 1000)) {
             return true;
         }
         return false;
     }
-
 
 
 }

@@ -9,9 +9,11 @@ import java.util.Date;
 public class PayAllShow {
     private int id;
     private Date dateID;                       //日期
+    private String mainId;
     private String cId;
     private String gId;
     private String sId;
+    private String enter;
     private long newAddNum;                  //新增用户数
     private long newAddPayPlayerNum;         //新增用户付费数
     private float newAddPayAllMoney;          //新增付费总额
@@ -47,6 +49,14 @@ public class PayAllShow {
         this.dateID = dateID;
     }
 
+    public String getMainId() {
+        return mainId;
+    }
+
+    public void setMainId(String mainId) {
+        this.mainId = mainId;
+    }
+
     public String getcId() {
         return cId;
     }
@@ -69,6 +79,14 @@ public class PayAllShow {
 
     public void setsId(String sId) {
         this.sId = sId;
+    }
+
+    public String getEnter() {
+        return enter;
+    }
+
+    public void setEnter(String enter) {
+        this.enter = enter;
     }
 
     public long getNewAddNum() {
@@ -183,17 +201,15 @@ public class PayAllShow {
         this.allMoney = allMoney;
     }
 
-    public PayAllShow() {
-
-    }
-
-    public PayAllShow(int id, Date dateID, String cId, String gId, String sId, long newAddNum, long newAddPayPlayerNum, float newAddPayAllMoney, float newAddPlayerARPPU, float newAddPayPlayerARPPU, long newPayPlayerNum, float newPayAllMoney, float averageNewPayMoney, long activeNum, long payPlayerNum, float todayAllPayMoney, float activeARPPU, float payPlayerARPPU, float allMoney) {
-
+    public PayAllShow(int id, Date dateID, String mainId, String cId, String gId, String sId, String enter, long newAddNum, long newAddPayPlayerNum, float newAddPayAllMoney, float newAddPlayerARPPU, float newAddPayPlayerARPPU, long newPayPlayerNum, float newPayAllMoney, float averageNewPayMoney, long activeNum, long payPlayerNum, float todayAllPayMoney, float activeARPPU, float payPlayerARPPU, float allMoney) {
+    
         this.id = id;
         this.dateID = dateID;
+        this.mainId = mainId;
         this.cId = cId;
         this.gId = gId;
         this.sId = sId;
+        this.enter = enter;
         this.newAddNum = newAddNum;
         this.newAddPayPlayerNum = newAddPayPlayerNum;
         this.newAddPayAllMoney = newAddPayAllMoney;
@@ -208,5 +224,9 @@ public class PayAllShow {
         this.activeARPPU = activeARPPU;
         this.payPlayerARPPU = payPlayerARPPU;
         this.allMoney = allMoney;
+    }
+
+    public PayAllShow() {
+        
     }
 }

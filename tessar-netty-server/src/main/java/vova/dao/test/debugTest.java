@@ -15,24 +15,8 @@ import vova.dao.dbsql.UseMySql;
 import vova.domain.*;
 
 import vova.domain.channel.ChannelIndex;
-import vova.domain.newadd.CheckMem;
-import vova.domain.newadd.NewAddDay;
-import vova.domain.newadd.NewAddMon;
-import vova.domain.newadd.NewAddWeek;
-import vova.domain.overview.ThreeNum;
-import vova.domain.overview.ThreeNumDay;
-import vova.domain.overview.ThreeNumMon;
-import vova.domain.overview.ThreeNumWeek;
-import vova.domain.payment.PayMentDay;
-import vova.domain.payment.PayMentMon;
-import vova.domain.payment.PayMentWeek;
-import vova.domain.stayman.StayDay;
 import vova.domain.stayman.StayMon;
 import vova.domain.stayman.StayWeek;
-import vova.domain.staypay.StayPayDay;
-import vova.domain.staypay.StayPayMon;
-import vova.domain.staypay.StayPayWeek;
-import vova.domain.test.User;
 import vova.domain.test.User2;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -63,22 +47,12 @@ public class debugTest {
 
 
     @Test
-    public void fun() throws IOException {
-//        User user = new User(13,"vova",13);
-//        UseMySql.insert(user);
-//UseMySql
-
-//        UseMySql useMySql;
-//
-//        Date date = new Date(System.currentTimeMillis());
-//        Play_ExistTable pet = new Play_ExistTable(date,123,"1,2,3","1k3kk4"
-//        ,"1,3,4,5,6,,,1,1,,23");
-//
-//        useMySql.insert(pet);
-
-        User user = new User(1, "vova", 123);
-        vova.dao.dbsql.UseMySql useMySql = new vova.dao.dbsql.UseMySql();
-        useMySql.insert(user);
+    public void fun() throws IOException, ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        
+        Date firstDate = sdf.parse("2017-12-26");
+        Date lastDate = sdf.parse("2018-01-28");
+        System.out.println(Tools.countTwoDateSpace(firstDate, lastDate, StayWeek.class));
     }
 
 
@@ -333,12 +307,8 @@ public class debugTest {
         System.out.println(Tools.getMondayOfDate(date));
     }
 
-    @Test
-    public void monDate() throws ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = sdf.parse("2026-1-1");
-
-        System.out.println(Tools.getFirstOfMonth(date));
-        System.out.println(Tools.getLastOfMonth(date));
-    }
+//    @Test
+//    public void monDate() throws ParseException, IOException {
+//        CheckMem.checkError();
+//    }
 }

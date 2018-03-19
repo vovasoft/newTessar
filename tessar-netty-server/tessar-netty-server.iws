@@ -2,107 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="f533203e-833e-4755-afbb-64e38ea37f59" name="Default" comment="delete some logs&#10;add channel classes">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/channel" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/channel" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/channel/ChannelIndex.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/newadd/CheckMem.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/channel/mysql-channelIndex.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/sql/sql2.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/domain/channel/ChannelIndex.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vova/dao/dbmongo/UseMyMongo.class" afterPath="$PROJECT_DIR$/target/classes/vova/dao/dbmongo/UseMyMongo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vova/dao/dbsql/EnumSQL.class" afterPath="$PROJECT_DIR$/target/classes/vova/dao/dbsql/EnumSQL.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vova/dao/dbsql/UseMySql$1.class" afterPath="$PROJECT_DIR$/target/classes/vova/dao/dbsql/UseMySql$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vova/dao/dbsql/UseMySql.class" afterPath="$PROJECT_DIR$/target/classes/vova/dao/dbsql/UseMySql.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vova/dao/manager/ManageGameInput.class" afterPath="$PROJECT_DIR$/target/classes/vova/dao/manager/ManageGameInput.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vova/dao/manager/ManagePayInput.class" afterPath="$PROJECT_DIR$/target/classes/vova/dao/manager/ManagePayInput.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vova/dao/manager/ManageStay.class" afterPath="$PROJECT_DIR$/target/classes/vova/dao/manager/ManageStay.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vova/domain/Player.class" afterPath="$PROJECT_DIR$/target/classes/vova/domain/Player.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vova/domain/newadd/NewAdd.class" afterPath="$PROJECT_DIR$/target/classes/vova/domain/newadd/NewAdd.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vova/domain/newadd/NewAddWeek.class" afterPath="$PROJECT_DIR$/target/classes/vova/domain/newadd/NewAddWeek.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vova/domain/payment/PayAllShow.class" afterPath="$PROJECT_DIR$/target/classes/vova/domain/payment/PayAllShow.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vova/domain/payment/PayMentDay.class" afterPath="$PROJECT_DIR$/target/classes/vova/domain/payment/PayMentDay.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vova/domain/payment/PayMentForKeep.class" afterPath="$PROJECT_DIR$/target/classes/vova/domain/payment/PayMentForKeep.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vova/domain/stayman/StayMon.class" afterPath="$PROJECT_DIR$/target/classes/vova/domain/stayman/StayMon.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vova/domain/stayman/StayParent.class" afterPath="$PROJECT_DIR$/target/classes/vova/domain/stayman/StayParent.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vova/domain/test/User.class" afterPath="$PROJECT_DIR$/target/classes/vova/domain/test/User.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vova/nettydemo/NettyHandler$1.class" afterPath="$PROJECT_DIR$/target/classes/vova/nettydemo/NettyHandler$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vova/nettydemo/NettyHandler$2.class" afterPath="$PROJECT_DIR$/target/classes/vova/nettydemo/NettyHandler$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vova/nettydemo/NettyHandler.class" afterPath="$PROJECT_DIR$/target/classes/vova/nettydemo/NettyHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/tessar-netty-server-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/target/tessar-netty-server-1.0-SNAPSHOT.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/tessarNettyServer.jar" afterPath="$PROJECT_DIR$/target/tessarNettyServer.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/dao/dbmongo/UseMyMongo.java" afterPath="$PROJECT_DIR$/src/main/java/vova/dao/dbmongo/UseMyMongo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/dao/dbsql/UseMySql.java" afterPath="$PROJECT_DIR$/src/main/java/vova/dao/dbsql/UseMySql.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/dao/manager/ManageGameInput.java" afterPath="$PROJECT_DIR$/src/main/java/vova/dao/manager/ManageGameInput.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/dao/manager/ManageStay.java" afterPath="$PROJECT_DIR$/src/main/java/vova/dao/manager/ManageStay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/domain/Player.java" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/domain/newadd/NewAdd.java" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/newadd/NewAdd.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/domain/newadd/NewAddDay.java" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/newadd/NewAddDay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/domain/newadd/NewAddMon.java" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/newadd/NewAddMon.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/domain/newadd/NewAddWeek.java" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/newadd/NewAddWeek.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/domain/overview/ThreeNum.java" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/overview/ThreeNum.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/domain/overview/ThreeNumDay.java" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/overview/ThreeNumDay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/domain/overview/ThreeNumMon.java" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/overview/ThreeNumMon.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/domain/overview/ThreeNumWeek.java" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/overview/ThreeNumWeek.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/domain/payment/PayAllShow.java" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/payment/PayAllShow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/domain/payment/PayMentDay.java" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/payment/PayMentDay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/domain/payment/PayMentForKeep.java" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/payment/PayMentForKeep.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/domain/payment/PayMentMon.java" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/payment/PayMentMon.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/domain/payment/PayMentWeek.java" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/payment/PayMentWeek.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/domain/stayman/StayDay.java" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/stayman/StayDay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/domain/stayman/StayMon.java" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/stayman/StayMon.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/domain/stayman/StayParent.java" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/stayman/StayParent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/domain/stayman/StayWeek.java" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/stayman/StayWeek.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/domain/staypay/StayPayDay.java" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/staypay/StayPayDay.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/domain/staypay/StayPayMon.java" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/staypay/StayPayMon.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/domain/staypay/StayPayWeek.java" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/staypay/StayPayWeek.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/domain/test/User.java" afterPath="$PROJECT_DIR$/src/main/java/vova/domain/test/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/nettydemo/JsonTest.java" afterPath="$PROJECT_DIR$/src/main/java/vova/nettydemo/JsonTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/nettydemo/NettyHandler.java" afterPath="$PROJECT_DIR$/src/main/java/vova/nettydemo/NettyHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vova/dao/test/debugTest.class" afterPath="$PROJECT_DIR$/target/classes/vova/dao/test/debugTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vova/nettydemo/NettyServerTest$1.class" afterPath="$PROJECT_DIR$/target/classes/vova/nettydemo/NettyServerTest$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/vova/nettydemo/NettyServerTest.class" afterPath="$PROJECT_DIR$/target/classes/vova/nettydemo/NettyServerTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../tessar-web-server/target/TessarWebServer.jar" afterPath="$PROJECT_DIR$/../tessar-web-server/target/TessarWebServer.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../tessar-web-server/target/TessarWebServer.jar.original" afterPath="$PROJECT_DIR$/../tessar-web-server/target/TessarWebServer.jar.original" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../tessar-web-server/target/classes/com/vova/tessarwebserver/controler/ControlerChannel.class" afterPath="$PROJECT_DIR$/../tessar-web-server/target/classes/com/vova/tessarwebserver/controler/ControlerChannel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/dao/manager/ManagePayInput.java" afterPath="$PROJECT_DIR$/src/main/java/vova/dao/manager/ManagePayInput.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/dao/test/debugTest.java" afterPath="$PROJECT_DIR$/src/main/java/vova/dao/test/debugTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/nettydemo/NettyServerTest.java" afterPath="$PROJECT_DIR$/src/main/java/vova/nettydemo/NettyServerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/util/Switch.java" afterPath="$PROJECT_DIR$/src/main/java/vova/util/Switch.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/vova/util/Tools.java" afterPath="$PROJECT_DIR$/src/main/java/vova/util/Tools.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/batis-conf.xml" afterPath="$PROJECT_DIR$/src/main/resources/batis-conf.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/newadd/mysql-newaddDay.xml" afterPath="$PROJECT_DIR$/src/main/resources/newadd/mysql-newaddDay.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/newadd/mysql-newaddMon.xml" afterPath="$PROJECT_DIR$/src/main/resources/newadd/mysql-newaddMon.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/newadd/mysql-newaddWeek.xml" afterPath="$PROJECT_DIR$/src/main/resources/newadd/mysql-newaddWeek.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/overview/mysql-treeNumDay.xml" afterPath="$PROJECT_DIR$/src/main/resources/overview/mysql-treeNumDay.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/overview/mysql-treeNumMon.xml" afterPath="$PROJECT_DIR$/src/main/resources/overview/mysql-treeNumMon.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/overview/mysql-treeNumWeek.xml" afterPath="$PROJECT_DIR$/src/main/resources/overview/mysql-treeNumWeek.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/payment/mysql-PayMentDay.xml" afterPath="$PROJECT_DIR$/src/main/resources/payment/mysql-PayMentDay.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/payment/mysql-PayMentMon.xml" afterPath="$PROJECT_DIR$/src/main/resources/payment/mysql-PayMentMon.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/payment/mysql-PayMentWeek.xml" afterPath="$PROJECT_DIR$/src/main/resources/payment/mysql-PayMentWeek.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/sql/sql.sql" afterPath="$PROJECT_DIR$/src/main/resources/sql/sql.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/stayMan/mysql-StayDay.xml" afterPath="$PROJECT_DIR$/src/main/resources/stayMan/mysql-StayDay.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/stayMan/mysql-StayMon.xml" afterPath="$PROJECT_DIR$/src/main/resources/stayMan/mysql-StayMon.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/stayMan/mysql-StayWeek.xml" afterPath="$PROJECT_DIR$/src/main/resources/stayMan/mysql-StayWeek.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/staypay/mysql-StayPayDay.xml" afterPath="$PROJECT_DIR$/src/main/resources/staypay/mysql-StayPayDay.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/staypay/mysql-StayPayMon.xml" afterPath="$PROJECT_DIR$/src/main/resources/staypay/mysql-StayPayMon.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/staypay/mysql-StayPayWeek.xml" afterPath="$PROJECT_DIR$/src/main/resources/staypay/mysql-StayPayWeek.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/switch.properties" afterPath="$PROJECT_DIR$/src/main/resources/switch.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/batis-conf.xml" afterPath="$PROJECT_DIR$/target/classes/batis-conf.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/newadd/mysql-newaddDay.xml" afterPath="$PROJECT_DIR$/target/classes/newadd/mysql-newaddDay.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/newadd/mysql-newaddMon.xml" afterPath="$PROJECT_DIR$/target/classes/newadd/mysql-newaddMon.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/newadd/mysql-newaddWeek.xml" afterPath="$PROJECT_DIR$/target/classes/newadd/mysql-newaddWeek.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/overview/mysql-treeNumDay.xml" afterPath="$PROJECT_DIR$/target/classes/overview/mysql-treeNumDay.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/overview/mysql-treeNumMon.xml" afterPath="$PROJECT_DIR$/target/classes/overview/mysql-treeNumMon.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/overview/mysql-treeNumWeek.xml" afterPath="$PROJECT_DIR$/target/classes/overview/mysql-treeNumWeek.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/payment/mysql-PayMentDay.xml" afterPath="$PROJECT_DIR$/target/classes/payment/mysql-PayMentDay.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/payment/mysql-PayMentMon.xml" afterPath="$PROJECT_DIR$/target/classes/payment/mysql-PayMentMon.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/payment/mysql-PayMentWeek.xml" afterPath="$PROJECT_DIR$/target/classes/payment/mysql-PayMentWeek.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/sql/sql.sql" afterPath="$PROJECT_DIR$/target/classes/sql/sql.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/stayMan/mysql-StayDay.xml" afterPath="$PROJECT_DIR$/target/classes/stayMan/mysql-StayDay.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/stayMan/mysql-StayMon.xml" afterPath="$PROJECT_DIR$/target/classes/stayMan/mysql-StayMon.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/stayMan/mysql-StayWeek.xml" afterPath="$PROJECT_DIR$/target/classes/stayMan/mysql-StayWeek.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/staypay/mysql-StayPayDay.xml" afterPath="$PROJECT_DIR$/target/classes/staypay/mysql-StayPayDay.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/staypay/mysql-StayPayMon.xml" afterPath="$PROJECT_DIR$/target/classes/staypay/mysql-StayPayMon.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/staypay/mysql-StayPayWeek.xml" afterPath="$PROJECT_DIR$/target/classes/staypay/mysql-StayPayWeek.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/switch.properties" afterPath="$PROJECT_DIR$/target/classes/switch.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tessar-netty-server.iml" afterPath="$PROJECT_DIR$/tessar-netty-server.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tessar-netty-server.ipr" afterPath="$PROJECT_DIR$/tessar-netty-server.ipr" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tessar-netty-server.iws" afterPath="$PROJECT_DIR$/tessar-netty-server.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/controler/ControlerChannel.java" afterPath="$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/controler/ControlerChannel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/dbmapper/AllInOneMapper.java" afterPath="$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/dbmapper/AllInOneMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/util/Tools.java" afterPath="$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/util/Tools.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../tessar-web-server/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/../tessar-web-server/target/maven-archiver/pom.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../tessar-web-server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/../tessar-web-server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../tessar-web-server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/../tessar-web-server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -137,98 +55,31 @@
     <select />
   </component>
   <component name="FavoritesManager">
-    <favorites_list name="tessar-netty-server" />
+    <favorites_list name="tessar-netty-server">
+      <favorite_root url="file://$PROJECT_DIR$/src/main/resources/newadd" module="tessar-netty-server" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+        <favorite_root url="file://$PROJECT_DIR$/src/main/resources/newadd/mysql-newaddDay.xml" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/main/resources/newadd/mysql-newaddMon.xml" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/src/main/resources/newadd/mysql-newaddWeek.xml" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      </favorite_root>
+    </favorites_list>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ManageOverView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/vova/dao/manager/ManageOverView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NettyServerTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/vova/nettydemo/NettyServerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="70" column="9" lean-forward="true" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="9" />
-              <folding>
-                <element signature="e#1693#2424#0" expanded="true" />
-                <element signature="e#2423#2424#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AllInOneMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/dbmapper/AllInOneMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-784">
-              <caret line="159" column="28" lean-forward="false" selection-start-line="159" selection-start-column="28" selection-end-line="159" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ManageGameInput.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/vova/dao/manager/ManageGameInput.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="160" column="12" lean-forward="false" selection-start-line="160" selection-start-column="12" selection-end-line="160" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UseMySql.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/vova/dao/dbsql/UseMySql.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="30" column="44" lean-forward="true" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="batis-conf.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/batis-conf.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="43" column="75" lean-forward="true" selection-start-line="43" selection-start-column="75" selection-end-line="43" selection-end-column="75" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Resources.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/io/Resources.java">
+      <file leaf-file-name="JsonpAdvice.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/conf/JsonpAdvice.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="140">
-              <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NettyHandler.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/vova/nettydemo/NettyHandler.java">
+      <file leaf-file-name="NettyServerTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/vova/nettydemo/NettyServerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="110" column="26" lean-forward="true" selection-start-line="110" selection-start-column="26" selection-end-line="110" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Thread.java" pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_73.jdk/Contents/Home/src.zip!/java/lang/Thread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="742" column="16" lean-forward="false" selection-start-line="742" selection-start-column="16" selection-end-line="742" selection-end-column="16" />
+            <state relative-caret-position="238">
+              <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -237,8 +88,78 @@
       <file leaf-file-name="ManagePayInput.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/vova/dao/manager/ManagePayInput.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="42" column="15" lean-forward="false" selection-start-line="42" selection-start-column="15" selection-end-line="42" selection-end-column="15" />
+            <state relative-caret-position="140">
+              <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="batis-conf.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/batis-conf.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="568">
+              <caret line="43" column="75" lean-forward="true" selection-start-line="43" selection-start-column="75" selection-end-line="43" selection-end-column="75" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="log4j.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="redis.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/redis.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="spring-mongodb.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mongodb.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="switch.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/switch.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="14">
+              <caret line="1" column="8" lean-forward="true" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="switch.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/switch.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NettyHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/vova/nettydemo/NettyHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-187">
+              <caret line="45" column="3" lean-forward="false" selection-start-line="45" selection-start-column="3" selection-end-line="45" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -259,10 +180,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>usesid</find>
-      <find>boolean useSid = new ClassPathXmlApplicationContext(&quot;spring-mongodb.xml&quot;).getBean(Switch.class).getUseSid();</find>
-      <find>umm</find>
-      <find>query</find>
       <find>ForKeep</find>
       <find>192.168.1.110</find>
       <find>sqlSessionFactory</find>
@@ -284,14 +201,17 @@
       <find>Twitter</find>
       <find>Forum</find>
       <find>friend</find>
-      <find>sid</find>
       <find>mainid</find>
       <find>System.currentTimeMillis()</find>
       <find>channelindex</find>
       <find>limit</find>
+      <find>,</find>
+      <find>useSid</find>
+      <find>mys</find>
+      <find>system.out</find>
+      <find>sid</find>
     </findStrings>
     <replaceStrings>
-      <replace>PayMentWeek</replace>
       <replace>PayMentMon</replace>
       <replace>&quot;</replace>
       <replace>Week</replace>
@@ -321,6 +241,7 @@
       <replace>邀请渠道</replace>
       <replace>StayWeek</replace>
       <replace>论坛推广</replace>
+      <replace>;</replace>
     </replaceStrings>
     <dirStrings>
       <dir>D:\GitHub\tessar-netty-server</dir>
@@ -335,13 +256,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/vova/domain/stayman/StayWeek.java" />
-        <option value="$PROJECT_DIR$/src/main/java/vova/domain/Player.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/switch.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/sql/sql2.sql" />
         <option value="$PROJECT_DIR$/src/main/java/vova/domain/channel/ChannelIndex.java" />
         <option value="$PROJECT_DIR$/src/main/java/vova/domain/newadd/NewAdd.java" />
-        <option value="$PROJECT_DIR$/src/main/java/vova/dao/manager/ManageStay.java" />
         <option value="$PROJECT_DIR$/src/main/java/vova/domain/staypay/StayPayDay.java" />
         <option value="$PROJECT_DIR$/src/main/java/vova/domain/staypay/StayPayMon.java" />
         <option value="$PROJECT_DIR$/src/main/java/vova/domain/staypay/StayPayWeek.java" />
@@ -352,8 +269,6 @@
         <option value="$PROJECT_DIR$/src/main/java/vova/domain/payment/PayMentForKeep.java" />
         <option value="$PROJECT_DIR$/src/main/resources/sql/sql.sql" />
         <option value="$PROJECT_DIR$/src/main/java/vova/dao/manager/ManageOverView.java" />
-        <option value="$PROJECT_DIR$/src/main/java/vova/dao/manager/ManagePayInput.java" />
-        <option value="$PROJECT_DIR$/src/main/java/vova/dao/dbmongo/UseMyMongo.java" />
         <option value="$PROJECT_DIR$/src/main/java/vova/util/Switch.java" />
         <option value="$PROJECT_DIR$/src/main/resources/channel/mysql-channelIndex.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/newadd/mysql-newaddDay.xml" />
@@ -372,20 +287,26 @@
         <option value="$PROJECT_DIR$/src/main/resources/staypay/mysql-StayPayDay.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/staypay/mysql-StayPayMon.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/staypay/mysql-StayPayWeek.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/vova/util/Tools.java" />
-        <option value="$PROJECT_DIR$/src/main/java/vova/dao/test/debugTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/vova/nettydemo/JsonTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/vova/dao/dbsql/EnumSQL.java" />
-        <option value="$PROJECT_DIR$/src/main/java/vova/domain/newadd/CheckMem.java" />
         <option value="$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/util/Tools.java" />
         <option value="$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/domain/channel/ChannelIndex.java" />
         <option value="$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/dbmapper/AllInOneMapper.java" />
         <option value="$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/controler/ControlerChannel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/vova/nettydemo/NettyServerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/vova/dao/dbsql/UseMySql.java" />
         <option value="$PROJECT_DIR$/src/main/resources/batis-conf.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/vova/nettydemo/JsonTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/vova/util/Tools.java" />
+        <option value="$PROJECT_DIR$/src/main/java/vova/dao/manager/ManageStay.java" />
         <option value="$PROJECT_DIR$/src/main/java/vova/dao/manager/ManageGameInput.java" />
+        <option value="$PROJECT_DIR$/src/main/java/vova/domain/test/SupperPlayer.java" />
         <option value="$PROJECT_DIR$/src/main/java/vova/nettydemo/NettyHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/vova/dao/dbmongo/UseMyMongo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/vova/dao/test/debugTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/vova/domain/overview/CheckMem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/vova/domain/newadd/CheckMem.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/switch.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/vova/dao/manager/ManagePayInput.java" />
+        <option value="$PROJECT_DIR$/src/main/java/vova/nettydemo/NettyServerTest.java" />
       </list>
     </option>
   </component>
@@ -422,10 +343,9 @@
   <component name="MavenRunner">
     <option name="skipTests" value="true" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="31" />
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="y" value="22" />
-    <option name="width" value="1149" />
+    <option name="width" value="1280" />
     <option name="height" value="778" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -1088,34 +1008,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="vova" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tessar-netty-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tessar-netty-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="vova" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tessar-netty-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tessar-netty-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="vova" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-              <item name="manager" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tessar-netty-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tessar-netty-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="vova" type="462c0819:PsiDirectoryNode" />
               <item name="demo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -1135,27 +1027,17 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="vova" type="462c0819:PsiDirectoryNode" />
               <item name="domain" type="462c0819:PsiDirectoryNode" />
-              <item name="channel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tessar-netty-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tessar-netty-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="vova" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
-              <item name="initdata" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="tessar-netty-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tessar-netty-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="vova" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
               <item name="newadd" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tessar-netty-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tessar-netty-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="vova" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+              <item name="overview" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tessar-netty-server" type="b2602c69:ProjectViewProjectNode" />
@@ -1179,7 +1061,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="channel" type="462c0819:PsiDirectoryNode" />
+              <item name="sql" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tessar-netty-server" type="b2602c69:ProjectViewProjectNode" />
@@ -1187,7 +1069,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="sql" type="462c0819:PsiDirectoryNode" />
+              <item name="stayMan" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tessar-netty-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tessar-netty-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tessar-netty-server" type="b2602c69:ProjectViewProjectNode" />
@@ -1237,6 +1125,17 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="vova" type="462c0819:PsiDirectoryNode" />
               <item name="tessarwebserver" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tessar-netty-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tessar-web-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="vova" type="462c0819:PsiDirectoryNode" />
+              <item name="tessarwebserver" type="462c0819:PsiDirectoryNode" />
+              <item name="conf" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tessar-netty-server" type="b2602c69:ProjectViewProjectNode" />
@@ -1269,6 +1168,39 @@
               <item name="com" type="462c0819:PsiDirectoryNode" />
               <item name="vova" type="462c0819:PsiDirectoryNode" />
               <item name="tessarwebserver" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tessar-netty-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tessar-web-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="vova" type="462c0819:PsiDirectoryNode" />
+              <item name="tessarwebserver" type="462c0819:PsiDirectoryNode" />
+              <item name="Scheduled" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tessar-netty-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tessar-web-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="vova" type="462c0819:PsiDirectoryNode" />
+              <item name="tessarwebserver" type="462c0819:PsiDirectoryNode" />
+              <item name="sevice" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tessar-netty-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tessar-web-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="vova" type="462c0819:PsiDirectoryNode" />
+              <item name="tessarwebserver" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -1276,15 +1208,12 @@
               <item name="tessar-web-server" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tessar-netty-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tessar-web-server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -1301,7 +1230,7 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.side.proportion" value="0.18045977" />
     <property name="SearchEverywhereHistoryKey" value="test&#9;PSI&#9;JAVA://vova.dao.test.debugTest&#10;pom.x&#9;FILE&#9;file://D:/GitHub/tessar-netty-server/pom.xml&#10;pom&#9;PSI&#9;JAVA://org.omg.PortableServer.POAManager" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelOrder0" value="0" />
@@ -1311,6 +1240,7 @@
     <property name="RequestMappingsPanelOrder2" value="2" />
     <property name="jmeter.home" value="" />
     <property name="jmeter.override" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/Languages" value="JAVA" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -1330,11 +1260,11 @@
       <recent name="vova.domain.staypay" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/lib" />
+      <recent name="$PROJECT_DIR$/src/main/java/vova/domain/newadd" />
+      <recent name="$PROJECT_DIR$/src/main/java/vova/domain/overview" />
       <recent name="$PROJECT_DIR$/../tessar-web-server" />
       <recent name="$PROJECT_DIR$/src/main/resources/channel" />
-      <recent name="$PROJECT_DIR$/src/main/resources/sql" />
-      <recent name="$PROJECT_DIR$/src/main/java/vova/util" />
-      <recent name="D:\newTessar\tessar-netty-server\src\main\resources\overview" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1350,31 +1280,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.NettyServerTest">
-    <configuration name="JsonTest.timett" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="vova.nettydemo.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="tessar-netty-server" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="vova.nettydemo" />
-      <option name="MAIN_CLASS_NAME" value="vova.nettydemo.JsonTest" />
-      <option name="METHOD_NAME" value="timett" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
     <configuration name="NettyServerTest" type="Application" factoryName="Application" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1506,7 +1411,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="debugTest.fun2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="debugTest.fun" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="vova.dao.test.*" />
@@ -1518,32 +1423,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="vova.dao.test" />
       <option name="MAIN_CLASS_NAME" value="vova.dao.test.debugTest" />
-      <option name="METHOD_NAME" value="fun2" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="debugTest.funnumArrayToStr" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="vova.dao.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="tessar-netty-server" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="vova.dao.test" />
-      <option name="MAIN_CLASS_NAME" value="vova.dao.test.debugTest" />
-      <option name="METHOD_NAME" value="funnumArrayToStr" />
+      <option name="METHOD_NAME" value="fun" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" value="" />
@@ -1581,22 +1461,72 @@
       <envs />
       <patterns />
     </configuration>
+    <configuration name="debugTest.monDate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="vova.dao.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="tessar-netty-server" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="vova.dao.test" />
+      <option name="MAIN_CLASS_NAME" value="vova.dao.test.debugTest" />
+      <option name="METHOD_NAME" value="monDate" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="debugTest.weekDate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="vova.dao.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="tessar-netty-server" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="vova.dao.test" />
+      <option name="MAIN_CLASS_NAME" value="vova.dao.test.debugTest" />
+      <option name="METHOD_NAME" value="weekDate" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="Application.NettyServerTest" />
       <item index="1" class="java.lang.String" itemvalue="Spring Boot.TessarWebServerApplication" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.debugTest.fun2" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.JsonTest.timett" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.debugTest.funnumArrayToStr" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.debugTest.checkMemory" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.debugTest.funstrToNumArray" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.debugTest.checkMemory" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.debugTest.funstrToNumArray" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.debugTest.monDate" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.debugTest.weekDate" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.debugTest.fun" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.debugTest.funstrToNumArray" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.debugTest.checkMemory" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.debugTest.funnumArrayToStr" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.JsonTest.timett" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.debugTest.fun2" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.debugTest.fun" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.debugTest.monDate" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.debugTest.weekDate" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.debugTest.funstrToNumArray" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.debugTest.checkMemory" />
       </list>
     </recent_temporary>
   </component>
@@ -1692,44 +1622,44 @@
       <workItem from="1520392957034" duration="4000" />
       <workItem from="1520393010492" duration="14985000" />
       <workItem from="1520481134530" duration="53935000" />
-      <workItem from="1520994334459" duration="23886000" />
+      <workItem from="1520994334459" duration="57610000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="JsonTest_timett - 2018.03.14 at 10h 53m 12s.xml">
-      <configuration name="JsonTest.timett" configurationId="JUnit" />
+    <history-entry file="debugTest_fun - 2018.03.16 at 15h 32m 29s.xml">
+      <configuration name="debugTest.fun" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JsonTest_timett - 2018.03.14 at 10h 56m 14s.xml">
-      <configuration name="JsonTest.timett" configurationId="JUnit" />
+    <history-entry file="debugTest_fun - 2018.03.16 at 15h 32m 51s.xml">
+      <configuration name="debugTest.fun" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JsonTest_timett - 2018.03.14 at 10h 57m 08s.xml">
-      <configuration name="JsonTest.timett" configurationId="JUnit" />
+    <history-entry file="debugTest_fun - 2018.03.16 at 15h 35m 51s.xml">
+      <configuration name="debugTest.fun" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JsonTest_timett - 2018.03.14 at 10h 57m 55s.xml">
-      <configuration name="JsonTest.timett" configurationId="JUnit" />
+    <history-entry file="debugTest_fun - 2018.03.16 at 15h 39m 50s.xml">
+      <configuration name="debugTest.fun" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JsonTest_timett - 2018.03.14 at 10h 58m 15s.xml">
-      <configuration name="JsonTest.timett" configurationId="JUnit" />
+    <history-entry file="debugTest_fun - 2018.03.16 at 15h 40m 09s.xml">
+      <configuration name="debugTest.fun" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JsonTest_timett - 2018.03.14 at 11h 19m 28s.xml">
-      <configuration name="JsonTest.timett" configurationId="JUnit" />
+    <history-entry file="debugTest_fun - 2018.03.16 at 15h 43m 53s.xml">
+      <configuration name="debugTest.fun" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="debugTest_funnumArrayToStr - 2018.03.14 at 11h 25m 14s.xml">
-      <configuration name="debugTest.funnumArrayToStr" configurationId="JUnit" />
+    <history-entry file="debugTest_fun - 2018.03.16 at 15h 44m 12s.xml">
+      <configuration name="debugTest.fun" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="debugTest_funnumArrayToStr - 2018.03.14 at 11h 26m 31s.xml">
-      <configuration name="debugTest.funnumArrayToStr" configurationId="JUnit" />
+    <history-entry file="debugTest_monDate - 2018.03.15 at 16h 10m 24s.xml">
+      <configuration name="debugTest.monDate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="debugTest_funnumArrayToStr - 2018.03.14 at 11h 35m 56s.xml">
-      <configuration name="debugTest.funnumArrayToStr" configurationId="JUnit" />
+    <history-entry file="debugTest_monDate - 2018.03.15 at 16h 15m 18s.xml">
+      <configuration name="debugTest.monDate" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="debugTest_funstrToNumArray - 2018.03.14 at 12h 07m 10s.xml">
-      <configuration name="debugTest.funstrToNumArray" configurationId="JUnit" />
+    <history-entry file="debugTest_monDate - 2018.03.15 at 16h 36m 44s.xml">
+      <configuration name="debugTest.monDate" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="593215000" />
+    <option name="totallyTimeSpent" value="626939000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1741,7 +1671,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="31" y="22" width="1149" height="778" extended-state="1" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1753,19 +1683,19 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18552412" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31666666" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3153409" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287879" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3212121" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30397728" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287879" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21969697" sideWeight="0.49168053" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2869318" sideWeight="0.49168053" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287879" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16969697" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" x="0" y="553" width="1280" height="174" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2836495" sideWeight="0.794686" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1690341" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" x="0" y="553" width="1280" height="174" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25767368" sideWeight="0.794686" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875606" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31060606" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="JProfiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28636363" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2090909" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22374798" sideWeight="0.20531401" order="5" side_tool="true" content_ui="tabs" />
@@ -1810,13 +1740,19 @@
           <option name="timeStamp" value="214" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/vova/dao/dbmongo/UseMyMongo.java</url>
-          <line>101</line>
+          <url>file://$PROJECT_DIR$/src/main/java/vova/nettydemo/NettyHandler.java</url>
+          <line>167</line>
           <properties />
-          <option name="timeStamp" value="215" />
+          <option name="timeStamp" value="269" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/vova/nettydemo/NettyHandler.java</url>
+          <line>159</line>
+          <properties />
+          <option name="timeStamp" value="270" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="245" />
+      <option name="time" value="277" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1859,367 +1795,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/overview/mysql-treeNumMon.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="22" column="34" lean-forward="false" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-          <folding>
-            <marker date="1520998353237" expanded="true" signature="296:576" ph="insert into ThreeNumMon... " />
-            <marker date="1520998353237" expanded="true" signature="658:771" ph="select * fro... ThreeNumMon" />
-            <marker date="1520998353237" expanded="true" signature="820:966" ph="update Three... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/overview/mysql-treeNumWeek.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="23" column="35" lean-forward="false" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
-          <folding>
-            <marker date="1520998353245" expanded="true" signature="298:579" ph="insert into ThreeNumWeek... " />
-            <marker date="1520998353245" expanded="true" signature="662:776" ph="select * fro... ThreeNumWeek" />
-            <marker date="1520998353245" expanded="true" signature="825:972" ph="update Three... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/payment/mysql-PayMentDay.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="58" column="4" lean-forward="false" selection-start-line="58" selection-start-column="4" selection-end-line="60" selection-end-column="13" />
-          <folding>
-            <marker date="1520998390326" expanded="true" signature="272:1044" ph="insert into PayMentDay... " />
-            <marker date="1520998390326" expanded="true" signature="1125:1238" ph="select * fro... PayMentDay" />
-            <marker date="1520998390326" expanded="true" signature="1288:1923" ph="update PayMe... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/payment/mysql-PayMentMon.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="60" column="33" lean-forward="false" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
-          <folding>
-            <marker date="1520998390329" expanded="true" signature="297:1069" ph="insert into PayMentMon... " />
-            <marker date="1520998390329" expanded="true" signature="1150:1263" ph="select * fro... PayMentMon" />
-            <marker date="1520998390329" expanded="true" signature="1312:1947" ph="update PayMe... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/payment/mysql-PayMentWeek.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="61" column="13" lean-forward="false" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
-          <folding>
-            <marker date="1520998390322" expanded="true" signature="298:1071" ph="insert into PayMentWeek... " />
-            <marker date="1520998390322" expanded="true" signature="1153:1267" ph="select * fro... PayMentWeek" />
-            <marker date="1520998390322" expanded="true" signature="1316:1952" ph="update PayMe... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/stayMan/mysql-StayDay.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="25" column="13" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="25" selection-end-column="13" />
-          <folding>
-            <marker date="1520998425773" expanded="true" signature="393:624" ph="insert into StayDay... " />
-            <marker date="1520998425773" expanded="true" signature="702:812" ph="select * fro... StayDay" />
-            <marker date="1520998425773" expanded="true" signature="861:947" ph="update StayD... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/stayMan/mysql-StayMon.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="24" column="30" lean-forward="false" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
-          <folding>
-            <marker date="1520998443397" expanded="true" signature="294:525" ph="insert into StayMon... " />
-            <marker date="1520998443397" expanded="true" signature="603:713" ph="select * fro... StayMon" />
-            <marker date="1520998443397" expanded="true" signature="762:848" ph="update StayM... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/stayMan/mysql-StayWeek.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="23" column="31" lean-forward="false" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
-          <folding>
-            <marker date="1520998443404" expanded="true" signature="294:526" ph="insert into StayWeek... " />
-            <marker date="1520998443404" expanded="true" signature="605:716" ph="select * fro... StayWeek" />
-            <marker date="1520998443404" expanded="true" signature="765:852" ph="update StayW... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/staypay/mysql-StayPayDay.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="25" selection-end-column="13" />
-          <folding>
-            <marker date="1520998479045" expanded="true" signature="297:453" ph="insert into StayPayDay... " />
-            <marker date="1520998479045" expanded="true" signature="534:647" ph="select * fro... StayPayDay" />
-            <marker date="1520998479045" expanded="true" signature="696:785" ph="update StayP... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/staypay/mysql-StayPayMon.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="24" column="33" lean-forward="false" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
-          <folding>
-            <marker date="1520998479053" expanded="true" signature="297:453" ph="insert into StayPayMon... " />
-            <marker date="1520998479053" expanded="true" signature="534:647" ph="select * fro... StayPayMon" />
-            <marker date="1520998479053" expanded="true" signature="696:785" ph="update StayP... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/staypay/mysql-StayPayWeek.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="24" column="34" lean-forward="false" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
-          <folding>
-            <marker date="1520998479060" expanded="true" signature="298:455" ph="insert into StayPayWeek... " />
-            <marker date="1520998479060" expanded="true" signature="537:651" ph="select * fro... StayPayWeek" />
-            <marker date="1520998479060" expanded="true" signature="700:790" ph="update StayP... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/vova/util/Tools.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="99" column="4" lean-forward="false" selection-start-line="99" selection-start-column="4" selection-end-line="99" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/vova/dao/test/debugTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="122" column="9" lean-forward="false" selection-start-line="122" selection-start-column="9" selection-end-line="122" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/vova/nettydemo/JsonTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-221">
-          <caret line="93" column="4" lean-forward="false" selection-start-line="93" selection-start-column="4" selection-end-line="93" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/vova/domain/overview/ThreeNum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.0.Final/netty-all-4.1.0.Final.jar!/io/netty/util/ReferenceCounted.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.0.Final/netty-all-4.1.0.Final.jar!/io/netty/buffer/ByteBuf.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="291" column="28" lean-forward="false" selection-start-line="291" selection-start-column="28" selection-end-line="291" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.0.Final/netty-all-4.1.0.Final.jar!/io/netty/handler/codec/http/HttpHeaders.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="474" column="32" lean-forward="false" selection-start-line="474" selection-start-column="32" selection-end-line="474" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/vova/dao/dbsql/EnumSQL.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/vova/dao/dbmongo/UseMyMongo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-95">
-          <caret line="27" column="13" lean-forward="false" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/vova/domain/newadd/CheckMem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="76" column="5" lean-forward="false" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/util/Tools.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="237" column="28" lean-forward="false" selection-start-line="237" selection-start-column="28" selection-end-line="237" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/controler/ControlerGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-309">
-          <caret line="37" column="13" lean-forward="false" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/resources/templates/channel_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-667">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/TessarWebServerApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/domain/channel/ChannelData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/domain/channel/ChannelFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/domain/channel/EntryDefine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/domain/channel/EntryJson.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/domain/channel/MainChannel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/domain/initdata/MainChannel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-574">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#1249#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/domain/initdata/SubChannel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="25" lean-forward="false" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/domain/channel/ChannelIndex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/domain/channel/ChannelGames.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="47" column="18" lean-forward="false" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
-          <folding>
-            <element signature="e#877#878#0" expanded="false" />
-            <element signature="e#904#905#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/vova/domain/channel/ChannelIndex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="44" column="11" lean-forward="false" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/domain/channel/ChannelDataJson.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/channel/mysql-channelIndex.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="8" column="34" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="34" />
-          <folding>
-            <marker date="1520996732883" expanded="true" signature="293:346" ph="select * fro... ChannelIndex" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/util/JsonTest">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3052">
-          <caret line="218" column="0" lean-forward="false" selection-start-line="218" selection-start-column="0" selection-end-line="218" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/sql/sql.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -2236,34 +1811,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/controler/ControlerChannel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="138" column="53" lean-forward="false" selection-start-line="138" selection-start-column="53" selection-end-line="138" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/dbmapper/AllInOneMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-784">
           <caret line="159" column="28" lean-forward="false" selection-start-line="159" selection-start-column="28" selection-end-line="159" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/vova/dao/manager/ManagePayInput.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="42" column="15" lean-forward="false" selection-start-line="42" selection-start-column="15" selection-end-line="42" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/vova/dao/manager/ManageOverView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -2276,17 +1827,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/vova/nettydemo/NettyServerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="70" column="9" lean-forward="true" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="9" />
-          <folding>
-            <element signature="e#1693#2424#0" expanded="true" />
-            <element signature="e#2423#2424#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.5/mybatis-3.4.5-sources.jar!/org/apache/ibatis/io/Resources.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -2295,34 +1835,376 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/vova/dao/dbsql/UseMySql.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_73.jdk/Contents/Home/src.zip!/java/util/concurrent/Executor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="30" column="44" lean-forward="true" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
+        <state relative-caret-position="310">
+          <caret line="139" column="9" lean-forward="false" selection-start-line="139" selection-start-column="9" selection-end-line="139" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/batis-conf.xml">
+    <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/controler/ControlerChannel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="43" column="75" lean-forward="true" selection-start-line="43" selection-start-column="75" selection-end-line="43" selection-end-column="75" />
+        <state relative-caret-position="107">
+          <caret line="138" column="53" lean-forward="false" selection-start-line="138" selection-start-column="53" selection-end-line="138" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vova/nettydemo/JsonTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="61" column="32" lean-forward="true" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_73.jdk/Contents/Home/src.zip!/java/util/Calendar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="414" column="28" lean-forward="false" selection-start-line="414" selection-start-column="28" selection-end-line="414" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vova/util/Tools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="124" column="7" lean-forward="true" selection-start-line="124" selection-start-column="7" selection-end-line="124" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vova/dao/manager/ManageOverView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vova/dao/manager/ManageStay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-172">
+          <caret line="67" column="7" lean-forward="true" selection-start-line="67" selection-start-column="7" selection-end-line="67" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/vova/dao/manager/ManageGameInput.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="160" column="12" lean-forward="false" selection-start-line="160" selection-start-column="12" selection-end-line="160" selection-end-column="12" />
+        <state relative-caret-position="141">
+          <caret line="168" column="0" lean-forward="false" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vova/dao/dbsql/UseMySql.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="29" column="18" lean-forward="false" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vova/domain/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="14" column="15" lean-forward="true" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vova/domain/test/SupperPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="22" column="31" lean-forward="false" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.0.Final/netty-all-4.1.0.Final.jar!/io/netty/channel/SimpleChannelInboundHandler.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.0.Final/netty-all-4.1.0.Final.jar!/io/netty/channel/ChannelInboundHandlerAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.0.Final/netty-all-4.1.0.Final.jar!/io/netty/channel/AbstractChannelHandlerContext.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="291" column="0" lean-forward="false" selection-start-line="291" selection-start-column="0" selection-end-line="291" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.0.Final/netty-all-4.1.0.Final.jar!/io/netty/handler/codec/MessageToMessageDecoder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.0.Final/netty-all-4.1.0.Final.jar!/io/netty/handler/codec/ByteToMessageDecoder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="155" column="0" lean-forward="false" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.0.Final/netty-all-4.1.0.Final.jar!/io/netty/channel/DefaultChannelPipeline.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="1077" column="0" lean-forward="false" selection-start-line="1077" selection-start-column="0" selection-end-line="1077" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.0.Final/netty-all-4.1.0.Final.jar!/io/netty/channel/nio/AbstractNioByteChannel.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="240" column="0" lean-forward="false" selection-start-line="240" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vova/dao/dbmongo/UseMyMongo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="384" column="29" lean-forward="false" selection-start-line="384" selection-start-column="29" selection-end-line="384" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vova/domain/newadd/CheckMem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="32" column="2" lean-forward="false" selection-start-line="32" selection-start-column="2" selection-end-line="32" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/target/classes/vova/domain/newadd/check-netty.jar!/CheckMem.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vova/dao/test/debugTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/src/main/java/vova/domain/newadd/check-netty.jar!/CheckMem.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/src/main/java/vova/domain/newadd/check-netty.jar!/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vova/domain/newadd/CheckMem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-530">
+          <caret line="33" column="13" lean-forward="false" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tessar-netty-server.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tessar-netty-server.ipr">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tessar-netty-server.iws">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webpackage.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../tessar-web-server/target/classes/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/TessarWebServerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/conf/MyThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/conf/ShiroConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/conf/MyShiroRealm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-215">
+          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../tessar-web-server/src/main/java/com/vova/tessarwebserver/conf/JsonpAdvice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/batis-conf.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="568">
+          <caret line="43" column="75" lean-forward="true" selection-start-line="43" selection-start-column="75" selection-end-line="43" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/redis.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring-mongodb.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/switch.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="1" column="8" lean-forward="true" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/switch.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/vova/nettydemo/NettyHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="110" column="26" lean-forward="true" selection-start-line="110" selection-start-column="26" selection-end-line="110" selection-end-column="26" />
+        <state relative-caret-position="-187">
+          <caret line="45" column="3" lean-forward="false" selection-start-line="45" selection-start-column="3" selection-end-line="45" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vova/dao/manager/ManagePayInput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/vova/nettydemo/NettyServerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
           <folding />
         </state>
       </provider>
@@ -2337,7 +2219,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.18045977" />
                 <option value="0.5" />
               </list>
             </option>
@@ -2350,7 +2232,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.33678162" />
               </list>
             </option>
           </splitter-proportions>
@@ -2362,7 +2244,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.18045977" />
               </list>
             </option>
           </splitter-proportions>
@@ -2374,7 +2256,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.18045977" />
               </list>
             </option>
           </splitter-proportions>
@@ -2386,7 +2268,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.18045977" />
               </list>
             </option>
           </splitter-proportions>
@@ -2394,11 +2276,11 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: com.alibaba:fastjson:1.2.41</last-edited>
+          <last-edited>Maven: com.alibaba:druid:1.1.7</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.18045977" />
               </list>
             </option>
           </splitter-proportions>

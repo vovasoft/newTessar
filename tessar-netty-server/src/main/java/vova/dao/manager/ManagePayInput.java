@@ -8,6 +8,7 @@ import vova.dao.dbmongo.UseMyMongo;
 import vova.dao.dbsql.EnumSQL;
 import vova.dao.dbsql.UseMySql;
 import vova.domain.Player;
+import vova.domain.newadd.CheckMem;
 import vova.domain.newadd.NewAdd;
 import vova.domain.newadd.NewAddDay;
 import vova.domain.newadd.NewAddMon;
@@ -34,7 +35,33 @@ import java.util.concurrent.locks.ReentrantLock;
 
 //Big思路，能从游戏平台数据库找到的数据从那边找，然后算出这一次支付的细节信息，然后再找原始表，如果没有，新建一个。
 @Component
-public class ManagePayInput {
+public class ManagePayInput extends Thread{
+    PayReceive payReceive;
+    UseMyMongo umm;
+    UseMySql mys;
+    String cid;
+    String mainId;
+    String enter;
+    public void run() {
+        try {
+            HandPayData(payReceive,umm,mys,cid,mainId,enter);
+//            Thread.interrupted();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ManagePayInput(PayReceive payReceive, UseMyMongo umm, UseMySql mys, String cid, String mainId, String enter) {
+        this.payReceive = payReceive;
+        this.umm = umm;
+        this.mys = mys;
+        this.cid = cid;
+        this.mainId = mainId;
+        this.enter = enter;
+    }
+
     private static final org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(ManagePayInput.class);
 
     public ManagePayInput() {
@@ -69,7 +96,7 @@ public class ManagePayInput {
         tmpPlayer.setSid(sid);
         tmpPlayer.setGid(gid);
 
-        Player player = umm.findOnePlayer(tmpPlayer);
+        Player player = umm.findOnePlayer(tmpPlayer,mys);
         tmpPlayer=null;
         if (player == null) {
             System.out.println("error player not exist");
@@ -314,6 +341,7 @@ public class ManagePayInput {
         return -1;
     }
 
+    
 
 
 }

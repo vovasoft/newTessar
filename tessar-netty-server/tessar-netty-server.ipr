@@ -64,6 +64,7 @@
         <element id="library" level="project" name="Maven: org.springframework:spring-test:4.3.13.RELEASE" />
         <element id="library" level="project" name="Maven: org.springframework:spring-tx:4.3.11.RELEASE" />
         <element id="library" level="project" name="Maven: redis.clients:jedis:2.9.0" />
+        <element id="file-copy" path="$PROJECT_DIR$/src/main/java/vova/domain/newadd/check-netty.jar" />
       </root>
     </artifact>
   </component>
@@ -292,6 +293,13 @@
     </data-source>
   </component>
   <component name="libraryTable">
+    <library name="check-netty">
+      <CLASSES>
+        <root url="jar://$PROJECT_DIR$/src/main/resources/lib/check-netty.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
     <library name="maven-wrapper">
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/../tessar-web-server/.mvn/wrapper/maven-wrapper.jar!/" />

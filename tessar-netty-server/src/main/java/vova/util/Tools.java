@@ -139,6 +139,8 @@ public class Tools {
                 cRegister.add(Calendar.DAY_OF_YEAR, 1);
             }
         } else if (clazzName.equals("StayWeek") || clazzName.equals("StayPayWeek")) {
+            dStart = getMondayOfDate(dStart);
+            dEnd = getMondayOfDate(dEnd);
             cRegister = Calendar.getInstance();
             cRegister.setTime(dStart);
 
@@ -150,6 +152,8 @@ public class Tools {
                 cRegister.add(Calendar.WEEK_OF_YEAR, 1);
             }
         } else if (clazzName.equals("StayMon") || clazzName.equals("StayPayMon")) {
+            dStart = getFirstOfMonth(dStart);
+            dEnd = getFirstOfMonth(dEnd);
             cRegister = Calendar.getInstance();
             cRegister.setTime(dStart);
             cLogin = Calendar.getInstance();

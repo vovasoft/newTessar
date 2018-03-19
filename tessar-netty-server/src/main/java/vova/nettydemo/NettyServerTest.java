@@ -10,12 +10,12 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.http.HttpObjectAggregator;
+import vova.domain.newadd.CheckMem;
 import io.netty.handler.codec.http.HttpRequestDecoder;
 import io.netty.handler.codec.http.HttpResponseEncoder;
 import io.netty.handler.stream.ChunkedWriteHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import vova.dao.manager.ManagePayInput;
-
 import java.net.Inet4Address;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -63,7 +63,8 @@ public class    NettyServerTest {
     }
     
     public static void main(String[] args) throws Exception {
-        
+
+        CheckMem.checkError();
         String ip = "localhost";
         log.info(args.length);
         if (args.length<1){

@@ -1,22 +1,29 @@
 package vova.dao.dbmongo;
+
 import com.mongodb.*;
 import com.mongodb.client.DistinctIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import org.bson.conversions.Bson;
+import vova.dao.dbsql.EnumSQL;
+import vova.dao.dbsql.UseMySql;
 import vova.domain.Player;
 import com.mongodb.client.model.Filters;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import vova.domain.channel.ChannelIndex;
 import vova.domain.payment.PayMentForKeep;
 import vova.util.Switch;
 import vova.util.Tools;
+
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+
 import static vova.nettydemo.NettyHandler.ac;
 
 /**
@@ -29,19 +36,18 @@ public class UseMyMongo {
 
     public UseMyMongo() {
     }
-    boolean useSid = new ClassPathXmlApplicationContext("switch.xml").getBean(Switch.class).getUseSid();
 
     //插入数据
     public void insertMongo(Object object) throws ParseException {
-       //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
-        
+        //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         mongoTemplate.insert(object);
     }
 
 
     //Find count of all players by ID distinct;
-    public int findPlayerCountInMongo(String collectionName, String id, String cid, String gid) {
+    public int findPlayerCountInMongo(String collectionName, String id, String cid, String gid, String enter) {
         //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoClient mongoClient = (MongoClient) ac.getBean("mongoClient");
 
@@ -49,11 +55,13 @@ public class UseMyMongo {
 
         Bson b1 = Filters.eq("cid", cid);
         Bson b2 = Filters.eq("gid", gid);
-        Bson b3 = Filters.and(b1, b2);
+        Bson b3 = Filters.eq("enter", enter);
+
+        Bson b4 = Filters.and(b1, b2, b3);
 
         MongoCollection collection = db.getCollection("player");
         int res = 0;
-        DistinctIterable<String> distinct = collection.distinct(id, b3, String.class);
+        DistinctIterable<String> distinct = collection.distinct(id, b4, String.class);
 
         MongoCursor<String> iterator = distinct.iterator();
         while (iterator.hasNext()) {
@@ -78,18 +86,13 @@ public class UseMyMongo {
     public Player findRegister(Player player) {
         String uid = player.getUid();
         String gid = player.getGid();
-        String sid = player.getSid();
+        String enter = player.getEnter();
         String cid = player.getCid();
         long regTime = player.getRegdate();
         //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         Query query = new Query();
-        if (useSid) {
-            query.addCriteria(Criteria.where("uid").is(uid).and("gid").is(gid).and("sid").is(sid).and("regdate").is(regTime).and("lastdate").is(regTime));
-
-        } else {
-            query.addCriteria(Criteria.where("uid").is(uid).and("gid").is(gid).and("regdate").is(regTime).and("lastdate").is(regTime));
-        }
+        query.addCriteria(Criteria.where("uid").is(uid).and("cid").is(cid).and("gid").is(gid).and("enter").is(enter).and("regdate").is(regTime).and("lastdate").is(regTime));
         Player resPlayer = mongoTemplate.findOne(query, Player.class);
         return resPlayer;
     }
@@ -108,12 +111,9 @@ public class UseMyMongo {
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         Query query = new Query();
 
-        if (useSid) {
-            query.addCriteria(Criteria.where("uid").is(uid).and("cid").is(cid).and("gid").is(gid).and("enter").is(enter).and("lastdate").gte(todayTime).lt(todayTime + (24 * 3600)));
-        } else {
-            query.addCriteria(Criteria.where("uid").is(uid).and("cid").is(cid).and("gid").is(gid).and("lastdate").gte(todayTime).lt(todayTime + (24 * 3600)));
 
-        }
+        query.addCriteria(Criteria.where("uid").is(uid).and("cid").is(cid).and("gid").is(gid).and("enter").is(enter).and("lastdate").gte(todayTime).lt(todayTime + (24 * 3600)));
+
         Player resPlayer = mongoTemplate.findOne(query, Player.class);
         if (resPlayer == null) {
             //system.out.println("resPlayer is not exist!!!");
@@ -141,13 +141,7 @@ public class UseMyMongo {
         //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         Query query = new Query();
-        if (useSid) {
-            query.addCriteria(Criteria.where("uid").is(uid).and("gid").is(gid).and("cid").is(cid).and("enter").is(enter).and("lastdate").gte(Tools.dateToSec(mondayOfDate)).lt(Tools.dateToSec(sundayOfDate) + (24 * 3600)));
-
-        } else {
-
-            query.addCriteria(Criteria.where("uid").is(uid).and("gid").is(gid).and("cid").is(cid).and("lastdate").gte(Tools.dateToSec(mondayOfDate)).lt(Tools.dateToSec(sundayOfDate) + (24 * 3600)));
-        }
+        query.addCriteria(Criteria.where("uid").is(uid).and("gid").is(gid).and("cid").is(cid).and("enter").is(enter).and("lastdate").gte(Tools.dateToSec(mondayOfDate)).lt(Tools.dateToSec(sundayOfDate) + (24 * 3600)));
 
         Player resPlayer = mongoTemplate.findOne(query, Player.class);
         if (resPlayer == null) {
@@ -168,14 +162,12 @@ public class UseMyMongo {
 
         Date firstMonthOfDate = Tools.getFirstOfMonth(loginDate);
         Date endMonthOfDate = Tools.getLastOfMonth(loginDate);
-        //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+       
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         Query query = new Query();
-        if (useSid) {
-            query.addCriteria(Criteria.where("uid").is(uid).and("cid").is(cid).and("gid").is(gid).and("enter").is(enter).and("lastdate").gte(Tools.dateToSec(firstMonthOfDate)).lt(Tools.dateToSec(endMonthOfDate) + (24 * 3600)));
-        } else {
-            query.addCriteria(Criteria.where("uid").is(uid).and("cid").is(cid).and("gid").is(gid).and("lastdate").gte(Tools.dateToSec(firstMonthOfDate)).lt(Tools.dateToSec(endMonthOfDate) + (24 * 3600)));
-        }
+
+        query.addCriteria(Criteria.where("uid").is(uid).and("cid").is(cid).and("gid").is(gid).and("enter").is(enter).and("lastdate").gte(Tools.dateToSec(firstMonthOfDate)).lt(Tools.dateToSec(endMonthOfDate) + (24 * 3600)));
+
         Player resPlayer = mongoTemplate.findOne(query, Player.class);
         if (resPlayer == null) {
             return false;
@@ -187,19 +179,15 @@ public class UseMyMongo {
     public boolean findNeverPayInMongo(PayMentForKeep payMentForKeep) {
         String uid = payMentForKeep.getUid();
         String gid = payMentForKeep.getGid();
-        String sid = payMentForKeep.getSid();
+        String enter = payMentForKeep.getEnter();
         String cid = payMentForKeep.getCid();
-
         //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         Query query = new Query();
 
-        if (useSid) {
-            query.addCriteria(Criteria.where("uid").is(uid).and("cid").is(cid).and("gid").is(gid).and("sid").is(sid));
 
-        } else {
-            query.addCriteria(Criteria.where("uid").is(uid).and("cid").is(cid).and("gid").is(gid));
-        }
+        query.addCriteria(Criteria.where("uid").is(uid).and("cid").is(cid).and("gid").is(gid).and("enter").is(enter));
+
         PayMentForKeep res = mongoTemplate.findOne(query, PayMentForKeep.class);
         if (res == null) {
             return true;
@@ -214,7 +202,7 @@ public class UseMyMongo {
     public boolean findDayPayInMongo(PayMentForKeep payMentForKeep) throws ParseException {
         String uid = payMentForKeep.getUid();
         String gid = payMentForKeep.getGid();
-        String sid = payMentForKeep.getSid();
+        String enter = payMentForKeep.getEnter();
         String cid = payMentForKeep.getCid();
         Date todayDate = Tools.secToDateByFormat(payMentForKeep.getPayTime());
         long todayTime = todayDate.getTime() / 1000;
@@ -223,13 +211,8 @@ public class UseMyMongo {
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         Query query = new Query();
 
-        if (useSid) {
-            query.addCriteria(Criteria.where("uid").is(uid).and("cid").is(cid).and("gid").is(gid).and("sid").is(sid).and("payTime").gte(todayTime).lt(todayTime + (24 * 3600)));
+        query.addCriteria(Criteria.where("uid").is(uid).and("cid").is(cid).and("gid").is(gid).and("enter").is(enter).and("payTime").gte(todayTime).lt(todayTime + (24 * 3600)));
 
-        } else {
-            query.addCriteria(Criteria.where("uid").is(uid).and("cid").is(cid).and("gid").is(gid).and("payTime").gte(todayTime).lt(todayTime + (24 * 3600)));
-
-        }
         PayMentForKeep res = mongoTemplate.findOne(query, PayMentForKeep.class);
         if (res == null) {
             return true;
@@ -242,7 +225,7 @@ public class UseMyMongo {
         String uid = payMentForKeep.getUid();
         Date loginDate = Tools.secToDateByFormat(payMentForKeep.getPayTime());
         String gid = payMentForKeep.getGid();
-        String sid = payMentForKeep.getSid();
+        String enter = payMentForKeep.getEnter();
         String cid = payMentForKeep.getCid();
         Calendar cRegister = Calendar.getInstance();
         cRegister.setTime(loginDate);
@@ -255,12 +238,8 @@ public class UseMyMongo {
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         Query query = new Query();
 
-        if (useSid) {
-            query.addCriteria(Criteria.where("uid").is(uid).and("gid").is(gid).and("cid").is(cid).and("sid").is(sid).and("payTime").gte(Tools.dateToSec(mondayOfDate)).lt(Tools.dateToSec(sundayOfDate) + (24 * 3600)));
 
-        } else {
-            query.addCriteria(Criteria.where("uid").is(uid).and("gid").is(gid).and("cid").is(cid).and("payTime").gte(Tools.dateToSec(mondayOfDate)).lt(Tools.dateToSec(sundayOfDate) + (24 * 3600)));
-        }
+        query.addCriteria(Criteria.where("uid").is(uid).and("gid").is(gid).and("cid").is(cid).and("enter").is(enter).and("payTime").gte(Tools.dateToSec(mondayOfDate)).lt(Tools.dateToSec(sundayOfDate) + (24 * 3600)));
 
         PayMentForKeep res = mongoTemplate.findOne(query, PayMentForKeep.class);
         if (res == null) {
@@ -275,20 +254,14 @@ public class UseMyMongo {
         Date loginDate = Tools.secToDateByFormat(payMentForKeep.getPayTime());
         String cid = payMentForKeep.getCid();
         String gid = payMentForKeep.getGid();
-        String sid = payMentForKeep.getSid();
+        String enter = payMentForKeep.getEnter();
 
         Date firstMonthOfDate = Tools.getFirstOfMonth(loginDate);
         Date endMonthOfDate = Tools.getLastOfMonth(loginDate);
         //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         Query query = new Query();
-
-        if (useSid) {
-            query.addCriteria(Criteria.where("uid").is(uid).and("cid").is(cid).and("gid").is(gid).and("sid").is(sid).and("payTime").gte(Tools.dateToSec(firstMonthOfDate)).lt(Tools.dateToSec(endMonthOfDate) + (24 * 3600)));
-
-        } else {
-            query.addCriteria(Criteria.where("uid").is(uid).and("cid").is(cid).and("gid").is(gid).and("payTime").gte(Tools.dateToSec(firstMonthOfDate)).lt(Tools.dateToSec(endMonthOfDate) + (24 * 3600)));
-        }
+        query.addCriteria(Criteria.where("uid").is(uid).and("cid").is(cid).and("gid").is(gid).and("enter").is(enter).and("payTime").gte(Tools.dateToSec(firstMonthOfDate)).lt(Tools.dateToSec(endMonthOfDate) + (24 * 3600)));
         PayMentForKeep res = mongoTemplate.findOne(query, PayMentForKeep.class);
         if (res == null) {
             return true;
@@ -300,19 +273,14 @@ public class UseMyMongo {
     public PayMentForKeep findOnePayerForPay(PayMentForKeep payMentForKeep) {
         String uid = payMentForKeep.getUid();
         String gid = payMentForKeep.getGid();
-        String sid = payMentForKeep.getSid();
+        String enter = payMentForKeep.getEnter();
 
         //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         Query query = new Query();
 
-        if (useSid) {
-            query.addCriteria(Criteria.where("uid").is(uid).and("gid").is(gid).and("sid").is(sid));
 
-        } else {
-
-            query.addCriteria(Criteria.where("uid").is(uid).and("gid").is(gid));
-        }
+        query.addCriteria(Criteria.where("uid").is(uid).and("gid").is(gid).and("enter").is(enter));
 
         PayMentForKeep pmfk = mongoTemplate.findOne(query, PayMentForKeep.class);
 
@@ -324,7 +292,7 @@ public class UseMyMongo {
     public float findAllPayMoney(PayMentForKeep payMentForKeep) {
         String cid = payMentForKeep.getCid();
         String gid = payMentForKeep.getGid();
-        String sid = payMentForKeep.getSid();
+        String enter = payMentForKeep.getEnter();
         long date = payMentForKeep.getPayTime();
 
 
@@ -332,13 +300,7 @@ public class UseMyMongo {
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
         float total = 0;
         Query query = new Query();
-
-        if (useSid) {
-            query.addCriteria(Criteria.where("cid").is(cid).and("gid").is(gid).and("sid").is(sid).and("payTime").lte(date));
-
-        } else {
-            query.addCriteria(Criteria.where("cid").is(cid).and("gid").is(gid).and("payTime").lte(date));
-        }
+        query.addCriteria(Criteria.where("cid").is(cid).and("gid").is(gid).and("enter").is(enter).and("payTime").lte(date));
 
         List<PayMentForKeep> resList = mongoTemplate.find(query, PayMentForKeep.class);
         for (PayMentForKeep mentForKeep : resList) {
@@ -348,8 +310,8 @@ public class UseMyMongo {
 
         return total;
     }
-    
-    public Player findOnePlayer(Player player) {
+
+    public Player findOnePlayer(Player player, UseMySql mys) throws IOException {
         String gid = player.getGid();
         String sid = player.getSid();
         String uid = player.getUid();
@@ -357,35 +319,38 @@ public class UseMyMongo {
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
 
         Query query = new Query();
-
-        if (useSid) {
-            query.addCriteria(Criteria.where("uid").is(uid).and("gid").is(gid).and("sid").is(sid));
-
-        } else {
-            query.addCriteria(Criteria.where("uid").is(uid).and("gid").is(gid));
-
+        
+        query.addCriteria(Criteria.where("uid").is(uid).and("gid").is(gid).and("sid").is(sid));
+        query.limit(10);
+        ChannelIndex c = new ChannelIndex();
+        List<Player> resPlayer = mongoTemplate.find(query, Player.class);
+        for (Player player1 : resPlayer) {
+            String cid = player1.getCid();
+            c.setCid(cid);
+            ChannelIndex resIndex = (ChannelIndex) mys.utilSQL(ChannelIndex.class, EnumSQL.SELECT,c);
+            if (resIndex==null||resIndex.getMainId().equals(resIndex.getCid())){
+                continue;
+            }else{
+                return player1;
+            }
+            
         }
-        Player resPlayer = mongoTemplate.findOne(query, Player.class);
-        return resPlayer;
+        return null;
     }
 
     //计算是否为新增用户(最终用于计算新增首次付费用户数)
     public Player findNewAddPlayerByRegdate(Player player, long startTime, long endTime) {
         String gid = player.getGid();
-        String sid = player.getSid();
+        String enter = player.getEnter();
         String uid = player.getUid();
         //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
 
         Query query = new Query();
 
-        if (useSid) {
-            query.addCriteria(Criteria.where("uid").is(uid).and("gid").is(gid).and("sid").is(sid).and("regdate").gte(startTime).lt(endTime));
 
-        } else {
+        query.addCriteria(Criteria.where("uid").is(uid).and("gid").is(gid).and("enter").is(enter).and("regdate").gte(startTime).lt(endTime));
 
-            query.addCriteria(Criteria.where("uid").is(uid).and("gid").is(gid).and("regdate").gte(startTime).lt(endTime));
-        }
 
         Player resPlayer = mongoTemplate.findOne(query, Player.class);
         return resPlayer;
@@ -394,36 +359,31 @@ public class UseMyMongo {
     //计算是否为活跃用户(最终用于计算活跃用户付费率)
     public Player findActivePlayerByLastDate(Player player, long startTime, long endTime) {
         String gid = player.getGid();
-        String sid = player.getSid();
+        String enter = player.getEnter();
         String uid = player.getUid();
         //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
         MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
 
         Query query = new Query();
 
-        if (useSid) {
-            query.addCriteria(Criteria.where("uid").is(uid).and("gid").is(gid).and("sid").is(sid).and("lastdate").gte(startTime).lt(endTime));
 
-        } else {
-
-            query.addCriteria(Criteria.where("uid").is(uid).and("gid").is(gid).and("lastdate").gte(startTime).lt(endTime));
-        }
+        query.addCriteria(Criteria.where("uid").is(uid).and("gid").is(gid).and("enter").is(enter).and("lastdate").gte(startTime).lt(endTime));
 
         Player resPlayer = mongoTemplate.findOne(query, Player.class);
         return resPlayer;
     }
 
+//
+//    //获取数据,通过ChannelID,GameID,ServerID,以及时间段start Date\ end date
+//    public void getPlayersListMongo(String cID, String gID, String sID, Date sDate, Date eDate) throws ParseException {
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//        //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
+//        MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
+//        Query query = new Query();
+//        query.addCriteria(Criteria.where("date").gt(sDate).lt(eDate));
+//        query.addCriteria(Criteria.where("channel_from").is(cID));
+//        MongoTest mt = mongoTemplate.findOne(query, MongoTest.class);
+//        List<MongoTest> mtList = mongoTemplate.find(query, MongoTest.class);
 
-    //获取数据,通过ChannelID,GameID,ServerID,以及时间段start Date\ end date
-    public void getPlayersListMongo(String cID, String gID, String sID, Date sDate, Date eDate) throws ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        //ApplicationContext ac = new ClassPathXmlApplicationContext("spring-mongodb.xml");
-        MongoTemplate mongoTemplate = (MongoTemplate) ac.getBean("mongoTemplate");
-        Query query = new Query();
-        query.addCriteria(Criteria.where("date").gt(sDate).lt(eDate));
-        query.addCriteria(Criteria.where("channel_from").is(cID));
-        MongoTest mt = mongoTemplate.findOne(query, MongoTest.class);
-        List<MongoTest> mtList = mongoTemplate.find(query, MongoTest.class);
-
-    }
+//}
 }

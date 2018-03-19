@@ -58,7 +58,7 @@ public class JsonTest {
         int res = umm.findPlayerCountInMongoAll("player","uid");
         System.out.println(res);
 
-        res = umm.findPlayerCountInMongo("player","uid","ccc","cocococo");
+//        res = umm.findPlayerCountInMongo("player","uid","ccc","cocococo",);
         System.out.println(res);
     }
     @Test

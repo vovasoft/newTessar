@@ -3,6 +3,7 @@ package vova.nettydemo;
 import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.oracle.tools.packager.Log;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -104,15 +105,17 @@ public class NettyHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
                     ChannelIndex res  = (ChannelIndex) mys.utilSQL(ChannelIndex.class, EnumSQL.SELECT,c);
                     if (res!=null){
                         String mainId = res.getMainId();
-//                        Thread thread1 = new ManageGameInput(player,umm,mys,mainId);  //多线程
-//                        pool.execute(thread1);
+                        
+                        Thread thread1 = new ManageGameInput(player,umm,mys,mainId);  //多线程
+                        pool.execute(thread1);
 //                        thread1.start();
-                        manageGameInput.HandPlayerData(player,umm,mys,mainId);
-                        player.setCid(mainId);
-//                        Thread thread2 = new ManageGameInput(player,umm,mys,mainId);
-//                        pool.execute(thread2);
+//                        manageGameInput.HandPlayerData(player,umm,mys,mainId);
+                        Player player2 = new Player(player.getUid(),player.getRegdate(),
+                                player.getLastdate(),mainId,player.getGid(),player.getSid(),player.getEnter());
+                        Thread thread2 = new ManageGameInput(player2,umm,mys,mainId);
+                        pool.execute(thread2);
 //                        thread2.start();
-                        manageGameInput.HandPlayerData(player,umm,mys,mainId);
+//                        manageGameInput.HandPlayerData(player,umm,mys,mainId);
                     }else{
                         response.setStatus(HttpResponseStatus.NO_CONTENT);
                         ResponseString(ctx, response, "error");
@@ -133,7 +136,7 @@ public class NettyHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
                     player.setUid(payReceive.getUid());
                     player.setGid(payReceive.getGid());
                     player.setSid(payReceive.getSid());
-                    Player res = umm.findOnePlayer(player);
+                    Player res = umm.findOnePlayer(player,mys);
                     if(res == null){
                         response.setStatus(HttpResponseStatus.NO_CONTENT);
                         //ResponseString(ctx, response, "player is not exist");
@@ -144,8 +147,13 @@ public class NettyHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
                         if (resIndex!=null){
                             String mainId = resIndex.getMainId();
                             String enter = res.getEnter();
-                            mpi.HandPayData(payReceive,umm,mys,cid,mainId,enter);
-                            mpi.HandPayData(payReceive,umm,mys,mainId,mainId,enter);
+//                            mpi.HandPayData(payReceive,umm,mys,cid,mainId,enter);
+//                            mpi.HandPayData(payReceive,umm,mys,mainId,mainId,enter);
+                            Thread thread1 = new ManagePayInput(payReceive,umm,mys,cid,mainId,enter);  //多线程
+                            pool.execute(thread1);
+
+                            Thread thread2 = new ManagePayInput(payReceive,umm,mys,mainId,mainId,enter);  //多线程
+                            pool.execute(thread2);
                             response.setStatus(HttpResponseStatus.OK);
 
                         }else{

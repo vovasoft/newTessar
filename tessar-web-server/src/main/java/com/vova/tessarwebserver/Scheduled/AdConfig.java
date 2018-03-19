@@ -8,10 +8,14 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class AdConfig {
-    public static final String ACCESS_TOKEN = "";
-    public static final String ACCOUNT_ID = "";
+    public static final String ACCESS_TOKEN = "EAAYh0VPHFxYBAIsHe7mkLBv27a4z4aKSQKusGATuZCtu2dRIPHf5chmK33jhOQpxMJtBUy94K7yoH7MkgFwnxfbKefHy7RJcSCSVHAFZAPsr4TxOUZADvFaD5Jbt5a1Q9PBxxR3uvC7qTGVrUmuX2CbI3TisZBr6J9HONFiXElR4PKv6zGBz";
+    public static final String ACCOUNT_ID = "act_1464816216928066";
     public static final String BASEURL="https://graph.facebook.com/v2.11/";
     public static final String APP="/insights?";
+
+//https://graph.facebook.com/v2.11/
+// act_1464816216928066/insights?access_token=EAAYh0VPHFxYBAIsHe7mkLBv27a4z4aKSQKusGATuZCtu2dRIPHf5chmK33jhOQpxMJtBUy94K7yoH7MkgFwnxfbKefHy7RJcSCSVHAFZAPsr4TxOUZADvFaD5Jbt5a1Q9PBxxR3uvC7qTGVrUmuX2CbI3TisZBr6J9HONFiXElR4PKv6zGBz&time_range={"since":"2017-12-15","until":"2017-12-31"}&fields=adset_name
+
 
     //fields = ????
     public static final String ACCOUNT_CURRENCY="account_currency";

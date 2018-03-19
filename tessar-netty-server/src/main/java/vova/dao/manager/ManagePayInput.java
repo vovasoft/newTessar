@@ -22,6 +22,7 @@ import vova.domain.staypay.StayPayMon;
 import vova.domain.staypay.StayPayWeek;
 import vova.util.Switch;
 import vova.util.Tools;
+
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Date;
@@ -35,16 +36,17 @@ import java.util.concurrent.locks.ReentrantLock;
 
 //Big思路，能从游戏平台数据库找到的数据从那边找，然后算出这一次支付的细节信息，然后再找原始表，如果没有，新建一个。
 @Component
-public class ManagePayInput extends Thread{
+public class ManagePayInput extends Thread {
     PayReceive payReceive;
     UseMyMongo umm;
     UseMySql mys;
     String cid;
     String mainId;
     String enter;
+
     public void run() {
         try {
-            HandPayData(payReceive,umm,mys,cid,mainId,enter);
+            HandPayData(payReceive, umm, mys, cid, mainId, enter);
 //            Thread.interrupted();
         } catch (IOException e) {
             e.printStackTrace();
@@ -66,9 +68,10 @@ public class ManagePayInput extends Thread{
 
     public ManagePayInput() {
     }
-    boolean useSid = new ClassPathXmlApplicationContext("switch.xml").getBean(Switch.class).getUseSid();
-    public int HandPayData(PayReceive payReceive,UseMyMongo umm,UseMySql mys,String cid,String mainId,String enter) throws ParseException, IOException {
-        log.info("Begin Job for Pay Data: thread--"+Thread.currentThread());
+
+    //    boolean useSid = new ClassPathXmlApplicationContext("switch.xml").getBean(Switch.class).getUseSid();
+    public int HandPayData(PayReceive payReceive, UseMyMongo umm, UseMySql mys, String cid, String mainId, String enter) throws ParseException, IOException {
+        log.info("Begin Job for Pay Data: thread--" + Thread.currentThread());
 
         float amount = payReceive.getAmount();
         String uid = payReceive.getUid();
@@ -81,7 +84,7 @@ public class ManagePayInput extends Thread{
 //        }else{
 //            sid = "-0";
 //        }
-  //      String sid = payReceive.getSid();
+        //      String sid = payReceive.getSid();
         String oid = payReceive.getOid(); //暂时用不到
         String currency = payReceive.getCurrency();
         String payType = payReceive.getPayType();
@@ -89,15 +92,15 @@ public class ManagePayInput extends Thread{
 
         Date payDate = Tools.secToDateByFormat(payTime);
         Date firstPayDate = null;
-        log.info("payReceive---"+"uid:"+uid+",gid:"+gid+",payDate:"+payDate);
+        log.info("payReceive---" + "uid:" + uid + ",gid:" + gid + ",payDate:" + payDate);
 
         Player tmpPlayer = new Player();
         tmpPlayer.setUid(uid);
         tmpPlayer.setSid(sid);
         tmpPlayer.setGid(gid);
 
-        Player player = umm.findOnePlayer(tmpPlayer,mys);
-        tmpPlayer=null;
+        Player player = umm.findOnePlayer(tmpPlayer, mys);
+        tmpPlayer = null;
         if (player == null) {
             System.out.println("error player not exist");
             return -1;
@@ -121,114 +124,138 @@ public class ManagePayInput extends Thread{
         pmfk.setPayType(payType);
 
         //通过数据库查找之前的id字段，如果有则去处cid以及首充时间。
-        PayMentForKeep tmp = umm.findOnePayerForPay(pmfk);
-        if (tmp == null) {
-            pmfk.setFirstPayTime(payTime);
+        synchronized (umm) {
+            
+            PayMentForKeep tmp = umm.findOnePayerForPay(pmfk);
+            if (tmp == null) {
+                pmfk.setFirstPayTime(payTime);
 //            pmfk.setCid(cid);  //根据游戏平台找的数据同步到支付平台的channelID
-        } else {
+            } else {
 //            cid = tmp.getCid();
-            pmfk.setFirstPayTime(tmp.getFirstPayTime());
+                pmfk.setFirstPayTime(tmp.getFirstPayTime());
 //            pmfk.setCid(cid);
-        }
-        firstPayDate = Tools.secToDateByFormat(pmfk.getFirstPayTime());
+            }
+            firstPayDate = Tools.secToDateByFormat(pmfk.getFirstPayTime());
 
-        //计算web展示表的字段数据，分为日，周，月             1.计算新增和活跃，需要查找游戏平台数据
-        //新增和活跃
-        int[] newAddDay = getNewAddNumAndActiveNum(payDate, cid, gid, sid, mys, NewAddDay.class);
-        int[] newAddWeek = getNewAddNumAndActiveNum(payDate, cid, gid, sid, mys, NewAddWeek.class);
-        int[] newAddMon = getNewAddNumAndActiveNum(payDate, cid, gid, sid, mys, NewAddMon.class);
+            //计算web展示表的字段数据，分为日，周，月             1.计算新增和活跃，需要查找游戏平台数据
+            //新增和活跃
+            int[] newAddDay = getNewAddNumAndActiveNum(payDate, cid, gid, sid, mys, NewAddDay.class);
+            int[] newAddWeek = getNewAddNumAndActiveNum(payDate, cid, gid, sid, mys, NewAddWeek.class);
+            int[] newAddMon = getNewAddNumAndActiveNum(payDate, cid, gid, sid, mys, NewAddMon.class);
 
-        //从现有库取出原始数据。
-        int newAddDayNum = newAddDay[0], activeDayNum = newAddDay[1];
-        int newAddWeekNum = newAddWeek[0], activeWeekNum = newAddWeek[1];
-        int newAddMonNum = newAddMon[0], activeMonNum = newAddMon[1];
+            //从现有库取出原始数据。
+            int newAddDayNum = newAddDay[0], activeDayNum = newAddDay[1];
+            int newAddWeekNum = newAddWeek[0], activeWeekNum = newAddWeek[1];
+            int newAddMonNum = newAddMon[0], activeMonNum = newAddMon[1];
 
-        //计算新增用户付费数，如果该用户为新增，则为新增付费,新增全天的充值都算新增用户付费。
-        //判断标准:1,该用户为新增，用player判断，2.该用户在新增这天充值。
+            //计算新增用户付费数，如果该用户为新增，则为新增付费,新增全天的充值都算新增用户付费。
+            //判断标准:1,该用户为新增，用player判断，2.该用户在新增这天充值。
 
-        float newAddDayMoney = 0, newAddWeekMoney = 0, newAddMonMoney = 0;
-        int newAddDayPayNum = 0, newAddWeekPayNum = 0, newAddMonPayNum = 0;
+            float newAddDayMoney = 0, newAddWeekMoney = 0, newAddMonMoney = 0;
+            int newAddDayPayNum = 0, newAddWeekPayNum = 0, newAddMonPayNum = 0;
 
-        //判断日首次冲，周首次冲，月首次冲
-        boolean firstPayDay = umm.findDayPayInMongo(pmfk);
-        boolean firstPayWeek = umm.findWeekPayInMongo(pmfk);
-        boolean firstPayMon = umm.findMonPayInMongo(pmfk);
+            PayMentDay tmp1;
+            PayMentWeek tmp2;
+            PayMentMon tmp3;
 
-        //判断从来没有充过值，是第一次充值用户；
-        boolean neverPay = umm.findNeverPayInMongo(pmfk);
+            float firstPayDayMoney;
+            float firstPayWeekMoney;
+            float firstPayMonMoney;
 
-        //日新增，判断支付日期和注册日期一致
-        if (payDate.equals(uRegDate)) {
-            newAddDayMoney += amount;          //新增付费总额
-            newAddDayPayNum=firstPayDay&&neverPay?1:0;               //新增付费人数，人数需要判断是否重复
-        }
-        //周新增，判断支付日期在注册日期的那个周
-        if (Tools.checkDateInWeekDate(payDate, uRegDate)) {
-            newAddWeekMoney += amount;//新增付费总额
-            newAddWeekPayNum=firstPayWeek&&neverPay?1:0;//新增付费人数
-        }
-        //月新增，判断支付日期在注册日期的那个月
-        if (Tools.checkDateInMonDate(payDate, uRegDate)) {
-            newAddMonMoney += amount;//新增付费总额
-            newAddMonPayNum=firstPayMon&&neverPay?1:0;//新增付费人数
-        }
+            boolean firstPayDay;
+            boolean firstPayWeek;
+            boolean firstPayMon;
+            int firstPayDayNum, firstPayWeekNum, firstPayMonNum;
 
+            int dayPayNum, weekPayNum, MonPayNum;
+//        synchronized (umm) {
+            //判断日首次冲，周首次冲，月首次冲
+            firstPayDay = umm.findDayPayInMongo(pmfk);
+            firstPayWeek = umm.findWeekPayInMongo(pmfk);
+            firstPayMon = umm.findMonPayInMongo(pmfk);
 
-        //记录首冲用户数，之前没有充过值
-        int firstPayDayNum = firstPayDay&&neverPay ? 1 : 0, firstPayWeekNum = firstPayWeek&&neverPay ? 1 : 0, firstPayMonNum = firstPayMon&&neverPay ? 1 : 0;
-        //记录首冲金额
-        float firstPayDayMoney = firstPayDay&&neverPay ? amount : 0;
-        float firstPayWeekMoney = firstPayWeek&&neverPay ? amount : 0;
-        float firstPayMonMoney = firstPayMon&&neverPay ? amount : 0;
+            //判断从来没有充过值，是第一次充值用户；
+            boolean neverPay = umm.findNeverPayInMongo(pmfk);
 
 
-        //增加付费用户和付费金额
-        int dayPayNum = firstPayDay ? 1 : 0, weekPayNum = firstPayDay ? 1 : 0, MonPayNum = firstPayDay ? 1 : 0;
+            //日新增，判断支付日期和注册日期一致
+            if (payDate.equals(uRegDate)) {
+                newAddDayMoney += amount;          //新增付费总额
+                newAddDayPayNum = firstPayDay && neverPay ? 1 : 0;               //新增付费人数，人数需要判断是否重复
+            }
+            //周新增，判断支付日期在注册日期的那个周
+            if (Tools.checkDateInWeekDate(payDate, uRegDate)) {
+                newAddWeekMoney += amount;//新增付费总额
+                newAddWeekPayNum = firstPayWeek && neverPay ? 1 : 0;//新增付费人数
+            }
+            //月新增，判断支付日期在注册日期的那个月
+            if (Tools.checkDateInMonDate(payDate, uRegDate)) {
+                newAddMonMoney += amount;//新增付费总额
+                newAddMonPayNum = firstPayMon && neverPay ? 1 : 0;//新增付费人数
+            }
+
+
+            //记录首冲用户数，之前没有充过值
+            firstPayDayNum = firstPayDay && neverPay ? 1 : 0;
+            firstPayWeekNum = firstPayWeek && neverPay ? 1 : 0;
+            firstPayMonNum = firstPayMon && neverPay ? 1 : 0;
+            //记录首冲金额
+            firstPayDayMoney = firstPayDay && neverPay ? amount : 0;
+            firstPayWeekMoney = firstPayWeek && neverPay ? amount : 0;
+            firstPayMonMoney = firstPayMon && neverPay ? amount : 0;
+
+
+            //增加付费用户和付费金额
+            dayPayNum = firstPayDay ? 1 : 0;
+            weekPayNum = firstPayDay ? 1 : 0;
+            MonPayNum = firstPayDay ? 1 : 0;
 //        float dayPayMoney = amount, weekPayMoney = amount, monPayMoney = amount;
 
-        //查询或新建  PayMent
-        PayMentDay tmp1 = (PayMentDay) findOrCreate(payDate,mainId,enter, cid, gid, sid, mys, PayMentDay.class);
-        PayMentWeek tmp2 = (PayMentWeek) findOrCreate(payDate,mainId,enter, cid, gid, sid, mys, PayMentWeek.class);
-        PayMentMon tmp3 = (PayMentMon) findOrCreate(payDate,mainId,enter, cid, gid, sid, mys, PayMentMon.class);
-
-        if (tmp1 == null || tmp2 == null || tmp3 == null) {
-            log.error("find or create error ,and someone is null");
-            return -1;
-        }
-
-        //获取累计付费
-        float allPayMoney = umm.findAllPayMoney(pmfk);
-        int res1 = updatePayTable(tmp1, mys, PayMentDay.class, newAddDayNum, newAddDayPayNum, newAddDayMoney, firstPayDayNum, firstPayDayMoney, activeDayNum, dayPayNum, amount, allPayMoney);
-        int res2 = updatePayTable(tmp2, mys, PayMentWeek.class, newAddWeekNum, newAddWeekPayNum, newAddWeekMoney, firstPayWeekNum, firstPayWeekMoney, activeWeekNum, weekPayNum, amount, allPayMoney);
-        int res3 = updatePayTable(tmp3, mys, PayMentMon.class, newAddMonNum, newAddMonPayNum, newAddMonMoney, firstPayMonNum, firstPayMonMoney, activeMonNum, MonPayNum, amount, allPayMoney);
-
-        log.info("获取累计付费/n res1:" + res1 + ", res2:" + res2 + ", res3:" + res3);
+            //查询或新建  PayMent
+            tmp1 = (PayMentDay) findOrCreate(payDate, mainId, enter, cid, gid, sid, mys, PayMentDay.class);
+            tmp2 = (PayMentWeek) findOrCreate(payDate, mainId, enter, cid, gid, sid, mys, PayMentWeek.class);
+            tmp3 = (PayMentMon) findOrCreate(payDate, mainId, enter, cid, gid, sid, mys, PayMentMon.class);
+            if (tmp1 == null || tmp2 == null || tmp3 == null) {
+                log.error("find or create error ,and someone is null");
+                return -1;
+            }
 
 
-        //处理留存逻辑
-        res1 = ManageStay.manageStayData(firstPayDate,payDate,cid,gid,mainId,enter,sid,firstPayDayNum,!firstPayDay,!firstPayWeek,!firstPayMon,mys, StayPayDay.class);
-        res2 = ManageStay.manageStayData(firstPayDate,payDate,cid,gid,mainId,enter,sid,firstPayWeekNum,!firstPayDay,!firstPayWeek,!firstPayMon,mys, StayPayWeek.class);
-        res3 = ManageStay.manageStayData(firstPayDate,payDate,cid,gid,mainId,enter,sid,firstPayMonNum,!firstPayDay,!firstPayWeek,!firstPayMon,mys, StayPayMon.class);
-
-        log.info("处理留存逻辑/n res1:" + res1 + ", res2:" + res2 + ", res3:" + res3);
-
-        //处理概览页面的三个数据，新增首次付费用户数、活跃用户付费率、新增用户付费率
-
-        res1 = ManageOverView.manageThreeNum(firstPayDate,payDate,mainId,uid,cid,gid,sid,enter,firstPayDayNum,!firstPayDay,!firstPayWeek,!firstPayMon,mys,umm, ThreeNumDay.class);
-        res2 = ManageOverView.manageThreeNum(firstPayDate,payDate,mainId,uid,cid,gid,sid,enter,firstPayWeekNum,!firstPayDay,!firstPayWeek,!firstPayMon,mys,umm, ThreeNumWeek.class);
-        res3 = ManageOverView.manageThreeNum(firstPayDate,payDate,mainId,uid,cid,gid,sid,enter,firstPayMonNum,!firstPayDay,!firstPayWeek,!firstPayMon,mys,umm, ThreeNumMon.class);
-
-        log.info("处理付费率逻辑/n res1:" + res1 + ", res2:" + res2 + ", res3:" + res3);
+            //获取累计付费
+            synchronized (mys) {
+                float allPayMoney = umm.findAllPayMoney(pmfk);
+                int res1 = updatePayTable(tmp1, mys, PayMentDay.class, newAddDayNum, newAddDayPayNum, newAddDayMoney, firstPayDayNum, firstPayDayMoney, activeDayNum, dayPayNum, amount, allPayMoney);
+                int res2 = updatePayTable(tmp2, mys, PayMentWeek.class, newAddWeekNum, newAddWeekPayNum, newAddWeekMoney, firstPayWeekNum, firstPayWeekMoney, activeWeekNum, weekPayNum, amount, allPayMoney);
+                int res3 = updatePayTable(tmp3, mys, PayMentMon.class, newAddMonNum, newAddMonPayNum, newAddMonMoney, firstPayMonNum, firstPayMonMoney, activeMonNum, MonPayNum, amount, allPayMoney);
+                log.info("获取累计付费/n res1:" + res1 + ", res2:" + res2 + ", res3:" + res3);
 
 
-        log.info("End Job for Pay Data: thread--"+Thread.currentThread());
+                //处理留存逻辑
+                res1 = ManageStay.manageStayData(firstPayDate, payDate, cid, gid, mainId, enter, sid, firstPayDayNum, !firstPayDay, !firstPayWeek, !firstPayMon, mys, StayPayDay.class);
+                res2 = ManageStay.manageStayData(firstPayDate, payDate, cid, gid, mainId, enter, sid, firstPayWeekNum, !firstPayDay, !firstPayWeek, !firstPayMon, mys, StayPayWeek.class);
+                res3 = ManageStay.manageStayData(firstPayDate, payDate, cid, gid, mainId, enter, sid, firstPayMonNum, !firstPayDay, !firstPayWeek, !firstPayMon, mys, StayPayMon.class);
 
-        try {
-            umm.insertMongo(pmfk);        //原始数据存入MongoDB
-            pmfk = null;
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return -1;
+                log.info("处理留存逻辑/n res1:" + res1 + ", res2:" + res2 + ", res3:" + res3);
+
+                //处理概览页面的三个数据，新增首次付费用户数、活跃用户付费率、新增用户付费率
+
+                res1 = ManageOverView.manageThreeNum(firstPayDate, payDate, mainId, uid, cid, gid, sid, enter, firstPayDayNum, !firstPayDay, !firstPayWeek, !firstPayMon, mys, umm, ThreeNumDay.class);
+                res2 = ManageOverView.manageThreeNum(firstPayDate, payDate, mainId, uid, cid, gid, sid, enter, firstPayWeekNum, !firstPayDay, !firstPayWeek, !firstPayMon, mys, umm, ThreeNumWeek.class);
+                res3 = ManageOverView.manageThreeNum(firstPayDate, payDate, mainId, uid, cid, gid, sid, enter, firstPayMonNum, !firstPayDay, !firstPayWeek, !firstPayMon, mys, umm, ThreeNumMon.class);
+
+                log.info("处理付费率逻辑/n res1:" + res1 + ", res2:" + res2 + ", res3:" + res3);
+            }
+
+
+            log.info("End Job for Pay Data: thread--" + Thread.currentThread());
+
+            try {
+                umm.insertMongo(pmfk);        //原始数据存入MongoDB
+                pmfk = null;
+            } catch (ParseException e) {
+                e.printStackTrace();
+                return -1;
+            }
         }
 
         return 1;
@@ -261,7 +288,7 @@ public class ManagePayInput extends Thread{
 
     private static Lock lock = new ReentrantLock();// 锁对象
 
-    private PayAllShow findOrCreate(Date payDate,String mainId,String enter, String cid, String gid, String sid, UseMySql mys, Class clazz) throws IOException {
+    private PayAllShow findOrCreate(Date payDate, String mainId, String enter, String cid, String gid, String sid, UseMySql mys, Class clazz) throws IOException {
         lock.lock();
         try {
             String clazzName = clazz.getSimpleName();
@@ -279,20 +306,20 @@ public class ManagePayInput extends Thread{
 //            findSeed.setsId(sid);
             findSeed.setEnter(enter);
             findSeed.setDateID(thisDate);
-            PayAllShow tmp1 = (PayAllShow) mys. utilSQL(clazz, EnumSQL.SELECT, findSeed);
+            PayAllShow tmp1 = (PayAllShow) mys.utilSQL(clazz, EnumSQL.SELECT, findSeed);
             if (tmp1 == null) {    //新增表中行不存在则需要增加行
-                PayAllShow newLine = new PayAllShow(0, thisDate,mainId,
+                PayAllShow newLine = new PayAllShow(0, thisDate, mainId,
                         cid,
                         gid,
-                        sid,enter,
+                        sid, enter,
                         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
                 mys.utilSQL(clazz, EnumSQL.INSERT, newLine);
-                log.info("##Insert a new row##:"+clazzName);
-                newLine=null;
+                log.info("##Insert a new row##:" + clazzName);
+                newLine = null;
                 tmp1 = (PayAllShow) mys.utilSQL(clazz, EnumSQL.SELECT, findSeed);
             }
             return tmp1;
-        }finally {
+        } finally {
             lock.unlock();
         }
 
@@ -313,14 +340,14 @@ public class ManagePayInput extends Thread{
         long activeNum = activeNums;
         long payPlayerNum = payAllShow.getPayPlayerNum() + payNum;
         float todayAllPayMoney = payAllShow.getTodayAllPayMoney() + payMoney;
-        float allMoney = allPayMoney+payMoney;
+        float allMoney = allPayMoney + payMoney;
 
         //以下数据通过计算得出
         float newAddPlayerARPPU = newAddNum != 0 ? newAddPayAllMoney / newAddNum : 0;
         float newAddPayPlayerARPPU = newAddPayPlayerNum != 0 ? newAddPayAllMoney / newAddPayPlayerNum : 0;
         float payPlayerARPPU = payPlayerNum != 0 ? todayAllPayMoney / payPlayerNum : 0;
         float activeARPPU = activeNum != 0 ? todayAllPayMoney / activeNum : 0;
-        float averageNewPayMoney = newPayPlayerNum!=0?newPayAllMoney/newPayPlayerNum:0;
+        float averageNewPayMoney = newPayPlayerNum != 0 ? newPayAllMoney / newPayPlayerNum : 0;
         //以下进行表格构建
         payAllShow.setNewAddNum(newAddNum);
         payAllShow.setNewAddPayAllMoney(newAddPayAllMoney);
@@ -340,8 +367,6 @@ public class ManagePayInput extends Thread{
         mys.utilSQL(clazz, EnumSQL.UPDATE, payAllShow);
         return -1;
     }
-
-    
 
 
 }

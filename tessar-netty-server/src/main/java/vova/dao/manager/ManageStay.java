@@ -23,10 +23,6 @@ public class ManageStay {
 
     public static int manageStayData(Date firstDate, Date lastDate, String cid, String gid, String mainId, String enter, String sid, int newAddSomeNum, boolean dayExist, boolean weekExist, boolean MonExist,
                                      UseMySql mys, Class clazz) throws IOException {
-
-//        try {
-//            lock.lockInterruptibly();
-//            try {
         StayParent findSeed = new StayParent();
         String clazzName = clazz.getSimpleName();
         int flag = 0;

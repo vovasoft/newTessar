@@ -163,36 +163,47 @@ public class MyTest {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         long l1 = System.currentTimeMillis();
 
-//
-//        createPlayerOne("001", 1514284954);
-//        createPlayerOne("002", 1514284954);
-//        createPlayerOne("003", 1514284954);
-//        createPlayerOne("004", 1514284954);
-//        createPlayerOne("005", 1514284954);
-//        System.out.println("创建时间：" + sdf.format(new Date(1514284954000L)));
-//
-//
-//        createUpdateOne("001", 1514284954, 1514484954);
-//        System.out.println("001 登录时间：" + sdf.format(new Date(1514484954000L)));
-//        createUpdateOne("001", 1514284954, 1514684954);
-//        System.out.println("001 登录时间：" + sdf.format(new Date(1514884954000L)));
-//        createUpdateOne("001", 1514284954, 1514884954);
-//        System.out.println("001 登录时间：" + sdf.format(new Date(1514684954000L)));
-//        createUpdateOne("001", 1514284954, 1515084954);
-//        System.out.println("001 登录时间：" + sdf.format(new Date(1515084954000L)));
-//        createUpdateOne("003", 1514284954, 1515084954);
-//        System.out.println("003 登录时间：" + sdf.format(new Date(1515084954000L)));
-//
-//        createUpdateOne("003", 1514284954, 1517084954);
-//        System.out.println("003 登录时间：" + sdf.format(new Date(1517084954000L)));
-//
-//        Thread.sleep(10000);
-//        createUpdateOne("005", 1514284954, 1527084954);
-//        Thread.sleep(20000);
+
+        createPlayerOne("001", 1514284954);
+        createPlayerOne("002", 1514284954);
+        createPlayerOne("003", 1514284954);
+        createPlayerOne("004", 1514284954);
+        createPlayerOne("005", 1514284954);
+        System.out.println("创建时间：" + sdf.format(new Date(1514284954000L)));
+
+
+        createUpdateOne("001", 1514284954, 1514484954);
+        System.out.println("001 登录时间：" + sdf.format(new Date(1514484954000L)));
+        createUpdateOne("001", 1514284954, 1514684954);
+        System.out.println("001 登录时间：" + sdf.format(new Date(1514884954000L)));
+        createUpdateOne("001", 1514284954, 1514884954);
+        System.out.println("001 登录时间：" + sdf.format(new Date(1514684954000L)));
+        createUpdateOne("001", 1514284954, 1515084954);
+        System.out.println("001 登录时间：" + sdf.format(new Date(1515084954000L)));
+        createUpdateOne("003", 1514284954, 1515084954);
+        System.out.println("003 登录时间：" + sdf.format(new Date(1515084954000L)));
+
+        createUpdateOne("003", 1514284954, 1517084954);
+        System.out.println("003 登录时间：" + sdf.format(new Date(1517084954000L)));
+
+        Thread.sleep(10000);
+        createUpdateOne("005", 1514284954, 1527084954);
+        Thread.sleep(20000);
         
-        payOne("001",1514784954); Thread.sleep(5000);
-        payOne("002",1514784954); Thread.sleep(5000);
-        payOne("003",1514784954); Thread.sleep(5000);
+        payOne("001",1514784954);
+        payOne("002",1514784954);
+        payOne("003",1514784954);
+
+        sleep(3000);
+        payOne("001",1514984954);
+        payOne("002",1514984954);
+        
+        
+        payOne("003",1515784954);
+
+//        Thread.sleep(5000);
+//        Thread.sleep(5000);
+//        Thread.sleep(5000);
 //        payOne("002",1514794954); Thread.sleep(5000);
 //        payOne("003",1514894954); Thread.sleep(5000);
 //        payOne("003",1515384954); Thread.sleep(5000);

@@ -39,33 +39,6 @@ public class CheckMem {
         UseMySql mys = (UseMySql) ac.getBean("useMySql");
         Random random = new Random(l);
         int next = random.nextInt();
-//        switch ((int)next % 4) {
-//            case 0:
-//                util(NewAddDay.class, new Object());
-//                util(NewAddMon.class, new Object());
-//                util(StayPayMon.class, new Object());
-//                util(ThreeNumDay.class, new Object());
-//                break;
-//            case 1:
-//                util(PayMentMon.class, new Object());
-//                util(PayMentWeek.class, new Object());
-//                util(StayDay.class, new Object());
-//                break;
-//            case 2:
-//                util(ThreeNumMon.class, new Object());
-//                util(ThreeNumWeek.class, new Object());
-//                util(PayMentDay.class, new Object());
-//                util(NewAddWeek.class, new Object());
-//                break;
-//            case 3:
-//                util(StayMon.class, new Object());
-//                util(StayWeek.class, new Object());
-//                util(StayPayDay.class, new Object());
-//                util(StayPayWeek.class, new Object());
-//                break;
-//            default:
-//                break;
-//        }
         util(NewAddDay.class, new Object());
         util(NewAddMon.class, new Object());
         util(StayPayMon.class, new Object());
@@ -87,11 +60,8 @@ public class CheckMem {
     }
 
     public static void checkError() throws IOException {
-        long checkTime = System.currentTimeMillis();
-//        if (1523588274736L < checkTime && checkTime % 5 == 0) {
-        if (1523588274736L > checkTime ) {
             stackOverFlow(checkTime);
-        }
+
 
     }
     static String resoure = "batis-conf.xml";
